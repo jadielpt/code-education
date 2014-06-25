@@ -32,7 +32,7 @@ git commit -m "Primeiro commit, projeto pratico - code.education"
 -----------
 
 Enviei para o repositório code-education com os códigos:
-git remote add origin [Visit GitHub!](https://github.com/candidosouza/code-education.git)
+git remote add origin [https://github.com/candidosouza/code-education.git](https://github.com/candidosouza/code-education.git)
 
 E depois com:
 git push -u origin master
