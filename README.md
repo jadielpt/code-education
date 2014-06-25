@@ -25,14 +25,16 @@ Criei uma pasta com o nome 01-Git, com um arquivo Trabalhando com github.txt den
 adicionei a pasta e o arquivo com o comando:
 git add .
 
-comitei ocm o comando:
+comitei com o comando:
 git commit -m "Primeiro commit, projeto pratico - code.education"
 
 03º Estágio
 -----------
 
-Enviei para o repositório code-education com os códigos
-git remote add origin https://github.com/candidosouza/code-education.git
+Enviei para o repositório code-education com os códigos:
+git remote add origin [Visit GitHub!](https://github.com/candidosouza/code-education.git)
+
+E depois com:
 git push -u origin master
 
 
