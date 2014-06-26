@@ -55,13 +55,26 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="jumbotron">
-								<h1>1º Projeto - PHP FOUNDATION</h1>
-
-								<div class="page-header">
-									<h2>Página Home <small>Todo conteúdo principal</small></h2>
-								</div>
-								
-								...
+								<h1>Contato</h1>
+								<form role="form">
+									<div class="form-group">
+									    <label for="exampleInputNome">Nome</label>
+									    <input type="text" class="form-control" id="exampleInputNome" placeholder="Digite seu nome">
+								  	</div>
+								  	<div class="form-group">
+									    <label for="exampleInputEmail1">E-mail</label>
+									    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Digite seu e-mail">
+								  	</div>
+									<div class="form-group">
+									    <label for="exampleInputAssunto">Assunto</label>
+									    <input type="text" class="form-control" id="exampleInputAssunto" placeholder="Digite o assunto">
+								  	</div>
+								  	<div class="form-group">
+									  	<label for="exampleInputAssunto">Mensagem</label>
+									  	<textarea class="form-control" rows="3" placeholder="Escreva sua mensagem"></textarea>
+									 </div>
+								  	<button type="submit" class="btn btn-default">Submit</button>
+								</form>
 							</div>
 						</div>
 					</div>
