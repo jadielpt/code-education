@@ -1,19 +1,10 @@
-<?php require_once('header.php');?>			
-			<section>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="jumbotron">
-							<h1>1º Projeto - PHP FOUNDATION</h1>
+<?php require_once('pages/header.php');?>
 
-							<div class="page-header">
-								<h2>Página Home <small>Todo conteúdo principal</small></h2>
-							</div>
-							
-							...
-						</div>
-					</div>
-				</div>
-				<!-- /row section -->
-			</section>
-			<!-- /section -->
-<?php require_once('footer.php');?>
+<?php require_once('functions/functions.php');?>
+
+
+<?php require_once('pages/footer.php');?>
+
+
+
+

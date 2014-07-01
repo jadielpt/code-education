@@ -1,3 +1,8 @@
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+date_default_timezone_set('America/Sao_Paulo');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +13,7 @@
     <!-- style -->
 	<link rel="stylesheet" href="css/style.css">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://www.candidosouza.com/aprovacao/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,16 +34,16 @@
 					       	<span class="icon-bar"></span>
 					       	<span class="icon-bar"></span>
 							</button>
-					    	<a class="navbar-brand" href="#">LOGO</a>
+					    	<a class="navbar-brand" href="home">LOGO</a>
 						</div>
 						<!-- /navbar-header -->
 						<div class="collapse navbar-collapse" id="menu">
 							<ul class="nav navbar-nav">
-			                   	<li><a href="index.php">Home</a></li>
-								<li><a href="sobre.php">Empresa</a></li>
-								<li><a href="produtos.php">Produtos</a></li>
-								<li><a href="sevicos.php">Serviços</a></li>
-								<li><a href="contato.php">Contato</a></li>
+			                   	<li><a href="home">Home</a></li>
+								<li><a href="?url=empresa">Empresa</a></li>
+								<li><a href="?url=produtos">Produtos</a></li>
+								<li><a href="?url=servicos">Serviços</a></li>
+								<li><a href="?url=contato">Contato</a></li>
 							</ul>
 						</div>
 						<!-- /collapse navbar-collapse -->
@@ -48,3 +53,4 @@
 				<!-- /nav -->
 			</div>
 			<!-- /row nav -->
+			<div id="content">	
