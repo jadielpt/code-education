@@ -1,17 +1,22 @@
 <?php
 /*****************************
-função url
+função routeUrl()
 *****************************/
-$pag_atual 	= (isset($_GET['url'])) ? $_GET['url'] : 'home';
-
-	$permission	= array('home', 'empresa', 'produtos', 'servicos', 'contato', '404', 'dados');
+function routeUrl()
+{
+	$route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+	$permission	= ['home', 'empresa', 'produtos', 'servicos', 'contato', '404', 'dados'];
 	$paste		= "pages";
-	if(substr_count($pag_atual, '/') > 0){
-		$pag_atual = explode('/', $pag_atual);
-		$page = (file_exists("{$paste}/".$pag_atual[0].'.php') && in_array($pag_atual[0], $permission)) ? $pag_atual[0] : '404';
-	}else{
-		$page = (file_exists("{$paste}/".$pag_atual.'.php') && in_array($pag_atual, $permission)) ? $pag_atual : '404';
-	}
+	$path = $route['path'];
+	$path = explode('/', $path);
 
-	require_once("{$paste}/{$pag_atual}.php");
-?>
+	if(empty($path[1])){
+		return("{$paste}/home.php");
+	}elseif(isset($path[1]) && in_array($path[1], $permission)){
+		return("{$paste}/{$path[1]}.php");
+	}elseif(isset($path[1]) && $path[1] != $permission){
+		return("{$paste}/404.php");
+	}else{
+		return("{$paste}/home.php");
+	}
+}
