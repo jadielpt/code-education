@@ -5,7 +5,7 @@ função routeUrl()
 function routeUrl()
 {
 	$route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-	$permission	= ['home', 'empresa', 'produtos', 'servicos', 'contato', '404', 'dados'];
+	$permission	= array('home', 'empresa', 'produtos', 'servicos', 'contato', '404');
 	$paste		= "pages";
 	$path = $route['path'];
 	$path = explode('/', $path);
