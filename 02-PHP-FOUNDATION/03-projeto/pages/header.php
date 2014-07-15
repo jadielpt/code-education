@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 date_default_timezone_set('America/Sao_Paulo');
-
-require_once('functions/functions.php');
+require_once('functions/functionsDb.php');
+require_once('functions/functionRouteUrl.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,7 +11,7 @@ require_once('functions/functions.php');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>2º Projeto php Code Education</title>
+    <title>3º Projeto php Code Education</title>
     <!-- style -->
 	<link rel="stylesheet" href="css/style.css">
     <!-- Bootstrap -->
