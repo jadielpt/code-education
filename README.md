@@ -9,8 +9,9 @@ Os arquivos aqui adicionados fazem parte do curso do portal code-education
 **Estudo sobre GIT e GITHUB**
 
 projetos
->*1.Fazer um push.*
->*2.Fazer 2 releases.*
+>1. *Fazer um push.*
+
+>2. *Fazer 2 releases.*
 
 
 02º Módulo
@@ -19,10 +20,13 @@ projetos
 **Estudos sobre a linguagem de programação PHP**
 
 projetos
-*1.Criar um site simples.*
-*2.Ajustar as rotas.*
-*3.Conteúdo em banco de dados.*
-*4.Ainda se encontra em andamento*
+>1. *Criar um site simples.*
+
+>2. *Ajustar as rotas.*
+
+>3. *Conteúdo em banco de dados.*
+
+>4. *Ainda se encontra em andamento*
 
 
 
