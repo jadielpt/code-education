@@ -1,18 +1,29 @@
 Estudo em php curso Code Education
 ======================================
 
-Os arquivos aquí adicionados fazem parte do curso do portal code-education
+Os arquivos aqui adicionados fazem parte do curso do portal code-education
 
-01° Módulo
+01Âº MÃ³dulo
 -----------
 
 Estudo sobre GIT e GITHUB
 
-02° Módulo
+projetos
+01 - Fazer um push.
+02 - Fazer 2 releases.
+
+
+02Âº MÃ³dulo
 -----------
 
-Estudos sobre a linguagem de programação PHP
-Ainda se encontra em andamento
+Estudos sobre a linguagem de programaÃ§Ã£o PHP
+
+projetos
+01 - Criar um site simples.
+02 - Ajustar as rotas.
+03 - ConteÃºdo em banco de dados.
+04 - Ainda se encontra em andamento
+
 
 
 
