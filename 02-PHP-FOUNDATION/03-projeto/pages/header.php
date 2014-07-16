@@ -1,9 +1,10 @@
 <?php
-error_reporting(E_ALL);
+error_reporting(E_ALL ^ E_NOTICE);
 ini_set("display_errors", 1);
 date_default_timezone_set('America/Sao_Paulo');
 require_once('functions/functionsDb.php');
 require_once('functions/functionRouteUrl.php');
+require_once('functions/functionBusca.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -40,13 +41,30 @@ require_once('functions/functionRouteUrl.php');
 						</div>
 						<!-- /navbar-header -->
 						<div class="collapse navbar-collapse" id="menu">
-							<ul class="nav navbar-nav">
-			                   	<li><a href="home">Home</a></li>
-								<li><a href="empresa">Empresa</a></li>
-								<li><a href="produtos">Produtos</a></li>
-								<li><a href="servicos">Serviços</a></li>
-								<li><a href="contato">Contato</a></li>
-							</ul>
+                                                    <ul class="nav navbar-nav">
+                                                        <li><a href="home">Home</a></li>
+                                                        <li><a href="empresa">Empresa</a></li>
+                                                        <li><a href="produtos">Produtos</a></li>
+                                                        <li><a href="servicos">Serviços</a></li>
+                                                        <li><a href="contato">Contato</a></li>
+                                                    </ul>
+
+                                                                                                      
+                                                    <div class="col-md-4 col-md-offset-3">
+                                                        <div class="input-group">
+                                                            <form class="form-inline" name="search" method="post" action="busca">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="buscar" class="form-control" id="" placeholder="">
+                                                                </div>
+                                                                <input type="submit" name="submit" value="Buscar" class="btn">
+                                                            </form>	<!--/form-->
+                                                        </div><!-- /input-group -->
+                                                    </div><!-- /.col-lg-4 -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
 						</div>
 						<!-- /collapse navbar-collapse -->
 					</div>
@@ -55,4 +73,4 @@ require_once('functions/functionRouteUrl.php');
 				<!-- /nav -->
 			</div>
 			<!-- /row nav -->
-			<div id="content">	
+			<div id="content">

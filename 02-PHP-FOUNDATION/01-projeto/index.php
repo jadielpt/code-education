@@ -2,9 +2,4 @@
 
 <?php require_once('functions/functions.php');?>
 
-
 <?php require_once('pages/footer.php');?>
-
-
-
-

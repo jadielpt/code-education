@@ -8,10 +8,12 @@ function routeUrl()
     $path = $route['path'];
     $path = explode('/', $path);
     $pagina = $path[1];
-    $permission	= array('home', 'empresa', 'produtos', 'servicos', 'contato', '404');
+    $permission	= array('home', 'empresa', 'produtos', 'servicos', 'contato', '404', 'busca');
 
     if(empty($pagina)){
        $pages = listarPages('pages','home');
+    }elseif(isset($pagina)&& $pagina == 'busca'){
+        require_once 'pages/busca.php';
     }elseif(isset($pagina) && in_array ($pagina,$permission)!= $permission){
         $pages = listarPages('pages','404');
     }else{
