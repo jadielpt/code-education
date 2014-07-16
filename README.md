@@ -9,8 +9,8 @@ Os arquivos aqui adicionados fazem parte do curso do portal code-education
 **Estudo sobre GIT e GITHUB**
 
 projetos
-*1.Fazer um push.*
-*2.Fazer 2 releases.*
+>*1.Fazer um push.*
+>*2.Fazer 2 releases.*
 
 
 02º Módulo
