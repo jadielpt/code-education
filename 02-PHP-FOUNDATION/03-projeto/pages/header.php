@@ -1,5 +1,12 @@
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
+/*
+* @author Candido Souza
+* Projeto: Estudos Potal Code Education - Módulo 03 Php Foundation
+* Arquivo: fixture.php
+* Linguagem: php
+* Data: 17/07/2014
+ */
+error_reporting(E_ALL);
 ini_set("display_errors", 1);
 date_default_timezone_set('America/Sao_Paulo');
 require_once('functions/functionsDb.php');
@@ -47,9 +54,7 @@ require_once('functions/functionBusca.php');
                                                         <li><a href="produtos">Produtos</a></li>
                                                         <li><a href="servicos">Serviços</a></li>
                                                         <li><a href="contato">Contato</a></li>
-                                                    </ul>
-
-                                                                                                      
+                                                    </ul>                                                 
                                                     <div class="col-md-4 col-md-offset-3">
                                                         <div class="input-group">
                                                             <form class="form-inline" name="search" method="post" action="busca">
@@ -60,11 +65,6 @@ require_once('functions/functionBusca.php');
                                                             </form>	<!--/form-->
                                                         </div><!-- /input-group -->
                                                     </div><!-- /.col-lg-4 -->
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
 						</div>
 						<!-- /collapse navbar-collapse -->
 					</div>

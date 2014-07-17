@@ -2,10 +2,8 @@
 	background: #f6f6f6;
 }
 
-/*************************
-section
-*************************/
-section .col-lg-12{
+section .jumbotron{
+    background: #f6f6f6;
 }
 
 /*************************
@@ -14,6 +12,7 @@ form busca
 form{
     padding: 10px;
 }
+
 /*************************
 footer
 *************************/

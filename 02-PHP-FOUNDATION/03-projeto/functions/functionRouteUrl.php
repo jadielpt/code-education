@@ -2,6 +2,10 @@
 /*****************************
 função routeUrl()
 *****************************/
+
+// Função que pega a url(rota) de acordo com o link no menu, e busca o conteúdo
+// das páginas e imprime, caso seja digitado uma url diferente imprime a página
+// 404 de erro
 function routeUrl()
 {
     $route = parse_url("http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
@@ -9,37 +13,17 @@ function routeUrl()
     $path = explode('/', $path);
     $pagina = $path[1];
     $permission	= array('home', 'empresa', 'produtos', 'servicos', 'contato', '404', 'busca');
-
-    if(empty($pagina)){
-       $pages = listarPages('pages','home');
-    }elseif(isset($pagina)&& $pagina == 'busca'){
-        require_once 'pages/busca.php';
-    }elseif(isset($pagina) && in_array ($pagina,$permission)!= $permission){
-        $pages = listarPages('pages','404');
-    }else{
-        $pages = listarPages('pages',$pagina);
-    }
-    return $pages['conteudo'];
+    
+    
+        if(empty($pagina)){
+           return $dados = listarPages('pages', 'home' );
+        }elseif(isset($pagina) && in_array ($pagina,$permission)!= $permission){
+           return $dados = listarPages('pages','404');
+        }elseif($pagina == 'busca'){
+            include 'pages/busca.php';
+        }elseif($pagina == 'contato'){
+            include 'pages/contato.php';
+        }else{
+           return $dados = listarPages('pages',$pagina);
+        }
 }
-
-/*****************************
-função routeUrl() usada no 02 projeto
-*****************************/
-//function routeUrl()
-//{
-//	$route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-//	$permission	= ['home', 'empresa', 'produtos', 'servicos', 'contato', '404', 'dados'];
-//	$paste		= "pages";
-//	$path = $route['path'];
-//	$path = explode('/', $path);
-//
-//	if(empty($path[1])){
-//		return("{$paste}/home.php");
-//	}elseif(isset($path[1]) && in_array($path[1], $permission)){
-//		return("{$paste}/{$path[1]}.php");
-//	}elseif(isset($path[1]) && $path[1] != $permission){
-//		return("{$paste}/404.php");
-//	}else{
-//		return("{$paste}/home.php");
-//	}
-//}

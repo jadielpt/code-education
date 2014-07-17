@@ -1,4 +1,11 @@
-			</div>
+<!--
+* @author Candido Souza
+* Projeto: Estudos Potal Code Education - Módulo 03 Php Foundation
+* Arquivo: fixture.php
+* Linguagem: php
+* Data: 17/07/2014
+-->
+</div>
 			<!-- /content -->
 			<footer>
 				<div class="row">
