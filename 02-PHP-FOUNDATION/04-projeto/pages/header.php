@@ -19,7 +19,7 @@ require_once('functions/functionBusca.php');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>3º Projeto php Code Education</title>
+    <title>4º Projeto php Code Education</title>
     <!-- style -->
 	<link rel="stylesheet" href="css/style.css">
     <!-- Bootstrap -->
@@ -32,22 +32,22 @@ require_once('functions/functionBusca.php');
       <script src="js/respond.min.js"></script>
     <![endif]-->
 </head>
-	<body>
-		<div class="container">
+    <body>
+            <div class="container">
 			<div class="row">
-				<nav class="navbar navbar-default" role="navigation">
+                            <nav class="navbar navbar-default" role="navigation">
 					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-							<span class="sr-only">Alterar a navegação</span>
+                                            <div class="navbar-header">
+                                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                                                <span class="sr-only">Alterar a navegação</span>
 					       	<span class="icon-bar"></span>
 					       	<span class="icon-bar"></span>
 					       	<span class="icon-bar"></span>
 							</button>
 					    	<a class="navbar-brand" href="home">LOGO</a>
-						</div>
-						<!-- /navbar-header -->
-						<div class="collapse navbar-collapse" id="menu">
+                                            </div>
+                                            <!-- /navbar-header -->
+						<div class="collapse navbar-collapse col-md-6" id="menu">
                                                     <ul class="nav navbar-nav">
                                                         <li><a href="home">Home</a></li>
                                                         <li><a href="empresa">Empresa</a></li>
@@ -55,7 +55,7 @@ require_once('functions/functionBusca.php');
                                                         <li><a href="servicos">Serviços</a></li>
                                                         <li><a href="contato">Contato</a></li>
                                                     </ul>                                                 
-                                                    <div class="col-md-4 col-md-offset-3">
+                                                    <div class="col-md-5">
                                                         <div class="input-group">
                                                             <form class="form-inline" name="search" method="post" action="busca">
                                                                 <div class="form-group">
@@ -65,6 +65,10 @@ require_once('functions/functionBusca.php');
                                                             </form>	<!--/form-->
                                                         </div><!-- /input-group -->
                                                     </div><!-- /.col-lg-4 -->
+                                                    
+                                                    <ul class="nav navbar-nav col-md-1 admin">
+                                                        <li><a href="admin/index.php">Administração</a></li>
+                                                    </ul>
 						</div>
 						<!-- /collapse navbar-collapse -->
 					</div>

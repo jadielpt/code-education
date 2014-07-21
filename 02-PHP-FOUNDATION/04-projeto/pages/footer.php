@@ -10,7 +10,8 @@
 			<footer>
 				<div class="row">
 					<div class="col-lg-12">
-						<p>&copy Todos os direitos reservados 2014 - <?php echo date('Y');?></p>
+                                            <p>Sistema | 04 Projeto - Code Education</p>
+                                            <p>&copy Todos os direitos reservados 2014 - <?php echo date('Y');?></p>
 					</div>
 				</div>
 				<!-- /row footer -->

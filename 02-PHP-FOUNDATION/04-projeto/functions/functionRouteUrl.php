@@ -12,7 +12,7 @@ function routeUrl()
     $path = $route['path'];
     $path = explode('/', $path);
     $pagina = $path[1];
-    $permission	= array('home', 'empresa', 'produtos', 'servicos', 'contato', '404', 'busca');
+    $permission	= array('home', 'empresa', 'produtos', 'servicos', 'contato', '404', 'busca', 'admin');
     
     
         if(empty($pagina)){

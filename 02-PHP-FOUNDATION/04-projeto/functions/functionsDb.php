@@ -55,23 +55,6 @@ function listarDb($tabela)
 
 }
 
-// Função listar pelo id DB
-function listarId($tabela, $id)
-{
-    $pdo = conectarDb();
-    
-    try {
-        $listarPeloId = $pdo->prepare("select * from {$tabela} where id = :id");
-        $listarPeloId->bindValue(":id", $id);
-        $listarPeloId->execute();
-        $dados = $listarPeloId->fetch(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo $exc->getTraceAsString();
-        die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
-    }
-    return $dados ;
-}
-
 // Função atualizar DB
 function atualizarDb($tabela, $dadosAtualizar, $id)
 {
