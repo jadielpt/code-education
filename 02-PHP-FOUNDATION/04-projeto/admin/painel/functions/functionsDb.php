@@ -36,14 +36,6 @@ function deletar($tabela, $id)
 }
 
 
-
-
-
-
-
-
-
-
 // Função listar pelo id DB
 function listarId($tabela, $id)
 {
@@ -60,6 +52,47 @@ function listarId($tabela, $id)
     }
     return $dados ;
 }
+
+function atualizar()
+{
+    if(isset($_POST['alterar'])){
+        $id = addslashes(trim($_POST['id']));
+        $pagina = addslashes(trim($_POST['pages']));
+        $titulo = addslashes(trim($_POST['titulo']));
+        $contPrinc = addslashes(trim($_POST['principal']));
+        $conteudo = addslashes(trim( $_POST['editor1']));
+        
+        try {
+            $pdo = conectarDb();
+
+            $atualizar = $pdo->prepare("UPDATE pages SET pages = :pages, conteudo_titulo = :conteudo_titulo, "
+                . "conteudo_principal = :conteudo_principal, conteudo_content = :conteudo_content where id = :id");
+            $atualizar->bindValue(":pages", $pagina);
+            $atualizar->bindValue(":conteudo_titulo", $titulo);
+            $atualizar->bindValue(":conteudo_principal", $contPrinc);
+            $atualizar->bindValue(":conteudo_content", $conteudo);
+            $atualizar->bindValue(":id", $id);
+            $atualizar->execute();
+        } catch (PDOException $e) {
+            die("Error: Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br>  Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
+        }
+
+    }else{
+        echo "ERROR: Erro ao alterar!";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Função cadastrar DB
 function cadastrar($tabela, $dadosCadastrar)
@@ -88,20 +121,7 @@ function cadastrar($tabela, $dadosCadastrar)
 
 
 
-// Função atualizar DB
-function atualizar($tabela, $dadosAtualizar, $id)
-{
-    $pdo = conectarDb();
-    
-    try {
-        $atualizar = $pdo->prepare("update {$tabela} set conteudo = ? where id = ?");
-        $atualizar->bindValue(1, $dadosAtualizar['conteudo']);
-        $atualizar->bindValue(2, $id);
-        $atualizar->execute();
-    } catch (PDOException $e) {
-        die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
-    }
-}
+
 
 
 

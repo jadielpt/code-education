@@ -36,7 +36,7 @@ $pages = listar('pages');
                                         <td><?php echo $value['conteudo_titulo'] ;?></td>
                                         <td><?php echo $value['conteudo_principal'] ;?></td>
                                         <td><?php echo $value['conteudo_content'] ;?></td>
-                                        <td><a href="pages/atualizar.php?id=<?php echo $value['id'] ;?>"><button class="btn btn-info" type="submit" name="alterar" >Alterar</button></a></td>
+                                        <td><a href="alterarPages?id=<?php echo $value['id'] ;?>"><button class="btn btn-info" type="submit" name="alterar" >Alterar</button></a></td>
                                         <td><a href="index.php?id=<?php echo $value['id'] ;?>"><button class="btn btn-danger" type="submit" name="deletar">Deletar</button></a></td>
                                         </tr>
                                         <?php

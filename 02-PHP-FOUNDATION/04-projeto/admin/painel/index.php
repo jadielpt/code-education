@@ -9,7 +9,8 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 date_default_timezone_set('America/Sao_Paulo');
-include_once 'functions/functionsDb.php';
+require_once 'functions/functionsDb.php';
+require_once 'functions/route.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,7 +33,6 @@ include_once 'functions/functionsDb.php';
                     <div class="col-md-3">
                         <ul class="nav list-group">
                             <li class="list-group-item active">Paginas</a></li>
-                            <li><a href="pages/criarPages.php">Criar</a></li>
                             <li><a href="pages/listarPages.php">Listar</a></li>
                             <li class="list-group-item active">Asuários</li>
                             <li><a href="#">Criar</a></li>
@@ -42,7 +42,8 @@ include_once 'functions/functionsDb.php';
                         </ul>
                     </div>
                     
-                    <?php require_once 'pages/listarPages.php';?>
+                    <?php //require_once 'pages/listarPages.php';?>
+                    <?php require_once(route());?>
                     
                     
                     
@@ -60,5 +61,9 @@ include_once 'functions/functionsDb.php';
             </footer>
         </div>
     </div>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script>
+            CKEDITOR.replace( 'editor1' );
+    </script>
 </body>
 </html>
