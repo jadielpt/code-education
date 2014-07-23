@@ -9,8 +9,14 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 date_default_timezone_set('America/Sao_Paulo');
+session_start();
 require_once 'functions/functionsDb.php';
 require_once 'functions/route.php';
+
+if(!($_SESSION['loginUser'])){
+    header('Location: ../index.php');
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,8 +33,13 @@ require_once 'functions/route.php';
         <div id="body-content">
             <section class="page container">
                 <div class="row">
-                    <div class="page-header">
-                        <h1>Administração <small>04 Projeto - Code Education</small></h1>
+                    <div class="page-header col-md-12">
+                        <div class="col-md-10">
+                            <h1>Administração <small>04 Projeto - Code Education</small></h1>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="logoff.php"><button class="btn btn-warning" type="submit" name="alterar" >SAIR | DESLOGAR</button>
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <ul class="nav list-group">
@@ -41,17 +52,8 @@ require_once 'functions/route.php';
                             <li><a href="#">Deletar</a></li>
                         </ul>
                     </div>
-                    
-                    <?php //require_once 'pages/listarPages.php';?>
-                    <?php require_once(route());?>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                   
+                    <?php require_once(route());?> 
                     
                 </div>
             </section>

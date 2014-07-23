@@ -9,6 +9,12 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 date_default_timezone_set('America/Sao_Paulo');
+session_start();
+require_once ('painel/functions/functionsDb.php');
+
+if(!empty($_SESSION['loginUser'])){
+    header('Location: painel/');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,18 +35,37 @@ date_default_timezone_set('America/Sao_Paulo');
                             <h1>Administração <small>04 Projeto - Code Education</small></h1>
                         </div>
                             <div class="col-md-6 col-md-offset-3">
-                                <form action="painel/index.php" name="formAdmin" method="post">
+                                <?php
+                                if (isset($_POST['logar'])) {
+                                    $login = $_POST['login'];
+                                    $senha = $_POST['senha'];
+                                    
+
+                                    if(!$login || !$senha){
+                                        echo '<div class="alert alert-danger">Todos os campos devem ser preenchidos!</div>';
+                                    }else{
+                                        $verificSenha = password_verify($senha, password());
+                                        if(($verificSenha == true) && logarsistema($login)){
+                                            $_SESSION['loginUser'] = $login;
+                                            header('Location: '.$_SERVER['PHP_SELF']);
+                                        }else{
+                                            echo '<div class="alert alert-danger">Usuário ou senha inválida!</div>';
+                                        }
+                                    }
+                                }
+                                ?>
+                                <form action="" name="formAdmin" method="post">
                                     <div class="form-group">
-                                      <label>Email</label>
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                      <label>Usuário</label>
+                                      <input type="text" name="login" class="form-control" placeholder="Usuário">
                                     </div>
                                     <div class="form-group">
                                       <label>Password</label>
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                      <input type="password" name="senha" class="form-control" placeholder="Password">
                                     </div>
 
                                     <div class="form-group">
-                                        <button class="btn btn-default" type="submit" name="send">Entrar</button>
+                                        <button class="btn btn-success" type="submit" name="logar">Logar</button>
                                     </div>
                                 </form>
                                 <!--/form-->

@@ -32,7 +32,7 @@ function criarDb() {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->query("CREATE DATABASE IF NOT EXISTS $dbname");
         $pdo->query("use $dbname");
-        print("Criado o banco de dados {$dbname}<br>");
+        print("O banco de dados {$dbname} foi criado com sucesso!<br>");
         $tabl ="CREATE table $table(
         id INT( 10 ) AUTO_INCREMENT NOT NULL PRIMARY KEY,
         pages VARCHAR( 250 ) NOT NULL, 
@@ -40,7 +40,7 @@ function criarDb() {
         conteudo_principal VARCHAR( 250 ) NOT NULL,
         conteudo_content VARCHAR( 250 ) NOT NULL);";
         $pdo->exec($tabl);
-        print("Criada a tabela {$table}<br>");
+        print("A tabela {$table} foi criada com sucesso!<br>");
         
     } catch (PDOException $e) {
         die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
@@ -76,22 +76,24 @@ function criarDbAdmin() {
         $pdo->query("use $dbname");
         $tabl ="CREATE table $table(
         id INT( 10 ) AUTO_INCREMENT NOT NULL PRIMARY KEY,
-        nome VARCHAR( 250 ) NOT NULL, 
+        login VARCHAR( 250 ) NOT NULL, 
         email VARCHAR( 250 ) NOT NULL,
         senha VARCHAR( 250 ) NOT NULL);";
         $pdo->exec($tabl);
-        print("Criada a tabela {$table}<br>");
+        print("A tabela {$table} foi criada com sucesso!<br>");
         
     } catch (PDOException $e) {
         die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
     }
     return $pdo;
 }
+//função para pegar a senha digitada e cadastrar no banco de dados cryptografada
+function passCrypt($senha)
+{
+    $senhaCrypt = password_hash($senha, PASSWORD_DEFAULT);
+    return $senhaCrypt;
+}
 
 criarDbAdmin();
-$cadastarDados = array('Admin','admin@email.com', '123');
-criarDbAdmin();
-$cadastarDados = array('candido','candido@email.com', '123');
-criarDbAdmin();
-$cadastarDados = array('claudia','claudia@email.com', '123');
-
+$cadastarDados = array('admin','admin@email.com', passCrypt('1234'));
+cadastrarDbAdmin('admin',$cadastarDados);

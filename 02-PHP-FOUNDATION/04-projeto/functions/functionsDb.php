@@ -15,7 +15,7 @@ function conectarDb()
         $pdo = new PDO($dsn, $user, $pass, $options);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
-        die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
+        die("Error: Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br> Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
     }
 
     return $pdo;
@@ -37,6 +37,24 @@ function cadastrarDb($tabela, $dadosCadastrar)
         die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
     }
 }
+
+function cadastrarDbAdmin($tabela, $dadosCadastrar)
+{
+    $pdo = conectarDb();
+    $campos = count($dadosCadastrar);
+    
+    try {
+        $cadastrar = $pdo->prepare("insert into {$tabela} (login, email, senha) values (?, ?, ?)");
+        for ($i = 0; $i < $campos; $i ++):
+            $cadastrar->bindValue($i+1, $dadosCadastrar[$i]);
+        endfor;
+        $cadastrar->execute();
+    } catch (PDOException $e) {
+        die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
+    }
+}
+
+
 
 // Função listar DB
 function listarDb($tabela)

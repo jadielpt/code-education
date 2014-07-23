@@ -2,9 +2,24 @@
 /*****************************
 funções PDO DB
 *****************************/
-require_once '../../functions/functionsDb.php';
 
+// Função conectar DB
+function conectarDb()
+{
+    $dsn    = 'mysql:host=localhost;dbname=curso_code_education';
+    $user   = 'root';
+    $pass   = 'root';
+    $options= [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8' ];
 
+    try {
+        $pdo = new PDO($dsn, $user, $pass, $options);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die("Error: Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br> Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
+    }
+
+    return $pdo;
+}
 // Função listar DB
 function listar($tabela)
 {
@@ -82,18 +97,6 @@ function atualizar()
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Função cadastrar DB
 function cadastrar($tabela, $dadosCadastrar)
 {
@@ -111,6 +114,39 @@ function cadastrar($tabela, $dadosCadastrar)
     }
 }
 
+// função para cryptografia de senha
+function passCrypt($senha)
+{
+    $senhaCrypt = password_hash($senha, PASSWORD_DEFAULT);
+    return $senhaCrypt;
+}
+
+// função para pegar senha
+function password()
+{
+    $dados = listar('admin');
+    foreach ($dados as $key => $value) {
+        return $value['senha'];
+    }
+}
+
+// Função logar no painel administrativo
+function logarsistema($user)
+{
+    $pdo = conectarDb();
+
+
+    try {
+        $login = $pdo->prepare("select * from admin where login = :login");
+        $login->bindValue(":login", $user);
+        $login->execute();
+
+            return ($login->rowCount() == 1) ? true : false;
+    } catch (PDOException $e) {
+        die("Error: Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br>  Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
+    }   
+
+}
 
 
 
