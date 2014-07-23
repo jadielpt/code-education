@@ -44,12 +44,7 @@ if(!($_SESSION['loginUser'])){
                     <div class="col-md-3">
                         <ul class="nav list-group">
                             <li class="list-group-item active">Paginas</a></li>
-                            <li><a href="pages/listarPages.php">Listar</a></li>
-                            <li class="list-group-item active">Asuários</li>
-                            <li><a href="#">Criar</a></li>
-                            <li><a href="#">Alterar</a></li>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Deletar</a></li>
+                            <li><a href="../index.php">Listar</a></li>
                         </ul>
                     </div>
                    

@@ -31,9 +31,14 @@ if(!empty($_SESSION['loginUser'])){
             <div id="body-content">
                 <section class="page container">
                     <div class="row">
-                        <div class="page-header">
+                        <div class="page-header col-md-12">
+                        <div class="col-md-10">
                             <h1>Administração <small>04 Projeto - Code Education</small></h1>
                         </div>
+                        <div class="col-md-2">
+                                <a href="../home" class="btn btn-warning">Voltar para o Site</a>
+                        </div>
+                    </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <?php
                                 if (isset($_POST['logar'])) {
@@ -65,7 +70,7 @@ if(!empty($_SESSION['loginUser'])){
                                     </div>
 
                                     <div class="form-group">
-                                        <button class="btn btn-success" type="submit" name="logar">Logar</button>
+                                        <button class="btn btn-success" type="submit" name="logar">Logar</button>  
                                     </div>
                                 </form>
                                 <!--/form-->
