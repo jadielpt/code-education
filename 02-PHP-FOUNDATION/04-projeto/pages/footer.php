@@ -1,7 +1,7 @@
 <!--
 * @author Candido Souza
-* Projeto: Estudos Potal Code Education - Módulo 03 Php Foundation
-* Arquivo: fixture.php
+* Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+* Arquivo: footer.php
 * Linguagem: php
 * Data: 17/07/2014
 -->

@@ -1,4 +1,12 @@
 <?php
+/*
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: route.php
+ * Linguagem: php
+ * Data: 23/07/2014
+ */
+
 /*****************************
 função routeUrl()
 *****************************/

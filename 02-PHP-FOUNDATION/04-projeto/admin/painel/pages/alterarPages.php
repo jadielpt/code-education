@@ -1,4 +1,13 @@
- <?php
+<?php
+/*
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: alterarPages.php
+ * Linguagem: php
+ * Data: 23/07/2014
+ */
+
+// faz as alteração nas páginas
  $idDaPagina = $_GET['id'];
  $pages = listarId('pages', $idDaPagina);
  ?>

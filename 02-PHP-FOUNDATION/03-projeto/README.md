@@ -9,7 +9,7 @@ instalação
 Antes de testar esta aplicação.
 >1. *Tenha instalado na sua máquina o MySQL.*
 
->2. *Abrir primeiramente o arquivo "fisture.php", ele irá criar e instalar a tabela e os conteúdos no banco de dados.*
+>2. *Abrir primeiramente o arquivo "fixture.php", ele irá criar a tabela com os conteúdos no banco de dados.*
 
 >3. *O arquivo fixture.php, está configurado para servidor local "localhost" com usuário "root" e password "root".*
 

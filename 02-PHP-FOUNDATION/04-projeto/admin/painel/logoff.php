@@ -1,11 +1,13 @@
 <?php
 /*
-* @author Candido Souza
-* Projeto: Estudos Potal Code Education - Módulo 03 Php Foundation
-* Arquivo: fixture.php
-* Linguagem: php
-* Data: 22/07/2014
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: logoff.php
+ * Linguagem: php
+ * Data: 23/07/2014
  */
+
+// deloga o usuário
 session_start();
 unset($_SESSION['loginUser']);
 header('Location: ../index.php');

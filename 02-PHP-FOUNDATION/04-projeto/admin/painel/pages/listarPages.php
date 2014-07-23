@@ -1,4 +1,12 @@
 <?php
+/*
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: listarPages.php
+ * Linguagem: php
+ * Data: 23/07/2014
+ */
+//lista páginas existentes
 $pages = listar('pages');
 ?>
                     <div class="col-md-9">

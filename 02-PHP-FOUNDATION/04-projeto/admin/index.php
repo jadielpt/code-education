@@ -1,10 +1,10 @@
 <?php
 /*
-* @author Candido Souza
-* Projeto: Estudos Potal Code Education - Módulo 03 Php Foundation
-* Arquivo: fixture.php
-* Linguagem: php
-* Data: 17/07/2014
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: index.php
+ * Linguagem: php
+ * Data: 23/07/2014
  */
 error_reporting(E_ALL);
 ini_set("display_errors", 1);

@@ -1,4 +1,12 @@
 <?php
+/*
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: functionDb.php
+ * Linguagem: php
+ * Data: 23/07/2014
+ */
+
 /*****************************
 funções PDO DB
 *****************************/
@@ -147,19 +155,6 @@ function logarsistema($user)
     }   
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Função listar páginas DB
 //function listarPages($tabela, $pages)
