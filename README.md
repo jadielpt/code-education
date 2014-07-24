@@ -26,9 +26,13 @@ projetos
 
 >3. *Conteúdo em banco de dados.*
 
->4. *Ainda se encontra em andamento*
+>4. *Área Administrativa*
 
 
+03º Módulo
+-----------
 
+**Estudos sobre a linguagem de programação PHP Orientada a Objetos**
 
-
+projetos
+>1. *Cadastro de Clientes.* - Em andamento!

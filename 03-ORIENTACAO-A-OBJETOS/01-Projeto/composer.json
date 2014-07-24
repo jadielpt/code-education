@@ -1,0 +1,27 @@
+{
+	"name":"candidosouza - 1º Projeto Php OO - Portal Code Education",
+	"authors": [
+        {
+			"name":"Cândido Souza",
+			"email":"candido_souza@hotmail.com"
+		}
+	],
+	"require":{
+		"php":">=5.4",
+		"components/bootstrap": "dev-master",
+		"components/jquery": "dev-master"
+	},
+	"require-dev":{
+		"phpunit/phpunit": "4.0.*@stable"
+	},
+    	"mininum-stability":"dev",
+	"autoload":{
+		"psr-4":{
+		    "src\\app\\class\\": "src/app/class/",
+		    "tests\\": "tests/"
+		}
+	},
+	"config":{
+		"bin-dir":"bin"
+	}
+}
