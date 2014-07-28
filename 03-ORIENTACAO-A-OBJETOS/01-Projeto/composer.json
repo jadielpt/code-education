@@ -11,17 +11,11 @@
 		"components/bootstrap": "dev-master",
 		"components/jquery": "dev-master"
 	},
-	"require-dev":{
-		"phpunit/phpunit": "4.0.*@stable"
-	},
     	"mininum-stability":"dev",
 	"autoload":{
 		"psr-4":{
-		    "src\\app\\class\\": "src/app/class/",
+		    "src\\app\\classes\\": "src/app/classes/",
 		    "tests\\": "tests/"
 		}
-	},
-	"config":{
-		"bin-dir":"bin"
 	}
 }

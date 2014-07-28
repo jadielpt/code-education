@@ -1,14 +1,4 @@
 var components = {
-    "packages": [
-        {
-            "name": "bootstrap",
-            "main": "bootstrap-built.js"
-        },
-        {
-            "name": "jquery",
-            "main": "jquery-built.js"
-        }
-    ],
     "shim": {
         "bootstrap": {
             "deps": [
