@@ -8,7 +8,7 @@ Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education
 
 Antes de testar esta aplicação.
 
->1. *Tenha instalado o php 5.5 - Versões anteriores acarretará errors.*
+>1. *Tenha instalado o php 5.5 - Versões anteriores acarretará erros.*
 
 **Sobre o projeto**
 
