@@ -1,4 +1,15 @@
 <?php
+/*
+* @author Candido Souza
+* Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+* Arquivo: Clientes.php
+* Linguagem: php
+* Data: 29/07/2014
+ */
+
+/*****************************
+Classe Clientes
+*****************************/
 namespace src\app\classes;
 
 class ClasseArray {

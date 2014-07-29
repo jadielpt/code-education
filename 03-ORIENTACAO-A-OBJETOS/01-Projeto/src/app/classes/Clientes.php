@@ -1,17 +1,21 @@
 <?php
-/**
- * Description of Clientes
- *
- * @author candidosouza
+/*
+* @author Candido Souza
+* Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+* Arquivo: Clientes.php
+* Linguagem: php
+* Data: 29/07/2014
  */
 
+/*****************************
+Classe Clientes
+*****************************/
 namespace src\app\classes;
-/**
- * 
- */
+
 class Clientes
 {
     // Dados pessoais
+    private $id;
     private $nome;
     private $sobrenome;
     private $cpf;
@@ -26,8 +30,9 @@ class Clientes
     private $municipio;
     private $uf;
     
-    function __construct($nome, $sobrenome, $cpf, $email, $telefone, $rua, $numero, $complemento, $bairro, $cep, $municipio, $uf)
+    function __construct($id, $nome, $sobrenome, $cpf, $email, $telefone, $rua, $numero, $complemento, $bairro, $cep, $municipio, $uf)
     {
+        $this->id = $id;
         $this->nome = $nome;
         $this->sobrenome = $sobrenome;
         $this->cpf = $cpf;
@@ -42,6 +47,10 @@ class Clientes
         $this->uf = $uf;
     }
 
+    public function getId() {
+        return $this->id;
+    }
+    
     public function getNome() {
         return $this->nome;
     }
@@ -90,6 +99,10 @@ class Clientes
         return $this->uf;
     }
 
+    public function setId($id) {
+        $this->id = $id;
+    }
+    
     public function setNome($nome) {
         $this->nome = $nome;
     }

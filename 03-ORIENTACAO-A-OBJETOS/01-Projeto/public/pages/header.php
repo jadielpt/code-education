@@ -1,3 +1,11 @@
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+//ini_set("log_errors", 1);
+//ini_set("error_log", "../errors.log");
+date_default_timezone_set('America/Sao_Paulo');
+require_once __DIR__ . '/../pages/clientes.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -9,20 +17,9 @@
     <!-- style 
     <link rel="stylesheet" href="css/style.css"> -->
     <!-- Bootstrap -->
-    <link href="../components/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="jumbotron">
-                        <h1>Hello, world!</h1>
-                        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
-                    </div>
-                </div>
-                
-            </div><!-- /row -->
-        </div><!-- /container-fluid -->
-    </body>
-</html>
+                <div class="col-md-12">
