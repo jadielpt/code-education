@@ -6,11 +6,6 @@
 			"email":"candido_souza@hotmail.com"
 		}
 	],
-	"require":{
-		"php":">=5.4",
-		"components/bootstrap": "dev-master",
-		"components/jquery": "dev-master"
-	},
     	"mininum-stability":"dev",
 	"autoload":{
 		"psr-4":{
