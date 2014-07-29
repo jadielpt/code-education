@@ -1,5 +1,5 @@
-1º Projeto
-======================================
+1º Projeto | Módulo 03 - Php Orientado a Objetos
+================================================
 
 Projeto - Cadastro de Clientes.
 -------------------------------
@@ -19,3 +19,7 @@ Antes de testar esta aplicação.
 >http://portal.code.education/
 
 >http://lancamento.code.education/
+
+*Normas e Padrões*
+
+<a href="http://www.php-fig.org/psr/psr-0/" title="psr0">PSR0</a>, <a href="http://www.php-fig.org/psr/psr-1/" title="psr1">PSR1</a>, <a href="http://www.php-fig.org/psr/psr-2/" title="psr2">PSR2</a>, <a href="http://www.php-fig.org/psr/psr-4/" title="psr4">PSR4</a>
