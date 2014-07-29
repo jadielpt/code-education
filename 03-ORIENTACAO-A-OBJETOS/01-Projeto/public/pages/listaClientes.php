@@ -1,5 +1,18 @@
                     <h1>Lista de Clientes</h1>
                     <div class="jumbotron">
+                        <?php
+                        if(isset($_POST['cres'])){
+                            ksort($clientes);
+                        }elseif(isset($_POST['dec'])){
+                            krsort($clientes);
+                        }else{
+                            ksort($clientes);
+                        }
+                        ?>
+                        <form method="post">
+                            <button class="btn btn-warning" type="submit" value="cres" name="cres">Ordem Crescente</button>
+                            <button class="btn btn-warning " type="submit" value="dec" name="dec">Ordem Decrescente</button>
+                        </form>
                         <table class="table table-striped">
                             <thead>
                                 <tr>

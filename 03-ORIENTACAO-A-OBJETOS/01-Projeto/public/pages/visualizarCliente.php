@@ -16,7 +16,7 @@ if(isset($_GET)) {
         echo "<h4>Rua: <strong>".$clientes[$valor]->getRua()."</strong></h4>";
         echo "<h4>Nº: <strong>".$clientes[$valor]->getNumero()."</strong></h4>";
         echo "<h4>Complemento: <strong>".$clientes[$valor]->getComplemento()."</strong></h4>";
-        echo "<h4>Bairro: <strong>".$clientes[$value]->getBairro()."</strong></h4>";
+        echo "<h4>Bairro: <strong>".$clientes[$valor]->getBairro()."</strong></h4>";
         echo "<h4>Cep: <strong>".$clientes[$valor]->getCep()."</strong></h4>";
         echo "<h4>Municipio: <strong>".$clientes[$valor]->getMunicipio()."</strong></h4>";
         echo "<h4>UF: <strong>".$clientes[$valor]->getUf()."</strong></h4>";
