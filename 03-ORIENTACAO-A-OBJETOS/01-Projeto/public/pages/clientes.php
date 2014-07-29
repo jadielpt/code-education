@@ -1,4 +1,11 @@
 <?php
+/**
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: Clientes.php
+ * Linguagem: php
+ * Data: 29/07/2014
+ */
 use \src\app\classes\Clientes as Clientes;
 
 $clientes[0] = new Clientes(1, "Candido", "Souza", "12345678912", "candido@email.com.br", 32435549, "Piauí", 1, "casa", "São Paulo", "15500-000", "São Paulo", "sp" );

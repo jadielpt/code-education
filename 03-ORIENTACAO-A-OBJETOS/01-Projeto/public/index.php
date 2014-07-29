@@ -1,4 +1,11 @@
 <?php
+/**
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: index.php
+ * Linguagem: php
+ * Data: 29/07/2014
+ */
 require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/pages/header.php';
 

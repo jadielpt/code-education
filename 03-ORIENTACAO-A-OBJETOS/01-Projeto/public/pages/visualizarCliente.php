@@ -1,3 +1,12 @@
+<!--
+/**
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: visualizarClientes.php
+ * Linguagem: php
+ * Data: 29/07/2014
+ */
+-->
 <h1>Dados do Cliente</h1>
 <div class="jumbotron">
 <?php

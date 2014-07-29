@@ -1,4 +1,13 @@
-                    <h1>Lista de Clientes</h1>
+<!--
+/**
+ * @author Candido Souza
+ * Projeto: Estudos Potal Code Education - Módulo 04 Php Foundation
+ * Arquivo: listaClientes.php
+ * Linguagem: php
+ * Data: 29/07/2014
+ */
+-->
+                <h1>Lista de Clientes</h1>
                     <div class="jumbotron">
                         <?php
                         if(isset($_POST['cres'])){
