@@ -9,8 +9,44 @@
 namespace src\app\classes;
 
 
-class ClientesPessoasFisicas extends Clientes
+use src\app\interfaces\ClientesInterface;
+
+class ClientesPessoasFisicas extends Clientes implements ClientesInterface
 {
     private $email;
     private $celular;
+
+    /**
+     * @param mixed $celular
+     */
+    public function setCelular($celular)
+    {
+        $this->celular = $celular;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCelular()
+    {
+        return $this->celular;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+
 } 
