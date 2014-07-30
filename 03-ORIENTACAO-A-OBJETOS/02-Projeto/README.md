@@ -1,7 +1,7 @@
-1º Projeto | Módulo 03 - Php Orientado a Objetos
+2º Projeto | Módulo 03 - Php Orientado a Objetos
 ================================================
 
-Projeto - Cadastro de Clientes.
+Projeto - Tipos de Clientes.
 -------------------------------
 
 Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 03 - Php Orientado a Objetos.*
@@ -16,9 +16,7 @@ Antes de testar esta aplicação.
 
 *O projeto foi construido como avaliação do Portal Code Education.*
 
->http://portal.code.education/
-
->http://lancamento.code.education/
+><a href="http://portal.code.education/" title="Code Education">Portal Code Education</a>
 
 **Normas e Padrões**
 
