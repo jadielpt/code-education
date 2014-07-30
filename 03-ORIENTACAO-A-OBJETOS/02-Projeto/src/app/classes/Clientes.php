@@ -9,7 +9,9 @@
 namespace src\app\classes;
 
 
-class Clientes
+use src\app\interfaces\ClientesInterface;
+
+class Clientes implements ClientesInterface
 {
     protected $nomeRS;
     protected $cnpjCpf;

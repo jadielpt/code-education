@@ -8,10 +8,9 @@
 
 namespace src\app\classes;
 
-
 use src\app\interfaces\ClientesInterface;
 
-class ClientesPessoasJurudicas extends Clientes implements ClientesInterface
+class ClientesPessoasJurudicas extends Clientes
 {
     private $fax;
 

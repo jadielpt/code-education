@@ -11,7 +11,7 @@ namespace src\app\classes;
 
 use src\app\interfaces\ClientesInterface;
 
-class ClientesPessoasFisicas extends Clientes implements ClientesInterface
+class ClientesPessoasFisicas extends Clientes
 {
     private $email;
     private $celular;

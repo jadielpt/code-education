@@ -10,8 +10,8 @@ namespace src\app\interfaces;
 
 
 /**
- * Interface ClienteInterface
- * @package src\app\classes
+ * Interface ClientesInterface
+ * @package src\app\interfaces
  */
 interface ClientesInterface
 {
