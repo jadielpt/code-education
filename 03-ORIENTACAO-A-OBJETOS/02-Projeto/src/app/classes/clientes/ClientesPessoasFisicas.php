@@ -6,14 +6,13 @@
  * Time: 20:59
  */
 
-namespace src\app\classes;
+namespace src\app\classes\clientes;
 
 
 use src\app\interfaces\ClientesInterface;
 
 class ClientesPessoasFisicas extends Clientes
 {
-    private $email;
     private $celular;
 
     /**
@@ -31,22 +30,5 @@ class ClientesPessoasFisicas extends Clientes
     {
         return $this->celular;
     }
-
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
 
 } 

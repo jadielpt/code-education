@@ -9,7 +9,8 @@
     	"mininum-stability" : "dev",
 	"autoload" : {
 		"psr-4" : {
-		    "src\\app\\classes\\" : "src/app/classes/",
+		    "src\\app\\classes\\clientes\\" : "src/app/classes/clientes",
+            "src\\app\\classes\\database\\" : "src/app/classes/database",
             "src\\app\\interfaces\\" : "src/app/interfaces/"
 		}
 	}

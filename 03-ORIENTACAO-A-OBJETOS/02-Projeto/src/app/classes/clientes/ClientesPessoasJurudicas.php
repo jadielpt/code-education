@@ -6,7 +6,7 @@
  * Time: 20:59
  */
 
-namespace src\app\classes;
+namespace src\app\classes\clientes;
 
 use src\app\interfaces\ClientesInterface;
 

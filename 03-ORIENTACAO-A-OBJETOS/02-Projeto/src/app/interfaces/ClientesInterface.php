@@ -19,6 +19,10 @@ interface ClientesInterface
 
     public function getCnpjCpf();
 
+    public function getEmail();
+
+    public function getTelefone();
+
     public function getRua();
 
     public function getNumero();
@@ -33,5 +37,7 @@ interface ClientesInterface
 
     public function getUf();
 
-    public function getTelefone();
+    public function getTipo();
+
+    public function getGrauImportance();
 }
