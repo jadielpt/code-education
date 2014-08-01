@@ -12,8 +12,6 @@
 
 namespace src\app\classes\clientes;
 
-use src\app\interfaces\ClientesInterface;
-
 class ClientesPessoasJurudicas extends Clientes
 {
     /**

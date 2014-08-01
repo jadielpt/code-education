@@ -21,10 +21,12 @@ require_once (__DIR__ . '/bootstrap.php');
     </head>
     <body>
 <?php
-    use src\app\classes\database\Connection;
+//use src\app\classes\database\Create;
+//
+//$connect = new Create();
+//$connect->cadastrarDb('clientes','')
 
-    $connect = new Connection();
-    $connect->connect();
+
 ?>
     </body>
 </html>
