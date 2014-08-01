@@ -4,10 +4,13 @@
  * User: candidosouza
  * Date: 29/07/14
  * Time: 21:03
+ * Projeto: Estudos Potal Code Education - Módulo 03 Php Orientado a Objetos
+ * @author Candido Souza
+ * Arquivo: Clientes.php
+ * Linguagem: php
  */
 
 namespace src\app\classes\clientes;
-
 
 use src\app\interfaces\ClientesInterface;
 

@@ -4,6 +4,10 @@
  * User: candidosouza
  * Date: 29/07/14
  * Time: 20:59
+ * Projeto: Estudos Potal Code Education - Módulo 03 Php Orientado a Objetos
+ * @author Candido Souza
+ * Arquivo: ClientesPessoasJuridicas.php
+ * Linguagem: php
  */
 
 namespace src\app\classes\clientes;
@@ -12,6 +16,9 @@ use src\app\interfaces\ClientesInterface;
 
 class ClientesPessoasJurudicas extends Clientes
 {
+    /**
+     * @var
+     */
     private $fax;
 
     /**
