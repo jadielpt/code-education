@@ -13,8 +13,24 @@
 namespace src\app\classes\database;
 
 
+/**
+ * Class Create
+ * Classe responsável por cadastrar no banco de dados
+ * @package src\app\classes\database
+ */
 class Create
 {
+    private $tabela;
+    private $dados;
+    private $result;
+    private $connect;
+
+    public function exeCreate($tabela, array $dados)
+    {
+        $this->tabela = (string)$tabela;
+        $this->dados = $dados;
+    }
+
     public function cadastrarDb($tabela, $dadosCadastrar)
     {
         $pdo = new Connection();

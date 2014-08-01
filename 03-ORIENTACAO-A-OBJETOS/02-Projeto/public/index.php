@@ -21,10 +21,21 @@ require_once (__DIR__ . '/bootstrap.php');
     </head>
     <body>
 <?php
-//use src\app\classes\database\Create;
-//
-//$connect = new Create();
-//$connect->cadastrarDb('clientes','')
+use src\app\classes\database\Create;
+
+$dados = ['nome'=>'Candido', 'sobrenome'=>'Souza', 'email'=>'email@email.com', 'cpf'=> 7777777];
+$connect = new Create();
+$connect->exeCreate('clientes', $dados);
+echo '<pre>';
+var_dump($connect);
+echo '<pre>';
+
+
+
+
+echo '<pre>';
+print_r($connect);
+echo '<pre>';
 
 
 ?>
