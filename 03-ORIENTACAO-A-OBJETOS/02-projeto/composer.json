@@ -1,0 +1,15 @@
+{
+	"name":"candidosouza - 2º Projeto Php OO - Portal Code Education",
+	"authors": [
+        {
+			"name":"Cândido Souza",
+			"email":"candido_souza@hotmail.com"
+		}
+	],
+    	"mininum-stability":"dev",
+	"autoload":{
+		"psr-4":{
+		    "src\\app\\classes\\": "src/app/classes/"
+		}
+	}
+}
