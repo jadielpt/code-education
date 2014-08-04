@@ -48,11 +48,6 @@ class ClientesPessoasFisicas extends Clientes implements EndCobrancaInterface
         return $this->celular;
     }
 
-
-
-
-
-
     /**
      * @param mixed $telContato
      */

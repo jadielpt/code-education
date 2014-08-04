@@ -23,10 +23,17 @@ $clientes[0]->setCelular(17977777777)
             ->setCobrUf(null)
 ;
 
-
-
 $clientes[1] = new \src\app\classes\ClientesPessoasJuridicas(2, "Estofados ME", "estofados@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
-$clientes[1]->setFax(17777777777);
+$clientes[1]->setFax(17777777777)
+            ->setTelContato(1798765432)
+            ->setCobrRua('Amazonas')
+            ->setCobrNumero('77')
+            ->setCobrComplemento('Ap.4 - Sala 02')
+            ->setCobrBairro('Jd.São Paulo')
+            ->setCobrCep(15500000)
+            ->setCobrMunicipio('Votuporanga')
+            ->setCobrUf('SP')
+;
 
 $clientes[2] = new ClientesPessoasFisicas(3, "Claudia Bertolin", "claudia@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 3, "Votuporanga", "SP");
 $clientes[2]->setCelular(17977777777);
