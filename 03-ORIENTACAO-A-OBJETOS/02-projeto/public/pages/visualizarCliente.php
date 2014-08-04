@@ -20,10 +20,11 @@ if(isset($_GET)) {
         $valor = $value-1;
 
         echo "<h4>Código: <strong>".$clientes[$valor]->getId()."</strong></h4>";
-        echo "<h4>Nome: <strong>".$clientes[$valor]->getNome()."</strong></h4>";
-        echo "<h4>Sobrenome: <strong>".$clientes[$valor]->getSobrenome()."</strong></h4>";
-        echo "<h4>Cpf: <strong>".$clientes[$valor]->getCpf()."</strong></h4>";
+        echo "<h4>Nome: <strong>".$clientes[$valor]->getnomeRS()."</strong></h4>";
         echo "<h4>E-mail: <strong>".$clientes[$valor]->getEmail()."</strong></h4>";
+        echo "<h4>Cpf | CNPJ: <strong>".$clientes[$valor]->getCnpjCpf()."</strong></h4>";
+        echo "<h4>Tipo: <strong>".$clientes[$valor]->getTipo()."</strong></h4>";
+        echo "<h4>Cliente: <strong>".$clientes[$valor]->getGrauImportance()." Estrelas</strong></h4>";
         echo "<h4>Telefone: <strong>".$clientes[$valor]->getTelefone()."</strong></h4>";
         echo "<h4>Rua: <strong>".$clientes[$valor]->getRua()."</strong></h4>";
         echo "<h4>Nº: <strong>".$clientes[$valor]->getNumero()."</strong></h4>";

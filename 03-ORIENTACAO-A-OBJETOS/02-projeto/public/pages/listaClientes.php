@@ -10,6 +10,7 @@
  * Linguagem: php
  */
 -->
+
                 <h1>Lista de Clientes</h1>
                     <div class="jumbotron">
                         <?php
@@ -30,9 +31,10 @@
                                 <tr>
                                     <th>COD..</th>
                                     <th>NOME</th>
-                                    <th>SOBRENOME</th>
                                     <th>E-MAILL</th>
                                     <th>TELEFONE</th>
+                                    <th>P.FISICA <br> P.JURIDICA</th>
+                                    <th>ESTRELAS</th>
                                     <th>VISUALIZAR</th>
                                     <th>ALTERAR</th>
                                     <th>DELETAR</th>
@@ -45,10 +47,11 @@
                                 ?>
                                 <tr>
                                 <td><?php echo $value->getId();?></td>
-                                <td><?php echo $value->getNome();?></td>
-                                <td><?php echo $value->getSobrenome();?></td>
+                                <td><?php echo $value->getNomeRS();?></td>
                                 <td><?php echo $value->getEmail();?></td>
                                 <td><?php echo $value->getTelefone();?></td>
+                                <td><?php echo $value->getTipo();?></td>
+                                <td><?php echo $value->getGrauImportance();?></td>
                                 <td><a href="visualizarCliente?<?php echo $value->getId();?>"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
                                 <td><a href="#"><button class="btn btn-primary disabled" type="submit" name="alterar" >Alterar</button></a></td>
                                 <td><a href="#"><button class="btn btn-danger disabled" type="submit" name="deletar">Deletar</button></a></td>

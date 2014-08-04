@@ -1,15 +1,16 @@
 {
-	"name":"candidosouza - 2º Projeto Php OO - Portal Code Education",
-	"authors": [
+	"name" : "candidosouza - 2º Projeto Php OO - Portal Code Education",
+	"authors" : [
         {
-			"name":"Cândido Souza",
-			"email":"candido_souza@hotmail.com"
+			"name" : "Cândido Souza",
+			"email" : "candido_souza@hotmail.com"
 		}
 	],
-    	"mininum-stability":"dev",
-	"autoload":{
-		"psr-4":{
-		    "src\\app\\classes\\": "src/app/classes/"
+    	"mininum-stability" : "dev",
+	"autoload" : {
+		"psr-4" : {
+		    "src\\app\\classes\\" : "src/app/classes/",
+            "src\\app\\interfaces\\" : "src/app/interfaces/"
 		}
 	}
 }

@@ -10,189 +10,277 @@
  * Linguagem: php
  */
 
-/*****************************
-Classe Clientes
-*****************************/
 namespace src\app\classes;
+use src\app\interfaces\ClientesInterfaces;
 
-class Clientes
+/**
+ * Class Clientes
+ * @package src\app\classes
+ */
+class Clientes implements ClientesInterfaces
 {
-    // Dados pessoais
-    private $id;
-    private $nome;
-    private $sobrenome;
-    private $cpf;
-    private $email;
-    private $telefone;
-    // Dados de endereço
-    private $rua;
-    private $numero;
-    private $complemento;
-    private $bairro;
-    private $cep;
-    private $municipio;
-    private $uf;
-    
-    function __construct($id, $nome, $sobrenome, $cpf, $email, $telefone, $rua, $numero, $complemento, $bairro, $cep, $municipio, $uf)
+    protected $id;
+    protected $nomeRS;
+    protected $cnpjCpf;
+    protected $email;
+    protected $telefone;
+    protected $rua;
+    protected $numero;
+    protected $complemento;
+    protected $bairro;
+    protected $cep;
+    protected $municipio;
+    protected $uf;
+    protected $tipo;
+    protected $grauImportance;
+
+    function __construct($id, $nomeRS, $email,  $tipo, $cnpjCpf,  $telefone, $rua, $numero, $bairro, $cep, $complemento,  $grauImportance, $municipio, $uf)
     {
-        $this->id = $id;
-        $this->nome = $nome;
-        $this->sobrenome = $sobrenome;
-        $this->cpf = $cpf;
-        $this->email = $email;
-        $this->telefone = $telefone;
-        $this->rua = $rua;
-        $this->numero = $numero;
-        $this->complemento = $complemento;
         $this->bairro = $bairro;
         $this->cep = $cep;
+        $this->cnpjCpf = $cnpjCpf;
+        $this->complemento = $complemento;
+        $this->email = $email;
+        $this->grauImportance = $grauImportance;
+        $this->id = $id;
         $this->municipio = $municipio;
+        $this->nomeRS = $nomeRS;
+        $this->numero = $numero;
+        $this->rua = $rua;
+        $this->telefone = $telefone;
+        $this->tipo = $tipo;
         $this->uf = $uf;
     }
 
-    public function getId() {
+    /**
+     * @param $nomeRS
+     * @param $cnpjCpf
+     * @param $email
+     * @param $telefone
+     */
+
+
+    /**
+     * @param mixed $nomeRS
+     */
+    public function setNomeRS($nomeRS)
+    {
+        $this->nomeRS = $nomeRS;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNomeRS()
+    {
+        return $this->nomeRS;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
         return $this->id;
     }
-    
-    public function getNome() {
-        return $this->nome;
+
+    /**
+     * @param mixed $bairro
+     */
+    public function setBairro($bairro)
+    {
+        $this->bairro = $bairro;
     }
 
-    public function getSobrenome() {
-        return $this->sobrenome;
-    }
-
-    public function getCpf() {
-        return $this->cpf;
-    }
-
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function getTelefone() {
-        return $this->telefone;
-    }
-
-    public function getRua() {
-        return $this->rua;
-    }
-
-    public function getNumero() {
-        return $this->numero;
-    }
-
-    public function getComplemento() {
-        return $this->complemento;
-    }
-
-    public function getBairro() {
+    /**
+     * @return mixed
+     */
+    public function getBairro()
+    {
         return $this->bairro;
     }
 
-    public function getCep() {
-        return $this->cep;
-    }
-
-    public function getMunicipio() {
-        return $this->municipio;
-    }
-
-    public function getUf() {
-        return $this->uf;
-    }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-    
-    public function setNome($nome) {
-        $this->nome = $nome;
-    }
-
-    public function setSobrenome($sobrenome) {
-        $this->sobrenome = $sobrenome;
-    }
-
-    public function setCpf($cpf) {
-        $this->cpf = $cpf;
-    }
-
-    public function setEmail($email) {
-        $this->email = $email;
-    }
-
-    public function setTelefone($telefone) {
-        $this->telefone = $telefone;
-    }
-
-    public function setRua($rua) {
-        $this->rua = $rua;
-    }
-
-    public function setNumero($numero) {
-        $this->numero = $numero;
-    }
-
-    public function setComplemento($complemento) {
-        $this->complemento = $complemento;
-    }
-
-    public function setBairro($bairro) {
-        $this->bairro = $bairro;
-    }
-
-    public function setCep($cep) {
+    /**
+     * @param mixed $cep
+     */
+    public function setCep($cep)
+    {
         $this->cep = $cep;
     }
 
-    public function setMunicipio($municipio) {
+    /**
+     * @return mixed
+     */
+    public function getCep()
+    {
+        return $this->cep;
+    }
+
+    /**
+     * @param mixed $cnpjCpf
+     */
+    public function setCnpjCpf($cnpjCpf)
+    {
+        $this->cnpjCpf = $cnpjCpf;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCnpjCpf()
+    {
+        return $this->cnpjCpf;
+    }
+
+    /**
+     * @param mixed $complemento
+     */
+    public function setComplemento($complemento)
+    {
+        $this->complemento = $complemento;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComplemento()
+    {
+        return $this->complemento;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $grauImportance
+     */
+    public function setGrauImportance($grauImportance)
+    {
+        $this->grauImportance = $grauImportance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGrauImportance()
+    {
+        return $this->grauImportance;
+    }
+
+    /**
+     * @param mixed $municipio
+     */
+    public function setMunicipio($municipio)
+    {
         $this->municipio = $municipio;
     }
 
-    public function setUf($uf) {
+    /**
+     * @return mixed
+     */
+    public function getMunicipio()
+    {
+        return $this->municipio;
+    }
+
+    /**
+     * @param mixed $numero
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * @param mixed $rua
+     */
+    public function setRua($rua)
+    {
+        $this->rua = $rua;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRua()
+    {
+        return $this->rua;
+    }
+
+    /**
+     * @param mixed $telefone
+     */
+    public function setTelefone($telefone)
+    {
+        $this->telefone = $telefone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelefone()
+    {
+        return $this->telefone;
+    }
+
+    /**
+     * @param mixed $tipo
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    /**
+     * @param mixed $uf
+     */
+    public function setUf($uf)
+    {
         $this->uf = $uf;
     }
-    
-//    public function visualizarClientes()
-//    {
-//        return $dados = array(
-//            $this->nome, 
-//            $this->sobrenome,
-//            $this->cpf,
-//            $this->email,
-//            $this->telefone,
-//            $this->rua,
-//            $this->numero,
-//            $this->complemento,
-//            $this->bairro,
-//            $this->cep,
-//            $this->municipio,
-//            $this->uf
-//            
-//            );
-//    }
-//    
-//    public function iteracaoObj()
-//    {
-//        foreach($this as $key => $value) {
-//            print "$key => $value\n";
-//        }
-//    }
-    
-//    public function __destruct()
-//    {
-//        $this->nome; 
-//        $this->sobrenome;
-//        $this->cpf;
-//        $this->email;
-//        $this->telefone;
-//        $this->rua;
-//        $this->numero;
-//        $this->complemento;
-//        $this->bairro;
-//        $this->cep;
-//        $this->municipio;
-//        $this->uf;
-//    }
+
+    /**
+     * @return mixed
+     */
+    public function getUf()
+    {
+        return $this->uf;
+    }
 }
