@@ -33,7 +33,7 @@
                                     <th>NOME</th>
                                     <th>E-MAILL</th>
                                     <th>TELEFONE</th>
-                                    <th>P.FISICA <br> P.JURIDICA</th>
+                                    <th>FÍSICA | JÚRIDICA</th>
                                     <th>ESTRELAS</th>
                                     <th>VISUALIZAR</th>
                                     <th>ALTERAR</th>

@@ -10,15 +10,9 @@
 * Linguagem: php
 */
 -->
-<?php
-//echo '<pre>';
-//print_r($clientes[0]);
-//echo '</pre>'
-?>
 <h1>Dados do Cliente</h1>
 <div class="jumbotron">
     <div class="col-md-12">
-
         <?php
         if(isset($_GET)) {
         $codigo = array_keys($_GET);
@@ -35,13 +29,11 @@
                 echo "<h4>Cliente: <strong>".$clientes[$valor]->getGrauImportance()." Estrelas</strong></h4>";
                 echo "<h4>Telefone: <strong>".$clientes[$valor]->getTelefone()."</strong></h4>";
 
-//                if(!$clientes[$valor]->getCelular()){
-//                    echo "<h4>Telefone: <strong>".$clientes[$valor]->getFax()."</strong></h4>";
-//
-//                }else{
-//                    echo "<h4>Celular: <strong>".$clientes[$valor]->getCelular()."</strong></h4>";
-//
-//                }
+                if(method_exists($clientes[$valor],'getCelular')){
+                    echo "<h4>Celular: <strong>".$clientes[$valor]->getCelular()."</strong></h4>";
+                }else{
+                    echo "<h4>Fax: <strong>".$clientes[$valor]->getFax()."</strong></h4>";
+                }
                 echo "<h4>Rua: <strong>".$clientes[$valor]->getRua()."</strong></h4>";
                 echo "<h4>Nº: <strong>".$clientes[$valor]->getNumero()."</strong></h4>";
                 echo "<h4>Complemento: <strong>".$clientes[$valor]->getComplemento()."</strong></h4>";
@@ -66,7 +58,7 @@
         }
         ?>
     </div>
-        <a href="index.php"><button class="btn btn-info " >Voltar</button></a>
+    <a href="index.php"><button class="btn btn-info " >Voltar</button></a>
 </div><!-- /jumbotron -->
 
 

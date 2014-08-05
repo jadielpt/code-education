@@ -13,6 +13,10 @@
 namespace src\app\interfaces;
 
 
+/**
+ * Interface EndCobrancaInterface
+ * @package src\app\interfaces
+ */
 interface EndCobrancaInterface
 {
     public function getTelContato();

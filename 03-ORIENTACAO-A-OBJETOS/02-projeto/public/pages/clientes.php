@@ -39,16 +39,43 @@ $clientes[2] = new ClientesPessoasFisicas(3, "Claudia Bertolin", "claudia@email.
 $clientes[2]->setCelular(17977777777);
 
 $clientes[3] = new \src\app\classes\ClientesPessoasJuridicas(4, "Livros SA", "livros@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 4, "Votuporanga", "SP");
-$clientes[3]->setFax(17777777777);
+$clientes[3]->setFax(179999999)
+            ->setTelContato(179999999)
+            ->setCobrRua('Rua Dos Lirios')
+            ->setCobrNumero('7777')
+            ->setCobrComplemento('Bloco 01 - Sala 02')
+            ->setCobrBairro('Jd.Paulistano')
+            ->setCobrCep(15502210)
+            ->setCobrMunicipio('Votuporanga')
+            ->setCobrUf('SP')
+;
 
 $clientes[4] = new ClientesPessoasFisicas(5, "Felipe Bertolin de Souza", "felipe@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
-$clientes[4]->setCelular(17977777777);
+$clientes[4]->setCelular(17977777777)
+            ->setTelContato(null)
+            ->setCobrRua(null)
+            ->setCobrNumero(null)
+            ->setCobrComplemento(null)
+            ->setCobrBairro(null)
+            ->setCobrCep(null)
+            ->setCobrMunicipio(null)
+            ->setCobrUf(null)
+;
 
 $clientes[5] = new \src\app\classes\ClientesPessoasJuridicas(6, "Petrobras do Brasil SA", "petrobras@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
 $clientes[5]->setFax(17777777777);
 
 $clientes[6] = new ClientesPessoasFisicas(7, "Maria Helena", "maria@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
-$clientes[6]->setCelular(17977777777);
+$clientes[6]->setCelular(17951515151)
+            ->setTelContato(1777777777)
+            ->setCobrRua('Santos Dumont')
+            ->setCobrNumero(7)
+            ->setCobrComplemento('Loja')
+            ->setCobrBairro('Vera Cruz')
+            ->setCobrCep(15555000)
+            ->setCobrMunicipio('Bauru')
+            ->setCobrUf('SP')
+;
 
 $clientes[7] = new \src\app\classes\ClientesPessoasJuridicas(8, "Coca Cola SA", "cocacola@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 2, "Votuporanga", "SP");
 $clientes[7]->setFax(17777777777);
@@ -57,11 +84,14 @@ $clientes[8] = new ClientesPessoasFisicas(9, "Vitor Souza", "vitor@email.com.br"
 $clientes[8]->setCelular(17977777777);
 
 $clientes[9] = new \src\app\classes\ClientesPessoasJuridicas(10, "Microsoft do Brasil SA", "micro@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
-$clientes[9]->setFax(17777777777);
+$clientes[9]->setFax(179999999)
+            ->setTelContato(173997777)
+            ->setCobrRua('Microsoft do Brasil')
+            ->setCobrNumero('1')
+            ->setCobrComplemento('Bloco 01 - Sala 02')
+            ->setCobrBairro('Jd.Microsoft do Brasil')
+            ->setCobrCep(15502210)
+            ->setCobrMunicipio('Votuporanga')
+            ->setCobrUf('SP')
+;
 
-//echo '<pre>';
-//print_r($clientes);
-//echo '</pre>';
-
-//echo $clientes[0]->getNome();
-//echo $clientes[0]->getSobrenome();
