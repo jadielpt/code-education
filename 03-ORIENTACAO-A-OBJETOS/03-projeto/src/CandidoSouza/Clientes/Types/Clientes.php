@@ -11,13 +11,14 @@
  */
 
 namespace CandidoSouza\Clientes\Types;
+use \CandidoSouza\Clientes\Abstracts\EndCobrClienteAbstract;
 use \CandidoSouza\Clientes\Interfaces\ClientesInterfaces;
 
 /**
  * Class Clientes
  * @package CandidoSouza\Clientes\Types
  */
-class Clientes implements ClientesInterfaces
+class Clientes extends EndCobrClienteAbstract implements ClientesInterfaces
 {
     protected $id;
     protected $nomeRS;

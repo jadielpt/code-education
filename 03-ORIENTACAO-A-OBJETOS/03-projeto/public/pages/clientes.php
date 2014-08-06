@@ -13,7 +13,7 @@ use CandidoSouza\Clientes\Types\ClientesPessoasFisicas as ClientesPessoasFisicas
 use CandidoSouza\Clientes\Types\ClientesPessoasJuridicas as ClientesPessoasJuridicas;
 
 $clientes[0] = new ClientesPessoasFisicas(1, "Candido Souza", "candido@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
-$clientes[0]->setCelular(17977777777)
+$clientes[0]->setCelular(1795757557)
             ->setTelContato(null)
             ->setCobrRua(null)
             ->setCobrNumero(null)
@@ -25,7 +25,7 @@ $clientes[0]->setCelular(17977777777)
 ;
 
 $clientes[1] = new ClientesPessoasJuridicas(2, "Estofados ME", "estofados@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
-$clientes[1]->setFax(17777777777)
+$clientes[1]->setFax(17939393939)
             ->setTelContato(1798765432)
             ->setCobrRua('Amazonas')
             ->setCobrNumero('77')
@@ -64,7 +64,7 @@ $clientes[4]->setCelular(17977777777)
 ;
 
 $clientes[5] = new ClientesPessoasJuridicas(6, "Petrobras do Brasil SA", "petrobras@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
-$clientes[5]->setFax(17777777777);
+$clientes[5]->setFax(1717171717);
 
 $clientes[6] = new ClientesPessoasFisicas(7, "Maria Helena", "maria@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
 $clientes[6]->setCelular(17951515151)
@@ -79,10 +79,10 @@ $clientes[6]->setCelular(17951515151)
 ;
 
 $clientes[7] = new ClientesPessoasJuridicas(8, "Coca Cola SA", "cocacola@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 2, "Votuporanga", "SP");
-$clientes[7]->setFax(17777777777);
+$clientes[7]->setFax(1737773737);
 
 $clientes[8] = new ClientesPessoasFisicas(9, "Vitor Souza", "vitor@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 4, "Votuporanga", "SP");
-$clientes[8]->setCelular(17977777777);
+$clientes[8]->setCelular(1799999777);
 
 $clientes[9] = new ClientesPessoasJuridicas(10, "Microsoft do Brasil SA", "micro@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
 $clientes[9]->setFax(179999999)
