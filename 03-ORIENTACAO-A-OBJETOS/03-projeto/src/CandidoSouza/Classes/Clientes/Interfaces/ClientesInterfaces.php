@@ -10,7 +10,7 @@
  * Linguagem: php
  */
 
-namespace CandidoSouza\Clientes\Interfaces;
+namespace CandidoSouza\Classes\Clientes\Interfaces;
 
 
 /**

@@ -9,8 +9,8 @@
  * Arquivo: clientes.php
  * Linguagem: php
  */
-use CandidoSouza\Clientes\Types\ClientesPessoasFisicas as ClientesPessoasFisicas;
-use CandidoSouza\Clientes\Types\ClientesPessoasJuridicas as ClientesPessoasJuridicas;
+use CandidoSouza\Classes\Clientes\Types\ClientesPessoasFisicas as ClientesPessoasFisicas;
+use CandidoSouza\Classes\Clientes\Types\ClientesPessoasJuridicas as ClientesPessoasJuridicas;
 
 $clientes[0] = new ClientesPessoasFisicas(1, "Candido Souza", "candido@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
 $clientes[0]->setCelular(1795757557)

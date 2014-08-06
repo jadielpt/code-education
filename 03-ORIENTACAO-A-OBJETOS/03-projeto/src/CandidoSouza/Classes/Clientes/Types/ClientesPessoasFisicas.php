@@ -6,37 +6,35 @@
  * Time: 17:51
  * 02 - Projeto Tipos de Clientes | Estudos Potal Code Education - Módulo 03 Php Orientado a Objetos
  * @author Candido Souza
- * Arquivo: ClientesPessoasJuridicas.php
+ * Arquivo: ClientesPessoasFisicas.php
  * Linguagem: php
  */
 
-namespace CandidoSouza\Clientes\Types;
-use CandidoSouza\Clientes\Interfaces\EndCobrancaInterface;
+namespace CandidoSouza\Classes\Clientes\Types;
 
 
 /**
- * Class ClientesPessoasJuridicas
+ * Class ClientesPessoasFisicas
  * @package CandidoSouza\Clientes\Types;
  */
-class ClientesPessoasJuridicas extends Clientes
+class ClientesPessoasFisicas extends Clientes
 {
-    protected  $fax;
+    protected $celular;
 
     /**
-     * @param mixed $fax
+     * @param mixed $celular
      */
-    public function setFax($fax)
+    public function setCelular($celular)
     {
-        $this->fax = $fax;
+        $this->celular = $celular;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getFax()
+    public function getCelular()
     {
-        return $this->fax;
+        return $this->celular;
     }
-
 } 

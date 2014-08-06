@@ -10,7 +10,7 @@
  * Linguagem: php
  */
 
-namespace CandidoSouza\Clientes\Abstracts;
+namespace CandidoSouza\Classes\Clientes\Abstracts;
 
 
 /**

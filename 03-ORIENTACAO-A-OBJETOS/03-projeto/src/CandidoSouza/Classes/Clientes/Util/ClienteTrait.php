@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: candidosouza
- * Date: 05/08/14
- * Time: 16:42
+ * Date: 06/08/14
+ * Time: 11:16
  */
 
-namespace src\CandidoSouza\Utils;
+namespace CandidoSouza\Classes\Clientes\Util;
 
 
 trait ClienteTrait {

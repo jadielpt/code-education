@@ -10,9 +10,9 @@
  * Linguagem: php
  */
 
-namespace CandidoSouza\Clientes\Types;
-use \CandidoSouza\Clientes\Abstracts\EndCobrClienteAbstract;
-use \CandidoSouza\Clientes\Interfaces\ClientesInterfaces;
+namespace CandidoSouza\Classes\Clientes\Types;
+use \CandidoSouza\Classes\Clientes\Abstracts\EndCobrClienteAbstract;
+use \CandidoSouza\Classes\Clientes\Interfaces\ClientesInterfaces;
 
 /**
  * Class Clientes
