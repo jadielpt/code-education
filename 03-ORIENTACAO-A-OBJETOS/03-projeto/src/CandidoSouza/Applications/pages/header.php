@@ -22,7 +22,7 @@ require_once __DIR__ . '/../pages/clientes.php';
     <!-- style 
     <link rel="stylesheet" href="css/style.css"> -->
     <!-- Bootstrap -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
