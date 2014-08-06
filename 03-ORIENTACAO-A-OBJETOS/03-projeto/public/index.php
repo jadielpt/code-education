@@ -10,7 +10,8 @@
  * Linguagem: php
  */
 require_once __DIR__ . '/bootstrap.php';
-require_once __DIR__ . '/pages/header.php';
+
+require_once  __DIR__ . '/../src/CandidoSouza/Applications/pages/header.php';
 
 $route = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 $path = $route['path'];
@@ -28,4 +29,4 @@ if(empty($pagina)){
     require_once __DIR__ . '/pages/listaClientes.php';
 }
 
-require_once __DIR__ . '/pages/footer.php';
+require_once __DIR__ . '/../src/CandidoSouza/Applications/pages/footer.php';
