@@ -10,8 +10,6 @@
  * Linguagem: php
  */
 -->
-
-                <h1>Lista de Clientes</h1>
                     <div class="jumbotron">
                         <?php
                         if(isset($_POST['cres'])){

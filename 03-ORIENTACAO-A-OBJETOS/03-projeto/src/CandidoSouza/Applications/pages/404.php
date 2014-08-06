@@ -10,7 +10,6 @@
  * Linguagem: php
  */
 -->
-<h1>ERRO: A página não existe</h1>
 <div class="jumbotron">
     <h1>Ixi, Maria! ERROR: 404</h1>
     <h2>ERRO: A página não existe</h2>

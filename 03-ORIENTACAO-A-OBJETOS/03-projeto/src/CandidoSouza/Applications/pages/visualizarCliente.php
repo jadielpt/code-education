@@ -10,7 +10,6 @@
 * Linguagem: php
 */
 -->
-<h1>Dados do Cliente</h1>
 <div class="jumbotron">
     <div class="col-md-12">
         <?php
