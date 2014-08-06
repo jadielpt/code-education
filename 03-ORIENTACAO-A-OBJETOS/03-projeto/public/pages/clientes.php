@@ -9,7 +9,8 @@
  * Arquivo: clientes.php
  * Linguagem: php
  */
-use \src\app\classes\ClientesPessoasFisicas as ClientesPessoasFisicas;
+use CandidoSouza\Clientes\Types\ClientesPessoasFisicas as ClientesPessoasFisicas;
+use CandidoSouza\Clientes\Types\ClientesPessoasJuridicas as ClientesPessoasJuridicas;
 
 $clientes[0] = new ClientesPessoasFisicas(1, "Candido Souza", "candido@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
 $clientes[0]->setCelular(17977777777)
@@ -23,7 +24,7 @@ $clientes[0]->setCelular(17977777777)
             ->setCobrUf(null)
 ;
 
-$clientes[1] = new \src\app\classes\ClientesPessoasJuridicas(2, "Estofados ME", "estofados@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
+$clientes[1] = new ClientesPessoasJuridicas(2, "Estofados ME", "estofados@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
 $clientes[1]->setFax(17777777777)
             ->setTelContato(1798765432)
             ->setCobrRua('Amazonas')
@@ -38,7 +39,7 @@ $clientes[1]->setFax(17777777777)
 $clientes[2] = new ClientesPessoasFisicas(3, "Claudia Bertolin", "claudia@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 3, "Votuporanga", "SP");
 $clientes[2]->setCelular(17977777777);
 
-$clientes[3] = new \src\app\classes\ClientesPessoasJuridicas(4, "Livros SA", "livros@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 4, "Votuporanga", "SP");
+$clientes[3] = new ClientesPessoasJuridicas(4, "Livros SA", "livros@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 4, "Votuporanga", "SP");
 $clientes[3]->setFax(179999999)
             ->setTelContato(179999999)
             ->setCobrRua('Rua Dos Lirios')
@@ -62,7 +63,7 @@ $clientes[4]->setCelular(17977777777)
             ->setCobrUf(null)
 ;
 
-$clientes[5] = new \src\app\classes\ClientesPessoasJuridicas(6, "Petrobras do Brasil SA", "petrobras@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
+$clientes[5] = new ClientesPessoasJuridicas(6, "Petrobras do Brasil SA", "petrobras@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
 $clientes[5]->setFax(17777777777);
 
 $clientes[6] = new ClientesPessoasFisicas(7, "Maria Helena", "maria@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
@@ -77,13 +78,13 @@ $clientes[6]->setCelular(17951515151)
             ->setCobrUf('SP')
 ;
 
-$clientes[7] = new \src\app\classes\ClientesPessoasJuridicas(8, "Coca Cola SA", "cocacola@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 2, "Votuporanga", "SP");
+$clientes[7] = new ClientesPessoasJuridicas(8, "Coca Cola SA", "cocacola@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 2, "Votuporanga", "SP");
 $clientes[7]->setFax(17777777777);
 
 $clientes[8] = new ClientesPessoasFisicas(9, "Vitor Souza", "vitor@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 4, "Votuporanga", "SP");
 $clientes[8]->setCelular(17977777777);
 
-$clientes[9] = new \src\app\classes\ClientesPessoasJuridicas(10, "Microsoft do Brasil SA", "micro@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
+$clientes[9] = new ClientesPessoasJuridicas(10, "Microsoft do Brasil SA", "micro@email.com.br", "Pessoa Júridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
 $clientes[9]->setFax(179999999)
             ->setTelContato(173997777)
             ->setCobrRua('Microsoft do Brasil')

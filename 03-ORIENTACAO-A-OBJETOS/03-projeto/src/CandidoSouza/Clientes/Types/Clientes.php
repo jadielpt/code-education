@@ -10,12 +10,12 @@
  * Linguagem: php
  */
 
-namespace src\app\classes;
-use src\app\interfaces\ClientesInterfaces;
+namespace CandidoSouza\Clientes\Types;
+use \CandidoSouza\Clientes\Interfaces\ClientesInterfaces;
 
 /**
  * Class Clientes
- * @package src\app\classes
+ * @package CandidoSouza\Clientes\Types
  */
 class Clientes implements ClientesInterfaces
 {

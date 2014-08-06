@@ -10,7 +10,7 @@
  * Linguagem: php
  */
 
-namespace src\app\interfaces;
+namespace CandidoSouza\Clientes\Interfaces;
 
 
 /**

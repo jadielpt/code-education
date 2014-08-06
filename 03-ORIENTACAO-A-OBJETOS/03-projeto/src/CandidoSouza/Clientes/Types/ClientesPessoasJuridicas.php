@@ -10,13 +10,13 @@
  * Linguagem: php
  */
 
-namespace src\app\classes;
-use src\app\interfaces\EndCobrancaInterface;
+namespace CandidoSouza\Clientes\Types;
+use CandidoSouza\Clientes\Interfaces\EndCobrancaInterface;
 
 
 /**
  * Class ClientesPessoasJuridicas
- * @package src\app\classes
+ * @package CandidoSouza\Clientes\Types;
  */
 class ClientesPessoasJuridicas extends Clientes implements EndCobrancaInterface
 {

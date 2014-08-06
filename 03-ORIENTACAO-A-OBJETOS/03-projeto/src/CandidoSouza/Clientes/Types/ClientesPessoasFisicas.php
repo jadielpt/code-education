@@ -10,8 +10,8 @@
  * Linguagem: php
  */
 
-namespace src\app\classes;
-use src\app\interfaces\EndCobrancaInterface;
+namespace CandidoSouza\Clientes\Types;
+use CandidoSouza\Clientes\Interfaces\EndCobrancaInterface;
 
 
 /**

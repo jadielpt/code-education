@@ -10,12 +10,12 @@
  * Linguagem: php
  */
 
-namespace src\app\interfaces;
+namespace CandidoSouza\Clientes\Interfaces;
 
 
 /**
  * Interface ClientesInterfaces
- * @package src\app\interfaces
+ * @package CandidoSouza\Clientes\Interfaces
  */
 interface ClientesInterfaces
 {
