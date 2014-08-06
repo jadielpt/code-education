@@ -1,14 +1,14 @@
-2º Projeto | Módulo 03 - Php Orientado a Objetos
+3º Projeto | Módulo 03 - Php Orientado a Objetos
 ================================================
 
-Projeto - Tipos de Clientes.
+Projeto - Refatoração.
 -------------------------------
 
 Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 03 - Php Orientado a Objetos.*
 
 Antes de testar esta aplicação.
 
->1. *Tenha instalado o php 5.5 ou posteriores - Versões anteriores acarretará erros.*
+>1. *Tenha instalado o php 5.5 ou posterior - Versões anteriores acarretará erros.*
 
 **Sobre o projeto**
 
