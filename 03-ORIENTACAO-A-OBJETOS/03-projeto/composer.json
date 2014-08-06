@@ -6,11 +6,9 @@
 			"email" : "candido_souza@hotmail.com"
 		}
 	],
-    	"mininum-stability" : "dev",
 	"autoload" : {
-		"psr-4" : {
-		    "src\\app\\classes\\" : "src/app/classes/",
-            "src\\app\\interfaces\\" : "src/app/interfaces/"
+		"psr-0" : {
+		    "" : "src/"
 		}
 	}
 }
