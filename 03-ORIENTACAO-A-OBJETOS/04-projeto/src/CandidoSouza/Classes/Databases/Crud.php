@@ -20,23 +20,37 @@ use CandidoSouza\Classes\Databases\Abstracts\DataBasesAbstract;
  */
 class Crud extends DataBasesAbstract
 {
-//    private $database;
-//    
-//    function __construct(\PDO $database) {
-//        $this->database = $database;
-//    }
+//    private $pdo;
 //
-//    
-    public function create($nome, $email, $cpf, $tipo)
+//    function __construct(Connect $connect) {
+//        $this->pdo = $connect::getDb();
+//    }
+
+    private $connect;
+
+    public function __construct( $connect) {
+        $this->connect = $connect;
+    }
+
+    public static function create($nome, $email, $tipo, $cpf, $telefone, $rua, $numero, $bairro, $cep, $complemento, $estrela, $cidade, $uf)
     {
-        $pdo = parent::getDb();
-        
         try {
-            $cadastrar = $pdo->prepare("INSERT INTO clientes (nome, email, cpf, tipo) VALUES (?, ?, ?, ?)");
+            $pdo = Connect::getDb();
+            $cadastrar = $pdo->prepare("INSERT INTO clientes (nome, email, tipo, cpf, telefone, rua, numero, bairro, cep, complemento, estrela, cidade, uf)"
+                                     . "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $cadastrar->bindValue(1, $nome);
             $cadastrar->bindValue(2, $email);
-            $cadastrar->bindValue(3, $cpf);
-            $cadastrar->bindValue(4, $tipo);
+            $cadastrar->bindValue(3, $tipo);
+            $cadastrar->bindValue(4, $cpf);
+            $cadastrar->bindValue(5, $telefone);
+            $cadastrar->bindValue(6, $rua);
+            $cadastrar->bindValue(7, $numero);
+            $cadastrar->bindValue(8, $bairro);
+            $cadastrar->bindValue(9, $cep);
+            $cadastrar->bindValue(10, $complemento);
+            $cadastrar->bindValue(11, $estrela);
+            $cadastrar->bindValue(12, $cidade);
+            $cadastrar->bindValue(13, $uf);
             $cadastrar->execute();
         } catch (PDOException $e) {
             echo "ERROR: Não foi possível cadastrar dados no banco!";

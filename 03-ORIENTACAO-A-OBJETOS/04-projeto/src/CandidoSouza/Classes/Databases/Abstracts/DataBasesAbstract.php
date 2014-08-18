@@ -31,10 +31,5 @@ class DataBasesAbstract extends Connect
         return $dados;
     }
     
-    protected function update();
-    
-    protected function delete();
-    
-    protected function create();
     
 }

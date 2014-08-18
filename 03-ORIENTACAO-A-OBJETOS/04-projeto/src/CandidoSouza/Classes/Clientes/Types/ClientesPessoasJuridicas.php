@@ -20,6 +20,11 @@ use CandidoSouza\Classes\Clientes\Interfaces\EndCobrancaInterface;
 class ClientesPessoasJuridicas extends Clientes
 {
     protected  $fax;
+    private $connect;
+
+    public function __construct($connect) {
+        $this->connect = $connect;
+    }
 
     /**
      * @param mixed $fax

@@ -19,7 +19,6 @@ use \CandidoSouza\Classes\Clientes\Interfaces\ClientesInterfaces;
  */
 class Clientes extends EndCobrClienteAbstract implements ClientesInterfaces
 {
-    protected $id;
     protected $nomeRS;
     protected $cnpjCpf;
     protected $email;
@@ -34,7 +33,7 @@ class Clientes extends EndCobrClienteAbstract implements ClientesInterfaces
     protected $tipo;
     protected $grauImportance;
 
-    function __construct($id, $nomeRS, $email,  $tipo, $cnpjCpf,  $telefone, $rua, $numero, $bairro, $cep, $complemento,  $grauImportance, $municipio, $uf)
+    function __construct( $nomeRS, $email,  $tipo, $cnpjCpf,  $telefone, $rua, $numero, $bairro, $cep, $complemento,  $grauImportance, $municipio, $uf)
     {
         $this->bairro = $bairro;
         $this->cep = $cep;
@@ -42,7 +41,6 @@ class Clientes extends EndCobrClienteAbstract implements ClientesInterfaces
         $this->complemento = $complemento;
         $this->email = $email;
         $this->grauImportance = $grauImportance;
-        $this->id = $id;
         $this->municipio = $municipio;
         $this->nomeRS = $nomeRS;
         $this->numero = $numero;

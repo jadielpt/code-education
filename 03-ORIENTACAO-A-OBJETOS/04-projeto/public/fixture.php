@@ -14,17 +14,10 @@ date_default_timezone_set('America/Sao_Paulo');
 require_once './bootstrap.php';
 
 use CandidoSouza\Classes\Databases\Crud;
-
-$cliente = new Crud();
-
-$dados =  $cliente->create('felipe', 'candido@email', 12345677777, 'Pessoa Fisica' );
+use CandidoSouza\Classes\Clientes\Types\ClientesPessoasFisicas;
+use CandidoSouza\Classes\Clientes\Types\ClientesPessoasJuridicas;
 
 
-echo "<pre>";
-print_r($dados);
-echo "</pre>";
+$clientes = new ClientesPessoasFisicas(Crud::create("Claudia Bertolin Souza", "claudia@email.com.br", "Pessoa Física", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP"));
 
-
-
-
-
+$clientes = new ClientesPessoasJuridicas(Crud::create("Candido Souza", "candido@email.com.br", "Pessoa Juridica", 77777777777, 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP"));

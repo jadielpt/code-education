@@ -11,7 +11,7 @@
 
 namespace CandidoSouza\Classes\Clientes\Types;
 
-
+use CandidoSouza\Classes\Databases\Crud;
 /**
  * Class ClientesPessoasFisicas
  * @package CandidoSouza\Clientes\Types;
@@ -19,8 +19,13 @@ namespace CandidoSouza\Classes\Clientes\Types;
 class ClientesPessoasFisicas extends Clientes
 {
     protected $celular;
+    private $connect;
 
-    /**
+    public function __construct($connect) {
+        $this->connect = $connect;
+    }
+
+        /**
      * @param mixed $celular
      */
     public function setCelular($celular)
