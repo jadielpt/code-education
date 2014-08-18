@@ -9,46 +9,45 @@
  * Linguagem: php
  */
 
-use CandidoSouza\Classes\Databases\Connect;
-
 namespace CandidoSouza\Classes\Databases;
-
+use CandidoSouza\Classes\Databases\Connect;
+use CandidoSouza\Classes\Databases\Abstracts\DataBasesAbstract;
 /**
  * Class Crud
  * Classe responsável por fazer o CRUD com PDO ao banco de dados
  * @package src\app\classes\databases
  * @var PDO
  */
-class Crud 
+class Crud extends DataBasesAbstract
 {
-    private $database;
-    
-    function __construct(\PDO $database) {
-        $this->database = $database;
-    }
-
-    
-    public function create($tabela, $dadosCadastrar)
+//    private $database;
+//    
+//    function __construct(\PDO $database) {
+//        $this->database = $database;
+//    }
+//
+//    
+    public function create($nome, $email, $cpf, $tipo)
     {
-        //Connect::connection();
-        $campos = count($dadosCadastrar);
-
+        $pdo = parent::getDb();
+        
         try {
-            $cadastrar = $this->database->prepare("insert into {$tabela} (nome, sobrenome, email, cpf) values (?, ?, ?, ?)");
-            for ($i = 0; $i < $campos; $i ++):
-                $cadastrar->bindValue($i+1, $dadosCadastrar[$i]);
-            endfor;
+            $cadastrar = $pdo->prepare("INSERT INTO clientes (nome, email, cpf, tipo) VALUES (?, ?, ?, ?)");
+            $cadastrar->bindValue(1, $nome);
+            $cadastrar->bindValue(2, $email);
+            $cadastrar->bindValue(3, $cpf);
+            $cadastrar->bindValue(4, $tipo);
             $cadastrar->execute();
-            return "cadastrado com sucesso!";
         } catch (PDOException $e) {
-            die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
+            echo "ERROR: Não foi possível cadastrar dados no banco!";
+            die("Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br>  Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
         }
-        
     }
     
-    public function read()
+    public function read() 
     {
-        
+        parent::$tabela = "clientes";
+        return parent::listar();
     }
     
     public function update()

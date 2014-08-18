@@ -13,13 +13,18 @@ ini_set("display_errors", 1);
 date_default_timezone_set('America/Sao_Paulo');
 require_once './bootstrap.php';
 
-use CandidoSouza\Classes\Databases\Connect;
 use CandidoSouza\Classes\Databases\Crud;
 
-$database = Connect::connection();
-$crud = new Crud($database);
+$cliente = new Crud();
 
-$cadastarDados = array();
-$crud->create('clientes', 'jose','Souza', 'joses@email.com', 1270018080);
+$dados =  $cliente->create('felipe', 'candido@email', 12345677777, 'Pessoa Fisica' );
+
+
+echo "<pre>";
+print_r($dados);
+echo "</pre>";
+
+
+
 
 
