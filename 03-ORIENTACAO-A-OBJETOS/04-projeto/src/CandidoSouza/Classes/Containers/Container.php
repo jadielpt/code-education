@@ -2,16 +2,16 @@
 /**
  * User: candidosouza
  * Date: 13/08/14
- * Time: 08:15
+ * Time: 14:15
  * 04 - Projeto Persistência de dados | Estudos Potal Code Education - Módulo 03 Php Orientado a Objetos
  * @author Candido Souza
- * Arquivo: ClientesTrait.php Obs: Arquivo criado apenas para didática.
+ * Arquivo: EndCobrClienteAbstract.php
  * Linguagem: php
  */
 
-namespace CandidoSouza\Classes\Clientes\Util;
+namespace CandidoSouza\Classes\Containers;
 
+class Container 
+{
 
-trait ClienteTrait {
-
-} 
+}
