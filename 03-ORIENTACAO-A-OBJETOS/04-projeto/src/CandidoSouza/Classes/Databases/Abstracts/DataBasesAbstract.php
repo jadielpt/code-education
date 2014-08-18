@@ -33,6 +33,8 @@ class DataBasesAbstract extends Connect
     
     protected function update();
     
-    public function delete();
+    protected function delete();
+    
+    protected function create();
     
 }
