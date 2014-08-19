@@ -28,9 +28,9 @@ class Crud extends DataBasesAbstract
 
     private $connect;
 
-    public function __construct( $connect) {
-        $this->connect = $connect;
-    }
+//    public function __construct($connect) {
+//        $this->connect = $connect;
+//    }
 
     public static function create($nome, $email, $tipo, $cpf, $telefone, $rua, $numero, $bairro, $cep, $complemento, $estrela, $cidade, $uf)
     {
