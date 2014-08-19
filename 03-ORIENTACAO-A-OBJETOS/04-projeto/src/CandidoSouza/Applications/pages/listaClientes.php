@@ -41,8 +41,6 @@
                             <tbody>
                                 <?php
                                 foreach ($dados as $key => $value) {
-
-
                                 ?>
                                 <tr>
                                 <td><?php echo $value["id"];?></td>
