@@ -19,8 +19,6 @@ namespace CandidoSouza\Classes\Clientes\Interfaces;
  */
 interface ClientesInterfaces
 {
-    public function getId();
-
     public function getNomeRS();
 
     public function getCnpjCpf();

@@ -14,7 +14,7 @@ namespace CandidoSouza\Classes\Clientes\Abstracts;
 
 /**
  * Class EndCobrClienteAbstract
- * @package CandidoSouza\Clientes\Abstracts
+ * @package CandidoSouza\Classes\Clientes\Abstracts;
  */
 abstract class EndCobrClienteAbstract {
 
@@ -130,8 +130,8 @@ abstract class EndCobrClienteAbstract {
         if($this->cobrMunicipio == null){
             return$this->getMunicipio();
         }else{
-            return $this->cobrMunicipio;;
-        };
+            return $this->cobrMunicipio;
+        }
     }
 
     /**

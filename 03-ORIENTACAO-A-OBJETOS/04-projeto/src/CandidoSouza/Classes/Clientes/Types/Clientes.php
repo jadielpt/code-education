@@ -10,8 +10,8 @@
  */
 
 namespace CandidoSouza\Classes\Clientes\Types;
-use \CandidoSouza\Classes\Clientes\Abstracts\EndCobrClienteAbstract;
-use \CandidoSouza\Classes\Clientes\Interfaces\ClientesInterfaces;
+use CandidoSouza\Classes\Clientes\Abstracts\EndCobrClienteAbstract;
+use CandidoSouza\Classes\Clientes\Interfaces\ClientesInterfaces;
 
 /**
  * Class Clientes
@@ -72,22 +72,6 @@ class Clientes extends EndCobrClienteAbstract implements ClientesInterfaces
     public function getNomeRS()
     {
         return $this->nomeRS;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

@@ -10,8 +10,12 @@
  */
 
 namespace CandidoSouza\Classes\Databases;
-use CandidoSouza\Classes\Databases\Connect;
 use CandidoSouza\Classes\Databases\Abstracts\DataBasesAbstract;
+use CandidoSouza\Classes\Clientes\Types\Clientes;
+use CandidoSouza\Classes\Clientes\Types\ClientesPessoasFisicas;
+use CandidoSouza\Classes\Clientes\Types\ClientesPessoasJuridicas;
+
+
 /**
  * Class Crud
  * Classe responsável por fazer o CRUD com PDO ao banco de dados
@@ -20,42 +24,60 @@ use CandidoSouza\Classes\Databases\Abstracts\DataBasesAbstract;
  */
 class Crud extends DataBasesAbstract
 {
-//    private $pdo;
-//
-//    function __construct(Connect $connect) {
-//        $this->pdo = $connect::getDb();
-//    }
-
     private $connect;
 
-//    public function __construct($connect) {
-//        $this->connect = $connect;
-//    }
+    public function __construct(\PDO $connect) {
+        $connect instanceof \PDO;
+        $this->connect = $connect;
+    }
 
-    public static function create($nome, $email, $tipo, $cpf, $telefone, $rua, $numero, $bairro, $cep, $complemento, $estrela, $cidade, $uf)
+    public function persist(Clientes $clientes)
     {
-        try {
-            $pdo = Connect::getDb();
-            $cadastrar = $pdo->prepare("INSERT INTO clientes (nome, email, tipo, cpf, telefone, rua, numero, bairro, cep, complemento, estrela, cidade, uf)"
-                                     . "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $cadastrar->bindValue(1, $nome);
-            $cadastrar->bindValue(2, $email);
-            $cadastrar->bindValue(3, $tipo);
-            $cadastrar->bindValue(4, $cpf);
-            $cadastrar->bindValue(5, $telefone);
-            $cadastrar->bindValue(6, $rua);
-            $cadastrar->bindValue(7, $numero);
-            $cadastrar->bindValue(8, $bairro);
-            $cadastrar->bindValue(9, $cep);
-            $cadastrar->bindValue(10, $complemento);
-            $cadastrar->bindValue(11, $estrela);
-            $cadastrar->bindValue(12, $cidade);
-            $cadastrar->bindValue(13, $uf);
-            $cadastrar->execute();
+        try{
+            $this->connect->beginTransaction();
+            $cadastrar = "INSERT INTO clientes (nome, email, tipo, cpf, telefone, rua, numero, bairro, cep, complemento, estrela, cidade, uf, celular, telcontato, fax, cobrrua, cobrnumero, cobrcomplemento, cobrbairro, cobrcep, cobrmunicipio, cobruf) VALUES (:nome, :email, :tipo, :cpf, :telefone, :rua, :numero, :bairro, :cep, :complemento, :estrela, :cidade, :uf, :celular, :telcontato, :fax, :cobrrua, :cobrnumero, :cobrcomplemento, :cobrbairro, :cobrcep, :cobrmunicipio, :cobruf)";
+            $dados = $this->connect->prepare($cadastrar);
+            $dados->execute(array(
+                "nome"          => $clientes->getNomeRS(),
+                "email"         => $clientes->getEmail(),
+                "tipo"          => $clientes->getTipo(),
+                "cpf"           => $clientes->getCnpjCpf(),
+                "telefone"      => $clientes->getTelefone(),
+                "rua"           => $clientes->getRua(),
+                "numero"        => $clientes->getNumero(),
+                "bairro"        => $clientes->getBairro(),
+                "cep"           => $clientes->getCep(),
+                "complemento"   => $clientes->getComplemento(),
+                "estrela"       => $clientes->getGrauImportance(),
+                "cidade"        => $clientes->getMunicipio(),
+                "uf"            => $clientes->getUf(),
+                "celular"       => $clientes->getTelContato(),
+                "telcontato"    => $clientes->getTelContato(),
+                "fax"           => $clientes->getTelContato(),
+                "cobrrua"       => $clientes->getCobrRua(),
+                "cobrnumero"    => $clientes->getCobrNumero(),
+                "cobrcomplemento" => $clientes->getCobrComplemento(),
+                "cobrbairro"    => $clientes->getCobrBairro(),
+                "cobrcep"       => $clientes->getCobrCep(),
+                "cobrmunicipio" => $clientes->getCobrMunicipio(),
+                "cobruf"        => $clientes->getCobrUf()
+            ));
+            $this->connect->lastInsertId();
         } catch (PDOException $e) {
             echo "ERROR: Não foi possível cadastrar dados no banco!";
             die("Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br>  Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
         }
+    }
+
+    public function flush()
+    {
+        try{
+            $this->connect->commit();
+        } catch (PDOException $e) {
+            echo "ERROR: Não foi possível cadastrar dados no banco!";
+            die("Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br>  Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
+        }
+        return true;
     }
     
     public function read() 

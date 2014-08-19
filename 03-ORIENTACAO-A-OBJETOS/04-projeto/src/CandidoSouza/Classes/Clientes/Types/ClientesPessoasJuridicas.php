@@ -10,21 +10,14 @@
  */
 
 namespace CandidoSouza\Classes\Clientes\Types;
-use CandidoSouza\Classes\Clientes\Interfaces\EndCobrancaInterface;
-
 
 /**
  * Class ClientesPessoasJuridicas
- * @package CandidoSouza\Clientes\Types;
+ * @package CandidoSouza\Classes\Clientes\Types;
  */
 class ClientesPessoasJuridicas extends Clientes
 {
     protected  $fax;
-    private $connect;
-
-    public function __construct($connect) {
-        $this->connect = $connect;
-    }
 
     /**
      * @param mixed $fax
