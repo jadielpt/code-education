@@ -13,43 +13,39 @@
     <div class="col-md-12">
         <?php
         if(isset($_GET)) {
-        $codigo = array_keys($_GET);
+            $id = array_keys($_GET);
 
-            foreach ($codigo as $key => $value) {
+            foreach ($id as $key => $value) {
                 $valor = $value-1;
 
                 echo "<div class=\"col-md-6\"><h2>Dados do Cliente</h2><br>";
-                echo "<h4>Código: <strong>".$clientes[$valor]->getId()."</strong></h4>";
-                echo "<h4>Nome: <strong>".$clientes[$valor]->getnomeRS()."</strong></h4>";
-                echo "<h4>E-mail: <strong>".$clientes[$valor]->getEmail()."</strong></h4>";
-                echo "<h4>Cpf | CNPJ: <strong>".$clientes[$valor]->getCnpjCpf()."</strong></h4>";
-                echo "<h4>Tipo: <strong>".$clientes[$valor]->getTipo()."</strong></h4>";
-                echo "<h4>Cliente: <strong>".$clientes[$valor]->getGrauImportance()." Estrelas</strong></h4>";
-                echo "<h4>Telefone: <strong>".$clientes[$valor]->getTelefone()."</strong></h4>";
-
-                if(method_exists($clientes[$valor],'getCelular')){
-                    echo "<h4>Celular: <strong>".$clientes[$valor]->getCelular()."</strong></h4>";
-                }else{
-                    echo "<h4>Fax: <strong>".$clientes[$valor]->getFax()."</strong></h4>";
-                }
-                echo "<h4>Rua: <strong>".$clientes[$valor]->getRua()."</strong></h4>";
-                echo "<h4>Nº: <strong>".$clientes[$valor]->getNumero()."</strong></h4>";
-                echo "<h4>Complemento: <strong>".$clientes[$valor]->getComplemento()."</strong></h4>";
-                echo "<h4>Bairro: <strong>".$clientes[$valor]->getBairro()."</strong></h4>";
-                echo "<h4>CEP: <strong>".$clientes[$valor]->getCep()."</strong></h4>";
-                echo "<h4>Municipio: <strong>".$clientes[$valor]->getMunicipio()."</strong></h4>";
-                echo "<h4>UF: <strong>".$clientes[$valor]->getUf()."</strong></h4>";
+                echo "<h4>Código: <strong>" . $dados[$valor]['id'] . "</strong></h4>";
+                echo "<h4>Nome: <strong>". $dados[$valor]['nome'] ."</strong></h4>";
+                echo "<h4>E-mail: <strong>". $dados[$valor]['email'] ."</strong></h4>";
+                echo "<h4>Cpf | CNPJ: <strong>". $dados[$valor]['cpf'] ."</strong></h4>";
+                echo "<h4>Tipo: <strong>". $dados[$valor]['tipo'] ."</strong></h4>";
+                echo "<h4>Cliente: <strong>". $dados[$valor]['estrela'] ." Estrelas</strong></h4>";
+                echo "<h4>Telefone: <strong>". $dados[$valor]['telefone'] ."</strong></h4>";
+                echo "<h4>Celular: <strong>". $dados[$valor]['celular'] ."</strong></h4>";
+                echo "<h4>Fax: <strong>". $dados[$valor]['fax'] ."</strong></h4>";
+                echo "<h4>Rua: <strong>". $dados[$valor]['rua'] ."</strong></h4>";
+                echo "<h4>Nº: <strong>". $dados[$valor]['numero'] ."</strong></h4>";
+                echo "<h4>Complemento: <strong>". $dados[$valor]['complemento'] ."</strong></h4>";
+                echo "<h4>Bairro: <strong>". $dados[$valor]['bairro'] ."</strong></h4>";
+                echo "<h4>CEP: <strong>". $dados[$valor]['cep'] ."</strong></h4>";
+                echo "<h4>Municipio: <strong>". $dados[$valor]['cidade'] ."</strong></h4>";
+                echo "<h4>UF: <strong>". $dados[$valor]['uf'] ."</strong></h4>";
 
                 echo "</div><div class=\"col-md-6\"> <h2>Endereço para Cobrança</h2><br>";
 
-                echo "<h4>Telefone Contato: <strong>".$clientes[$valor]->getTelContato()."</strong></h4>";
-                echo "<h4>Rua: <strong>".$clientes[$valor]->getCobrRua()."</strong></h4>";
-                echo "<h4>Nº: <strong>".$clientes[$valor]->getCobrNumero()."</strong></h4>";
-                echo "<h4>Complemento: <strong>".$clientes[$valor]->getCobrComplemento()."</strong></h4>";
-                echo "<h4>Bairro: <strong>".$clientes[$valor]->getCobrBairro()."</strong></h4>";
-                echo "<h4>CEP: <strong>".$clientes[$valor]->getCobrCep()."</strong></h4>";
-                echo "<h4>Municipio: <strong>".$clientes[$valor]->getCobrMunicipio()."</strong></h4>";
-                echo "<h4>UF: <strong>".$clientes[$valor]->getCobrUf()."</strong></h4>";
+                echo "<h4>Telefone Contato: <strong>". $dados[$valor]['telcontato'] ."</strong></h4>";
+                echo "<h4>Rua: <strong>". $dados[$valor]['cobrrua'] ."</strong></h4>";
+                echo "<h4>Nº: <strong>". $dados[$valor]['cobrnumero'] ."</strong></h4>";
+                echo "<h4>Complemento: <strong>". $dados[$valor]['cobrcomplemento'] ."</strong></h4>";
+                echo "<h4>Bairro: <strong>". $dados[$valor]['cobrbairro'] ."</strong></h4>";
+                echo "<h4>CEP: <strong>". $dados[$valor]['cobrcep'] ."</strong></h4>";
+                echo "<h4>Municipio: <strong>". $dados[$valor]['cobrmunicipio'] ."</strong></h4>";
+                echo "<h4>UF: <strong>". $dados[$valor]['cobruf'] ."</strong></h4>";
 
                 echo "</div>";
             }

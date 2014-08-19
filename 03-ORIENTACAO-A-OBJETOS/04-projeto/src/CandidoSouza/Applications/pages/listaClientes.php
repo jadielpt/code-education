@@ -12,11 +12,11 @@
                     <div class="jumbotron">
                         <?php
                         if(isset($_POST['cres'])){
-                            ksort($clientes);
+                            ksort($dados);
                         }elseif(isset($_POST['dec'])){
-                            krsort($clientes);
+                            krsort($dados);
                         }else{
-                            ksort($clientes);
+                            ksort($dados);
                         }
                         ?>
                         <form method="post">
@@ -40,16 +40,18 @@
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($clientes as $key => $value) {
+                                foreach ($dados as $key => $value) {
+
+
                                 ?>
                                 <tr>
-                                <td><?php echo $value->getId();?></td>
-                                <td><?php echo $value->getNomeRS();?></td>
-                                <td><?php echo $value->getEmail();?></td>
-                                <td><?php echo $value->getTelefone();?></td>
-                                <td><?php echo $value->getTipo();?></td>
-                                <td><?php echo $value->getGrauImportance();?></td>
-                                <td><a href="visualizarCliente?<?php echo $value->getId();?>"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
+                                <td><?php echo $value["id"];?></td>
+                                <td><?php echo $value["nome"];?></td>
+                                <td><?php echo $value["email"];?></td>
+                                <td><?php echo $value["telefone"];?></td>
+                                <td><?php echo $value["tipo"];?></td>
+                                <td><?php echo $value["estrela"];?></td>
+                                <td><a href="visualizarCliente?<?php echo $value["id"];?>"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
                                 <td><a href="#"><button class="btn btn-primary disabled" type="submit" name="alterar" >Alterar</button></a></td>
                                 <td><a href="#"><button class="btn btn-danger disabled" type="submit" name="deletar">Deletar</button></a></td>
                                 </tr>

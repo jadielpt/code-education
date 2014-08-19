@@ -22,7 +22,7 @@ use CandidoSouza\Classes\Clientes\Types\ClientesPessoasJuridicas;
  * @package src\app\classes\databases
  * @var PDO
  */
-class Crud extends DataBasesAbstract
+class Crud //extends DataBasesAbstract
 {
     private $connect;
 
@@ -35,7 +35,7 @@ class Crud extends DataBasesAbstract
     {
         try{
             $this->connect->beginTransaction();
-            $cadastrar = "INSERT INTO clientes (nome, email, tipo, cpf, telefone, rua, numero, bairro, cep, complemento, estrela, cidade, uf, celular, telcontato, fax, cobrrua, cobrnumero, cobrcomplemento, cobrbairro, cobrcep, cobrmunicipio, cobruf) VALUES (:nome, :email, :tipo, :cpf, :telefone, :rua, :numero, :bairro, :cep, :complemento, :estrela, :cidade, :uf, :celular, :telcontato, :fax, :cobrrua, :cobrnumero, :cobrcomplemento, :cobrbairro, :cobrcep, :cobrmunicipio, :cobruf)";
+            $cadastrar = "INSERT INTO clientes (nome, email, tipo, cpf, telefone, rua, numero, bairro, cep, complemento, estrela, cidade, uf, celular, telcontato,  cobrrua, cobrnumero, cobrcomplemento, cobrbairro, cobrcep, cobrmunicipio, cobruf) VALUES (:nome, :email, :tipo, :cpf, :telefone, :rua, :numero, :bairro, :cep, :complemento, :estrela, :cidade, :uf, :celular, :telcontato, :fax, :cobrrua, :cobrnumero, :cobrcomplemento, :cobrbairro, :cobrcep, :cobrmunicipio, :cobruf)";
             $dados = $this->connect->prepare($cadastrar);
             $dados->execute(array(
                 "nome"          => $clientes->getNomeRS(),
@@ -80,12 +80,35 @@ class Crud extends DataBasesAbstract
         return true;
     }
     
-    public function read() 
+    public function read()
     {
-        parent::$tabela = "clientes";
-        return parent::listar();
+
+        try{
+            $listar = $this->connect->prepare("SELECT * FROM  clientes");
+            $listar->execute();
+            $dados = $listar->fetchAll(\PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: Não foi possível listar dados do banco!";
+            die("Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br>  Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
+        }
+        return $dados;
     }
-    
+
+//    public function readId($id)
+//    {
+//
+//        try{
+//            $listarPeloId = $this->connect->prepare("select * from clientes where id = :id");
+//            $listarPeloId->bindValue(":id", $id);
+//            $listarPeloId->execute();
+//            $dados = $listarPeloId->fetchAll(\PDO::FETCH_ASSOC);
+//        } catch (PDOException $e) {
+//            echo "ERROR: Não foi possível listar dados do banco!";
+//            die("Código: {$e->getCode()} <br> Mensagem: {$e->getMessage()} <br>  Arquivo: {$e->getFile()} <br> linha: {$e->getLine()}");
+//        }
+//        return $dados;
+//    }
+
     public function update()
     {
         
