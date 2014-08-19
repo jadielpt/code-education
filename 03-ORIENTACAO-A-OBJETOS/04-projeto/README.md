@@ -2,7 +2,7 @@
 ================================================
 
 Projeto - Persistência de dados.
--------------------------------
+--------------------------------
 
 Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 03 - Php Orientado a Objetos.*
 
