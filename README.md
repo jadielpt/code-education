@@ -35,4 +35,10 @@ projetos
 **Estudos sobre a linguagem de programação PHP Orientada a Objetos**
 
 projetos
->1. *Cadastro de Clientes.* - Em andamento!
+>1. *Cadastro de clientes.*
+
+>2. *Tipos de clientes.*
+
+>3. *Refatoração.*
+
+>4. *Persistência de dados.*
