@@ -21,12 +21,12 @@ abstract class Connect
     private static $dsn = 'mysql:host=localhost;dbname=curso_code_education';
     private static $user = 'root';
     private static $password = 'root';
-    private static $options = [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8' ];
+    //private static $options = [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8' ];
 
     private static function connection() 
     {
         try {
-            $pdo = new \PDO(self::$dsn, self::$user, self::$password, self::$options);
+            $pdo = new \PDO(self::$dsn, self::$user, self::$password); //self::$options);
             $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             return $pdo;
         } catch (PDOException $e) {

@@ -22,12 +22,12 @@ function criarDb() {
     $dsn     = 'mysql:host=localhost';
     $user    = 'root';
     $pass    = 'root';
-    $options = [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'];
+    //$options = [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'];
     $dbname  = 'curso_code_education';
     $table   = 'clientes';
 
     try {
-        $pdo = new PDO($dsn, $user, $pass, $options);
+        $pdo = new PDO($dsn, $user, $pass); //$options);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->query("CREATE DATABASE IF NOT EXISTS $dbname");
         $pdo->query("use $dbname");
