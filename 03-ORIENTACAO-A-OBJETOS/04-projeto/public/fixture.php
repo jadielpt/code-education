@@ -38,20 +38,20 @@ function criarDb() {
         email VARCHAR( 250 ) NOT NULL,
         tipo VARCHAR( 250 ) NOT NULL,
         cpf VARCHAR( 250 ) NOT NULL,
-        telefone INT( 10 ) NOT NULL,
+        telefone VARCHAR( 10 ) NOT NULL,
         rua VARCHAR( 250 ) NOT NULL,
-        numero INT( 10 ) NOT NULL,
+        numero VARCHAR( 10 ) NOT NULL,
         bairro VARCHAR( 250 ) NOT NULL,
-        cep INT( 10 ) NOT NULL,
+        cep VARCHAR( 10 ) NOT NULL,
         complemento VARCHAR( 250 ) NOT NULL,
-        estrela INT( 1 ) NOT NULL,
+        estrela VARCHAR( 1 ) NOT NULL,
         cidade VARCHAR( 250 ) NOT NULL,
         uf VARCHAR( 2 ) NOT NULL,
-        celular INT( 10 ) NOT NULL,
-        fax INT( 10 ) NOT NULL,
-        telcontato Int( 10 ) NOT NULL,
+        celular VARCHAR( 10 ) NOT NULL,
+        fax VARCHAR( 10 ) NOT NULL,
+        telcontato VARCHAR( 10 ) NOT NULL,
         cobrrua VARCHAR( 250 ) NOT NULL,
-        cobrnumero INT( 10 ) NOT NULL,
+        cobrnumero VARCHAR( 10 ) NOT NULL,
         cobrcomplemento VARCHAR( 250 ) NOT NULL,
         cobrbairro VARCHAR( 250 ) NOT NULL,
         cobrcep VARCHAR( 250 ) NOT NULL,
@@ -68,8 +68,8 @@ function criarDb() {
 }
 criarDb();
 
-$clientes = new ClientesPessoasFisicas("Candido Souza", "candido@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
-$clientes->setCelular(1795757557)
+$clientes = new ClientesPessoasFisicas("Candido Souza", "candido@email.com.br", "Pessoa Física", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '5', "Votuporanga", "SP");
+$clientes->setCelular('1795757557')
     ->setTelContato(null)
     ->setCobrRua(null)
     ->setCobrNumero(null)
@@ -85,14 +85,14 @@ $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasJuridicas("Estofados ME", "estofados@email.com.br", "Pessoa Júridica", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 1, "Votuporanga", "SP");
-$clientes->setFax(17939393939)
-    ->setTelContato(1798765432)
+$clientes = new ClientesPessoasJuridicas("Estofados ME", "estofados@email.com.br", "Pessoa Júridica", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '1', "Votuporanga", "SP");
+$clientes->setFax('17939393939')
+    ->setTelContato('1798765432')
     ->setCobrRua('Amazonas')
     ->setCobrNumero('77')
     ->setCobrComplemento('Ap.4 - Sala 02')
     ->setCobrBairro('Jd.São Paulo')
-    ->setCobrCep(15500000)
+    ->setCobrCep('15500000')
     ->setCobrMunicipio('Votuporanga')
     ->setCobrUf('SP')
 ;
@@ -102,22 +102,22 @@ $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasFisicas("Claudia Bertolin", "claudia@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 3, "Votuporanga", "SP");
-$clientes->setCelular(17977777777);
+$clientes = new ClientesPessoasFisicas("Claudia Bertolin", "claudia@email.com.br", "Pessoa Física", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '3', "Votuporanga", "SP");
+$clientes->setCelular('17977777777');
 $insert = new Crud(Connect::getDb());
 $insert->persist($clientes);
 $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasJuridicas("Livros SA", "livros@email.com.br", "Pessoa Júridica", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 4, "Votuporanga", "SP");
-$clientes->setFax(179999999)
-    ->setTelContato(179999999)
+$clientes = new ClientesPessoasJuridicas("Livros SA", "livros@email.com.br", "Pessoa Júridica", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '4', "Votuporanga", "SP");
+$clientes->setFax('179999999')
+    ->setTelContato('179999999')
     ->setCobrRua('Rua Dos Lirios')
     ->setCobrNumero('7777')
     ->setCobrComplemento('Bloco 01 - Sala 02')
     ->setCobrBairro('Jd.Paulistano')
-    ->setCobrCep(15502210)
+    ->setCobrCep('15502210')
     ->setCobrMunicipio('Votuporanga')
     ->setCobrUf('SP')
 ;
@@ -127,8 +127,8 @@ $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasFisicas("Felipe Bertolin de Souza", "felipe@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 1, "Votuporanga", "SP");
-$clientes->setCelular(17977777777)
+$clientes = new ClientesPessoasFisicas("Felipe Bertolin de Souza", "felipe@email.com.br", "Pessoa Física", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '1', "Votuporanga", "SP");
+$clientes->setCelular('17977777777')
     ->setTelContato(null)
     ->setCobrRua(null)
     ->setCobrNumero(null)
@@ -144,22 +144,22 @@ $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasJuridicas("Petrobras do Brasil SA", "petrobras@email.com.br", "Pessoa Júridica", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
-$clientes->setFax(1717171717);
+$clientes = new ClientesPessoasJuridicas("Petrobras do Brasil SA", "petrobras@email.com.br", "Pessoa Júridica", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '5', "Votuporanga", "SP");
+$clientes->setFax('1717171717');
 $insert = new Crud(Connect::getDb());
 $insert->persist($clientes);
 $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasFisicas("Maria Helena", "maria@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 1, "Votuporanga", "SP");
-$clientes->setCelular(17951515151)
-    ->setTelContato(1777777777)
+$clientes = new ClientesPessoasFisicas("Maria Helena", "maria@email.com.br", "Pessoa Física", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '1', "Votuporanga", "SP");
+$clientes->setCelular('17951515151')
+    ->setTelContato('1777777777')
     ->setCobrRua('Santos Dumont')
-    ->setCobrNumero(7)
+    ->setCobrNumero('7')
     ->setCobrComplemento('Loja')
     ->setCobrBairro('Vera Cruz')
-    ->setCobrCep(15555000)
+    ->setCobrCep('15555000')
     ->setCobrMunicipio('Bauru')
     ->setCobrUf('SP')
 ;
@@ -169,30 +169,30 @@ $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasJuridicas("Coca Cola SA", "cocacola@email.com.br", "Pessoa Júridica", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 2, "Votuporanga", "SP");
-$clientes->setFax(1737773737);
+$clientes = new ClientesPessoasJuridicas("Coca Cola SA", "cocacola@email.com.br", "Pessoa Júridica", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '2', "Votuporanga", "SP");
+$clientes->setFax('1737773737');
 $insert = new Crud(Connect::getDb());
 $insert->persist($clientes);
 $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasFisicas("Vitor Souza", "vitor@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 4, "Votuporanga", "SP");
-$clientes->setCelular(1799999777);
+$clientes = new ClientesPessoasFisicas("Vitor Souza", "vitor@email.com.br", "Pessoa Física", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '4', "Votuporanga", "SP");
+$clientes->setCelular('1799999777');
 $insert = new Crud(Connect::getDb());
 $insert->persist($clientes);
 $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasJuridicas("Microsoft do Brasil SA", "micro@email.com.br", "Pessoa Júridica", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 5, "Votuporanga", "SP");
-$clientes->setFax(179999999)
-    ->setTelContato(173997777)
+$clientes = new ClientesPessoasJuridicas("Microsoft do Brasil SA", "micro@email.com.br", "Pessoa Júridica", '77777777777', '32435549', "Piauí", '777', "Centro", '15500000', "casa", '5', "Votuporanga", "SP");
+$clientes->setFax('179999999')
+    ->setTelContato('173997777')
     ->setCobrRua('Microsoft do Brasil')
     ->setCobrNumero('1')
     ->setCobrComplemento('Bloco 01 - Sala 02')
     ->setCobrBairro('Jd.Microsoft do Brasil')
-    ->setCobrCep(15502210)
+    ->setCobrCep('15502210')
     ->setCobrMunicipio('Votuporanga')
     ->setCobrUf('SP')
 ;
