@@ -17,7 +17,7 @@ namespace CandidoSouza\Classes\Clientes\Types;
  */
 class ClientesPessoasJuridicas extends Clientes
 {
-    protected  $fax;
+    public  $fax;
 
     /**
      * @param mixed $fax

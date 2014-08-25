@@ -65,7 +65,7 @@ abstract class EndCobrClienteAbstract {
     public function getCobrBairro()
     {
         if($this->cobrBairro == null){
-            return$this->getBairro();
+            return $this->getBairro();
         }else{
             return $this->cobrBairro;
         }

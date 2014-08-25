@@ -17,7 +17,7 @@ namespace CandidoSouza\Classes\Clientes\Types;
  */
 class ClientesPessoasFisicas extends Clientes
 {
-    protected $celular;
+    public $celular;
 
         /**
      * @param mixed $celular
