@@ -85,7 +85,7 @@ $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasJuridicas("Estofados ME", "estofados@email.com.br", "Pessoa Júridica", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
+$clientes = new ClientesPessoasJuridicas("Estofados ME", "estofados@email.com.br", "Pessoa Júridica", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 1, "Votuporanga", "SP");
 $clientes->setFax(17939393939)
     ->setTelContato(1798765432)
     ->setCobrRua('Amazonas')
@@ -127,7 +127,7 @@ $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasFisicas("Felipe Bertolin de Souza", "felipe@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
+$clientes = new ClientesPessoasFisicas("Felipe Bertolin de Souza", "felipe@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 1, "Votuporanga", "SP");
 $clientes->setCelular(17977777777)
     ->setTelContato(null)
     ->setCobrRua(null)
@@ -152,7 +152,7 @@ $insert->flush();
 
 ////////////////////////////////////////////////////////////////////////////
 
-$clientes = new ClientesPessoasFisicas("Maria Helena", "maria@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", "Normal", "Votuporanga", "SP");
+$clientes = new ClientesPessoasFisicas("Maria Helena", "maria@email.com.br", "Pessoa Física", '77777777777', 32435549, "Piauí", 777, "Centro", 15500000, "casa", 1, "Votuporanga", "SP");
 $clientes->setCelular(17951515151)
     ->setTelContato(1777777777)
     ->setCobrRua('Santos Dumont')
