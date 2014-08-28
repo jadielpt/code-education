@@ -3,7 +3,7 @@ Estudo em php curso Code Education
 
 Os arquivos aqui adicionados fazem parte do curso do portal code-education
 
-01º Módulo
+1º Módulo
 -----------
 
 **Estudo sobre GIT e GITHUB**
@@ -14,7 +14,7 @@ projetos
 >2. *Fazer 2 releases.*
 
 
-02º Módulo
+2º Módulo
 -----------
 
 **Estudos sobre a linguagem de programação PHP**
@@ -29,7 +29,7 @@ projetos
 >4. *Área Administrativa*
 
 
-03º Módulo
+3º Módulo
 -----------
 
 **Estudos sobre a linguagem de programação PHP Orientada a Objetos**
@@ -42,3 +42,13 @@ projetos
 >3. *Refatoração.*
 
 >4. *Persistência de dados.*
+
+4º Módulo
+-----------
+
+**Estudos sobre Design Patterns com PHP**
+
+projetos
+>1. *Formulário Básico.*
+
+>2. *Funcionalidades para Formulário.*
