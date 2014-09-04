@@ -1,16 +1,16 @@
 <?php
 /**
- * @author Candido Souza
- * Date: 26/08/14
- * 02 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
- * Linguagem: php
+ * Created by PhpStorm.
+ * User: candidosouza
+ * Date: 29/08/14
+ * Time: 12:54
  */
 
 namespace CandidoSouza\Classes\Forms\Types;
 use CandidoSouza\Classes\Forms\Utils\Element;
 
 
-class Label
+class Input
 {
     public $nome;
 
@@ -23,10 +23,11 @@ class Label
     {
         $tag = $elementos;
         $tag->tag = $this->nome;
-        $tag->class = "col-sm-2 control-label";
+        $tag->class = "form-control";
+        $tag->type = "text";
+        $tag->name = "nome";
+        $tag->placeholder = "Nome";
         $tag->render();
-        $tag->close();
-
     }
 
 } 

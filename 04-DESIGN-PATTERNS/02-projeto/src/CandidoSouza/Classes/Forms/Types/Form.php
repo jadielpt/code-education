@@ -5,12 +5,11 @@
  * 02 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
  * Linguagem: php
  */
-
 namespace CandidoSouza\Classes\Forms\Types;
 use CandidoSouza\Classes\Forms\Utils\Element;
 
 
-class Label
+class Form
 {
     public $nome;
 
@@ -23,10 +22,11 @@ class Label
     {
         $tag = $elementos;
         $tag->tag = $this->nome;
-        $tag->class = "col-sm-2 control-label";
+        $tag->name = "form_contato";
+        $tag->class = "form-horizontal";
+        $tag->action = "dados.php";
+        $tag->method = 'post';
         $tag->render();
-        $tag->close();
-
     }
 
 } 

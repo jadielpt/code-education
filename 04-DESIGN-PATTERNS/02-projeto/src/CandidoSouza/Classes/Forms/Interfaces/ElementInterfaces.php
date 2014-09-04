@@ -9,6 +9,12 @@
 namespace CandidoSouza\Classes\Forms\Interfaces;
 
 
-class FormInterfaces {
+interface ElementInterfaces
+{
+    public  function open();
+
+    public  function close();
+
+    public function render();
 
 } 
