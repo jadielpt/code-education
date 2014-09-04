@@ -10,7 +10,7 @@ namespace CandidoSouza\Classes\Forms\Utils;
 use CandidoSouza\Classes\Forms\Interfaces\ElementInterfaces;
 
 
-class Element
+class Element implements ElementInterfaces
 {
     public $tag;
     public  $properties;
@@ -22,7 +22,7 @@ class Element
         $this->properties[$name] = $value;
     }
 
-    private function open()
+    public function open()
     {
         echo "\n<{$this->tag}";
         if ($this->properties){
@@ -30,7 +30,7 @@ class Element
                 echo " {$name}=\"{$value}\"";
             }
         }
-        echo '>';
+        echo ">\n";
 
     }
 

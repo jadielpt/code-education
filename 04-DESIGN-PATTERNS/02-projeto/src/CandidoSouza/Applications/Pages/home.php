@@ -1,72 +1,80 @@
+<div class="col-md-12">
+    <div class="col-sm-offset-3 col-md-6">
 <?php
 use CandidoSouza\Classes\Forms\Utils\Element;
 use CandidoSouza\Classes\Forms\Types\Form;
 use CandidoSouza\Classes\Forms\Types\Label;
-use CandidoSouza\Classes\Forms\Types\Input;
+use CandidoSouza\Classes\Forms\Types\Tag;
 
 $elemento = new Element();
 $form = new Form('form');
 $form->render($elemento);
 
-$elemento1  = new Element();
-$label = new Label('label');
-$label->render($elemento1);
+echo "<div class=\"form-group\">";
 
-$elemento2 = new Element();
-$input = new Input('input');
-$input->render($elemento2);
+    $elemento1  = new Element();
+    $label = new Label('label');
+    $label->setClass('col-sm-2 control-label');
+    $label->render($elemento1);
+    $label->setParam("Nome:");
+    echo $label->getParam();
+    $label->close($elemento1);
+    
+    echo "<div class=\"col-sm-10\">";
+
+    $elemento2 = new Element();
+    $input = new Tag('input');
+    $input->setType('text');
+    $input->setClass('form-control');
+    $input->setName('nome');
+    $input->setPlaceholder('Nome');
+    $input->render($elemento2);
+    
+    
+    echo "</div>\n";
+echo "</div>\n";
+
+echo "<div class=\"form-group\">";
+
+    $label->render($elemento1);
+    $label->setParam("Email:");
+    echo $label->getParam();
+    $label->setClass('col-sm-2 control-label');
+    $label->close($elemento1);
+    
+    echo "<div class=\"col-sm-10\">";
+
+    $input->setType('text');
+    $input->setClass('form-control');
+    $input->setName('email');
+    $input->setPlaceholder('E-mail');
+    $input->render($elemento2);
+    
+    echo "</div>\n";
+echo "</div>\n";
 
 
+echo "<div class=\"form-group\">";
 
+    $label->render($elemento1);
+    $label->setParam("Mesagem:");
+    echo $label->getParam();
+    $label->setClass('col-sm-2 control-label');
+    $label->close($elemento1);
+    
+    echo "<div class=\"col-sm-10\">";
 
-
-//echo "<hr>";
-//
-//echo '<pre>';
-//print_r($elementos);
-//echo '</pre>';
-//
-//echo "<hr>";
-//
-//echo '<pre>';
-//print_r($form);
-//echo '</pre>';
-
-
+    $textarea = new Tag('textarea');
+    $textarea->setClass('form-control');
+    $textarea->setType('text');
+    $textarea->setName('mesagem');
+    $textarea->setPlaceholder('Mensagem');
+    $textarea->render($elemento2);
+    $textarea->close($elemento);
+    
+    echo "</div>\n";
+echo "</div>\n";
+$form->close($elemento);
 ?>
-
-
-
-
-
-
-
-<div class="col-md-12">
-    <div class="col-sm-offset-3 col-md-6">
-        <form class="form-horizontal" name="Form_contato" action="" method="post">
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Nome:</label>
-                <div class="col-sm-10">
-                    <input class="form-control" name="nome" placeholder="Nome" type="text">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">E-mail:</label>
-                <div class="col-sm-10">
-                    <input class="form-control" name="email" placeholder="E-mail" type="text">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Mensagem:</label>
-                <div class="col-sm-10">
-                    <textarea name="mensagem" placeholder="Mensagem" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <input class="btn btn-primary" type="submit" value="Enviar" name="enviar" onclick="document.action'?method=onSend'; document.submit()">
-                </div>
-             </div>
-         </form>
     </div>
 </div>

@@ -13,20 +13,42 @@ use CandidoSouza\Classes\Forms\Utils\Element;
 class Label
 {
     public $nome;
+    public $param;
+    public $class;
+            
 
     function __construct($nome)
     {
         $this->nome = $nome;
     }
+    
+    public function getParam() {
+        return $this->param;
+    }
 
+    public function setParam($param) {
+        $this->param = $param;
+    }
+    
+    public function setClass($class) {
+        $this->class = $class;
+    }
+
+    
     public function render(Element $elementos)
     {
         $tag = $elementos;
         $tag->tag = $this->nome;
-        $tag->class = "col-sm-2 control-label";
+        $tag->class = $this->class;
         $tag->render();
-        $tag->close();
 
+    }
+    
+    public function close(Element $elementos)
+    {
+        $tag = $elementos;
+        $tag->tag = $this->nome;
+        $tag->close();  
     }
 
 } 

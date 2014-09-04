@@ -11,9 +11,9 @@ namespace CandidoSouza\Classes\Forms\Interfaces;
 
 interface ElementInterfaces
 {
-    public  function open();
+    public function open();
 
-    public  function close();
+    public function close();
 
     public function render();
 

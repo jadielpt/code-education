@@ -28,5 +28,12 @@ class Form
         $tag->method = 'post';
         $tag->render();
     }
+    
+    public function close(Element $elementos)
+    {
+        $tag = $elementos;
+        $tag->tag = $this->nome;
+        $tag->close();  
+    }
 
 } 
