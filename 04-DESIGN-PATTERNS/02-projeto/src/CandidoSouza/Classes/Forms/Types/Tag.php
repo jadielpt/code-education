@@ -1,22 +1,24 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: candidosouza
- * Date: 29/08/14
- * Time: 12:54
+ * @author Candido Souza
+ * Date: 04/09/14
+ * 02 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
+ * Linguagem: php
  */
 
 namespace CandidoSouza\Classes\Forms\Types;
 use CandidoSouza\Classes\Forms\Utils\Element;
+use CandidoSouza\Classes\Forms\Interfaces\FormInterface;
 
 
-class Tag
+class Tag implements FormInterface
 {
     public $nome;
     public $name;
     public $type;
     public $placeholder;
     public $class;
+    public $value;
             
     function __construct($nome)
     {
@@ -42,7 +44,7 @@ class Tag
         $this->class = $class;
     }
 
-    public function render(Element $elementos)
+    public function createField(Element $elementos)
     {
         $tag = $elementos;
         $tag->tag = $this->nome;
@@ -59,5 +61,4 @@ class Tag
         $tag->tag = $this->nome;
         $tag->close();  
     }
-
 } 

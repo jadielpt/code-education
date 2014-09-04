@@ -7,18 +7,19 @@
  */
 namespace CandidoSouza\Classes\Forms\Types;
 use CandidoSouza\Classes\Forms\Utils\Element;
+use CandidoSouza\Classes\Forms\Interfaces\FormInterface;
+use CandidoSouza\Classes\Validation\Validator;
 
-
-class Form
+class Form implements FormInterface
 {
     public $nome;
 
-    function __construct($nome)
+    function __construct(Validator $validados, $nome)
     {
         $this->nome = $nome;
     }
 
-    public function render(Element $elementos)
+    public function createField(Element $elementos)
     {
         $tag = $elementos;
         $tag->tag = $this->nome;
@@ -35,5 +36,4 @@ class Form
         $tag->tag = $this->nome;
         $tag->close();  
     }
-
 } 

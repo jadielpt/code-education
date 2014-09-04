@@ -8,15 +8,15 @@
 
 namespace CandidoSouza\Classes\Forms\Types;
 use CandidoSouza\Classes\Forms\Utils\Element;
+use CandidoSouza\Classes\Forms\Interfaces\FormInterface;
 
 
-class Label
+class Label implements FormInterface
 {
     public $nome;
     public $param;
     public $class;
             
-
     function __construct($nome)
     {
         $this->nome = $nome;
@@ -34,14 +34,12 @@ class Label
         $this->class = $class;
     }
 
-    
-    public function render(Element $elementos)
+    public function createField(Element $elementos)
     {
         $tag = $elementos;
         $tag->tag = $this->nome;
         $tag->class = $this->class;
         $tag->render();
-
     }
     
     public function close(Element $elementos)
@@ -50,5 +48,4 @@ class Label
         $tag->tag = $this->nome;
         $tag->close();  
     }
-
 } 

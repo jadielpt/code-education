@@ -1,9 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: candidosouza
- * Date: 28/08/14
- * Time: 18:51
+ * @author Candido Souza
+ * Date: 01/09/14
+ * 02 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
+ * Linguagem: php
  */
 
 namespace CandidoSouza\Classes\Forms\Utils;
@@ -43,5 +43,5 @@ class Element implements ElementInterfaces
     {
         $this->open();
     }
-
+    
 } 

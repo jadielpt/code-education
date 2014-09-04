@@ -5,17 +5,22 @@ use CandidoSouza\Classes\Forms\Utils\Element;
 use CandidoSouza\Classes\Forms\Types\Form;
 use CandidoSouza\Classes\Forms\Types\Label;
 use CandidoSouza\Classes\Forms\Types\Tag;
+use CandidoSouza\Classes\Validation\Validator;
+use CandidoSouza\Classes\Http\Request;
 
+$request = new Request();
+$validation = new Validator($request);
 $elemento = new Element();
-$form = new Form('form');
-$form->render($elemento);
+
+$form = new Form($validation, 'form');
+$form->createField($elemento);
 
 echo "<div class=\"form-group\">";
 
     $elemento1  = new Element();
     $label = new Label('label');
     $label->setClass('col-sm-2 control-label');
-    $label->render($elemento1);
+    $label->createField($elemento1);
     $label->setParam("Nome:");
     echo $label->getParam();
     $label->close($elemento1);
@@ -28,7 +33,7 @@ echo "<div class=\"form-group\">";
     $input->setClass('form-control');
     $input->setName('nome');
     $input->setPlaceholder('Nome');
-    $input->render($elemento2);
+    $input->createField($elemento2);
     
     
     echo "</div>\n";
@@ -36,8 +41,8 @@ echo "</div>\n";
 
 echo "<div class=\"form-group\">";
 
-    $label->render($elemento1);
-    $label->setParam("Email:");
+    $label->createField($elemento1);
+    $label->setParam("E-mail:");
     echo $label->getParam();
     $label->setClass('col-sm-2 control-label');
     $label->close($elemento1);
@@ -48,7 +53,7 @@ echo "<div class=\"form-group\">";
     $input->setClass('form-control');
     $input->setName('email');
     $input->setPlaceholder('E-mail');
-    $input->render($elemento2);
+    $input->createField($elemento2);
     
     echo "</div>\n";
 echo "</div>\n";
@@ -56,8 +61,8 @@ echo "</div>\n";
 
 echo "<div class=\"form-group\">";
 
-    $label->render($elemento1);
-    $label->setParam("Mesagem:");
+    $label->createField($elemento1);
+    $label->setParam("Mensagem:");
     echo $label->getParam();
     $label->setClass('col-sm-2 control-label');
     $label->close($elemento1);
@@ -69,12 +74,27 @@ echo "<div class=\"form-group\">";
     $textarea->setType('text');
     $textarea->setName('mesagem');
     $textarea->setPlaceholder('Mensagem');
-    $textarea->render($elemento2);
+    $textarea->createField($elemento2);
     $textarea->close($elemento);
+    
+    echo "</div>\n";
+echo "</div>\n";
+
+echo "<div class=\"form-group\">";
+    echo "<div class=\"col-sm-offset-2 col-sm-10\">";
+
+    $button = new Tag('input');
+    $button->setClass('btn btn-primary');
+    $button->setType('submit');
+    $button->setName('enviar');
+    $button->setPlaceholder('Enviar');
+    $button->createField($elemento2);
+    $button->close($elemento);
     
     echo "</div>\n";
 echo "</div>\n";
 $form->close($elemento);
 ?>
+        
     </div>
 </div>

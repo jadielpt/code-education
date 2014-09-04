@@ -10,6 +10,10 @@ Antes de testar esta aplicação.
 
 >1. *Tenha instalado o php 5.5 ou posterior - Versões anteriores acarretará erros.*
 
+instalação
+-----------
+
+>1. *Usar o servidor <a href="http://php.net/manual/pt_BR/features.commandline.webserver.php" title="Built-in web server PHP">Built-in web server</a> do próprio php*
 
 **Sobre o projeto**
 

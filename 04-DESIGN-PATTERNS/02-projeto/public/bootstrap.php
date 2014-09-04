@@ -1,12 +1,10 @@
 <?php
 /**
- * User: candidosouza
- * Date: 13/08/14
- * Time: 08:15
- * 01 - Projeto Formulário Dinâmico | Estudos Potal Code Education - Módulo 04 - Design Patterns com php
  * @author Candido Souza
- * Arquivo: bootstrap.php - fonte: https://github.com/iMastersDev/oportunidades
+ * Date: 26/08/14
+ * 02 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
  * Linguagem: php
+ * Arquivo: bootstrap.php - fonte: https://github.com/iMastersDev/oportunidades
  */
 
 error_reporting(E_ALL);
