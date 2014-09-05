@@ -1,0 +1,19 @@
+{
+    "name" : "candidosouza - 1º Projeto DESIGN PATTERNS com PHP - Portal Code Education",
+    "authors" : [
+        {
+            "name" : "Cândido Souza",
+            "email" : "candido_souza@hotmail.com"
+        }
+    ],
+    "license" : "MIT",
+
+    "require" : {
+        "php" : ">=5.5"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "" : "src/"
+        }
+    }
+}
