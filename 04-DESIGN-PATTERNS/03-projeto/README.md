@@ -1,7 +1,7 @@
 3º Projeto | Módulo 04 - Design Patterns
 ================================================
 
-Projeto - Formulário Dinâmico - Funcionalidades.
+Projeto - Formulário Dinâmico - Fieldsets.
 ------------------------------------------------
 
 Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 04 - Design Patterns.*
