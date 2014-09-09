@@ -53,4 +53,6 @@ projetos
 
 >2. *Funcionalidades para Formulário.*
 
->3. *Fieldsets. "Obs: Encontra-se em processo"*
+>3. *Fieldsets.*
+
+>4. *Populate. "Obs: Encontra-se em andamento"*
