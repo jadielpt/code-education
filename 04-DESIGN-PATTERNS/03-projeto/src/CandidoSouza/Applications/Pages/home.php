@@ -5,6 +5,7 @@ use CandidoSouza\Classes\Forms\Utils\Element;
 use CandidoSouza\Classes\Forms\Types\Form;
 use CandidoSouza\Classes\Forms\Types\Label;
 use CandidoSouza\Classes\Forms\Types\Tag;
+use CandidoSouza\Classes\Forms\Types\Fieldsets;
 use CandidoSouza\Classes\Validation\Validator;
 use CandidoSouza\Classes\Http\Request;
 
@@ -15,9 +16,21 @@ $elemento = new Element();
 $form = new Form($validation, 'form');
 $form->createField($elemento);
 
+$elemento2  = new Element();
+$fieldset = new Fieldsets('fieldset');
+$fieldset->setValue('formcontato');
+$fieldset->createField($elemento2);
+
+$elemento1  = new Element();
+$legend = new Label('legend');
+$legend->createField($elemento1);
+$legend->setParam('Formulário de Contato');
+echo $legend->getParam();
+$legend->close($elemento1);
+
+
 echo "<div class=\"form-group\">";
 
-    $elemento1  = new Element();
     $label = new Label('label');
     $label->setClass('col-sm-2 control-label');
     $label->createField($elemento1);
@@ -93,6 +106,7 @@ echo "<div class=\"form-group\">";
     
     echo "</div>\n";
 echo "</div>\n";
+$fieldset->close($elemento1);
 $form->close($elemento);
 ?>
         
