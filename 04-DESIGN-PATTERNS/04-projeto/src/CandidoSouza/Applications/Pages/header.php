@@ -1,8 +1,8 @@
 <!--
 /**
  * @author Candido Souza
- * Date: 04/09/14
- * 03 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
+ * Date: 09/09/14
+ * 04 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
  * Linguagem: php
  */
 -->
@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>3º Projeto -Design Patterns com PHP - Code Education</title>
+    <title>4º Projeto -Design Patterns com PHP - Code Education</title>
     <link href="/Libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>

@@ -1,20 +1,20 @@
 <?php
 /**
  * @author Candido Souza
- * Date: 09/09/14
- * 04 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
+ * Date: 10/09/14
+ * 03 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
  * Linguagem: php
  */
-namespace CandidoSouza\Classes\Forms\Types;
-use CandidoSouza\Classes\Forms\Interfaces\FormInterface;
-use CandidoSouza\Classes\Forms\Utils\Element;
 
-class Fieldsets implements FormInterface
+namespace CandidoSouza\Classes\Forms\Types;
+use CandidoSouza\Classes\Forms\Utils\Element;
+use CandidoSouza\Classes\Forms\Interfaces\FormInterface;
+
+class Options implements FormInterface
 {
     public $nome;
     public $param;
-    public $value;
-    
+            
     function __construct($nome)
     {
         $this->nome = $nome;
@@ -27,16 +27,11 @@ class Fieldsets implements FormInterface
     public function setParam($param) {
         $this->param = $param;
     }
-    
-    public function setValue($value) {
-        $this->value = $value;
-    }
 
     public function createField(Element $elementos)
     {
         $tag = $elementos;
         $tag->tag = $this->nome;
-        $tag->name = $this->value;
         $tag->render();
     }
     
@@ -44,7 +39,6 @@ class Fieldsets implements FormInterface
     {
         $tag = $elementos;
         $tag->tag = $this->nome;
-        $tag->close(); 
+        $tag->close();  
     }
-    
 }
