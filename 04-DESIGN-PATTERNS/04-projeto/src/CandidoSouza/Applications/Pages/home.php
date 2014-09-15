@@ -1,34 +1,3 @@
-<?php
-//use CandidoSouza\Classes\Products\Types\Products;
-//
-//
-//$produto = new Products();
-//$produto->setId(1)
-//        ->setNome('Copo Descartavel')
-//        ->setValor(3.50)
-//        ->setDescricao('Copo Pastico para festas')
-//        ->setCategoria('copos')
-//;
-//
-//$produto1 = clone $produto;
-//$produto1->setNome('Copo de Vidro')
-//         ->setValor(7.50)
-//         ->setDescricao('Copo Vidro')
-//         ->setCategoria('copos')
-//;
-//
-//$produto2 = clone $produto;
-//$produto2->setNome('Copo de Platico')
-//         ->setValor(4.50)
-//         ->setDescricao('Copo Pastico para crianças')
-//         ->setCategoria('copos')
-//;
-//
-//echo '<pre>';
-//var_dump($produto, $produto1, $produto2);
-//exit;
-//echo '</pre>';
-?>
 <div class="col-md-12">
     <div class="col-sm-offset-3 col-md-6">
 <?php
