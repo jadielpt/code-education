@@ -13,7 +13,6 @@ class Products
     private $nome;
     private $valor;
     private $descricao;
-    private $categoria;
     
     public function setId($id) 
     {
@@ -36,12 +35,6 @@ class Products
     public function setDescricao($descricao)
     {
         $this->descricao = $descricao;
-        return $this;
-    }
-
-    public function setCategoria($categoria)
-    {
-        $this->categoria = $categoria;
         return $this;
     }
     

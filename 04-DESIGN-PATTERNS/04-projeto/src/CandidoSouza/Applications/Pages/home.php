@@ -1,3 +1,19 @@
+<?php
+use CandidoSouza\Classes\Products\Types\Products;
+
+
+$dados = new Products();
+$dados->setId(1)
+        ->setNome('Banana')
+        ->setValor(3.50)
+        ->setDescricao('Banana Nanica')
+;
+echo '<pre>';
+var_dump($dados);
+echo '</pre>';
+
+
+?>
 <div class="col-md-12">
     <div class="col-sm-offset-3 col-md-6">
 <?php
@@ -67,7 +83,7 @@ echo "<div class=\"form-group\">";
 
     $input->setType('text');
     $input->setClass('form-control');
-    $input->setName('email');
+    $input->setName('valor');
     $input->setPlaceholder('Valor');
     $input->createField($elemento2);
     
@@ -87,7 +103,7 @@ echo "<div class=\"form-group\">";
 
     $input->setType('text');
     $input->setClass('form-control');
-    $input->setName('email');
+    $input->setName('descricao');
     $input->setPlaceholder('Descrição');
     $input->createField($elemento2);
     
@@ -156,6 +172,9 @@ echo "<div class=\"form-group\">";
 echo "</div>\n";
 $fieldset->close($elemento1);
 $form->close($elemento);
+
+
+var_dump($_POST);
 ?>    
     </div>
 </div>
