@@ -6,4 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Aura\\Input' => array($vendorDir . '/aura/input/src'),
+    'Aura\\Composer\\' => array($vendorDir . '/aura/installer-default/src'),
 );

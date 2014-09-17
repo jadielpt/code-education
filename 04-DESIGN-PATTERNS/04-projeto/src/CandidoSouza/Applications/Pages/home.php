@@ -1,19 +1,3 @@
-<?php
-use CandidoSouza\Classes\Products\Types\Products;
-
-
-$dados = new Products();
-$dados->setId(1)
-        ->setNome('Banana')
-        ->setValor(3.50)
-        ->setDescricao('Banana Nanica')
-;
-echo '<pre>';
-var_dump($dados);
-echo '</pre>';
-
-
-?>
 <div class="col-md-12">
     <div class="col-sm-offset-3 col-md-6">
 <?php
@@ -27,25 +11,32 @@ use CandidoSouza\Classes\Forms\Types\Options;
 use CandidoSouza\Classes\Validation\Validator;
 use CandidoSouza\Classes\Http\Request;
 
+
 $request = new Request();
 $validation = new Validator($request);
+        
 $elemento = new Element();
-$elemento1  = new Element();
-$elemento2  = new Element();
-$elemento3  = new Element();
+$elemento1  = clone $elemento;
+
+
+$dados = [
+    'nome' => 'Laranja',
+    'valor'=> 3.75,
+    'descricao'=> 'Laranja Iowa'
+    ];
 
 $form = new Form($validation, 'form');
 $form->createField($elemento);
 
 $fieldset = new Fieldsets('fieldset');
 $fieldset->setValue('formcontato');
-$fieldset->createField($elemento2);
+$fieldset->createField($elemento);
 
 $legend = new Label('legend');
 $legend->createField($elemento1);
 $legend->setParam('Formulário de Produto');
 echo $legend->getParam();
-$legend->close($elemento1);
+$legend->close($elemento);
 
 
 echo "<div class=\"form-group\">";
@@ -55,7 +46,7 @@ echo "<div class=\"form-group\">";
     $label->createField($elemento1);
     $label->setParam("Nome:");
     echo $label->getParam();
-    $label->close($elemento1);
+    $label->close($elemento);
     
     echo "<div class=\"col-sm-10\">";
 
@@ -64,7 +55,11 @@ echo "<div class=\"form-group\">";
     $input->setType('text');
     $input->setClass('form-control');
     $input->setName('nome');
-    $input->setPlaceholder('Nome');
+    if(!array_search('Laranja', $dados) && isset($dados['nome'])) {
+        echo "O valor está vazio ou não é um formato válido!";
+    }else{
+        $input->setValue($dados['nome']);
+    }
     $input->createField($elemento2);
     
     
@@ -84,7 +79,13 @@ echo "<div class=\"form-group\">";
     $input->setType('text');
     $input->setClass('form-control');
     $input->setName('valor');
-    $input->setPlaceholder('Valor');
+    /////////////////////////////////////
+    if(!array_search(is_numeric($dados['valor']), $dados) && !empty($dados['valor'])) {
+        echo "O valor está vazio ou não é um formato válido! ex:(1.77)";
+    }else{
+        $input->setValue($dados['valor']);
+    }
+    
     $input->createField($elemento2);
     
     echo "</div>\n";
@@ -104,7 +105,13 @@ echo "<div class=\"form-group\">";
     $input->setType('text');
     $input->setClass('form-control');
     $input->setName('descricao');
-    $input->setPlaceholder('Descrição');
+    //////////////////////////////////////
+
+    if($dados['descricao'] > substr($dados['descricao'],0, 200)){
+         echo "Erro: A descrição deve conter menos de 200 caracteres! Você digitou: ".$cont = strlen($dados['descricao']);
+    }else{
+    $input->setValue($dados['descricao']);
+    }
     $input->createField($elemento2);
     
     echo "</div>\n";
@@ -132,25 +139,25 @@ echo "<div class=\"form-group\">";
 
     
     $option = new Options('option');
-    $option->createField($elemento3);
+    $option->createField($elemento1);
     $option->setParam($categoria[0]['nome']);
     echo $option->getParam();
-    $option->close($elemento3);
+    $option->close($elemento1);
     
-    $option->createField($elemento3);
+    $option->createField($elemento1);
     $option->setParam($categoria[1]['nome']);
     echo $option->getParam();
-    $option->close($elemento3);
+    $option->close($elemento1);
     
-    $option->createField($elemento3);
+    $option->createField($elemento1);
     $option->setParam($categoria[2]['nome']);
     echo $option->getParam();
-    $option->close($elemento3);
+    $option->close($elemento1);
     
-    $option->createField($elemento3);
+    $option->createField($elemento1);
     $option->setParam($categoria[3]['nome']);
     echo $option->getParam();
-    $option->close($elemento3);
+    $option->close($elemento1);
     
     $select->close($elemento);
     
@@ -164,17 +171,15 @@ echo "<div class=\"form-group\">";
     $button->setClass('btn btn-primary');
     $button->setType('submit');
     $button->setName('enviar');
-    $button->setPlaceholder('Enviar');
-    $button->createField($elemento2);
-    $button->close($elemento);
+    ////////////////////////////////////////
+    $button->setValue('Enviar');
+    $button->createField($elemento1);
+    $button->close($elemento1);
     
     echo "</div>\n";
 echo "</div>\n";
 $fieldset->close($elemento1);
 $form->close($elemento);
-
-
-var_dump($_POST);
 ?>    
     </div>
 </div>

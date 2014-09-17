@@ -16,7 +16,7 @@ class Tag implements FormInterface
     public $nome;
     public $name;
     public $type;
-    public $placeholder;
+    public $valor;
     public $class;
     public $value;
             
@@ -29,10 +29,11 @@ class Tag implements FormInterface
     {
         $this->type = $type;
     }
-
-    public function setPlaceholder($placeholder)
+    
+    public function setValue($value)
     {
-        $this->placeholder = $placeholder;
+        $this->value = $value;
+            
     }
 
     public function setName($name) 
@@ -51,7 +52,7 @@ class Tag implements FormInterface
         $tag->class = $this->class;
         $tag->type = $this->type;
         $tag->name = $this->name;
-        $tag->placeholder = $this->placeholder;
+        $tag->value = $this->value;
         $tag->render();
     }
     
