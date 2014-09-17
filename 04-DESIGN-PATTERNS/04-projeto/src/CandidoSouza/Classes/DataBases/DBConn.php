@@ -11,14 +11,7 @@ class DBConn
 {
     public function __construct() 
     {
-        $this->conn = new \PDO("sqlite:db");
+        $this->conn = new \PDO("sqlite:select.db");
         return $this->conn;
     }
-    
-    public function Read(Products $products)
-    {
-        $sql = "insert into produto (nome) values (:nome)";
-        
-    }
-
 }
