@@ -63,4 +63,4 @@ projetos
 **Estudos sobre Testes Automatizados com PHP**
 
 projetos
->1. *Cobertura das principais classes. Obs: Projeto se encontra em andamento.*
+>1. *Cobertura das principais classes. Obs: Projeto em andamento.*
