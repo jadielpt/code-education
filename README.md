@@ -55,4 +55,12 @@ projetos
 
 >3. *Fieldsets.*
 
->4. *Populate. "Obs: Encontra-se em andamento"*
+>4. *Populate.*
+
+5º Módulo
+-----------
+
+**Estudos sobre Testes Automatizados com PHP**
+
+projetos
+>1. *Cobertura das principais classes. Obs: Projeto se encontra em andamento.*

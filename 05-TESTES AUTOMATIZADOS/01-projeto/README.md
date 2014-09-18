@@ -1,10 +1,10 @@
-4º Projeto | Módulo 04 - Design Patterns
+1º Projeto | Módulo 05 - Testes Automatizados
 ================================================
 
-Projeto - Formulário Dinâmico - Populate.
+Projeto - Cobertura das principais classes.
 ------------------------------------------------
 
-Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 04 - Design Patterns.*
+Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 01 - Testes Automatizados.*
 
 Antes de testar esta aplicação.
 
