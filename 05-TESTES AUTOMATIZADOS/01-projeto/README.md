@@ -9,6 +9,7 @@ Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education
 Antes de testar esta aplicação.
 
 >1. *Tenha instalado o php 5.5 ou posterior - Versões anteriores acarretará erros.*
+>1. *Versão do PHPUNIT = 4.2.6 - Versões anteriores acarretará erros.*
 
 instalação
 -----------
@@ -22,6 +23,8 @@ instalação
 *O projeto foi construido como avaliação do Portal Code Education.*
 
 >http://portal.code.education/
+
+
 
 **Normas e Padrões**
 

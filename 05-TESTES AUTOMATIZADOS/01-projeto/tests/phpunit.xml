@@ -11,6 +11,6 @@
          syntaxCheck="false"
          verbose="false">
     <testsuite>
-            <directory>../src/CandidoSouza</directory>
+            <directory>.</directory>
     </testsuite>
 </phpunit>

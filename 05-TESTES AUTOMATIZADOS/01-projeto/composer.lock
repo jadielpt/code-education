@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "37810af9b0a25ab1d1df7ebe18f8dd06",
+    "hash": "be406bce7c6bfcc23033b513105fb3dc",
     "packages": [
         {
             "name": "ocramius/instantiator",
