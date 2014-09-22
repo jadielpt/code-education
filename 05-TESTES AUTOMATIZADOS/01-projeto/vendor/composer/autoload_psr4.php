@@ -6,6 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Aura\\Input\\_Config\\' => array($vendorDir . '/aura/input/config'),
-    '' => array($baseDir . '/src'),
+    'CandidoSouza' => array($baseDir . '/src'),
 );

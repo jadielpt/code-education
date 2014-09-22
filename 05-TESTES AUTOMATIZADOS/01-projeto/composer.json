@@ -7,14 +7,16 @@
         }
     ],
     "license" : "MIT",
-
+    "config":{
+        "bin-dir":"bin/"
+    },
     "require" : {
         "php" : ">=5.5",
-        "aura/input": "dev-master"
+        "phpunit/phpunit": "4.2.6"
     },
     "autoload" : {
         "psr-4" : {
-            "" : "src/"
+            "CandidoSouza" : "src/"
         }
     }
 }
