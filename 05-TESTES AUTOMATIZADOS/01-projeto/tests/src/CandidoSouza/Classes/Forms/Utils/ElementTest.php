@@ -10,8 +10,26 @@ use CandidoSouza\Classes\Forms\Utils\Element;
 
 class ElementTest extends \PHPUnit_Framework_TestCase
 {
+    private $class;
+    
     /*
-     * Para cada teste, roda esse método(está condição) uma vez, e se houver falhas, ele não roda nenhum dos demais testes.
+     * Roda este método, antes de rodas os testes
+     * Neste caso está instanciando a classe Element
+     */
+    public function setUp() {
+        $this->class = new Element();;
+    }
+    
+    /*
+     * Roda este método, depois de rodas os testes
+     * Neste caso não está fazendo nada
+     */
+    public function tearDown() {
+        
+    }
+    
+    /*
+     * Roda esse método(está condição) uma vez, e se houver falhas, ele não roda nenhum dos demais testes.
      * Este condição verifica se a classe existe.
      */
     public function assertPreConditions()
@@ -24,10 +42,20 @@ class ElementTest extends \PHPUnit_Framework_TestCase
 
     public function testVerificaSeOTipoDaClasseEstaCorreto()
     {
-        $instance = new Element();
         $this->assertInstanceOf(
-                "CandidoSouza\Classes\Forms\Utils\Element", $instance
+                "CandidoSouza\Classes\Forms\Utils\Element", $this->class
         );
+    }
+    
+    /**
+     * @depends testVerificaSeOTipoDaClasseEstaCorreto
+     */
+    public function testVerificaSeOTipoDaInterfaceEstaCorreta()
+    {
+        $this->assertInstanceOf(
+                "CandidoSouza\Classes\Forms\Interfaces\ElementInterfaces", $this->class
+        );
+
     }
     
     /**
@@ -35,11 +63,19 @@ class ElementTest extends \PHPUnit_Framework_TestCase
      */
     public function testVerificaSeOMetodoExiste()
     {
-        $instance = new Element();
-        $instance->open();
+        $this->class->open();
         $this->assertTrue(
-                method_exists($instance, "open"),
-                "Method not Foud: O Method . {$instance->open()} . não existe"
+                method_exists($this->class, "open"),
+                "Method not Foud: O Method . {$this->class->open()} . não existe"
         );
     }
+    
+    public function testVerificaSeOMetodoExiste2()
+    {
+        $instance = new Element();
+        $instance->open();
+
+        
+    }
+    
 }
