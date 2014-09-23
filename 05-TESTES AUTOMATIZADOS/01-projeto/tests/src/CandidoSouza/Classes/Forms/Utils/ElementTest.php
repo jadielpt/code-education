@@ -14,16 +14,14 @@ class ElementTest extends \PHPUnit_Framework_TestCase
      * Para cada teste, roda esse método(está condição) uma vez, e se houver falhas, ele não roda nenhum dos demais testes.
      * Este condição verifica se a classe existe.
      */
-    public function CondicoesIniciais()
+    public function assertPreConditions()
     {
         $this->assertTrue(
-                class_exists($class = "CandidoSouza\Classes\Forms\Utils\Element"),
-                "Class not Foud: A Classe . {$class} . não existe"
-        );
-                
+                class_exists($classe = 'CandidoSouza\Classes\Forms\Utils\Element'),
+                "Class not Foud: A Classe . {$classe} . não existe"
+        );         
     }
 
-    
     public function testVerificaSeOTipoDaClasseEstaCorreto()
     {
         $instance = new Element();
@@ -33,7 +31,7 @@ class ElementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * depends testVerificaSeOTipoDaClasseEstaCorreto
+     * @depends testVerificaSeOTipoDaClasseEstaCorreto
      */
     public function testVerificaSeOMetodoExiste()
     {
