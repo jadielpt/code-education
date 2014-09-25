@@ -70,11 +70,14 @@ class ElementTest extends \PHPUnit_Framework_TestCase
         );
     }
     
-    public function testVerificaSeOMetodoExiste2()
+    public function testVerificaSeAPropriedadeExiste()
     {
-        $instance = new Element();
-        $instance->open();
-
+        $this->class->open();
+        $property = "properties";
+        $this->assertTrue(
+                property_exists($this->class, $property),
+                "Property not Foud: A propriedade . {$property} . não existe"
+        );
         
     }
     
