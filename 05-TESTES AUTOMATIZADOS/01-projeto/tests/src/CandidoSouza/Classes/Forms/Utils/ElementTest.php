@@ -11,7 +11,20 @@ use CandidoSouza\Classes\Forms\Utils\Element;
 class ElementTest extends \PHPUnit_Framework_TestCase
 {
     private $class;
+ 
+    /*
+     * Roda esse método(está condição) uma vez, e se houver falhas, ele não roda nenhum dos demais testes.
+     * Este condição verifica se a classe existe.
+     */
+    public function assertPreConditions()
+    {
+        $this->assertTrue(
+                class_exists($classe = 'CandidoSouza\Classes\Forms\Utils\Element'),
+                "Class not Foud: A Classe {$classe} não existe"
+        );         
+    }
     
+        
     /*
      * Roda este método, antes de rodas os testes
      * Neste caso está instanciando a classe Element
@@ -26,18 +39,6 @@ class ElementTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown() {
         
-    }
-    
-    /*
-     * Roda esse método(está condição) uma vez, e se houver falhas, ele não roda nenhum dos demais testes.
-     * Este condição verifica se a classe existe.
-     */
-    public function assertPreConditions()
-    {
-        $this->assertTrue(
-                class_exists($classe = 'CandidoSouza\Classes\Forms\Utils\Element'),
-                "Class not Foud: A Classe {$classe} não existe"
-        );         
     }
 
     public function testVerificaSeOTipoDaClasseEstaCorreto()

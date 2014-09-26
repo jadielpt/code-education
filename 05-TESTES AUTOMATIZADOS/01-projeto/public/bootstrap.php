@@ -2,7 +2,7 @@
 /**
  * @author Candido Souza
  * Date: 04/09/14
- * 03 - Projeto | Módulo 04 - Design Patterns | Estudos Potal Code Education
+ * 01 - Projeto | Módulo 05 - Testes Automatizados | Estudos Potal Code Education
  * Linguagem: php
  * Arquivo: bootstrap.php - fonte: https://github.com/iMastersDev/oportunidades
  */
