@@ -11,8 +11,13 @@
          syntaxCheck="false"
          verbose="false">
     <testsuite>
-            <directory>.</directory>
+            <directory>src/CandidoSouza</directory>
     </testsuite>
+    <filter>
+        <whitelist>
+            <directory>src/CandidoSouza</directory>
+        </whitelist>
+    </filter>
     <logging>
         <log type="coverage-html" 
              target="./log/report" 
