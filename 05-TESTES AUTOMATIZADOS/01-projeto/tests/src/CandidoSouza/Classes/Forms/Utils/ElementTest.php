@@ -36,7 +36,7 @@ class ElementTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertTrue(
                 class_exists($classe = 'CandidoSouza\Classes\Forms\Utils\Element'),
-                "Class not Foud: A Classe . {$classe} . não existe"
+                "Class not Foud: A Classe {$classe} não existe"
         );         
     }
 
@@ -61,12 +61,24 @@ class ElementTest extends \PHPUnit_Framework_TestCase
     /**
      * @depends testVerificaSeOTipoDaClasseEstaCorreto
      */
-    public function testVerificaSeOMetodoExiste()
+    public function testVerificaSeOsMetodosExiste()
     {
         $this->class->open();
         $this->assertTrue(
                 method_exists($this->class, "open"),
-                "Method not Foud: O Method . {$this->class->open()} . não existe"
+                "Method not Foud: O Method não existe"
+        );
+                
+        $this->class->close();
+        $this->assertTrue(
+                method_exists($this->class, "open"),
+                "Method not Foud: O Method não existe"
+        );
+                
+        $this->class->render();
+        $this->assertTrue(
+                method_exists($this->class, "render"),
+                "Method not Foud: O Method não existe"
         );
     }
     
@@ -76,9 +88,7 @@ class ElementTest extends \PHPUnit_Framework_TestCase
         $property = "properties";
         $this->assertTrue(
                 property_exists($this->class, $property),
-                "Property not Foud: A propriedade . {$property} . não existe"
+                "Property not Foud: A propriedade {$property} não existe"
         );
-        
     }
-    
 }

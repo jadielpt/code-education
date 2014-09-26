@@ -13,8 +13,8 @@ use CandidoSouza\Classes\Forms\Interfaces\ElementInterfaces;
 class Element implements ElementInterfaces
 {
     public $tag;
-    public  $properties;
-    protected $elementsFilho;
+    private $properties;
+    private $elementsFilho;
 
 
     public function __set($name, $value)

@@ -11,7 +11,6 @@ use CandidoSouza\Classes\Forms\Types\Options;
 use CandidoSouza\Classes\Validation\Validator;
 use CandidoSouza\Classes\Http\Request;
 
-
 $request = new Request();
 $validation = new Validator($request);
         
