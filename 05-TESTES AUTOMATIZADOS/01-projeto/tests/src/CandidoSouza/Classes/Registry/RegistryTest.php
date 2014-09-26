@@ -21,7 +21,7 @@ class RegistryTest
     }
 
     public function setUp() {
-        $this->class = new Registry2();
+        $this->class = new Registry();
     }
 
     public function tearDown() {
