@@ -8,7 +8,7 @@
 namespace CandidoSouza\Classes\Registry;
 use CandidoSouza\Classes\Registry\Registry;
 
-class RegistryTest 
+class RegistryTest extends \PHPUnit_Framework_TestCase
 {
     private $class;
 
