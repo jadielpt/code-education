@@ -52,17 +52,6 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
                 "Method not Foud: O Method não existe"
         );
     }
-    
-//    /**
-//     * @depends testVerificaSeOsMetodosExiste
-//     * 
-//     * @expectedException InvalidArgumentException
-//     */
-//    public function testVerificaSeNaoExisteValorCadastrado()
-//    {
-//        $this->class->get();
-//        
-//    }
 
     /**
      * @depends testVerificaSeOsMetodosExiste

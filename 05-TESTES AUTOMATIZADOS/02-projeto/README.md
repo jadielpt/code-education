@@ -1,4 +1,4 @@
-1º Projeto | Módulo 05 - Testes Automatizados
+2º Projeto | Módulo 05 - Testes Automatizados
 ================================================
 
 Projeto - Cobertura das principais classes.

@@ -1,36 +1,33 @@
 <?php
 /**
  * @author Candido Souza
- * Date: 26/09/14
+ * Date: 29/09/14
  * 02 - Projeto | Módulo 05 - Testes Automatizados | Estudos Potal Code Education
  * Linguagem: php
  */
 
 namespace CandidoSouza\Classes\Forms\Types;
-use CandidoSouza\Classes\Forms\Types\Tag;
 
-class TagTest extends \PHPUnit_Framework_TestCase
+class OptionsTest extends \PHPUnit_Framework_TestCase
 {
     private $class;
-    private $tag;
-
-
+    
     public function assertPreConditions()
     {
         $this->assertTrue(
-                class_exists($classe = 'CandidoSouza\Classes\Forms\Types\Tag'),
+                class_exists($classe = 'CandidoSouza\Classes\Forms\Types\Options'),
                 "Class not Foud: A Classe {$classe} não existe"
         );         
     }
     
     public function setUp() {
-        $this->class = new Tag('nome');
+        $this->class = new Options('nome');
     }
     
     public function testVerificaSeOTipoDaClasseEstaCorreto()
     {
         $this->assertInstanceOf(
-                "CandidoSouza\Classes\Forms\Types\Tag", $this->class
+                "CandidoSouza\Classes\Forms\Types\Options", $this->class
         );
     }
     
@@ -58,31 +55,17 @@ class TagTest extends \PHPUnit_Framework_TestCase
      */
     public function testVerificaSeOsMetodosExiste()
     {
-        $this->class->setType('type');
+        $this->class->getParam();
         $this->assertTrue(
-                method_exists($this->class, "setType"),
-                "Method not Foud: O Method não existe"
-        );
-                
-        $this->class->setValue('values');
-        $this->assertTrue(
-                method_exists($this->class, "setValue"),
-                "Method not Foud: O Method não existe"
-        );
-                
-        $this->class->setName('name');
-        $this->assertTrue(
-                method_exists($this->class, "setName"),
+                method_exists($this->class, "getParam"),
                 "Method not Foud: O Method não existe"
         );
         
-        $this->class->setClass('class');
+        $this->class->setParam('param');
         $this->assertTrue(
-                method_exists($this->class, "setClass"),
+                method_exists($this->class, "setParam"),
                 "Method not Foud: O Method não existe"
         );
-        
-        
         
         $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
                 ->setMockClassName('Element')
@@ -104,36 +87,9 @@ class TagTest extends \PHPUnit_Framework_TestCase
     /**
      * @depends testVerificaSeOsMetodosExiste
      */
-    public function testVerificaSeAsPropriedadesExiste()
+    public function testVerificaOSetEGetFunciona()
     {
-        $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
-                ->setMockClassName('Element')
-                ->getMock();
-        $this->class->createField($element);
-        $property = "class";
-        $this->assertTrue(
-                property_exists($this->class, $property),
-                "Property not Foud: A propriedade {$property} não existe"
-        );
-        $property = "type";
-        $this->assertTrue(
-                property_exists($this->class, $property),
-                "Property not Foud: A propriedade {$property} não existe"
-        );
-        $property = "name";
-        $this->assertTrue(
-                property_exists($this->class, $property),
-                "Property not Foud: A propriedade {$property} não existe"
-        );
-        $property = "value";
-        $this->assertTrue(
-                property_exists($this->class, $property),
-                "Property not Foud: A propriedade {$property} não existe"
-        );
-                
-        // tentar transformar em um array
+        $this->class->setParam("Ola");
+        $this->assertEquals('Ola', $this->class->getParam('Ola'));
     }
-    
-    
-    
 }

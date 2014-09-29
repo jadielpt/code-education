@@ -22,13 +22,14 @@ class FormTest extends \PHPUnit_Framework_TestCase
     }
     
     public function setUp() {
-        $request = $this->getMockBuilder('CandidoSouza\Classes\Http\Request')
-                ->setMockClassName('Request')
-                ->getMock();
-//        $valid = $this->getMockBuilder('CandidoSouza\Classes\Validation\Validator('.$request.')')
-//                ->setMockClassName('Validator')
+//        $request = $this->getMockBuilder('CandidoSouza\Classes\Http\Request')
+//                ->setMockClassName('Request')
 //                ->getMock();
-        $validator = new \CandidoSouza\Classes\Validation\Validator($request);
+        $validator = $this->getMockBuilder('CandidoSouza\Classes\Validation\Validator')
+                ->setMockClassName('Validator')
+                ->disableOriginalConstructor()
+                ->getMock();
+//        $validator = new \CandidoSouza\Classes\Validation\Validator($request);
         $this->class = new Form($validator, 'forulario');
     }
     
@@ -39,4 +40,23 @@ class FormTest extends \PHPUnit_Framework_TestCase
         );
     }
     
+    /**
+     * @depends testVerificaSeOTipoDaClasseEstaCorreto
+     */
+    public function testVerificaSeOTipoDaInterfaceEstaCorreta()
+    {
+        $this->assertInstanceOf(
+                "CandidoSouza\Classes\Forms\Interfaces\FormInterface", $this->class
+        );
+    }
+    
+    /**
+     * @depends testVerificaSeOTipoDaInterfaceEstaCorreta
+     */
+    public function testVerificaSeestaImplementandoAInterface()
+    {
+        $interface = $this->getMock('CandidoSouza\Classes\Forms\Interfaces\FormInterface');
+        $this->assertTrue($interface instanceof \CandidoSouza\Classes\Forms\Interfaces\FormInterface);
+    }
+
 }

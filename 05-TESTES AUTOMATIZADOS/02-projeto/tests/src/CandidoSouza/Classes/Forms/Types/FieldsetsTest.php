@@ -7,30 +7,27 @@
  */
 
 namespace CandidoSouza\Classes\Forms\Types;
-use CandidoSouza\Classes\Forms\Types\Tag;
 
-class TagTest extends \PHPUnit_Framework_TestCase
+class FieldsetsTest extends \PHPUnit_Framework_TestCase
 {
     private $class;
-    private $tag;
-
-
+    
     public function assertPreConditions()
     {
         $this->assertTrue(
-                class_exists($classe = 'CandidoSouza\Classes\Forms\Types\Tag'),
+                class_exists($classe = 'CandidoSouza\Classes\Forms\Types\Fieldsets'),
                 "Class not Foud: A Classe {$classe} não existe"
         );         
     }
     
     public function setUp() {
-        $this->class = new Tag('nome');
+        $this->class = new Fieldsets('nome');
     }
     
     public function testVerificaSeOTipoDaClasseEstaCorreto()
     {
         $this->assertInstanceOf(
-                "CandidoSouza\Classes\Forms\Types\Tag", $this->class
+                "CandidoSouza\Classes\Forms\Types\Fieldsets", $this->class
         );
     }
     
@@ -58,31 +55,23 @@ class TagTest extends \PHPUnit_Framework_TestCase
      */
     public function testVerificaSeOsMetodosExiste()
     {
-        $this->class->setType('type');
+        $this->class->getParam();
         $this->assertTrue(
-                method_exists($this->class, "setType"),
+                method_exists($this->class, "getParam"),
                 "Method not Foud: O Method não existe"
         );
-                
-        $this->class->setValue('values');
+        
+        $this->class->setParam('param');
+        $this->assertTrue(
+                method_exists($this->class, "setParam"),
+                "Method not Foud: O Method não existe"
+        );
+        
+        $this->class->setValue('Valor');
         $this->assertTrue(
                 method_exists($this->class, "setValue"),
                 "Method not Foud: O Method não existe"
         );
-                
-        $this->class->setName('name');
-        $this->assertTrue(
-                method_exists($this->class, "setName"),
-                "Method not Foud: O Method não existe"
-        );
-        
-        $this->class->setClass('class');
-        $this->assertTrue(
-                method_exists($this->class, "setClass"),
-                "Method not Foud: O Method não existe"
-        );
-        
-        
         
         $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
                 ->setMockClassName('Element')
@@ -93,47 +82,10 @@ class TagTest extends \PHPUnit_Framework_TestCase
                 "Method not Foud: O Method não existe"
         );
         
-        
         $this->class->close($element);
         $this->assertTrue(
                 method_exists($this->class, "close"),
                 "Method not Foud: O Method não existe"
         );
     }
-    
-    /**
-     * @depends testVerificaSeOsMetodosExiste
-     */
-    public function testVerificaSeAsPropriedadesExiste()
-    {
-        $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
-                ->setMockClassName('Element')
-                ->getMock();
-        $this->class->createField($element);
-        $property = "class";
-        $this->assertTrue(
-                property_exists($this->class, $property),
-                "Property not Foud: A propriedade {$property} não existe"
-        );
-        $property = "type";
-        $this->assertTrue(
-                property_exists($this->class, $property),
-                "Property not Foud: A propriedade {$property} não existe"
-        );
-        $property = "name";
-        $this->assertTrue(
-                property_exists($this->class, $property),
-                "Property not Foud: A propriedade {$property} não existe"
-        );
-        $property = "value";
-        $this->assertTrue(
-                property_exists($this->class, $property),
-                "Property not Foud: A propriedade {$property} não existe"
-        );
-                
-        // tentar transformar em um array
-    }
-    
-    
-    
 }
