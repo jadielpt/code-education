@@ -64,3 +64,5 @@ projetos
 
 projetos
 >1. *Cobertura das principais classes. Obs: Projeto em andamento.*
+
+>1. *Testes Unitários. Obs: Projeto em andamento.*
