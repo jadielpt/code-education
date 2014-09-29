@@ -1,10 +1,10 @@
 2º Projeto | Módulo 05 - Testes Automatizados
 ================================================
 
-Projeto - Cobertura das principais classes.
+Projeto - Testes unitários.
 ------------------------------------------------
 
-Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 01 - Testes Automatizados.*
+Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 02 - Testes Automatizados.*
 
 Antes de testar esta aplicação.
 
@@ -23,9 +23,3 @@ instalação
 *O projeto foi construido como avaliação do Portal Code Education.*
 
 >http://portal.code.education/
-
-
-
-**Normas e Padrões**
-
-<a href="http://www.php-fig.org/psr/psr-4/" title="psr4">PSR4</a>
