@@ -63,6 +63,8 @@ projetos
 **Estudos sobre Testes Automatizados com PHP**
 
 projetos
->1. *Cobertura das principais classes. Obs: Projeto em andamento.*
+>1. *Cobertura das principais classes.*
 
->1. *Testes Unitários. Obs: Projeto em andamento.*
+>2. *Testes Unitários.*
+
+>3. *Testes funcionais. Obs: Projeto em andamento.*
