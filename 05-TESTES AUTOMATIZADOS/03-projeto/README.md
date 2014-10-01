@@ -1,10 +1,10 @@
-2º Projeto | Módulo 05 - Testes Automatizados
+3º Projeto | Módulo 05 - Testes Automatizados
 ================================================
 
-Projeto - Testes unitários.
+Projeto - Testes funcionais.
 ------------------------------------------------
 
-Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 02 - Testes Automatizados.*
+Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 05 - Testes Automatizados.*
 
 Antes de testar esta aplicação.
 
