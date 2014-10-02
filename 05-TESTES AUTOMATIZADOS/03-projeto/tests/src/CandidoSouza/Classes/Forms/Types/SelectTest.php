@@ -12,7 +12,9 @@ use CandidoSouza\Classes\Forms\Types\Select;
 class SelectTest extends \PHPUnit_Framework_TestCase
 {
     private $class;
-    
+    private $conn;
+
+
     public function assertPreConditions()
     {
         $this->assertTrue(
@@ -23,6 +25,15 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     
     public function setUp() {
         $this->class = new Select('nome');
+        
+        $this->conn = new \PDO("sqlite::memory:");
+        $query = "create table selects(nome VARCHAR(255));";
+        $this->conn->exec($query);
+    }
+    
+    public function tearDown() {
+        $query = "drop table selects";
+        $this->conn->exec($query);
     }
     
     public function testVerificaSeOTipoDaClasseEstaCorreto()
