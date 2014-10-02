@@ -8,6 +8,7 @@
 
 namespace CandidoSouza\Classes\Forms\Types;
 use CandidoSouza\Classes\Forms\Types\Select;
+use CandidoSouza\Classes\Forms\Utils\Element;
 
 class SelectTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,15 +26,6 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     
     public function setUp() {
         $this->class = new Select('nome');
-        
-        $this->conn = new \PDO("sqlite::memory:");
-        $query = "create table selects(nome VARCHAR(255));";
-        $this->conn->exec($query);
-    }
-    
-    public function tearDown() {
-        $query = "drop table selects";
-        $this->conn->exec($query);
     }
     
     public function testVerificaSeOTipoDaClasseEstaCorreto()
@@ -73,9 +65,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
                 "Method not Foud: O Method não existe"
         );
         
-        $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
-                ->setMockClassName('Element')
-                ->getMock();
+        $element = new Element;
         $this->class->createField($element);
         $this->assertTrue(
                 method_exists($this->class, "createField"),
@@ -102,16 +92,12 @@ class SelectTest extends \PHPUnit_Framework_TestCase
                 "Property not Foud: A propriedade {$property} não existe"
         );
         
-        $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
-                ->setMockClassName('Element')
-                ->getMock();
+        $element = new Element;
         $this->class->createField($element);
         $property = "class";
         $this->assertTrue(
                 property_exists($this->class, $property),
                 "Property not Foud: A propriedade {$property} não existe"
-        );
-                
+        );     
     }
-    
 }

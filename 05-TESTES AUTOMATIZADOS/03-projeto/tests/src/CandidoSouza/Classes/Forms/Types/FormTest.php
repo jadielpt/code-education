@@ -8,6 +8,8 @@
 
 namespace CandidoSouza\Classes\Forms\Types;
 use CandidoSouza\Classes\Forms\Types\Form;
+use CandidoSouza\Classes\Validation\Validator;
+use CandidoSouza\Classes\Http\Request;
 
 class FormTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,14 +24,8 @@ class FormTest extends \PHPUnit_Framework_TestCase
     }
     
     public function setUp() {
-//        $request = $this->getMockBuilder('CandidoSouza\Classes\Http\Request')
-//                ->setMockClassName('Request')
-//                ->getMock();
-        $validator = $this->getMockBuilder('CandidoSouza\Classes\Validation\Validator')
-                ->setMockClassName('Validator')
-                ->disableOriginalConstructor()
-                ->getMock();
-//        $validator = new \CandidoSouza\Classes\Validation\Validator($request);
+        $request = new Request();
+        $validator = new Validator($request);
         $this->class = new Form($validator, 'forulario');
     }
     

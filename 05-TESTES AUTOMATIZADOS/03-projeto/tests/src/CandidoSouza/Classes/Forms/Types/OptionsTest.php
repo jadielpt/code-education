@@ -7,6 +7,7 @@
  */
 
 namespace CandidoSouza\Classes\Forms\Types;
+use CandidoSouza\Classes\Forms\Utils\Element;
 
 class OptionsTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,6 +23,16 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     
     public function setUp() {
         $this->class = new Options('nome');
+   
+        $this->conn = new \PDO("sqlite::memory:");
+        $query = "create table selects(nome VARCHAR(255));";
+        $this->conn->exec($query);
+        
+    }
+        
+    public function tearDown() {
+        $query = "drop table selects";
+        $this->conn->exec($query);
     }
     
     public function testVerificaSeOTipoDaClasseEstaCorreto()
@@ -67,15 +78,12 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
                 "Method not Foud: O Method não existe"
         );
         
-        $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
-                ->setMockClassName('Element')
-                ->getMock();
+        $element = new Element;
         $this->class->createField($element);
         $this->assertTrue(
                 method_exists($this->class, "createField"),
                 "Method not Foud: O Method não existe"
         );
-        
         
         $this->class->close($element);
         $this->assertTrue(
@@ -91,5 +99,39 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     {
         $this->class->setParam("Ola");
         $this->assertEquals('Ola', $this->class->getParam('Ola'));
+    }
+    
+    public function testVerificaOSetEGetInsertDeDadosPeloDB()
+    {
+        $insert = "insert into selects (nome) values ('teste')";
+        $this->conn->exec($insert);
+        
+        $categoria = $this->conn->query("select * from selects")->fetchALL();
+        
+        
+//        var_dump($categoria);
+        
+        
+        $this->class->setParam($categoria[0]['nome']);
+        $this->assertEquals(
+                $categoria[0]['nome'], $this->class->getParam('teste')
+        );
+        
+        $insert = "insert into selects (nome) values ('teste2')";
+        $this->conn->exec($insert);
+        $categoria = $this->conn->query("select * from selects")->fetchALL();
+        $this->class->setParam($categoria[1]['nome']);
+        $this->assertEquals(
+                $categoria[1]['nome'], $this->class->getParam('teste2')
+        );
+        
+        $insert = "insert into selects (nome) values ('teste3')";
+        $this->conn->exec($insert);
+        $categoria = $this->conn->query("select * from selects")->fetchALL();
+        $this->class->setParam($categoria[2]['nome']);
+        $this->assertEquals(
+                $categoria[2]['nome'], $this->class->getParam('teste2')
+        );
+        
     }
 }

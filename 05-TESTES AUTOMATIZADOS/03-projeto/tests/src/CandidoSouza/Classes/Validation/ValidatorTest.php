@@ -7,8 +7,7 @@
  */
 
 namespace CandidoSouza\Classes\Validation;
-use CandidoSouza\Classes\Validation\Validator;
-use CandidoSouza\Classes\Http\RequestTest;
+use CandidoSouza\Classes\Http\Request;
 
 
 class ValidatorTest extends \PHPUnit_Framework_TestCase
@@ -24,9 +23,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     }
     
     public function setUp() {
-        $request = $this->getMockBuilder('CandidoSouza\Classes\Http\Request')
-                ->setMockClassName('Request')
-                ->getMock();
+        $request = new Request;
         $this->class = new Validator($request);
     }
     

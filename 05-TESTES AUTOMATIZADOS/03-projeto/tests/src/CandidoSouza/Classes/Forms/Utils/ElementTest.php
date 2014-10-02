@@ -33,14 +33,6 @@ class ElementTest extends \PHPUnit_Framework_TestCase
     public function setUp() {
         $this->class = new Element();
     }
-    
-    /*
-     * Roda este método, depois de rodas os testes
-     * Neste caso não está fazendo nada
-     */
-    public function tearDown() {
-        
-    }
 
     public function testVerificaSeOTipoDaClasseEstaCorreto()
     {
@@ -52,6 +44,14 @@ class ElementTest extends \PHPUnit_Framework_TestCase
     /**
      * @depends testVerificaSeOTipoDaClasseEstaCorreto
      */
+    
+    public function testVerificaSeestaImplementandoAInterface()
+    {
+        $interface = $this->getMock('CandidoSouza\Classes\Forms\Interfaces\ElementInterfaces');
+        $this->assertTrue($interface instanceof \CandidoSouza\Classes\Forms\Interfaces\ElementInterfaces);
+    }
+    
+
     public function testVerificaSeOTipoDaInterfaceEstaCorreta()
     {
         $this->assertInstanceOf(

@@ -7,6 +7,7 @@
  */
 
 namespace CandidoSouza\Classes\Forms\Types;
+use CandidoSouza\Classes\Forms\Utils\Element;
 
 class LabelTest extends \PHPUnit_Framework_TestCase
 {
@@ -73,9 +74,7 @@ class LabelTest extends \PHPUnit_Framework_TestCase
                 "Method not Foud: O Method não existe"
         );
         
-        $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
-                ->setMockClassName('Element')
-                ->getMock();
+        $element = new Element();
         $this->class->createField($element);
         $this->assertTrue(
                 method_exists($this->class, "createField"),

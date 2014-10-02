@@ -23,10 +23,6 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->class = new Request();
     }
     
-    public function tearDown() {
-        
-    }
-    
     public function testVerificaSeOTipoDaClasseEstaCorreto()
     {
         $this->assertInstanceOf(

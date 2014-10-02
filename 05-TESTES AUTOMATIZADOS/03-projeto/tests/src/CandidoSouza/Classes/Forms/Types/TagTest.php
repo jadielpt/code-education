@@ -8,6 +8,7 @@
 
 namespace CandidoSouza\Classes\Forms\Types;
 use CandidoSouza\Classes\Forms\Types\Tag;
+use CandidoSouza\Classes\Forms\Utils\Element;
 
 class TagTest extends \PHPUnit_Framework_TestCase
 {
@@ -106,9 +107,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
      */
     public function testVerificaSeAsPropriedadesExiste()
     {
-        $element = $this->getMockBuilder('CandidoSouza\Classes\Forms\Utils\Element')
-                ->setMockClassName('Element')
-                ->getMock();
+        $element = new Element();
         $this->class->createField($element);
         $property = "class";
         $this->assertTrue(
