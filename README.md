@@ -67,4 +67,6 @@ projetos
 
 >2. *Testes Unitários.*
 
->3. *Testes funcionais. Obs: Projeto em andamento.*
+>3. *Testes funcionais.*
+
+>4. *Refazendo todo o projeto utilizando TDD. Obs: Projeto em andamento.*
