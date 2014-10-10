@@ -14,7 +14,7 @@ use CandidoSouza\Classes\Form\Interfaces\ElementInterface;
 class Element implements ElementInterface
 {
     public $tag;
-    private $properties = [];
+    private $properties;
     
     public function __set($name, $value)
     {
@@ -34,7 +34,7 @@ class Element implements ElementInterface
     
     public function close() 
     {
-        print "</" . $this->tag . ">";
+        print "</{$this->tag}>";
     }
 
     public function render()

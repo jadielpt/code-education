@@ -67,8 +67,33 @@ class FormTest extends \PHPUnit_Framework_TestCase
     
     public function testChecksIfTheReturnIsTheExpected()
     {
+        $this->assertArrayHasKey('tag', ['tag' => 'form']);
+        $this->assertArrayHasKey('tag', ['tag' => [
+                                            'name' => 'form_contato',
+                                            'class' => 'form-horizontal',
+                                            'action' => 'dados.php',
+                                            'method' => 'post'
+                                        ]
+                                    ]
+                                );
+    }
+    
+    public function testOMetodoClose()
+    {
+        $this->assertObjectHasAttribute('nome', $this->class);
+        
         $element = new \CandidoSouza\Classes\Form\Util\Element();
-        $this->class->createField($element);
-        // ...
+        $elementMock = $this->getMockBuilder('CandidoSouza\Classes\Form\Util\Element')
+                ->setMockClassName('Element')
+                ->getMock();
+        
+        $tag = $this->class->close($element);
+        
+        $this->assertTrue(is_null($this->class->close($elementMock)));
+        
+        $this->assertNull($tag);
+        $this->assertNotSame($tag, '</form>');
+        $this->assertStringStartsWith('</', '</form>');
+        $this->assertStringEndsWith('>', '</form>'); 
     }
 }

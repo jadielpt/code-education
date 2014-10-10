@@ -65,12 +65,4 @@ class ElementTest extends \PHPUnit_Framework_TestCase
         $this->class->render();
         $this->assertTrue(method_exists($this->class, "render"),"Method not Found: O Method não existe");
     }
-
-//    public function TestVerificaSeOMetodoOpenEstaRetornandoOValorCorreto()
-//    {
-//        
-//        $this->class->open();
-//        $this->assertTrue($this->class, "<tag/>", "Não está retornando um valor");
-//        
-//    }
 }

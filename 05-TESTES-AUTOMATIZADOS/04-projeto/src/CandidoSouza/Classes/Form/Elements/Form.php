@@ -34,5 +34,8 @@ class Form implements FormInterface
 
     public function close(Element $element) 
     {
+        $tag = $element;
+        $tag->tag = $this->nome;
+        $tag->close();
     }
 }
