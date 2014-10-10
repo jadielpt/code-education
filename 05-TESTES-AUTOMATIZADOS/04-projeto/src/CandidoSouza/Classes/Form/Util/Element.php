@@ -23,18 +23,19 @@ class Element implements ElementInterface
     
     public function open()
     {
-        print "<{$this->tag}";
+        print "\n<{$this->tag}";
         if ($this->properties) {
             foreach ($this->properties as $name => $value) {
                 print " {$name}=\"{$value}\"";
             }
         }
-        print ">";
+        print ">\n";
+        
     }
     
     public function close() 
     {
-        print "</{$this->tag}>";
+        print "</{$this->tag}>\n";
     }
 
     public function render()

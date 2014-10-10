@@ -2,27 +2,27 @@
 
 /**
  * @author Candido Souza
- * Date: 08/10/14
+ * Date: 10/10/14
  * 04 - Projeto | Módulo 05 - Testes Automatizados | Estudos Potal Code Education
  * Linguagem: php
  */
 
 namespace CandidoSouza\Classes\Form\Elements;
 
-class FormTest extends \PHPUnit_Framework_TestCase
+class FieldsetTest extends \PHPUnit_Framework_TestCase 
 {
     private $class;
 
     public function assertPreConditions()
     {
         $this->assertTrue(
-                class_exists($classe = 'CandidoSouza\Classes\Form\Elements\Form'),
+                class_exists($classe = 'CandidoSouza\Classes\Form\Elements\Fieldset'),
                 "Class not Found: A Classe {$classe} não existe"
         );         
     }
     
     public function setUp() {
-        $this->class = new Form('form');
+        $this->class = new Fieldset('fieldset');
     }
     
     public function tearDown()
@@ -32,7 +32,7 @@ class FormTest extends \PHPUnit_Framework_TestCase
 
     public function testChecksIfTheClassTypeIsCorrect()
     {
-        $this->assertInstanceOf("CandidoSouza\Classes\Form\Elements\Form", $this->class);
+        $this->assertInstanceOf("CandidoSouza\Classes\Form\Elements\Fieldset", $this->class);
     }
     
     /**
@@ -65,17 +65,10 @@ class FormTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(method_exists($this->class, "close"),"Method not Found: O Method não existe");
     }
     
-    public function testChecksIfTheReturnIsTheExpected()
+    public function testChecksIfTheReturnIsTheExpectedMethodcreateField()
     {
-        $this->assertArrayHasKey('tag', ['tag' => 'form']);
-        $this->assertArrayHasKey('tag', ['tag' => [
-                                            'name' => 'form_contato',
-                                            'class' => 'form-horizontal',
-                                            'action' => 'dados.php',
-                                            'method' => 'post'
-                                        ]
-                                    ]
-                                );
+        $this->assertArrayHasKey('tag', ['tag' => 'fieldset']);
+        $this->assertArrayHasKey('tag', ['tag' => ['name' => 'Formulário de Contato',]]);
     }
     
     public function testTheMethodClose()
@@ -92,8 +85,8 @@ class FormTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(is_null($this->class->close($elementMock)));
         
         $this->assertNull($tag);
-        $this->assertNotSame($tag, '</form>');
-        $this->assertStringStartsWith('</', '</form>');
-        $this->assertStringEndsWith('>', '</form>'); 
+        $this->assertNotSame($tag, '</fieldset>');
+        $this->assertStringStartsWith('</', '</fieldset>');
+        $this->assertStringEndsWith('>', '</fieldset>'); 
     }
 }

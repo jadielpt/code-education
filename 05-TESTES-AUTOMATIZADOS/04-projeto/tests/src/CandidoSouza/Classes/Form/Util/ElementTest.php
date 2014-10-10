@@ -12,7 +12,6 @@ namespace CandidoSouza\Classes\Form\Util;
 class ElementTest extends \PHPUnit_Framework_TestCase
 {
     private $class;
-    private $tag;
 
 
     public function assertPreConditions()
