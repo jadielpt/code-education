@@ -9,7 +9,7 @@
 
 namespace CandidoSouza\Classes\Form\Interfaces;
 
-class FormInterfaceTest extends \PHPUnit_Framework_TestCase
+class TagInterfaceTest extends \PHPUnit_Framework_TestCase
 {
     public function testIfThereChecksInterface()
     {

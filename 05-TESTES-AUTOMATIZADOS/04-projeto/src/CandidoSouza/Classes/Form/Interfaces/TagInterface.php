@@ -10,7 +10,7 @@
 namespace CandidoSouza\Classes\Form\Interfaces;
 use CandidoSouza\Classes\Form\Util\Element;
 
-interface FormInterface 
+interface TagInterface 
 {
     public function createField(Element $element);
     
