@@ -12,6 +12,10 @@ use CandidoSouza\Classes\Form\Util\Element;
 
 interface TagInterface 
 {
+    public function setParam($param);
+    
+    public function getParam();
+
     public function createField(Element $element);
     
     public function close(Element $element);

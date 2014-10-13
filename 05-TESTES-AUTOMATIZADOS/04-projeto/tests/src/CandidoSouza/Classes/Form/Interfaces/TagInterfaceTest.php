@@ -13,7 +13,7 @@ class TagInterfaceTest extends \PHPUnit_Framework_TestCase
 {
     public function testIfThereChecksInterface()
     {
-        $this->assertTrue(interface_exists($interface = 'CandidoSouza\Classes\Form\Interfaces\FormInterface'),
+        $this->assertTrue(interface_exists($interface = 'CandidoSouza\Classes\Form\Interfaces\TagInterface'),
                 "Interface not Foud: A Interface {$interface} não existe");
     }
 }
