@@ -1,5 +1,5 @@
 {
-    "name" : "04 - Projeto | Módulo 05 - Testes Automatizados | Estudos Potal Code Education",
+    "name" : "05 - Projeto | Módulo 05 - Testes Automatizados | Estudos Potal Code Education",
     "authors" : [
         {
             "name" : "Cândido Souza",
@@ -12,7 +12,8 @@
     },
     "require" : {
         "php" : ">=5.5",
-        "phpunit/phpunit": "4.2.*"
+        "phpunit/phpunit": "4.2.*",
+        "phpunit/phpunit-selenium": ">=1.2"
     },
     "autoload" : {
         "psr-4" : {
