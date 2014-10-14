@@ -105,7 +105,7 @@ $div->createField($element2);
 $input = [
     'class' => 'form-control',
     'type' => 'text',
-    'name' => 'nome',
+    'name' => 'valor',
     'value' => 3.50
 ];
 $input = new Tag($input, 'input');
@@ -144,7 +144,7 @@ $div->createField($element3);
 $input = [
     'class' => 'form-control',
     'type' => 'text',
-    'name' => 'nome',
+    'name' => 'descricao',
     'value' => 'Laranja Iowa'
 ];
 $input = new Tag($input, 'input');
