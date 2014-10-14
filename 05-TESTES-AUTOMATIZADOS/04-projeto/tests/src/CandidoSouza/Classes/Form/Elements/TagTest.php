@@ -32,7 +32,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
     
     public function tearDown()
     {
-        $this->class = null;
+        unset($this->class);
     }
     
     public function testIfThereChecksInterface()
