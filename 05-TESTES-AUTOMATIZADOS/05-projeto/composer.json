@@ -1,0 +1,22 @@
+{
+    "name" : "04 - Projeto | Módulo 05 - Testes Automatizados | Estudos Potal Code Education",
+    "authors" : [
+        {
+            "name" : "Cândido Souza",
+            "email" : "candido_souza@hotmail.com"
+        }
+    ],
+    "license" : "MIT",
+    "config":{
+        "bin-dir":"bin/"
+    },
+    "require" : {
+        "php" : ">=5.5",
+        "phpunit/phpunit": "4.2.*"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "" : "src/"
+        }
+    }
+}
