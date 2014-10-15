@@ -4,7 +4,7 @@
 Comandos GIT
 ------------
 
-**Obs: Não use sem prévio conhecimento básico!**
+**Obs: Cuidado! Não use sem prévio conhecimento básico!**
 
 Ver o status
 >git status
@@ -25,11 +25,11 @@ Adicionando e comitando ao mesmo tempo
 >git commit -a -m "mensagem de commit"
 
 Voltando commit a versões anteriores
-Voltar um commit
+*Voltar um commit*
 >git reset HEAD~1
-Voltar dois commit
+*Voltar dois commit*
 >git reset HEAD~2
-Assim por diante...
+*Assim por diante...*
 
 Voltando um commit e deixando o arquivo no estagio anterior
 >git reset HEAD~1 --soft
@@ -65,12 +65,12 @@ Voltando para o branch master
 >git ckeckout master
 
 Grudando o branch criado no branch master
-Entre como branch master
+*Entre como branch master*
 >git merge (nome do branch que vc criou)
 
 Grudando o branch criado no branch master sem o commit
-Somente localmente - localhost
-Entre como branch master
+*Somente localmente - localhost*
+*Entre como branch master*
 >git rebase (nome do branch que vc criou)
 
 Removendo um branch
@@ -89,11 +89,11 @@ Deletando todos os aquivos removidos ao mesmo tempo
 >git ls-files --deleted | xargs git rm
 
 Ignorando arquivos
-Crie um arquivo chamado .gitignore
-Digite o caminho da(s) pasta(s) ou arquivo(s) a ser ignorado
-Cada arquivo em uma linhas
-Salve!
-Adicione o arquivo. Obs: Código já mostrado anteriormente
+*Crie um arquivo chamado .gitignore*
+*Digite o caminho da(s) pasta(s) ou arquivo(s) a ser ignorado*
+*Cada arquivo em uma linhas*
+*Salve!*
+*Adicione o arquivo. (Obs:Código já mostrado anteriormente)*
 
 Criando um clone do github
 >git clone (url do arqyuivo)
@@ -123,15 +123,15 @@ Enviando a tag para o repositório - github
 >git push origin master --tags
 
 Removendo as tags criadas
-Removendo tag localmente
+*Removendo tag localmente*
 >git tag -d 0.1.0
-Removendo tag no repositório remoto
+*Removendo tag no repositório remoto*
 >git push origin :refs/tags/0.1.0
 
 Criando um repositório local
-Crie uma pasta e entre nela
+*Crie uma pasta e entre nela*
 >git init --bare
-Saia da pasta
+*Saia da pasta*
 >git checkout master 
 >git push local
 
