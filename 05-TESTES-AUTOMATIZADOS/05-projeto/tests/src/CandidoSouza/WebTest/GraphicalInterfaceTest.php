@@ -12,8 +12,8 @@ namespace CandidoSouza\WebTest;
 class GraphicalInterfaceTest extends \PHPUnit_Extensions_Selenium2TestCase
 {
     public function setUp() {
-        $this->setBrowser('Linux Chrome');
-        $this->setBrowserUrl('http://127.0.0.1:8080/');
+        $this->setBrowser('firefox');
+        $this->setBrowserUrl('http://127.0.0.1:8080/'); // Obs: O teste passa! Mas depende do host e porta
     }
     
     public function testTitle()
@@ -51,7 +51,7 @@ class GraphicalInterfaceTest extends \PHPUnit_Extensions_Selenium2TestCase
         $form = $this->byCssSelector('form');
         $action = $form->attribute('action');
         $this->assertContains('dados.php', $action);
-//        $this->assertEquals('http://127.0.0.1:8080/dados.php', $action); // Obs: O teste passa! Mas depende da do host e Porta
+        $this->assertEquals('http://127.0.0.1:8080/dados.php', $action); // Obs: O teste passa! Mas depende do host e porta
         $this->assertTrue($this->byName('enviar')->enabled());
     }
     
