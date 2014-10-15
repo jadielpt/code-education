@@ -69,6 +69,6 @@ projetos
 
 >3. *Testes funcionais.*
 
->4. *Refazendo todo o projeto utilizando TDD. Obs: Aguardando a aprovação.*
+>4. *Refazendo todo o projeto utilizando TDD.*
 
->5. *Testes de aceitação. Obs: Projeto em andamento.*
+>5. *Testes de aceitação. Obs: Projeto em andamento (Aguardando a aprovação).*
