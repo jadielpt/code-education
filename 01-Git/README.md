@@ -83,7 +83,7 @@ Comandos GIT
 >git branch -D (nome do branch)
 
 **Vendo branchs remotos**
-git branch -a
+>git branch -a
 
 **Mostrando o inicio do hash, quem comitou, quanto tempo atrás, mensagem: descrição do commit**
 >git log --pretty=format: "%h - %an, %ar : %s"
@@ -100,11 +100,11 @@ git branch -a
 
 *Digite o caminho da(s) pasta(s) ou arquivo(s) a ser ignorado*
 
-*Cada arquivo em uma linhas*
+*Cada arquivo em uma linha*
 
 *Salve!*
 
-*Adicione o arquivo. (Obs:Código já mostrado anteriormente)*
+*Adicione o arquivo. (Obs: Código já mostrado anteriormente)*
 
 **Criando um clone do github**
 >git clone (url do arqyuivo)
