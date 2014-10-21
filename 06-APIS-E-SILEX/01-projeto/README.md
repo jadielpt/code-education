@@ -29,11 +29,19 @@ instalação
 
 
 >*@author Candido Souza*
+
 >*Inicio: 21/10/14*
+
 >*Término: em andamento*
+
 >*01 - Projeto | Módulo 06 - APIs e Silex | Estudos Potal Code Education*
+
 >*Linguagem: php OO*
->*Versão php: 5.5
+
+>*Versão php: 5.5*
+
 >*Framework: Micro-framework Silex 2.0*
+
 >*Testes: PHPUnit 4.4*
+
 >*Testes Gráficos: phpunit-selenium 1.4.1*
