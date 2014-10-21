@@ -71,4 +71,12 @@ projetos
 
 >4. *Refazendo todo o projeto utilizando TDD.*
 
->5. *Testes de aceitação. Obs: Projeto em andamento (Aguardando a aprovação).*
+>5. *Testes de aceitação.*
+
+6º Módulo
+-----------
+
+**Estudos sobre APIs e Micro-framework Silex**
+
+projetos
+>1. *Preparando o ambiente. Obs: Projeto em andamento*
