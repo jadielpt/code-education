@@ -22,4 +22,4 @@ echo "<br>";
 echo "<br>";
 echo "<h1>Codigos de cliente existentes:</h1>";
 echo "<h2>00001, 00002, 00003, 00004, 00005</h2>";
-echo "<h2>http://127.0.0.1:8080/00001</h2>";
+echo "<h2>http://127.0.0.1:8080/clientes/00001</h2>";
