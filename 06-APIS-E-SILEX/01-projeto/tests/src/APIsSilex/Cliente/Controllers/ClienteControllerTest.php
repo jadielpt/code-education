@@ -68,8 +68,10 @@ class ClienteControllerTest extends \PHPUnit_Framework_TestCase
                 ['nome' => 'Maria Jose', 'email' => 'maria@email.com']
             ]];
         
+        $result = json_encode($lista, JSON_PRETTY_PRINT);
+        
         $this->class->setCliente($lista);
-        $this->assertEquals('{"cliente":[{"nome":"Maria Jose","email":"maria@email.com"}]}', $this->class->getCliente($app));
+        $this->assertEquals($result, $this->class->getCliente($app));
     }
     
     public function testCheckReturnGetCliente()
@@ -79,7 +81,7 @@ class ClienteControllerTest extends \PHPUnit_Framework_TestCase
         $this->class->setCliente($lista);
         $getCliente = $this->class->getCliente($app);
 
-        $this->assertEquals("[]", $getCliente,"No returns an array");
+        $this->assertEquals("[]", $getCliente,"No returns an string");
         $this->assertTrue(is_string($getCliente));
         
     }
@@ -91,8 +93,6 @@ class ClienteControllerTest extends \PHPUnit_Framework_TestCase
         $this->class->setCliente($lista);
         $getCliente = $this->class->getCliente($app);
         
-        $test = $this->class->getClienteId($app, '00001');
-        // ...
-        
+        $this->class->getClienteId($app, '00001');
     }
 }
