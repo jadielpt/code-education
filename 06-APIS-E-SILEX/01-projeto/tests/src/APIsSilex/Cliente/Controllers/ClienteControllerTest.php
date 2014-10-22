@@ -68,7 +68,7 @@ class ClienteControllerTest extends \PHPUnit_Framework_TestCase
                 ['nome' => 'Maria Jose', 'email' => 'maria@email.com']
             ]];
         
-        $result = json_encode($lista, JSON_PRETTY_PRINT);
+        $result = $app->json($lista);
         
         $this->class->setCliente($lista);
         $this->assertEquals($result, $this->class->getCliente($app));
@@ -78,11 +78,11 @@ class ClienteControllerTest extends \PHPUnit_Framework_TestCase
     {
         $app = new \Silex\Application();
         $lista = [];
+        $result = $app->json($lista);
         $this->class->setCliente($lista);
         $getCliente = $this->class->getCliente($app);
 
-        $this->assertEquals("[]", $getCliente,"No returns an string");
-        $this->assertTrue(is_string($getCliente));
+        $this->assertEquals($result, $getCliente,"No returns an string");
         
     }
     
