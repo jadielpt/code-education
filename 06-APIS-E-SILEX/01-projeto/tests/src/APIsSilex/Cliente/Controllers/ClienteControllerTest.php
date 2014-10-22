@@ -37,4 +37,62 @@ class ClienteControllerTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('APIsSilex\Cliente\Controllers\ClienteControllerInterface', $this->class);
     }
+    
+    public function testChecksIfThereSMethods()
+    {
+        $app = new \Silex\Application();
+        
+        $lista = [ 
+            '00001' => [
+                ['nome' => 'Maria Jose', 'email' => 'maria@email.com']
+            ]];
+        
+        $this->class->connect($app);
+        $this->assertTrue(method_exists($this->class, "connect"),"Method not Found: O Method não existe");
+        
+        $this->class->setCliente($lista);
+        $this->assertTrue(method_exists($this->class, "setCliente"),"Method not Found: O Method não existe");
+        
+        $this->class->getCliente($app);
+        $this->assertTrue(method_exists($this->class, "getCliente"),"Method not Found: O Method não existe");
+        
+        $this->class->getClienteId($app, '00001');
+        $this->assertTrue(method_exists($this->class, "getClienteId"),"Method not Found: O Method não existe");    
+    }
+    
+    public function testGettersAndSettersChecks()
+    {
+        $app = new \Silex\Application();
+        $lista = [ 
+            'cliente' => [
+                ['nome' => 'Maria Jose', 'email' => 'maria@email.com']
+            ]];
+        
+        $this->class->setCliente($lista);
+        $this->assertEquals('{"cliente":[{"nome":"Maria Jose","email":"maria@email.com"}]}', $this->class->getCliente($app));
+    }
+    
+    public function testCheckReturnGetCliente()
+    {
+        $app = new \Silex\Application();
+        $lista = [];
+        $this->class->setCliente($lista);
+        $getCliente = $this->class->getCliente($app);
+
+        $this->assertEquals("[]", $getCliente,"No returns an array");
+        $this->assertTrue(is_string($getCliente));
+        
+    }
+    
+    public function testCheckReturnGetClienteId()
+    {
+        $app = new \Silex\Application();
+        $lista = ['00001' => []];
+        $this->class->setCliente($lista);
+        $getCliente = $this->class->getCliente($app);
+        
+        $test = $this->class->getClienteId($app, '00001');
+        // ...
+        
+    }
 }
