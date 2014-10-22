@@ -30,7 +30,7 @@ class ClienteController implements ClienteControllerInterface
 
     public function getCliente(Application $app) 
     {
-        return json_encode($this->cliente, JSON_PRETTY_PRINT);
+        return $app->json($this->cliente);
     }
 
     public function getClienteId(Application $app, $cliente) 
@@ -38,7 +38,7 @@ class ClienteController implements ClienteControllerInterface
         if(!isset($this->cliente[$cliente])){
             $app->abort(404, "Cliente {$cliente} Não existe.");
         }
-        return json_encode($this->cliente[$cliente]);
+        return $app->json($this->cliente[$cliente]);
     }
 
 }
