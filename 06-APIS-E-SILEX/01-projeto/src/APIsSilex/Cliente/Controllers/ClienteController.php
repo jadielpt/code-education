@@ -7,18 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ClienteController implements ClienteControllerInterface
 {
-    public $cliente;
+    private $cliente;
     
     public function connect(Application $app) 
     {
-        
         $cliente = $app['controllers_factory'];
         
         $cliente->get('/', function() use ($app){
             return self::getCliente($app);
         });
-        
-        //$cliente->get('/', self::getCliente($app));
 
         $cliente->get('/{cliente}', function($cliente) use ($app){
             return self::getClienteId($app, $cliente);

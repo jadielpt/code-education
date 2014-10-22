@@ -1,13 +1,8 @@
 <?php
-header('Content-type: application/json');
- 
-$lista = [ 
-    'cliente' => [
-        ['nome' => 'Maria José', 'email' => 'maria@email.com', 'cpf/cnpj' => '777.777.777-77'],
-        ['nome' => 'João Maria', 'email' => 'joao@email.com', 'cpf/cnpj' => '777.777.777-77'],
-        ['nome' => 'José Maria', 'email' => 'jose@email.com', 'cpf/cnpj' => '777.777.777-77'],
-        ['nome' => 'Pedro João', 'email' => 'pedro@email.com', 'cpf/cnpj' => '777.777.777-77'],
-        ['nome' => 'João Pedro', 'email' => 'jp@email.com', 'cpf/cnpj' => '777.777.777-77'],
-    ]];
-
-echo json_encode($lista, JSON_PRETTY_PRINT);
+return [ 
+    '00001' => ['nome' => 'Maria Jose', 'email' => 'maria@email.com', 'cpf-cnpj' => '777.777.777-77'],
+    '00002' => ['nome' => 'Joao Maria', 'email' => 'joao@email.com', 'cpf-cnpj' => '777.777.777-77'],
+    '00003' => ['nome' => 'Jose Maria', 'email' => 'jose@email.com', 'cpf-cnpj' => '777.777.777-77'],
+    '00004' => ['nome' => 'Pedro Joao', 'email' => 'pedro@email.com', 'cp-cnpj' => '777.777.777-77'],
+    '00005' => ['nome' => 'Joao Pedro', 'email' => 'jp@email.com', 'cpf-cnpj' => '777.777.777-77']
+    ];
