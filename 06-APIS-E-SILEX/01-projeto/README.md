@@ -34,3 +34,5 @@ instalação
 *O projeto foi construido como avaliação do Portal Code Education.*
 
 ><a href="http://portal.code.education/" target="_blank">Code.Education</a>
+
+*Projeto finalizado!*
