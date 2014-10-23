@@ -79,4 +79,6 @@ projetos
 **Estudos sobre APIs e Micro-framework Silex**
 
 projetos
->1. *Preparando o ambiente. Obs: Projeto em andamento*
+>1. *Preparando o ambiente.*
+
+>2. *Aguardando liberação de novo prjeto //Obs: Projeto em andamento.*
