@@ -1,14 +1,14 @@
 <?php
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../config/bootstrap.php';
 
-use APIsSilex\Cliente\Controllers\ClienteController;
+use APIsSilex\Client\Controllers\ClientController;
 
-$data = require_once __DIR__ . '/../src/APIsSilex/Views/CienteJsonView.php';
+$data = require_once __DIR__ . '/../src/APIsSilex/Views/CientJsonView.php';
 
-$cliente = new ClienteController();
-$cliente->setCliente($data);
-$cliente->getCliente($app);
+$client = new ClientController();
+$client->setClient($data);
+$client->getClient($app);
         
-$app->mount('/clientes', $cliente->connect($app));
+$app->mount('/clientes', $client->connect($app));
 
 $app->run();
