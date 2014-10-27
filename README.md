@@ -1,14 +1,18 @@
 Estudo em php curso Code Education
 ======================================
 
-Os arquivos aqui adicionados fazem parte do curso do portal code-education
+Os arquivos aqui adicionados fazem parte do curso do portal code-education.
+
+**Obs: No início os projetos foram feitos de acordo com meu conhecimento, e com meu aprendizado, eles foram se tronando mais profissionais. Verá que diferença com os primeiros projetos e os últimos são grandes. Só quero lembrar que este repositório só é válido para meus estudos!**
+
+**Obrigado!**
 
 1º Módulo
 -----------
 
 **Estudo sobre GIT e GITHUB**
 
-projetos
+projetoss
 >1. *Fazer um push.*
 
 >2. *Fazer 2 releases.*
