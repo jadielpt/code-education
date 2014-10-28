@@ -7,8 +7,6 @@ use Silex\Application;
 interface ClientControllerInterface 
 {
     public function connect(Application $app);
-    
-    public function setClient(array $cliente);
 
     public function getClient(Application $app);
     

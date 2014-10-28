@@ -2,6 +2,8 @@
 
 namespace APIsSilex\Client\Controllers;
 
+use ClientControllerInterface;
+use APIsSilex\Client\Service\ClientService;
 use Silex\Application;
 
 class ClientController implements ClientControllerInterface
@@ -12,6 +14,7 @@ class ClientController implements ClientControllerInterface
     {
         $client = $app['controllers_factory'];
         
+            
         $client->get('/', function() use ($app){
             return self::getClient($app);
         });
@@ -22,22 +25,32 @@ class ClientController implements ClientControllerInterface
   
         return $client;
     }
-    
-    public function setClient(array $client) {
-        $this->client = $client;
-    }
 
     public function getClient(Application $app) 
     {
-        return $app->json($this->client);
+            $data['name'] = null;
+            $data['email'] = null;
+            $data['cpfCnpj'] = null;
+
+            $clintService = new ClientService();
+            $result = $clintService->insert($data);
+            
+            return $app->json($result);
     }
 
-    public function getClientId(Application $app, $client) 
+    public function getClientId(Application $app, $code) 
     {
-        if(!isset($this->client[$client])){
-            $app->abort(404, "Client {$client} not found.");
-        }
-        return $app->json($this->client[$client]);
+            $data['name'] = null;
+            $data['email'] = null;
+            $data['cpfCnpj'] = null;
+            
+            $clintService = new ClientService();
+            $result = $clintService->insert($data);
+                    
+            if(!isset($result[$code])){
+                $app->abort(404, "Client {$code} not found.");
+            }
+            return $app->json($result[$code]);
     }
 
 }
