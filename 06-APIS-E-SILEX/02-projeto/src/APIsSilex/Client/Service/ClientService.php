@@ -7,14 +7,24 @@ use APIsSilex\Client\Mapper\ClientMapper;
 
 class ClientService 
 {
+    private $client;
+    private $clientMapper;
+            
+    function __construct(Client $client, ClientMapper $clientMapper) 
+    {
+        $this->client = $client;
+        $this->clientMapper = $clientMapper;
+    }
+
+    
     public function insert(array $data)
     {       
-        $clientEntity = new Client();
+        $clientEntity = $this->client;
         $clientEntity->setName($data['name']);
         $clientEntity->setEmail($data['email']);
         $clientEntity->setCpfCnpj($data['cpfCnpj']);
 
-        $clientMapper = new ClientMapper();
+        $clientMapper = $this->clientMapper;
         $result = $clientMapper->insert($clientEntity);
         
         return $result;

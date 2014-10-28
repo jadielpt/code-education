@@ -5,6 +5,8 @@ namespace APIsSilex\Client\Controllers;
 use APIsSilex\Client\Controllers\ClientInterface;
 use APIsSilex\Client\Service\ClientService;
 use Silex\Application;
+use APIsSilex\Client\Entity\Client;
+use APIsSilex\Client\Mapper\ClientMapper;
 
 class ClientController implements ClientInterface
 {
@@ -30,8 +32,11 @@ class ClientController implements ClientInterface
             $data['name'] = null;
             $data['email'] = null;
             $data['cpfCnpj'] = null;
+            
+            $client = new Client();
+            $clientMapper = new ClientMapper();
 
-            $clintService = new ClientService();
+            $clintService = new ClientService($client, $clientMapper);
             $result = $clintService->insert($data);
             
             return $app->json($result);
@@ -43,7 +48,10 @@ class ClientController implements ClientInterface
             $data['email'] = null;
             $data['cpfCnpj'] = null;
             
-            $clintService = new ClientService();
+            $client = new Client();
+            $clientMapper = new ClientMapper();
+
+            $clintService = new ClientService($client, $clientMapper);
             $result = $clintService->insert($data);
                     
             if(!isset($result[$code])){
