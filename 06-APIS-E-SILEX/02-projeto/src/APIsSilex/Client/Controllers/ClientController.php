@@ -3,7 +3,6 @@
 namespace APIsSilex\Client\Controllers;
 
 use Silex\Application;
-use Symfony\Component\HttpFoundation\Response;
 
 class ClientController implements ClientControllerInterface
 {
