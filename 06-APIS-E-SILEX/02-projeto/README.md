@@ -1,7 +1,7 @@
-1º Projeto | Módulo 06 - APIs e Micro-framework Silex
+2º Projeto | Módulo 06 - APIs e Micro-framework Silex
 =====================================================
 
-Projeto - Preparando o ambiente.
+Projeto - Persistindo no banco.
 ------------------------------------------------
 
 Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 06 - APIs e Micro-framework Silex.*
@@ -34,5 +34,3 @@ instalação
 *O projeto foi construido como avaliação do Portal Code Education.*
 
 ><a href="http://portal.code.education/" target="_blank">Code.Education</a>
-
-*Projeto finalizado!*
