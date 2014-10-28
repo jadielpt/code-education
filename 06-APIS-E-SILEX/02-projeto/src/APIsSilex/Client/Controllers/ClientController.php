@@ -2,13 +2,12 @@
 
 namespace APIsSilex\Client\Controllers;
 
-use ClientControllerInterface;
+use APIsSilex\Client\Controllers\ClientInterface;
 use APIsSilex\Client\Service\ClientService;
 use Silex\Application;
 
-class ClientController implements ClientControllerInterface
+class ClientController implements ClientInterface
 {
-    private $client;
     
     public function connect(Application $app) 
     {
