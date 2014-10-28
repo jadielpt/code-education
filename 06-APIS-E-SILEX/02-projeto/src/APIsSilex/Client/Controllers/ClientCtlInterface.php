@@ -4,7 +4,7 @@ namespace APIsSilex\Client\Controllers;
 
 use Silex\Application;
 
-interface ClientInterface
+interface ClientCtlInterface
 {
     public function connect(Application $app) ;
     

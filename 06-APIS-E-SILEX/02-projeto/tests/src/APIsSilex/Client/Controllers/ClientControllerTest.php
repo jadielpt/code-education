@@ -2,6 +2,10 @@
 
 namespace APIsSilex\Client\Controllers;
 
+use APIsSilex\Client\Entity\Client;
+use APIsSilex\Client\Mapper\ClientMapper;
+use APIsSilex\Client\Service\ClientService;
+
 class ClientControllerTest extends \PHPUnit_Framework_TestCase
 {
     private $class;
@@ -35,64 +39,35 @@ class ClientControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testChecksIfTheInterfaceTypeIsCorrect()
     {
-        $this->assertInstanceOf('APIsSilex\Client\Controllers\ClientControllerInterface', $this->class);
+        $this->assertInstanceOf('APIsSilex\Client\Controllers\ClientCtlInterface', $this->class);
     }
     
     public function testChecksIfThereSMethods()
     {
         $app = new \Silex\Application();
         
-        $clientList = [ 
-            '00001' => [
-                ['nome' => 'Maria Jose', 'email' => 'maria@email.com']
-            ]];
-        
         $this->class->connect($app);
         $this->assertTrue(method_exists($this->class, "connect"),"Method not Found");
         
-        $this->class->setClient($clientList);
-        $this->assertTrue(method_exists($this->class, "setClient"),"Method not Found");
-        
         $this->class->getClient($app);
-        $this->assertTrue(method_exists($this->class, "getClient"),"Method not Found");
-        
-        $this->class->getClientId($app, '00001');
-        $this->assertTrue(method_exists($this->class, "getClientId"),"Method not Found");    
+        $this->assertTrue(method_exists($this->class, "getClient"),"Method not Found");   
     }
     
-    public function testGettersAndSettersChecks()
+    /**
+     * @depends testChecksIfThereSMethods
+     */
+    public function testChecksMethods()
     {
-        $app = new \Silex\Application();
-        $clientList = [ 
-            'cliente' => [
-                ['nome' => 'Maria Jose', 'email' => 'maria@email.com']
-            ]];
-        
-        $result = $app->json($clientList);
-        
-        $this->class->setClient($clientList);
-        $this->assertEquals($result, $this->class->getClient($app));
-    }
-    
-    public function testCheckReturnGetCliente()
-    {
-        $app = new \Silex\Application();
-        $list = [];
-        $result = $app->json($list);
-        $this->class->setClient($list);
-        $getClient = $this->class->getClient($app);
+        $data['name'] = null;
+        $data['email'] = null;
+        $data['cpfCnpj'] = null;
 
-        $this->assertEquals($result, $getClient,"No returns an string");
-        
-    }
-    
-    public function testCheckReturnGetClienteId()
-    {
+        $client = new Client();
+        $clientMapper = new ClientMapper();
         $app = new \Silex\Application();
-        $list = ['00001' => []];
-        $this->class->setClient($list);
-        $getClient = $this->class->getClient($app);
-        
-        $this->class->getClientId($app, '00001');
+
+        $clintService = new ClientService($client, $clientMapper);
+        $result = $clintService->insert($data);
+        $this->assertEquals(1, $result);
     }
 }

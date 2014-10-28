@@ -2,13 +2,13 @@
 
 namespace APIsSilex\Client\Controllers;
 
-use APIsSilex\Client\Controllers\ClientInterface;
+use APIsSilex\Client\Controllers\ClientCtlInterface;
 use APIsSilex\Client\Service\ClientService;
 use Silex\Application;
 use APIsSilex\Client\Entity\Client;
 use APIsSilex\Client\Mapper\ClientMapper;
 
-class ClientController implements ClientInterface
+class ClientController implements ClientCtlInterface
 {
     
     public function connect(Application $app) 
@@ -59,5 +59,4 @@ class ClientController implements ClientInterface
             }
             return $app->json($result[$code]);
     }
-
 }

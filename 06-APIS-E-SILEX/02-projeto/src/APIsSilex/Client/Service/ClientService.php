@@ -2,10 +2,12 @@
 
 namespace APIsSilex\Client\Service;
 
+use APIsSilex\Client\Service\ClientServiceInterface;
+
 use APIsSilex\Client\Entity\Client;
 use APIsSilex\Client\Mapper\ClientMapper;
 
-class ClientService 
+class ClientService implements ClientServiceInterface
 {
     private $client;
     private $clientMapper;

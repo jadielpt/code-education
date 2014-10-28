@@ -2,7 +2,9 @@
 
 namespace APIsSilex\Client\Entity;
 
-class Client 
+use APIsSilex\Client\Entity\ClientInterface;
+
+class Client implements ClientInterface
 {
     private $name;
     private $email;
