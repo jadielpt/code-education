@@ -4,18 +4,24 @@ namespace APIsSilex\Products\Mapper;
 
 use APIsSilex\Products\Interfaces\ProductsMapperInterface;
 use APIsSilex\Products\Interfaces\ProductsInterface;
+use APIsSilex\Registry\Registry;
+use APIsSilex\Database\Connect;
 
 
 class ProductsMapper implements ProductsMapperInterface
 {
     public function insert(ProductsInterface $products)
     {
-        return [ 
-            '00001' => ['name' => 'Maria Jose', 'email' => 'maria@email.com', 'cpf-cnpj' => '777.777.777-77'],
-            '00002' => ['name' => 'Joao Maria', 'email' => 'joao@email.com', 'cpf-cnpj' => '777.777.777-77'],
-            '00003' => ['name' => 'Jose Maria', 'email' => 'jose@email.com', 'cpf-cnpj' => '777.777.777-77'],
-            '00004' => ['name' => 'Pedro Joao', 'email' => 'pedro@email.com', 'cp-cnpj' => '777.777.777-77'],
-            '00005' => ['name' => 'Joao Pedro', 'email' => 'jp@email.com', 'cpf-cnpj' => '777.777.777-77']
-            ];
+        try{
+            Registry::set('connections', Connect::getDb());
+            $conn = Registry::get('connections');
+            $list = $conn->prepare("SELECT * FROM  products");
+            $list->execute();
+            $data = $list->fetchAll(\PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: Unable to list the data in the database!";
+            die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
+        }
+        return $data;
     }
 }
