@@ -15,9 +15,6 @@
         "silex/silex": "2.0.*@dev",
         "twig/twig": ">=1.16,<2.0-dev",
         "symfony/twig-bridge": "2.6.*@dev",
-        "doctrine/dbal": "2.5.*@dev",
-        "doctrine/orm": "*",
-        "gedmo/doctrine-extensions": "2.3.*@dev",
         "phpunit/phpunit": "4.3.*@dev",
         "phpunit/phpunit-selenium": "dev-master"
     },

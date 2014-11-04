@@ -1,9 +1,9 @@
 <?php
 namespace APIsSilex\Products\Interfaces;
 
-use APIsSilex\Products\Entity\Products;
+use APIsSilex\Products\Interfaces\ProductsInterface;
 
 interface ProductsMapperInterface 
 {
-    public function insert(Products $products);
+    public function insert(ProductsInterface $products);
 }

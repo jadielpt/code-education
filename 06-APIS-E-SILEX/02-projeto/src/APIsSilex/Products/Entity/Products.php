@@ -4,6 +4,8 @@ namespace APIsSilex\Products\Entity;
 
 use APIsSilex\Products\Interfaces\ProductsInterface;
 
+use Doctrine\ORM\Mapping  as ORM;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="products")
