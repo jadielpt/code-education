@@ -19,13 +19,18 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('content.twig', ['products' => self::getProducts($app)]);
         });
 
-        $products->get('/{id}', function($id) use ($app){
+        $products->get('/produto/{id}', function($id) use ($app){
             return $app['twig']->render('produts.twig', ['products' => self::getProductsId($app, $id)]);
-        });
+        })->bind("produto");
 
-        $products->get('/{id}', function($id) use ($app){
+        $products->get('/alterar/produto/{id}', function($id) use ($app){
             return $app['twig']->render('update.twig', ['products' => self::getProductsId($app, $id)]);
         })->bind('update');
+
+        $products->get('/inserir', function() use ($app){
+            return $app['twig']->render('insert.twig', []);
+        });
+
 
         return $products;
     }
@@ -70,5 +75,29 @@ class ProductsController implements ProductsControllerInterface
             $app->abort(404, "Product {$id} not found.");
         }
         return $result[$id-1];
+    }
+
+    public function getUpdate(Application $app, $id)
+    {
+        $app['productsService'] = function() {
+            $products = new Products();
+            $productsMapper = new ProductsMapper();
+            $productsService = new ProductsService($products, $productsMapper);
+
+            return $productsService;
+        };
+        $data['name'] = null;
+        $data['description'] = null;
+        $data['value'] = null;
+
+        $result = $app['productsService']->update($data);
+
+
+        if(!isset($result[$id])){
+            $app->abort(404, "Product {$id} not found.");
+        }
+        return $result[$id];
+
+
     }
 }

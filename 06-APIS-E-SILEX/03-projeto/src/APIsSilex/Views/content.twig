@@ -4,6 +4,7 @@
 {% block content %}
     <div class="jumbotron">
         <table class="table table-striped">
+            <a href="/inserir"><button class="btn btn-success " type="submit" name="voltar" >Cadastar</button></a>
             <thead>
             <tr>
                 <th>COD..</th>
@@ -22,8 +23,8 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.value }}</td>
-                <td><a href="{{ product.id }}"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
-                <td><a href="{{ path('update') }}"><button class="btn btn-primary" type="submit" name="alterar" >Alterar</button></a></td>
+                <td><a href="/produto/{{ product.id }}"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
+                <td><a href="/alterar/produto/{{ product.id }}"><button class="btn btn-primary" type="submit" name="alterar" >Alterar</button></a></td>
                 <td><a href="#"><button class="btn btn-danger" type="submit" name="deletar">Deletar</button></a></td>
             </tr>
             {% endfor %}

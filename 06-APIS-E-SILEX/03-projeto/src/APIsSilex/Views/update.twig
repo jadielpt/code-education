@@ -1,8 +1,9 @@
 {% extends "layout.twig" %}
-{% block title %}Lista de produtos{% endblock %}
+{% block title %}Atualizar de produtos{% endblock %}
 
 {% block content %}
     <div class="jumbotron">
+        Alterar Produto
         <table class="table table-striped">
             <thead>
             <tr>
@@ -15,10 +16,13 @@
             <tbody>
             <tr>
                 <td>{{ products.id }}</td>
-                <td>{{ products.name }}</td>
-                <td>{{ products.description }}</td>
-                <td>{{ products.value }}</td></tr>
+                <td><input type="text" value="{{ products.name }}"></td>
+                <td><input type="text" value="{{ products.description }}"></td>
+                <td><input type="text" value="{{ products.value }}"></td>
+                <td><a href="{{ products.id }}"><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></a></td>
+            </tr>
             </tbody>
         </table>
+        <a href="/"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
     </div><!-- /jumbotron -->
 {% endblock %}

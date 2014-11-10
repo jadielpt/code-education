@@ -4,7 +4,6 @@ require_once __DIR__ . '/../config/bootstrap.php';
 use APIsSilex\Client\Controllers\ClientController;
 use APIsSilex\Products\Controllers\ProductsController;
 use APIsSilex\ProductsDB\Controllers\ProductsController as Products;
-use APIsSilex\Database\Connect;
 
 $prod = new Products();
 
