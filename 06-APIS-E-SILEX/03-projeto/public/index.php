@@ -9,6 +9,12 @@ $prod = new Products();
 
 $app->mount('/', $prod->connect($app));
 
+
+
+
+
+
+
 $client = new ClientController();
 
 $app->mount('/clientes', $client->connect($app));

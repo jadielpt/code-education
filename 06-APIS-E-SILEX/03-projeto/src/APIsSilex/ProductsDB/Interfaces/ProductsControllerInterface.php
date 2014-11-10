@@ -11,4 +11,12 @@ interface ProductsControllerInterface
     public function getProducts(Application $app);
     
     public function getProductsId(Application $app, $id);
+
+    public function getInsert(Application $app);
+
+    public function getUpdate(Application $app, $id);
+
+    public function getDelete(Application $app, $id);
+
+
 }

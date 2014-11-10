@@ -62,6 +62,8 @@ class ProductsService implements ProductsServiceInterface
         $productsEntity->setValue($data['value']);
 
         $productsMapper = $this->productsMapper;
+
+        var_dump($productsMapper);
         return $productsMapper->delete($productsEntity);
     }
     

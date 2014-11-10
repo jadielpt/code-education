@@ -22,58 +22,71 @@ class ProductsMapper implements ProductsMapperInterface
             echo "ERROR: Unable to list the data in the database!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
         }
+
         return $data;
 
     }
 
     public function insert(ProductsInterface $products)
     {
-        try{
-            Registry::set('connections', Connect::getDb());
-            $register = "INSERT INTO products (name, description, value) VALUES (:name, :description, :value)";
-            $data = $this->connect->prepare($register);
-            $data->execute(array(
-                "name"          => $products->getName(),
-                "description"   => $products->getDescription(),
-                "value"         => $products->getValue()
-            ));
-            $this->connect->lastInsertId();
-            $data->fetchAll(\PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "ERROR: Unable to list the data in the database!";
-            die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
-        }
-        return $data;
+//        try{
+//            Registry::set('connections', Connect::getDb());
+//            $conn = Registry::get('connections');
+            //var_dump($conn); die;
+
+
+
+
+
+
+//            $insert = $conn->prepare("INSERT INTO products (name, description, value) VALUES (:name, :description, :value)");
+//
+//            var_dump($conn); die;
+
+//            $insert->execute(array(
+//                ":name"          => $products->getName(),
+//                ":description"   => $products->getDescription(),
+//                ":value"         => $products->getValue()
+//            ));
+//            var_dump($insert);die;
+
+//        } catch (PDOException $e) {
+//            echo "ERROR: Unable to list the data in the database!";
+//            die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
+//        }
+        //return $data;
     }
 
     public function update(ProductsInterface $products)
     {
-        try {
-            Registry::set('connections', Connect::getDb());
-            $conn = Registry::get('connections');
-            $update = $conn->prepare("update products set name = :name, description = :description, value = :value  where id = :id");
-            $update->bindValue(':id', $products->getId());
-            $update->bindValue(':name', $products->getName());
-            $update->bindValue(':description', $products->getDescription());
-            $update->bindValue(':value', $products->getValue());
-            $update->execute();
-
-        } catch (PDOException $e) {
-            die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
-        }
+//        try {
+//            Registry::set('connections', Connect::getDb());
+//            $conn = Registry::get('connections');
+//            $update = $conn->prepare("UPDATE products SET name = :name, description = :description, value = :value  WHERE id = :id");
+//            $update->execute(array(
+//                ':id' => $products->getId(),
+//                ':name' => $products->getName(),
+//                ':description' => $products->getDescription(),
+//                ':value' => $products->getValue(),
+//            ));
+//        } catch (PDOException $e) {
+//            die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
+//        }
+//
+//        return $update;
 
     }
 
     public function delete(ProductsInterface $products)
     {
-        try {
-            Registry::set('connections', Connect::getDb());
-            $conn = Registry::get('connections');
-            $deletar = $conn->prepare("delete from products where id = :id");
-            $deletar->bindValue(":id", $products->getId());
-            $deletar->execute();
-        } catch (PDOException $e) {
-            die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
-        }
+//        try {
+//            Registry::set('connections', Connect::getDb());
+//            $conn = Registry::get('connections');
+//            $delete = $conn->prepare("delete from products where id = :id");
+//            $delete->bindParam(":id", $products->getId());
+//            $delete->execute();
+//        } catch (PDOException $e) {
+//            die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
+//        }
     }
 }
