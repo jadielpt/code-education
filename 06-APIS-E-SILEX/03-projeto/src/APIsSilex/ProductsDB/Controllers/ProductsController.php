@@ -27,6 +27,10 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('update.twig', ['products' => self::getProductsId($app, $id)]);
         })->bind('update');
 
+        $products->get('/', function($id) use ($app){
+            return $app['twig']->render('content.twig', ['products' => self::getDelete($app, $id)]);
+        })->bind('delete');
+
         $products->get('/inserir', function() use ($app){
             return $app['twig']->render('insert.twig', []);
         });
@@ -92,12 +96,26 @@ class ProductsController implements ProductsControllerInterface
 
         $result = $app['productsService']->update($data);
 
-
         if(!isset($result[$id])){
             $app->abort(404, "Product {$id} not found.");
         }
         return $result[$id];
+    }
 
+    public function getDelete(Application $app, $id)
+    {
+        $app['productsService'] = function() {
+            $products = new Products();
+            $productsMapper = new ProductsMapper();
+            $productsService = new ProductsService($products, $productsMapper);
+
+            return $productsService;
+        };
+        $data['name'] = null;
+        $data['description'] = null;
+        $data['value'] = null;
+
+        return $app['productsService']->delete($data);
 
     }
 }

@@ -63,4 +63,17 @@ class ProductsMapper implements ProductsMapperInterface
         }
 
     }
+
+    public function delete(ProductsInterface $products)
+    {
+        try {
+            Registry::set('connections', Connect::getDb());
+            $conn = Registry::get('connections');
+            $deletar = $conn->prepare("delete from products where id = :id");
+            $deletar->bindValue(":id", $products->getId());
+            $deletar->execute();
+        } catch (PDOException $e) {
+            die("Error: Código: {$e->getCode()} | Mensagem: {$e->getMessage()} |  Arquivo: {$e->getFile()} | linha: {$e->getLine()}");
+        }
+    }
 }
