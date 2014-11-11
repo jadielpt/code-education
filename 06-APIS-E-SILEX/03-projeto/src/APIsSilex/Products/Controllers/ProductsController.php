@@ -14,8 +14,8 @@ class ProductsController implements ProductsControllerInterface
     public function connect(Application $app) 
     {
         $products = $app['controllers_factory'];
-        
-            
+
+
         $products->get('/', function() use ($app){
             return self::getProducts($app);
         });

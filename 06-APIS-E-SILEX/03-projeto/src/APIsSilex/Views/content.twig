@@ -1,0 +1,33 @@
+{% extends "layout.twig" %}
+{% block title %}Lista de produtos{% endblock %}
+{% block content %}
+    <div class="jumbotron">
+        <table class="table table-striped">
+            <a href="{{ path('inserir') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastar</button></a>
+            <thead>
+            <tr>
+                <th>COD..</th>
+                <th>NOME</th>
+                <th>DESCRIÇÃO</th>
+                <th>VALOR</th>
+                <th></th>
+                <th>AÇÕES</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.value }}</td>
+                    <td><a href="{{ path('produto', {id:product.id}) }}"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
+                    <td><a href="#"><button class="btn btn-primary" type="submit" name="alterar" >Alterar</button></a></td>
+                    <td><a href="#"><button class="btn btn-danger" type="submit" name="deletar">Deletar</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><!-- /jumbotron -->
+{% endblock %}

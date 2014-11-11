@@ -11,8 +11,8 @@ $app->mount('/clientes', $client->connect($app));
 $products = new ProductsController();
 
 $app->mount('/produtos', $products->connect($app));
-//
-//$prod = new \APIsSilex\ProductsDb\Controllers\ProductsController();
-//$app->mount('/', $prod->connect($app));
+
+$prod = new \APIsSilex\ProductsDb\Controllers\ProductsController();
+$app->mount('/', $prod->connect($app));
 
 $app->run();

@@ -25,7 +25,7 @@ class ProductsService implements ProductsServiceInterface
         $productsEntity->setValue($data['value']);
 
         $productsMapper = $this->productsMapper;
-        $result = $productsMapper->insert($productsEntity);
+        $result = $productsMapper->fetchAll($productsEntity);
 
         return $result;
     }
