@@ -15,7 +15,7 @@ class ProductsController implements ProductsControllerInterface
     {
         $productsController = $app['controllers_factory'];
 
-        $app['productsService'] = function() {
+        $app['productsService'] = function () {
             $products = new Products();
             $productsMapper = new ProductsMapper();
             $productsService = new ProductsService($products, $productsMapper);
@@ -23,7 +23,7 @@ class ProductsController implements ProductsControllerInterface
             return $productsService;
         };
 
-        $productsController->get('/', function () use($app) {
+        $productsController->get('/', function () use ($app) {
 
             $data['name'] = null;
             $data['description'] = null;
@@ -34,7 +34,7 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('content.twig', ['products' => $result]);
         });
 
-        $productsController->get('/produto/{id}', function ($id) use($app) {
+        $productsController->get('/produto/{id}', function ($id) use ($app) {
 
             $data['name'] = null;
             $data['description'] = null;
@@ -45,19 +45,41 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('products.twig', ['products' => $result[$id-1]]);
         })->bind("produto");
 
-        $productsController->get('/inserir', function () use($app) {
-
-            $data['name'] = null;
-            $data['description'] = null;
-            $data['value'] = null;
-
-            $result = $app['productsService']->insert($data);
-
-            return $app['twig']->render('insert.twig', ['products' => $result]);
-        })->bind("inserir");
+//        $productsController->get('/insert', function () use ($app) {
+//
+//            $data['name'] = null;
+//            $data['description'] = null;
+//            $data['value'] = null;
+//
+//            $result = $app['productsService']->insert($data);
+//
+//            return $app['twig']->render('insert.twig', ['products' => $result]);
+//        })->bind("inserir");
+//
+//        $productsController->get('/produto/insert', function () use ($app) {
+//            return $app['twig']->render('insert.twig', []);
+//        })->bind("insert");
+//
+//        $productsController->post('/inserir', function (Application $app, Request $request) use ($app) {
+//
+//            $data = $request->request->all();
+//            $products = new Products();
+//            $products->setName($data['name']);
+//            $products->setDescription($data['description']);
+//            $products->setValue($data['value']);
+//
+//            if ($products->getId()) {
+//                return $app->redirect($app['url_generator']->generate('sucesso'));
+//            } else {
+//                $app->abort(500, "ERROR: Erro ao cadastar!");
+//            }
+//
+//        })->bind("inserir");
+//
+//        $productsController->get('/sucesso', function () use ($app) {
+//            return $app['twig']->render('sucesso.twig', []);
+//        })->bind("sucesso");
 
         return $productsController;
     }
-
-
 }

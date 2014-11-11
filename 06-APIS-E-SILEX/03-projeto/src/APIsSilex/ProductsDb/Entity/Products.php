@@ -30,17 +30,21 @@ class Products implements ProductsInterface
 
     function setId($id) {
         $this->id = $id;
+        return $this;
     }
 
     function setName($name) {
         $this->name = $name;
+        return $this;
     }
 
     function setDescription($description) {
         $this->description = $description;
+        return $this;
     }
 
     function setValue($value) {
         $this->value = $value;
+        return $this;
     }
 }

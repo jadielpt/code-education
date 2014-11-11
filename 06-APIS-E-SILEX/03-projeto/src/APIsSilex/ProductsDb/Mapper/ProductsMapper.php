@@ -36,11 +36,12 @@ class ProductsMapper implements ProductsMapperInterface
                 'description' => $products->getDescription(),
                 'value'       => $products->getValue()
             ));
-            $data->lastInsertId();
         } catch (PDOException $e) {
             echo "ERROR: Unable to list the data in the database!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
         }
+
+
         return $data;
     }
 }

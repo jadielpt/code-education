@@ -32,15 +32,12 @@ class ProductsService implements ProductsServiceInterface
 
     public function insert(array $data)
     {       
-        $productsEntity = $this->products;
-        $productsEntity->setName($data['name']);
-        $productsEntity->setDescription($data['description']);
-        $productsEntity->setValue($data['value']);
+        $this->products->setName($data['name'])
+            ->setName($data['name'])
+            ->setDescription($data['description'])
+            ->setValue($data['value']);
 
-        $productsMapper = $this->productsMapper;
-        $result = $productsMapper->insert($productsEntity);
-        
-        return $result;
+        return $this->productsMapper->insert($this->products);
     }
     
 }
