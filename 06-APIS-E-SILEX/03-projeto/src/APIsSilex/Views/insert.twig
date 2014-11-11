@@ -14,16 +14,18 @@
             </thead>
             <tbody>
             <tr>
-                <td><input type="text" value="" name="name"></td>
-                <td><input type="text" value="" name="description"></td>
-                <td><input type="text" value="" name="value"></td>
+                <form action="{{ path('inserir') }}" method="post">
+                <td><input type="text" name="name"></td>
+                <td><input type="text" name="description"></td>
+                <td><input type="text" name="value"></td>
                 <td>
                     <input type="hidden" id="id" name="id" />
-                    <a href="{{ path('novo') }}"><button class="btn btn-success " type="submit" name="cadastrar" >Cadastrar</button></a>
+                    <a href=""><button class="btn btn-success " type="submit" name="cadastrar" >Cadastrar</button></a>
                 </td>
+                </form>
             </tr>
             </tbody>
         </table>
-        <a href="/"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
+        <a href="{{ path('lista') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
     </div><!-- /jumbotron -->
 {% endblock %}

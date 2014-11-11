@@ -32,7 +32,7 @@ class ProductsController implements ProductsControllerInterface
             $result = $app['productsService']->fetchAll($data);
 
             return $app['twig']->render('content.twig', ['products' => $result]);
-        });
+        })->bind('lista');
 
         $productsController->get('/produto/{id}', function ($id) use ($app) {
 
@@ -45,6 +45,10 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('products.twig', ['products' => $result[$id-1]]);
         })->bind("produto");
 
+
+
+
+
 //        $productsController->get('/insert', function () use ($app) {
 //
 //            $data['name'] = null;
@@ -54,31 +58,47 @@ class ProductsController implements ProductsControllerInterface
 //            $result = $app['productsService']->insert($data);
 //
 //            return $app['twig']->render('insert.twig', ['products' => $result]);
-//        })->bind("inserir");
-//
-//        $productsController->get('/produto/insert', function () use ($app) {
-//            return $app['twig']->render('insert.twig', []);
 //        })->bind("insert");
-//
-//        $productsController->post('/inserir', function (Application $app, Request $request) use ($app) {
-//
-//            $data = $request->request->all();
-//            $products = new Products();
-//            $products->setName($data['name']);
-//            $products->setDescription($data['description']);
-//            $products->setValue($data['value']);
-//
-//            if ($products->getId()) {
-//                return $app->redirect($app['url_generator']->generate('sucesso'));
-//            } else {
-//                $app->abort(500, "ERROR: Erro ao cadastar!");
-//            }
-//
-//        })->bind("inserir");
-//
-//        $productsController->get('/sucesso', function () use ($app) {
-//            return $app['twig']->render('sucesso.twig', []);
-//        })->bind("sucesso");
+
+
+
+
+
+
+        $productsController->get('/insert', function () use ($app) {
+            return $app['twig']->render('insert.twig', []);
+        })->bind("insert");
+
+
+
+
+
+        $productsController->post('/inserir', function (Request $request) use ($app) {
+
+            $data = $request->request->all();
+            $products = new Products();
+            $products->setName($data['name']);
+            $products->setDescription($data['description']);
+            $products->setValue($data['value']);
+
+            $app['productsService']->insert($data);
+
+
+            if ($app['productsService']->insert($data)) {
+                return $app->redirect($app['url_generator']->generate('sucesso'));
+            } else {
+                $app->abort(500, "ERROR: Erro ao cadastar!");
+            }
+
+        })->bind("inserir");
+
+
+
+
+
+        $productsController->get('/sucesso', function () use ($app) {
+            return $app['twig']->render('sucesso.twig', []);
+        })->bind("sucesso");
 
         return $productsController;
     }
