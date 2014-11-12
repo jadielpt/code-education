@@ -32,9 +32,9 @@ class ProductsMapper implements ProductsMapperInterface
             $conn = Registry::get('connections');
             $list = $conn->prepare("INSERT INTO products (name, description , value) VALUES (:name, :description , :value)");
             $data = $list->execute(array(
-                'name'        => $products->getName(),
-                'description' => $products->getDescription(),
-                'value'       => $products->getValue()
+                ':name'        => $products->getName(),
+                ':description' => $products->getDescription(),
+                ':value'       => $products->getValue()
             ));
         } catch (PDOException $e) {
             echo "ERROR: Unable to list the data in the database!";
@@ -42,6 +42,26 @@ class ProductsMapper implements ProductsMapperInterface
         }
 
 
+        return $data;
+    }
+
+    public function update(ProductsInterface $products)
+    {
+        try{
+            Registry::set('connections', Connect::getDb());
+            $conn = Registry::get('connections');
+            $list = $conn->prepare("UPDATE products SET name = :name, description = :description, value = :value WHERE id = :id");
+            $data = $list->execute(array(
+                ':id'          => $products->getId(),
+                ':name'        => $products->getName(),
+                ':description' => $products->getDescription(),
+                ':value'       => $products->getValue()
+            ));
+        } catch (PDOException $e) {
+            echo "ERROR: Unable to list the data in the database!";
+            die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
+        }
+        //var_dump($data); die;
         return $data;
     }
 }
