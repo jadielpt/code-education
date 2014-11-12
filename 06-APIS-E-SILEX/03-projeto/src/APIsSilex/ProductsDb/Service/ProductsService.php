@@ -53,8 +53,6 @@ class ProductsService implements ProductsServiceInterface
             ->setDescription($description)
             ->setValue($value);
 
-//        var_dump($this->products);die;
-
         return $this->productsMapper->update($this->products);
     }
 
