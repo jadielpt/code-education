@@ -17,19 +17,18 @@ class ProductsService implements ProductsServiceInterface
         $this->productsMapper = $productsMapper;
     }
 
-    public function fetchAll(array $data= array())
+    public function fetchAll()
     {
-        $productsEntity = $this->products;
-        $productsEntity->setName($data['name']);
-        $productsEntity->setDescription($data['description']);
-        $productsEntity->setValue($data['value']);
-
-
         $productsMapper = $this->productsMapper;
-        $result = $productsMapper->fetchAll($productsEntity);
+        $result = $productsMapper->fetchAll();
 
         return $result;
 
+    }
+    
+    public function findOneById($id)
+    {
+        return $this->productsMapper->findOneById($id);
     }
 
     public function insert(array $data= array())

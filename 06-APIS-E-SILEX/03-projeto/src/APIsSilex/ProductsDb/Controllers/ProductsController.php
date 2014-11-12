@@ -88,11 +88,11 @@ class ProductsController implements ProductsControllerInterface
 
 
 
-            $result = $app['productsService']->fetchAll($data);
+            $result = $app['productsService']->findOneById($id);
 
 
 
-            return $app['twig']->render('atualizar.twig', ['products' => $result[$id-1]]);
+            return $app['twig']->render('atualizar.twig', ['products' => $result]);
         })->bind("atualizar");
 
 
@@ -103,20 +103,10 @@ class ProductsController implements ProductsControllerInterface
 
         $productsController->post('/update', function (Request $request) use ($app) {
 
-            //$data = $request->request->all();
-            $data['id'] =  $request->request->get('id');
-            $data['name'] = $request->request->get('nome');
-            $data['description'] = $request->request->get('description');
-            $data['value'] = $request->request->get('value');
-//
-//            //var_dump($app['productsService']->update($data, $data['id']));die;
-//            //$result = $app['productsService']->update($data);
-
-            //var_dump($data);die;
-
-//            return $app['productsService']->update($data);
-//
-//            var_dump($app['productsService']->update($data));die;
+            $data['id'] =  $request->get('id');
+            $data['name'] = $request->get('name');
+            $data['description'] = $request->get('description');
+            $data['value'] = $request->get('value');
 
             if ($app['productsService']->update($data)) {
                 return $app->redirect($app['url_generator']->generate('lista'));
@@ -125,17 +115,7 @@ class ProductsController implements ProductsControllerInterface
             }
 
         })->bind("update");
-
-
-
-
-
-
-
-
-
-
-
+        
         $productsController->get('/delete/{id}', function ( $id) use ($app) {
 
             if ($app['productsService']->delete($id)) {
@@ -144,12 +124,7 @@ class ProductsController implements ProductsControllerInterface
                 $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
             }
         })->bind("delete");
-
-
-
-
-
-
+        
         return $productsController;
     }
 }
