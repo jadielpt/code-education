@@ -18,10 +18,11 @@
                 <form action="{{ path('update', {id:products.id}) }}" method="post">
                 <td>{{ products.id }}</td>
 
-                <td><input type="text" value="{{ products.name }}"></td>
-                <td><input type="text" value="{{ products.description }}"></td>
-                <td><input type="text" value="{{ products.value }}"></td>
+                <td><input type="text" name="name" value="{{ products.name }}"></td>
+                <td><input type="text" name="description" value="{{ products.description }}"></td>
+                <td><input type="text" name="value" value="{{ products.value }}"></td>
                 <td><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></td>
+                <input type="hidden" name="id" value="{{ products.id }}" />
                 </form>
             </tr>
             </tbody>

@@ -10,7 +10,7 @@ use APIsSilex\Database\Connect;
 
 class ProductsMapper implements ProductsMapperInterface
 {
-    public function fetchAll(ProductsInterface $products)
+    public function fetchAll()
     {
         try{
             Registry::set('connections', Connect::getDb());
@@ -23,6 +23,22 @@ class ProductsMapper implements ProductsMapperInterface
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
         }
         return $data;
+    }
+    
+    public function findOneById($id)
+    {
+        try {
+            $conn = Connect::getDb();
+            $product = $conn->prepare("SELECT * FROM products WHERE id = :id");
+            $product->bindValue("id", $id);
+            $product->execute();
+            $result = $product->fetch();
+        } catch (\PDOException $ex) {
+            echo "ERROR: Unable to perform query!";
+            die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
+        }
+        
+        return $result;
     }
 
     public function insert(ProductsInterface $products)
