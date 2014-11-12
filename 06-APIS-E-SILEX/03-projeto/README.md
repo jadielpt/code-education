@@ -1,7 +1,7 @@
-2º Projeto | Módulo 06 - APIs e Micro-framework Silex
+3º Projeto | Módulo 06 - APIs e Micro-framework Silex
 =====================================================
 
-Projeto - Persistindo no banco.
+Projeto - CRUD.
 ------------------------------------------------
 
 Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 06 - APIs e Micro-framework Silex.*
@@ -21,10 +21,17 @@ instalação
 
 >3. *No navegador digite a URL:*
 
+>Clientes: <span style="">http://127.0.0.1:8080/</span>
+
+> -------------------------------------------------------------------------
+
+>*return JSON:*
+
+>4. *No navegador digite a URLs:*
 
 >Clientes: <span style="">http://127.0.0.1:8080/clientes</span>
 
->4. *Para ter acesso aos dados de cada cliente separado digite a URL:*
+>5. *Para ter acesso aos dados de cada cliente separado digite a URL:*
 
 ><span style="">http://127.0.0.1:8080/clientes/00001</span>
 
