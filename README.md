@@ -3,7 +3,7 @@ Estudo em php curso Code Education
 
 Os arquivos aqui adicionados fazem parte do curso do portal code-education.
 
-**Obs: No início os projetos foram feitos de acordo com meu conhecimento, e com meu aprendizado, eles foram se tronando mais profissionais. Verá que diferença com os primeiros projetos e os últimos são grandes. Só quero lembrar que este repositório só é válido para meus estudos!**
+**Obs: No início os projetos foram feitos de acordo com meu conhecimento, e com meu aprendizado, eles foram se tronando mais profissionais. Verá que a diferença entre os primeiros projetos e os últimos são grandes. Só quero lembrar que este repositório só é válido para meus estudos!**
 
 **Obrigado!**
 
@@ -85,4 +85,6 @@ projetos
 projetos
 >1. *Preparando o ambiente.*
 
->2. *Aguardando liberação de novo prjeto //Obs: Projeto em andamento.*
+>2. *Persistindo no banco.*
+
+>2. *CRUD //Obs: Projeto em andamento.*
