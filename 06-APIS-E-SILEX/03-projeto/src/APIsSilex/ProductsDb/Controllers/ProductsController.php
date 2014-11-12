@@ -29,6 +29,7 @@ class ProductsController implements ProductsControllerInterface
             $data['description'] = null;
             $data['value'] = null;
 
+
             $result = $app['productsService']->fetchAll($data);
 
             return $app['twig']->render('content.twig', ['products' => $result]);
@@ -85,29 +86,67 @@ class ProductsController implements ProductsControllerInterface
             $data['description'] = $products->getDescription();
             $data['value'] = $products->getDescription();
 
+
+
             $result = $app['productsService']->fetchAll($data);
+
+
 
             return $app['twig']->render('atualizar.twig', ['products' => $result[$id-1]]);
         })->bind("atualizar");
 
 
-        $productsController->post('/update/{id}', function (Request $request) use ($app) {
 
+
+
+
+
+        $productsController->post('/update', function (Request $request) use ($app) {
+
+            //$data = $request->request->all();
             $data['id'] =  $request->request->get('id');
             $data['name'] = $request->request->get('nome');
             $data['description'] = $request->request->get('description');
             $data['value'] = $request->request->get('value');
+//
+//            //var_dump($app['productsService']->update($data, $data['id']));die;
+//            //$result = $app['productsService']->update($data);
 
-            var_dump($app['productsService']->update($data, $data['id']));die;
-            //return $app['productsService']->update($data);
+            //var_dump($data);die;
 
-            if ($app['productsService']->update($data, $data['id'])) {
+//            return $app['productsService']->update($data);
+//
+//            var_dump($app['productsService']->update($data));die;
+
+            if ($app['productsService']->update($data)) {
                 return $app->redirect($app['url_generator']->generate('lista'));
             } else {
                 $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
             }
 
         })->bind("update");
+
+
+
+
+
+
+
+
+
+
+
+        $productsController->get('/delete/{id}', function ( $id) use ($app) {
+
+            if ($app['productsService']->delete($id)) {
+                return $app->redirect($app['url_generator']->generate('lista'));
+            } else {
+                $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
+            }
+        })->bind("delete");
+
+
+
 
 
 

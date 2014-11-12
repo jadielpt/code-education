@@ -17,7 +17,7 @@ class ProductsService implements ProductsServiceInterface
         $this->productsMapper = $productsMapper;
     }
 
-    public function fetchAll(array $data)
+    public function fetchAll(array $data= array())
     {
         $productsEntity = $this->products;
         $productsEntity->setName($data['name']);
@@ -32,7 +32,7 @@ class ProductsService implements ProductsServiceInterface
 
     }
 
-    public function insert(array $data)
+    public function insert(array $data= array())
     {       
         $this->products->setId($data['id'])
             ->setName($data['name'])
@@ -42,15 +42,26 @@ class ProductsService implements ProductsServiceInterface
         return $this->productsMapper->insert($this->products);
     }
 
-    public function update(array $data)
+    public function update(array $data = array())
     {
-        $this->products->setId($data['id'])
-            ->setName($data['name'])
-            ->setDescription($data['description'])
-            ->setValue($data['value']);
+        $id = $data['id'];
+        $name = $data['name'];
+        $description = $data['description'];
+        $value = $data['value'];
 
-        //var_dump($this->productsMapper->update($this->products, $data['id'])); die;
+        $this->products->setId($id)
+            ->setName($name)
+            ->setDescription($description)
+            ->setValue($value);
+
+//        var_dump($this->products);die;
 
         return $this->productsMapper->update($this->products);
+    }
+
+    public function delete($data)
+    {
+        $this->products->setId($data);
+        return $this->productsMapper->delete($this->products);
     }
 }

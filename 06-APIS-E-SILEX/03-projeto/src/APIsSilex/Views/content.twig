@@ -24,7 +24,7 @@
                     <td>{{ product.value }}</td>
                     <td><a href="{{ path('produto', {id:product.id}) }}"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
                     <td><a href="{{ path('atualizar', {id:product.id}) }}"><button class="btn btn-primary" type="submit" name="alterar" >Alterar</button></a></td>
-                    <td><a href="#"><button class="btn btn-danger" type="submit" name="deletar">Deletar</button></a></td>
+                    <td><a href="{{ path('delete', {id:product.id}) }}"><button class="btn btn-danger" type="submit" name="deletar">Deletar</button></a></td>
                 </tr>
             {% endfor %}
             </tbody>

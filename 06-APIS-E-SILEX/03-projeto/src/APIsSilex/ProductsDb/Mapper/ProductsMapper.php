@@ -51,17 +51,34 @@ class ProductsMapper implements ProductsMapperInterface
             Registry::set('connections', Connect::getDb());
             $conn = Registry::get('connections');
             $list = $conn->prepare("UPDATE products SET name = :name, description = :description, value = :value WHERE id = :id");
-            $data = $list->execute(array(
-                ':id'          => $products->getId(),
-                ':name'        => $products->getName(),
-                ':description' => $products->getDescription(),
-                ':value'       => $products->getValue()
-            ));
+            $list->bindValue("id", $products->getId());
+            $list->bindValue("name", $products->getName(), \PDO::PARAM_STR);
+            $list->bindValue("description", $products->getDescription(), \PDO::PARAM_STR);
+            $list->bindValue("value", $products->getValue(), \PDO::PARAM_STR);
+
+            $data = $list->execute();
         } catch (PDOException $e) {
             echo "ERROR: Unable to list the data in the database!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
         }
         //var_dump($data); die;
         return $data;
+    }
+
+    public function delete(ProductsInterface $products)
+    {
+        try{
+            Registry::set('connections', Connect::getDb());
+            $conn = Registry::get('connections');
+            $delete = $conn->prepare("DELETE FROM products WHERE id = :id");
+            $delete->bindValue(':id', $products->getId());
+            $data = $delete->execute();
+        } catch (PDOException $e) {
+            echo "ERROR: Unable to list the data in the database!";
+            die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
+        }
+        //var_dump($data); die;
+        return $data;
+
     }
 }
