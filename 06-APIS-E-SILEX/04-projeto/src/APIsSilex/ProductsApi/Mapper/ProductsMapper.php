@@ -1,9 +1,9 @@
 <?php
 
-namespace APIsSilex\ProductsDb\Mapper;
+namespace APIsSilex\ProductsApi\Mapper;
 
-use APIsSilex\ProductsDb\Interfaces\ProductsMapperInterface;
-use APIsSilex\ProductsDb\Interfaces\ProductsInterface;
+use APIsSilex\ProductsApi\Interfaces\ProductsMapperInterface;
+use APIsSilex\ProductsApi\Interfaces\ProductsInterface;
 use APIsSilex\Registry\Registry;
 use APIsSilex\Database\Connect;
 
