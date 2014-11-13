@@ -1,0 +1,32 @@
+{% extends "layout.twig" %}
+{% block title %}Atualizar de produtos{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        Alterar Produto
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>COD..</th>
+                <th>NOME</th>
+                <th>DESCRIÇÃO</th>
+                <th>VALOR</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <form action="{{ path('update', {id:products.id}) }}" method="post">
+                <td>{{ products.id }}</td>
+
+                <td><input type="text" name="name" value="{{ products.name }}"></td>
+                <td><input type="text" name="description" value="{{ products.description }}"></td>
+                <td><input type="text" name="value" value="{{ products.value }}"></td>
+                <td><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></td>
+                <input type="hidden" name="id" value="{{ products.id }}" />
+                </form>
+            </tr>
+            </tbody>
+        </table>
+        <a href="{{ path('lista') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}

@@ -34,6 +34,7 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('content.twig', ['products' => $result]);
         })->bind('lista');
 
+
         $productsController->get('/produto/{id}', function ($id) use ($app) {
             $products = new Products();
             $data['name'] = $products->getName();
@@ -45,6 +46,35 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('products.twig', ['products' => $result]);
 
         })->bind("produto");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         $productsController->get('/insert', function () use ($app) {
             return $app['twig']->render('insert.twig', []);
