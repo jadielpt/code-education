@@ -31,13 +31,12 @@ class ProductsController implements ProductsControllerInterface
 
             $result = $app['productsService']->fetchAll($data);
 
-            var_dump($result);die;
+            return $app->json($result);
 
-            return $app['twig']->render('content.twig', ['products' => $result]);
         })->bind('api-produtos');
 
 
-        $productsController->get('/produto/{id}', function ($id) use ($app) {
+        $productsController->get('/{id}', function ($id) use ($app) {
             $products = new Products();
             $data['name'] = $products->getName();
             $data['description'] = $products->getDescription();
@@ -45,27 +44,9 @@ class ProductsController implements ProductsControllerInterface
 
             $result = $app['productsService']->findOneById($id);
 
-            return $app['twig']->render('products.twig', ['products' => $result]);
+            return $app->json($result);
 
-        })->bind("produto");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        })->bind('api-produtos-id');
 
 
 
@@ -113,6 +94,17 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('atualizar.twig', ['products' => $result]);
 
         })->bind("atualizar");
+
+
+
+
+
+
+
+
+
+
+
 
         $productsController->post('/update', function (Request $request) use ($app) {
 

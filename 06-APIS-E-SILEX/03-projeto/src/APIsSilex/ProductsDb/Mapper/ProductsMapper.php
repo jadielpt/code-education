@@ -33,7 +33,7 @@ class ProductsMapper implements ProductsMapperInterface
             $product = $conn->prepare("SELECT * FROM products WHERE id = :id");
             $product->bindValue("id", $id);
             $product->execute();
-            $result = $product->fetch();
+            $result = $product->fetch(\PDO::FETCH_ASSOC);
         } catch (\PDOException $e) {
             echo "ERROR: Unable to perform query!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
