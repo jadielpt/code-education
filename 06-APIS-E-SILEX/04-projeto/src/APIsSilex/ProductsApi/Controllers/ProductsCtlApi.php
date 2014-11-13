@@ -2,27 +2,25 @@
 
 namespace APIsSilex\ProductsApi\Controllers;
 
-use APIsSilex\ProductsApi\Interfaces\ProductsControllerInterface;
-use APIsSilex\ProductsApi\Service\ProductsService;
-use APIsSilex\ProductsApi\Entity\Products;
-use APIsSilex\ProductsApi\Mapper\ProductsMapper;
+Use APIsSilex\ProductsApi\Entity\ProductsApi;
+use APIsSilex\ProductsApi\Mapper\ProductsMapperApi;
+use APIsSilex\ProductsApi\Service\ProductsServiceApi;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProductsControllerApi implements ProductsControllerInterface
+class ProductsCtlApi implements \APIsSilex\ProductsApi\Interfaces\ProductsControllerApiInterface
 {
-    public function connect(Application $app)
-    {
+    public function connect(Application $app) {
         $productsController = $app['controllers_factory'];
 
         $app['productsService'] = function () {
-            $products = new Products();
-            $productsMapper = new ProductsMapper();
-            $productsService = new ProductsService($products, $productsMapper);
+            $products = new ProductsApi();
+            $productsMapper = new ProductsMapperApi();
+            $productsService = new ProductsServiceApi($products, $productsMapper);
 
             return $productsService;
         };
-
+        
         $productsController->get('/', function () use ($app) {
 
             $result = $app['productsService']->fetchAll();
@@ -46,7 +44,7 @@ class ProductsControllerApi implements ProductsControllerInterface
             $data['description'] = $request->get('description');
             $data['value'] = $request->get('value');
 
-            $products = new Products();
+            $products = new ProductsApi();
             $products->setName($data['name']);
             $products->setDescription($data['description']);
             $products->setValue($data['value']);
@@ -83,9 +81,7 @@ class ProductsControllerApi implements ProductsControllerInterface
             $data['description'] = $request->get('description');
             $data['value'] = $request->get('value');
 
-            //var_dump($app['productsService']->update($data));die;
-
-            if ($app['productsService']->update($data)) {
+            if ($app['productsService']->updateApi($data)) {
                 return $app->json([
                     'SUCCESS' => 'Successful update data in database',
                     'SUCESSO' => 'Dados Alterado com sucesso no banco'
@@ -97,7 +93,7 @@ class ProductsControllerApi implements ProductsControllerInterface
                 ]);
             }
 
-        })->bind("api-produtos-update");
+        })->bind("api-produtos-put");
 
 
 
@@ -125,5 +121,6 @@ class ProductsControllerApi implements ProductsControllerInterface
         })->bind("api-produtos-delete");
         
         return $productsController;
+
     }
 }

@@ -2,9 +2,9 @@
 
 namespace APIsSilex\ProductsApi\Entity;
 
-use APIsSilex\ProductsApi\Interfaces\ProductsInterface;
+use APIsSilex\ProductsApi\Interfaces\ProductsApiInterface;
 
-class Products implements ProductsInterface
+class ProductsApi implements ProductsApiInterface
 {
 
     private $id;

@@ -2,13 +2,13 @@
 
 namespace APIsSilex\ProductsApi\Mapper;
 
-use APIsSilex\ProductsApi\Interfaces\ProductsMapperInterface;
-use APIsSilex\ProductsApi\Interfaces\ProductsInterface;
+use APIsSilex\ProductsApi\Interfaces\ProductsMapperApiInterface;
+use APIsSilex\ProductsApi\Interfaces\ProductsApiInterface;
 use APIsSilex\Registry\Registry;
 use APIsSilex\Database\Connect;
 
 
-class ProductsMapper implements ProductsMapperInterface
+class ProductsMapperApi implements ProductsMapperApiInterface
 {
     public function fetchAll()
     {
@@ -42,7 +42,7 @@ class ProductsMapper implements ProductsMapperInterface
         return $result;
     }
 
-    public function insert(ProductsInterface $products)
+    public function insert(ProductsApiInterface $products)
     {
         try{
             Registry::set('connections', Connect::getDb());
@@ -61,18 +61,18 @@ class ProductsMapper implements ProductsMapperInterface
         return $data;
     }
 
-    public function update(ProductsInterface $products)
+    public function updateApi(ProductsApiInterface $products)
     {
         try{
             Registry::set('connections', Connect::getDb());
             $conn = Registry::get('connections');
-            $list = $conn->prepare("UPDATE products SET name = :name, description = :description, value = :value WHERE id = :id");
-            $list->bindValue("id", $products->getId());
-            $list->bindValue("name", $products->getName(), \PDO::PARAM_STR);
-            $list->bindValue("description", $products->getDescription(), \PDO::PARAM_STR);
-            $list->bindValue("value", $products->getValue(), \PDO::PARAM_STR);
+            $update = $conn->prepare("UPDATE products SET name = :name, description = :description, value = :value WHERE id = :id");
+            $update->bindValue("name", $products->getName(), \PDO::PARAM_STR);
+            $update->bindValue("description", $products->getDescription(), \PDO::PARAM_STR);
+            $update->bindValue("value", $products->getValue(), \PDO::PARAM_STR);
+            $update->bindValue("id", $products->getId());
 
-            $data = $list->execute();
+            $data = $update->execute();
         } catch (PDOException $e) {
             echo "ERROR: Unable to list the data in the database!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
@@ -81,7 +81,7 @@ class ProductsMapper implements ProductsMapperInterface
         return $data;
     }
 
-    public function delete(ProductsInterface $products)
+    public function delete(ProductsApiInterface $products)
     {
         try{
             Registry::set('connections', Connect::getDb());

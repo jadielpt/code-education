@@ -4,7 +4,7 @@ namespace APIsSilex\ProductsApi\Interfaces;
 
 use Silex\Application;
 
-interface ProductsControllerInterface 
+interface ProductsControllerApiInterface
 {
     public function connect(Application $app);
 }

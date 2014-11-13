@@ -2,7 +2,7 @@
 
 namespace APIsSilex\ProductsApi\Interfaces;
 
-interface ProductsServiceInterface 
+interface ProductsServiceApiInterface
 {
     public function fetchAll();
 
@@ -10,7 +10,7 @@ interface ProductsServiceInterface
 
     public function insert(array $data= array());
 
-    public function update(array $data = array());
+    public function updateApi(array $data = array());
 
     public function delete($data);
 }

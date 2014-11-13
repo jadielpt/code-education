@@ -2,17 +2,17 @@
 
 namespace APIsSilex\ProductsApi\Service;
 
-use APIsSilex\ProductsApi\Interfaces\ProductsServiceInterface;
-use APIsSilex\ProductsApi\Entity\Products;
-use APIsSilex\ProductsApi\Mapper\ProductsMapper;
+use APIsSilex\ProductsApi\Interfaces\ProductsServiceApiInterface;
+use APIsSilex\ProductsApi\Entity\ProductsApi;
+use APIsSilex\ProductsApi\Mapper\ProductsMapperApi;
 
 
-class ProductsService implements ProductsServiceInterface
+class ProductsServiceApi implements ProductsServiceApiInterface
 {
     private $products;
     private $productsMapper;
     
-    function __construct(Products $products, ProductsMapper $productsMapper) {
+    function __construct(ProductsApi $products, ProductsMapperApi $productsMapper) {
         $this->products = $products;
         $this->productsMapper = $productsMapper;
     }
@@ -40,18 +40,14 @@ class ProductsService implements ProductsServiceInterface
         return $this->productsMapper->insert($this->products);
     }
 
-    public function update(array $data = array())
+    public function updateApi(array $data = array())
     {
-        $name = $data['name'];
-        $description = $data['description'];
-        $value = $data['value'];
+        $this->products->setId($data["id"])
+                ->setName($data['name'])
+                ->setDescription($data['description'])
+                ->setValue($data['value']);
 
-        $this->products->setName($name)
-            ->setDescription($description)
-            ->setValue($value);
-        //var_dump($this->productsMapper->update($this->products));die;
-
-        return $this->productsMapper->update($this->products);
+        return $this->productsMapper->updateApi($this->products);
     }
 
     public function delete($data)
