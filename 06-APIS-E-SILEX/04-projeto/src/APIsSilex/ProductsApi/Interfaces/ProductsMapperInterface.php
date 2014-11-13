@@ -1,8 +1,6 @@
 <?php
 namespace APIsSilex\ProductsApi\Interfaces;
 
-use APIsSilex\ProductsApi\Interfaces\ProductsInterface;
-
 interface ProductsMapperInterface 
 {
     public function fetchAll();

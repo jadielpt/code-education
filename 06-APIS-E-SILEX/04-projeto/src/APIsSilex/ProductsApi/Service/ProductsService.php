@@ -42,15 +42,14 @@ class ProductsService implements ProductsServiceInterface
 
     public function update(array $data = array())
     {
-        $id = $data['id'];
         $name = $data['name'];
         $description = $data['description'];
         $value = $data['value'];
 
-        $this->products->setId($id)
-            ->setName($name)
+        $this->products->setName($name)
             ->setDescription($description)
             ->setValue($value);
+        //var_dump($this->productsMapper->update($this->products));die;
 
         return $this->productsMapper->update($this->products);
     }

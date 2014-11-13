@@ -93,7 +93,6 @@ class ProductsMapper implements ProductsMapperInterface
             echo "ERROR: Unable to list the data in the database!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
         }
-        //var_dump($data); die;
         return $data;
     }
 }

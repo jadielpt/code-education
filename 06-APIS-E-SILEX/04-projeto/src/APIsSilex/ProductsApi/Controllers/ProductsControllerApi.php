@@ -9,7 +9,7 @@ use APIsSilex\ProductsApi\Mapper\ProductsMapper;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProductsController implements ProductsControllerInterface
+class ProductsControllerApi implements ProductsControllerInterface
 {
     public function connect(Application $app)
     {
@@ -72,18 +72,18 @@ class ProductsController implements ProductsControllerInterface
 
 
 
+
+
+
+
         $productsController->put('/{id}', function (Request $request) use ($app) {
 
-            $data['id'] = $request->request->get('id');
-            $data['name'] = $request->request->get('name');
-            $data['description'] = $request->request->get('description');
-            $data['value'] = $request->request->get('value');
+            $data['id'] =  $request->get('id');
+            $data['name'] = $request->get('name');
+            $data['description'] = $request->get('description');
+            $data['value'] = $request->get('value');
 
-            $products = new Products();
-            $products->setName($data['name']);
-            $products->setDescription($data['description']);
-            $products->setValue($data['value']);
-
+            //var_dump($app['productsService']->update($data));die;
 
             if ($app['productsService']->update($data)) {
                 return $app->json([
@@ -98,6 +98,10 @@ class ProductsController implements ProductsControllerInterface
             }
 
         })->bind("api-produtos-update");
+
+
+
+
 
 
 

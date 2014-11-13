@@ -34,7 +34,6 @@ class ProductsController implements ProductsControllerInterface
             return $app['twig']->render('content.twig', ['products' => $result]);
         })->bind('lista');
 
-
         $productsController->get('/produto/{id}', function ($id) use ($app) {
             $products = new Products();
             $data['name'] = $products->getName();

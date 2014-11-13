@@ -2,7 +2,7 @@
 
 namespace APIsSilex\ProductsApi\Interfaces;
 
-interface ProductsInterface 
+interface ProductsInterface
 {
     function getId();
 
