@@ -25,11 +25,7 @@ class ProductsController implements ProductsControllerInterface
 
         $productsController->get('/', function () use ($app) {
 
-            $data['name'] = null;
-            $data['description'] = null;
-            $data['value'] = null;
-
-            $result = $app['productsService']->fetchAll($data);
+            $result = $app['productsService']->fetchAll();
 
             return $app->json($result);
 
@@ -37,10 +33,6 @@ class ProductsController implements ProductsControllerInterface
 
 
         $productsController->get('/{id}', function ($id) use ($app) {
-            $products = new Products();
-            $data['name'] = $products->getName();
-            $data['description'] = $products->getDescription();
-            $data['value'] = $products->getDescription();
 
             $result = $app['productsService']->findOneById($id);
 
@@ -48,87 +40,85 @@ class ProductsController implements ProductsControllerInterface
 
         })->bind('api-produtos-id');
 
+        $productsController->post('/', function (Request $request) use ($app) {
 
+            $data['name'] = $request->get('name');
+            $data['description'] = $request->get('description');
+            $data['value'] = $request->get('value');
 
-
-
-
-
-
-
-
-
-
-        $productsController->get('/insert', function () use ($app) {
-            return $app['twig']->render('insert.twig', []);
-        })->bind("insert");
-
-        $productsController->post('/inserir', function (Request $request) use ($app) {
-
-            $data = $request->request->all();
             $products = new Products();
             $products->setName($data['name']);
             $products->setDescription($data['description']);
             $products->setValue($data['value']);
 
-            if ($app['productsService']->insert($data)) {
-                return $app->redirect($app['url_generator']->generate('sucesso'));
+
+            if ( $app['productsService']->insert($data)) {
+                return $app->json([
+                    'SUCCESS' => 'Data successfully registered in database',
+                    'SUCESSO' => 'Dados cadastrados com sucesso no banco'
+                ]);
             } else {
-                $app->abort(500, "ERROR: Erro ao cadastar!");
+                return $app->json([
+                    'ERROR' => 'Error inserting product!',
+                    'ERRO'  => 'Erro ao cadastrar Produto!'
+                ]);
             }
 
-        })->bind("inserir");
+        })->bind("api-produtos-inserir");
 
-        $productsController->get('/sucesso', function () use ($app) {
-            return $app['twig']->render('sucesso.twig', []);
-        })->bind("sucesso");
 
-        $productsController->get('/atualizar/{id}', function ($id) use ($app) {
+
+
+
+
+
+        $productsController->put('/{id}', function (Request $request) use ($app) {
+
+            $data['id'] = $request->request->get('id');
+            $data['name'] = $request->request->get('name');
+            $data['description'] = $request->request->get('description');
+            $data['value'] = $request->request->get('value');
+
             $products = new Products();
-            $data['name'] = $products->getName();
-            $data['description'] = $products->getDescription();
-            $data['value'] = $products->getDescription();
+            $products->setName($data['name']);
+            $products->setDescription($data['description']);
+            $products->setValue($data['value']);
 
-            $result = $app['productsService']->findOneById($id);
-
-            return $app['twig']->render('atualizar.twig', ['products' => $result]);
-
-        })->bind("atualizar");
-
-
-
-
-
-
-
-
-
-
-
-
-        $productsController->post('/update', function (Request $request) use ($app) {
-
-            $data['id'] =  $request->get('id');
-            $data['name'] = $request->get('name');
-            $data['description'] = $request->get('description');
-            $data['value'] = $request->get('value');
 
             if ($app['productsService']->update($data)) {
-                return $app->redirect($app['url_generator']->generate('lista'));
+                return $app->json([
+                    'SUCCESS' => 'Successful update data in database',
+                    'SUCESSO' => 'Dados Alterado com sucesso no banco'
+                ]);
             } else {
-                $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
+                return $app->json([
+                    'ERROR' => 'Error Changing Product!',
+                    'ERRO'  => 'Erro ao alterar Produto!'
+                ]);
             }
 
-        })->bind("update");
+        })->bind("api-produtos-update");
+
+
+
+
+
+
         
-        $productsController->get('/delete/{id}', function ( $id) use ($app) {
+        $productsController->delete('/{id}', function ( $id) use ($app) {
 
             if ($app['productsService']->delete($id)) {
-                return $app->redirect($app['url_generator']->generate('lista'));
+                return $app->json([
+                    'SUCCESS' => 'Data successfully deleted the seat',
+                    'SUCESSO' => 'Dados deletado com sucesso no banco'
+                ]);
             } else {
-                $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
+                return $app->json([
+                    'ERROR' => 'Error deleting Product!',
+                    'ERRO'  => 'Erro ao deletar Produto!'
+                ]);
             }
-        })->bind("delete");
+        })->bind("api-produtos-delete");
         
         return $productsController;
     }

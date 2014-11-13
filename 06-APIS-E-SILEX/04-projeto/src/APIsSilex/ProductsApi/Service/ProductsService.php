@@ -33,8 +33,7 @@ class ProductsService implements ProductsServiceInterface
 
     public function insert(array $data= array())
     {       
-        $this->products->setId($data['id'])
-            ->setName($data['name'])
+        $this->products->setName($data['name'])
             ->setDescription($data['description'])
             ->setValue($data['value']);
 

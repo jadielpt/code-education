@@ -47,35 +47,6 @@ class ProductsController implements ProductsControllerInterface
 
         })->bind("produto");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         $productsController->get('/insert', function () use ($app) {
             return $app['twig']->render('insert.twig', []);
         })->bind("insert");
