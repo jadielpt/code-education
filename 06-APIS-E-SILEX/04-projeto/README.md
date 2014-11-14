@@ -10,8 +10,7 @@ Antes de testar esta aplicação.
 
 >1. *Tenha instalado o php 5.5 ou posterior - Versões anteriores acarretará erros.*
 
-instalação
------------
+**instalação**
 
 >1. *Importar o banco de dados products.sql.*
 
@@ -23,10 +22,8 @@ instalação
 
 >Produtos: <span style="">http://127.0.0.1:8080/</span>
 
-> -------------------------------------------------------------------------
-
->*REST*
->*return JSON:*
+**REST**
+> *return JSON*
 
 >4. *Para ter acesso aos dados, digite a URL:*
 
