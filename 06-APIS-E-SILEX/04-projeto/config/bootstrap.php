@@ -28,4 +28,5 @@ $app['debug'] = true;
 $app->register(new \Silex\Provider\TwigServiceProvider(), [
     'twig.path' => __DIR__ . '/../src/APIsSilex/Views'
 ]);
+
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());

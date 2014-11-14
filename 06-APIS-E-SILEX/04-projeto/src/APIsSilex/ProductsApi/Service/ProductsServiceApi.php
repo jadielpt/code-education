@@ -7,7 +7,7 @@ use APIsSilex\ProductsApi\Entity\ProductsApi;
 use APIsSilex\ProductsApi\Mapper\ProductsMapperApi;
 
 
-class ProductsServiceApi implements ProductsServiceApiInterface
+class ProductsServiceApi //implements ProductsServiceApiInterface
 {
     private $products;
     private $productsMapper;
@@ -40,14 +40,13 @@ class ProductsServiceApi implements ProductsServiceApiInterface
         return $this->productsMapper->insert($this->products);
     }
 
-    public function updateApi(array $data = array())
+    public function updateApi(array $data = array(), $id)
     {
-        $this->products->setId($data["id"])
-                ->setName($data['name'])
-                ->setDescription($data['description'])
-                ->setValue($data['value']);
+        $this->products->setName($data['name'])
+            ->setDescription($data['description'])
+            ->setValue($data['value']);
 
-        return $this->productsMapper->updateApi($this->products);
+        return $this->productsMapper->updateApi($this->products, $id);
     }
 
     public function delete($data)

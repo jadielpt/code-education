@@ -27,23 +27,16 @@ instalação
 
 >*return JSON:*
 
->4. *No navegador digite a URLs:*
+>4. *Para ter acesso aos dados, digite a URL:*
 
->Clientes: <span style="">http://127.0.0.1:8080/clientes</span>
+> LISTAR: <span style="">http://127.0.0.1:8080/api/produtos/</span> requisição GET
 
->5. *Para ter acesso aos dados de cada cliente separado digite a URL:*
+> VISUALIZAR ID: <span style="">http://127.0.0.1:8080/api/produtos/1</span> requisição GET
 
-><span style="">http://127.0.0.1:8080/clientes/00001</span>
+> INSERIR: <span style="">http://127.0.0.1:8080/api/produtos/</span> requisição POST
 
->O codigo de cada cliente é <span style="">00001, 00002, 00003, 00004, 00005</span>
+> DELETAR: <span style="">http://127.0.0.1:8080/api/produtos/</span> requisição PUT
 
-> -------------------------------------------------------------------------
-
-> Produtos: <span style="">http://127.0.0.1:8080/produtos</span>
-
->4. *Para ter acesso aos dados de cada produto separado digite a URL:*
-
-><span style="">http://127.0.0.1:8080/produtos/5</span>
 
 >O codigo de cada produto é <span style="">0, 1, 2, 3, 4, 5</span>
 

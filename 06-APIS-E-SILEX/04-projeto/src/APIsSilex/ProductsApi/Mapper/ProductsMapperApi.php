@@ -8,7 +8,7 @@ use APIsSilex\Registry\Registry;
 use APIsSilex\Database\Connect;
 
 
-class ProductsMapperApi implements ProductsMapperApiInterface
+class ProductsMapperApi //implements ProductsMapperApiInterface
 {
     public function fetchAll()
     {
@@ -61,18 +61,19 @@ class ProductsMapperApi implements ProductsMapperApiInterface
         return $data;
     }
 
-    public function updateApi(ProductsApiInterface $products)
+    public function updateApi(ProductsApiInterface $products, $id)
     {
         try{
             Registry::set('connections', Connect::getDb());
             $conn = Registry::get('connections');
-            $update = $conn->prepare("UPDATE products SET name = :name, description = :description, value = :value WHERE id = :id");
-            $update->bindValue("name", $products->getName(), \PDO::PARAM_STR);
-            $update->bindValue("description", $products->getDescription(), \PDO::PARAM_STR);
-            $update->bindValue("value", $products->getValue(), \PDO::PARAM_STR);
-            $update->bindValue("id", $products->getId());
+            $list = $conn->prepare("UPDATE products SET name = :name, description = :description, value = :value WHERE id = :id");
+            $list->bindValue("id", $id, \PDO::PARAM_INT);
+            $list->bindValue("name", $products->getName(), \PDO::PARAM_STR);
+            $list->bindValue("description", $products->getDescription(), \PDO::PARAM_STR);
+            $list->bindValue("value", $products->getValue(), \PDO::PARAM_STR);
 
-            $data = $update->execute();
+            $data = $list->execute();
+
         } catch (PDOException $e) {
             echo "ERROR: Unable to list the data in the database!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");

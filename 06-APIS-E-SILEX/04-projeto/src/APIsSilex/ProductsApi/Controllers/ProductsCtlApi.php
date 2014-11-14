@@ -11,17 +11,17 @@ use Symfony\Component\HttpFoundation\Request;
 class ProductsCtlApi implements \APIsSilex\ProductsApi\Interfaces\ProductsControllerApiInterface
 {
     public function connect(Application $app) {
-        $productsController = $app['controllers_factory'];
+        $productsControllerApi = $app['controllers_factory'];
 
-        $app['productsService'] = function () {
+        $app['productsServiceApi'] = function () {
             $products = new ProductsApi();
             $productsMapper = new ProductsMapperApi();
             $productsService = new ProductsServiceApi($products, $productsMapper);
 
             return $productsService;
         };
-        
-        $productsController->get('/', function () use ($app) {
+
+        $productsControllerApi->get('/', function () use ($app) {
 
             $result = $app['productsService']->fetchAll();
 
@@ -30,15 +30,15 @@ class ProductsCtlApi implements \APIsSilex\ProductsApi\Interfaces\ProductsContro
         })->bind('api-produtos');
 
 
-        $productsController->get('/{id}', function ($id) use ($app) {
+        $productsControllerApi->get('/{id}', function ($id) use ($app) {
 
-            $result = $app['productsService']->findOneById($id);
+            $result = $app['productsServiceApi']->findOneById($id);
 
             return $app->json($result);
 
         })->bind('api-produtos-id');
 
-        $productsController->post('/', function (Request $request) use ($app) {
+        $productsControllerApi->post('/', function (Request $request) use ($app) {
 
             $data['name'] = $request->get('name');
             $data['description'] = $request->get('description');
@@ -50,7 +50,7 @@ class ProductsCtlApi implements \APIsSilex\ProductsApi\Interfaces\ProductsContro
             $products->setValue($data['value']);
 
 
-            if ( $app['productsService']->insert($data)) {
+            if ( $app['productsServiceApi']->insert($data)) {
                 return $app->json([
                     'SUCCESS' => 'Data successfully registered in database',
                     'SUCESSO' => 'Dados cadastrados com sucesso no banco'
@@ -65,23 +65,16 @@ class ProductsCtlApi implements \APIsSilex\ProductsApi\Interfaces\ProductsContro
         })->bind("api-produtos-inserir");
 
 
+        // aparentemente dando erro {
 
+        $productsControllerApi->put('/{id}', function (Request $request, $id) use ($app) {
 
-
-
-
-
-
-
-
-        $productsController->put('/{id}', function (Request $request) use ($app) {
-
-            $data['id'] =  $request->get('id');
+            $data['id'] =  $id;
             $data['name'] = $request->get('name');
             $data['description'] = $request->get('description');
             $data['value'] = $request->get('value');
 
-            if ($app['productsService']->updateApi($data)) {
+            if ($app['productsServiceApi']->updateApi($data, $id)) {
                 return $app->json([
                     'SUCCESS' => 'Successful update data in database',
                     'SUCESSO' => 'Dados Alterado com sucesso no banco'
@@ -96,18 +89,11 @@ class ProductsCtlApi implements \APIsSilex\ProductsApi\Interfaces\ProductsContro
         })->bind("api-produtos-put");
 
 
-
-
-
-
-
-
-
-
+        // }
         
-        $productsController->delete('/{id}', function ( $id) use ($app) {
+        $productsControllerApi->delete('/{id}', function ( $id) use ($app) {
 
-            if ($app['productsService']->delete($id)) {
+            if ($app['productsServiceApi']->delete($id)) {
                 return $app->json([
                     'SUCCESS' => 'Data successfully deleted the seat',
                     'SUCESSO' => 'Dados deletado com sucesso no banco'
@@ -120,7 +106,7 @@ class ProductsCtlApi implements \APIsSilex\ProductsApi\Interfaces\ProductsContro
             }
         })->bind("api-produtos-delete");
         
-        return $productsController;
+        return $productsControllerApi;
 
     }
 }

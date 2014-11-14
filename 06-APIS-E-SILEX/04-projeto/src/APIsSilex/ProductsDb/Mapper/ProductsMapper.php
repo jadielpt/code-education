@@ -73,6 +73,7 @@ class ProductsMapper implements ProductsMapperInterface
             $list->bindValue("value", $products->getValue(), \PDO::PARAM_STR);
 
             $data = $list->execute();
+
         } catch (PDOException $e) {
             echo "ERROR: Unable to list the data in the database!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
