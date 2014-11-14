@@ -29,13 +29,17 @@ instalação
 
 >4. *Para ter acesso aos dados, digite a URL:*
 
+> Obs: Exemplos
+
 > LISTAR: <span style="">http://127.0.0.1:8080/api/produtos/</span> requisição GET
 
 > VISUALIZAR ID: <span style="">http://127.0.0.1:8080/api/produtos/1</span> requisição GET
 
 > INSERIR: <span style="">http://127.0.0.1:8080/api/produtos/</span> requisição POST
 
-> DELETAR: <span style="">http://127.0.0.1:8080/api/produtos/</span> requisição PUT
+> ALTERAR: <span style="">http://127.0.0.1:8080/api/produtos/1</span> requisição PUT
+
+> DELETAR: <span style="">http://127.0.0.1:8080/api/produtos/1</span> requisição DELETE
 
 
 >O codigo de cada produto é <span style="">0, 1, 2, 3, 4, 5</span>
