@@ -1,7 +1,7 @@
-3º Projeto | Módulo 06 - APIs e Micro-framework Silex
+4º Projeto | Módulo 06 - APIs e Micro-framework Silex
 =====================================================
 
-Projeto - CRUD.
+Projeto - APIs públicas.
 ------------------------------------------------
 
 Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 06 - APIs e Micro-framework Silex.*
