@@ -21,10 +21,11 @@ instalação
 
 >3. *No navegador digite a URL:*
 
->Clientes: <span style="">http://127.0.0.1:8080/</span>
+>Produtos: <span style="">http://127.0.0.1:8080/</span>
 
 > -------------------------------------------------------------------------
 
+>*REST*
 >*return JSON:*
 
 >4. *Para ter acesso aos dados, digite a URL:*
