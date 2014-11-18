@@ -1,5 +1,5 @@
 {
-    "name" : "02 - Projeto | Módulo 06 - APIs e Micro-framework Silex | Estudos Potal Code Education",
+    "name" : "01 - Projeto | ódulo 07 - Doctrine e Silex | Estudos Potal Code Education",
     "authors" : [
         {
             "name" : "Cândido Souza",
@@ -7,20 +7,21 @@
         }
     ],
     "minimum-stability": "dev",
-    "config":{
-        "bin-dir":"bin/"
-    },
     "require" : {
         "php" : ">=5.5",
         "silex/silex": "1.2.*@dev",
         "twig/twig": ">=1.16,<2.0-dev",
         "symfony/twig-bridge": "2.6.*@dev",
+        "doctrine/orm": "~2.4",
         "phpunit/phpunit": "4.3.*@dev",
         "phpunit/phpunit-selenium": "dev-master"
     },
+    "config":{
+        "bin-dir":"bin/"
+    },
     "autoload" : {
         "psr-4" : {
-            "APIsSilex\\" : "src/APIsSilex/"
+            "Products\\" : "src/Products/"
         }
     }
 }
