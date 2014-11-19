@@ -7,15 +7,16 @@ use Products\Mapper\ProductsMapperApi;
 use Products\Service\ProductsServiceApi;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManager;
 
 class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterface
 {
-    public function connect(Application $app) {
+    public function connect(Application $app, EntityManager $em) {
         $productsControllerApi = $app['controllers_factory'];
 
-        $app['productsServiceApi'] = function () {
+        $app['productsServiceApi'] = function () use ($em) {
             $products = new ProductsApi();
-            $productsMapper = new ProductsMapperApi();
+            $productsMapper = new ProductsMapperApi($em);
             $productsService = new ProductsServiceApi($products, $productsMapper);
 
             return $productsService;

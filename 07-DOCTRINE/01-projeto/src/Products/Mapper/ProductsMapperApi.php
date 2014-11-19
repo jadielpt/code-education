@@ -7,9 +7,19 @@ use Products\Interfaces\ProductsApiInterface;
 use Products\Registry\Registry;
 use Products\Database\Connect;
 
+use Doctrine\ORM\Query\ResultSetMapping;
+use Doctrine\ORM\EntityManager;
+
 
 class ProductsMapperApi implements ProductsMapperApiInterface
 {
+    private $em;
+
+    function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
+
     public function fetchAll()
     {
         try{
