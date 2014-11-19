@@ -4,12 +4,34 @@ namespace Products\Entity;
 
 use Products\Interfaces\ProductsApiInterface;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="products")
+ */
 class ProductsApi implements ProductsApiInterface
 {
-
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
     private $name;
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $description;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private $value;
     
     function getId() {

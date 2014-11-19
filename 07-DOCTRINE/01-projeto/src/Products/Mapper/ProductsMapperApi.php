@@ -7,7 +7,6 @@ use Products\Interfaces\ProductsApiInterface;
 use Products\Registry\Registry;
 use Products\Database\Connect;
 
-use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\ORM\EntityManager;
 
 
@@ -22,18 +21,8 @@ class ProductsMapperApi implements ProductsMapperApiInterface
 
     public function fetchAll()
     {
-        try{
-            Registry::set('connections', Connect::getDb());
-            $conn = Registry::get('connections');
-            $list = $conn->prepare("SELECT * FROM  products");
-            $list->execute();
-            $data = $list->fetchAll(\PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "ERROR: Unable to list the data in the database!";
-            die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");
-        }
-
-        return $data;
+        return $this->em->getRepository('Products\Entity\ProductsApi')->findAll();
+        // Documentação = http://doctrine-orm.readthedocs.org/en/latest/reference/working-with-objects.html
     }
     
     public function findOneById($id)
