@@ -87,4 +87,15 @@ projetos
 
 >2. *Persistindo no banco.*
 
->2. *CRUD //Obs: Projeto em andamento.*
+>3. *CRUD .*
+
+>4. *APIs públicas.*
+
+7º Módulo
+-----------
+
+**Estudos sobre Doctrine ORM e Micro-framework Silex**
+
+projetos
+
+>1. *Persistência com Doctrine //Obs: Projeto em andamento.*
