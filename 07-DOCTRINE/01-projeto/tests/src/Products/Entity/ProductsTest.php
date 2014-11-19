@@ -71,10 +71,7 @@ class ProductsTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(method_exists($this->class, "setUnitValue"),"Method not Found");
 
         $this->class->getUnitValue();
-        $this->assertTrue(method_exists($this->class, "getUnitValue"),"Method not Found");
-
-        $this->class->setTotalValue(1,90);
-        $this->assertTrue(method_exists($this->class, "setTotalValue"),"Method not Found");
+        $this->assertTrue(method_exists($this->class, "getUnitValue"),"Method not Found");;
 
         $this->class->getTotalValue();
         $this->assertTrue(method_exists($this->class, "getTotalValue"),"Method not Found");
@@ -109,8 +106,9 @@ class ProductsTest extends \PHPUnit_Framework_TestCase
         $this->class->setUnitValue(10);
         $this->assertEquals(10, $this->class->getUnitValue());
 
-        $this->class->setTotalValue(190);
-        $this->assertEquals(190, $this->class->getTotalValue());
+        $this->class->setUnitValue(10);
+        $this->class->setQuantityStock(10);
+        $this->assertEquals(100, $this->class->getTotalValue());
 
         $this->class->setUnit('pc');
         $this->assertEquals('pc', $this->class->getUnit());
@@ -149,14 +147,6 @@ class ProductsTest extends \PHPUnit_Framework_TestCase
     public function testVerifyingTheEntryOfTheUnitValue()
     {
         $this->class->setUnitValue('teste');
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testVerifyingTheEntryOfTheTotalValue()
-    {
-        $this->class->setTotalValue('teste');
     }
 
     /**

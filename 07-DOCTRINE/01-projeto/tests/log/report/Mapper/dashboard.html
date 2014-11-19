@@ -2,14 +2,14 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /media/candidosouza/Claudia/Vagrant/code-education/07-DOCTRINE/01-projeto/tests/src/Products</title>
+  <title>Dashboard for /media/candidosouza/Claudia/Vagrant/code-education/07-DOCTRINE/01-projeto/tests/src/Products/Mapper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/nv.d3.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/nv.d3.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/respond.min.js"></script>
+  <script src="../js/html5shiv.min.js"></script>
+  <script src="../js/respond.min.js"></script>
   <![endif]-->
  </head>
  <body>
@@ -18,7 +18,8 @@
     <div class="row">
      <div class="col-md-12">
       <ol class="breadcrumb">
-        <li><a href="index.html">/media/candidosouza/Claudia/Vagrant/code-education/07-DOCTRINE/01-projeto/tests/src/Products</a></li>
+        <li><a href="../index.html">/media/candidosouza/Claudia/Vagrant/code-education/07-DOCTRINE/01-projeto/tests/src/Products</a></li>
+        <li><a href="index.html">Mapper</a></li>
         <li class="active">(Dashboard)</li>
 
       </ol>
@@ -111,12 +112,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="Entity/ProductsTest.php.html#155"><abbr title="ProductsTest::testVerifyingTheEntryOfTheUnit">testVerifyingTheEntryOfTheUnit</a></a></td><td class="text-right">50%</td></tr>
-       <tr><td><a href="Entity/ProductsTest.php.html#163"><abbr title="ProductsTest::testVerifyingTheEntryOfTheQuantityStock">testVerifyingTheEntryOfTheQuantityStock</a></a></td><td class="text-right">50%</td></tr>
-       <tr><td><a href="Entity/ProductsTest.php.html#147"><abbr title="ProductsTest::testVerifyingTheEntryOfTheUnitValue">testVerifyingTheEntryOfTheUnitValue</a></a></td><td class="text-right">50%</td></tr>
-       <tr><td><a href="Entity/ProductsTest.php.html#139"><abbr title="ProductsTest::testVerifyingTheEntryOfTheDescription">testVerifyingTheEntryOfTheDescription</a></a></td><td class="text-right">50%</td></tr>
-       <tr><td><a href="Entity/ProductsTest.php.html#131"><abbr title="ProductsTest::testVerifyingTheEntryOfTheName">testVerifyingTheEntryOfTheName</a></a></td><td class="text-right">50%</td></tr>
-       <tr><td><a href="Entity/ProductsTest.php.html#123"><abbr title="ProductsTest::testVerifyingTheEntryOfTheCode">testVerifyingTheEntryOfTheCode</a></a></td><td class="text-right">50%</td></tr>
 
        </tbody>
       </table>
@@ -146,11 +141,11 @@
     </p>
    </footer>
   </div>
-  <script src="js/jquery.min.js" type="text/javascript"></script>
-  <script src="js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="js/holder.js" type="text/javascript"></script>
-  <script src="js/d3.min.js" type="text/javascript"></script>
-  <script src="js/nv.d3.min.js" type="text/javascript"></script>
+  <script src="../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../js/holder.js" type="text/javascript"></script>
+  <script src="../js/d3.min.js" type="text/javascript"></script>
+  <script src="../js/nv.d3.min.js" type="text/javascript"></script>
   <script type="text/javascript">
 $(document).ready(function() {
   nv.addGraph(function() {
@@ -163,7 +158,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,1,3], "Class Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,1], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -181,7 +176,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#methodCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,6,0,0,0,0,14], "Method Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,5], "Method Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -232,7 +227,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[91.891891891892,13,"<a href=\"Entity\/ProductsTest.php.html#5\">ProductsTest<\/a>"],[100,1,"<a href=\"Interfaces\/ProductsInterfaceTest.php.html#5\">ProductsInterfaceTest<\/a>"],[100,1,"<a href=\"Interfaces\/ProductsMapperInterfaceTest.php.html#6\">ProductsMapperInterfaceTest<\/a>"],[100,5,"<a href=\"Mapper\/ProductsMapperTest.php.html#6\">ProductsMapperTest<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[100,5,"<a href=\"ProductsMapperTest.php.html#6\">ProductsMapperTest<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -257,7 +252,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[100,1,"<a href=\"Entity\/ProductsTest.php.html#12\">ProductsTest::assertPreConditions<\/a>"],[100,1,"<a href=\"Entity\/ProductsTest.php.html#20\">ProductsTest::setUp<\/a>"],[100,1,"<a href=\"Entity\/ProductsTest.php.html#25\">ProductsTest::tearDown<\/a>"],[100,1,"<a href=\"Entity\/ProductsTest.php.html#30\">ProductsTest::testChecksIfTheClassTypeIsCorrect<\/a>"],[100,1,"<a href=\"Entity\/ProductsTest.php.html#40\">ProductsTest::testChecksIfTheInterfaceTypeIsCorrect<\/a>"],[100,1,"<a href=\"Entity\/ProductsTest.php.html#47\">ProductsTest::testChecksIfThereSMethods<\/a>"],[100,1,"<a href=\"Entity\/ProductsTest.php.html#95\">ProductsTest::testCheckGetSet<\/a>"],[50,1,"<a href=\"Entity\/ProductsTest.php.html#123\">ProductsTest::testVerifyingTheEntryOfTheCode<\/a>"],[50,1,"<a href=\"Entity\/ProductsTest.php.html#131\">ProductsTest::testVerifyingTheEntryOfTheName<\/a>"],[50,1,"<a href=\"Entity\/ProductsTest.php.html#139\">ProductsTest::testVerifyingTheEntryOfTheDescription<\/a>"],[50,1,"<a href=\"Entity\/ProductsTest.php.html#147\">ProductsTest::testVerifyingTheEntryOfTheUnitValue<\/a>"],[50,1,"<a href=\"Entity\/ProductsTest.php.html#155\">ProductsTest::testVerifyingTheEntryOfTheUnit<\/a>"],[50,1,"<a href=\"Entity\/ProductsTest.php.html#163\">ProductsTest::testVerifyingTheEntryOfTheQuantityStock<\/a>"],[100,1,"<a href=\"Interfaces\/ProductsInterfaceTest.php.html#7\">ProductsInterfaceTest::testChecksWhetherTheInterface<\/a>"],[100,1,"<a href=\"Interfaces\/ProductsMapperInterfaceTest.php.html#8\">ProductsMapperInterfaceTest::testChecksWhetherTheInterface<\/a>"],[100,1,"<a href=\"Mapper\/ProductsMapperTest.php.html#13\">ProductsMapperTest::assertPreConditions<\/a>"],[100,1,"<a href=\"Mapper\/ProductsMapperTest.php.html#21\">ProductsMapperTest::setUp<\/a>"],[100,1,"<a href=\"Mapper\/ProductsMapperTest.php.html#26\">ProductsMapperTest::tearDown<\/a>"],[100,1,"<a href=\"Mapper\/ProductsMapperTest.php.html#31\">ProductsMapperTest::testChecksIfTheClassTypeIsCorrect<\/a>"],[100,1,"<a href=\"Mapper\/ProductsMapperTest.php.html#41\">ProductsMapperTest::testChecksIfTheInterfaceTypeIsCorrect<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[100,1,"<a href=\"ProductsMapperTest.php.html#13\">ProductsMapperTest::assertPreConditions<\/a>"],[100,1,"<a href=\"ProductsMapperTest.php.html#21\">ProductsMapperTest::setUp<\/a>"],[100,1,"<a href=\"ProductsMapperTest.php.html#26\">ProductsMapperTest::tearDown<\/a>"],[100,1,"<a href=\"ProductsMapperTest.php.html#31\">ProductsMapperTest::testChecksIfTheClassTypeIsCorrect<\/a>"],[100,1,"<a href=\"ProductsMapperTest.php.html#41\">ProductsMapperTest::testChecksIfTheInterfaceTypeIsCorrect<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);
