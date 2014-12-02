@@ -83,18 +83,22 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->bind("atualizar");
 
-        $productsController->post('/update', function (Request $request) use ($app) {
+        $productsController->post('/update/{id}', function (Request $request, $id) use ($app) {
 
-            $data['id'] =  $request->get('id');
-            $data['name'] = $request->get('name');
-            $data['description'] = $request->get('description');
-            $data['value'] = $request->get('value');
+            $data = $request->request->all();
+            $products = new ProductsApi();
+            $products->setName($data['name']);
+            $products->setDescription($data['description']);
+            $products->setValue($data['value']);
 
-            if ($app['productsService']->update($data)) {
+            if ($app['productsService']->update($data, $id)) {
+                //var_dump($app['productsService']->updateApi($data, $id)); die;
                 return $app->redirect($app['url_generator']->generate('lista'));
             } else {
                 $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
             }
+
+
 
         })->bind("update");
         
@@ -103,7 +107,7 @@ class ProductsController implements ProductsControllerApiInterface
             if ($app['productsService']->delete($id)) {
                 return $app->redirect($app['url_generator']->generate('lista'));
             } else {
-                $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
+                $app->abort(500, "ERROR: Erro ao deletar o cadastro!");
             }
         })->bind("delete");
         

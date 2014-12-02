@@ -21,8 +21,11 @@
                 <td><input type="text" name="name" value="{{ products.name }}"></td>
                 <td><input type="text" name="description" value="{{ products.description }}"></td>
                 <td><input type="text" name="value" value="{{ products.value }}"></td>
-                <td><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></td>
-                <input type="hidden" name="id" value="{{ products.id }}" />
+                <td>
+                    <input type="hidden" id="id" name="id" value="{{ products.id }}" />
+                    <a href=""><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></a>
+                </td>
+
                 </form>
             </tr>
             </tbody>

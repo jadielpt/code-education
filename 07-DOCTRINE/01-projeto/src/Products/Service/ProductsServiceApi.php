@@ -40,9 +40,9 @@ class ProductsServiceApi implements ProductsServiceApiInterface
         return $this->productsMapper->insert($this->products);
     }
 
-    public function update(array $data = array())
+    public function update(array $data = array(), $id)
     {
-        $id = $data['id'];
+
         $name = $data['name'];
         $description = $data['description'];
         $value = $data['value'];
@@ -52,16 +52,7 @@ class ProductsServiceApi implements ProductsServiceApiInterface
             ->setDescription($description)
             ->setValue($value);
 
-        return $this->productsMapper->update($this->products);
-    }
-
-    public function updateApi(array $data = array(), $id)
-    {
-        $this->products->setName($data['name'])
-            ->setDescription($data['description'])
-            ->setValue($data['value']);
-
-        return $this->productsMapper->updateApi($this->products, $id);
+        return $this->productsMapper->update($this->products, $id);
     }
 
     public function delete($data)

@@ -1,8 +1,0 @@
-nbproject
-.idea
-.settings
-.buildpath
-.project
-vendor
-bin
-composer.lock

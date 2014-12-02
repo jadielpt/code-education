@@ -66,7 +66,6 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
         })->bind("api-produtos-inserir");
 
 
-        // aparentemente dando erro {
 
         $productsControllerApi->put('/{id}', function (Request $request, $id) use ($app) {
 
@@ -75,7 +74,9 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
             $data['description'] = $request->get('description');
             $data['value'] = $request->get('value');
 
-            if ($app['productsServiceApi']->updateApi($data, $id)) {
+
+
+            if ($app['productsServiceApi']->update($data, $id)) {
                 return $app->json([
                     'SUCCESS' => 'Successful update data in database',
                     'SUCESSO' => 'Dados Alterado com sucesso no banco'
@@ -90,7 +91,6 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
         })->bind("api-produtos-put");
 
 
-        // }
         
         $productsControllerApi->delete('/{id}', function ( $id) use ($app) {
 

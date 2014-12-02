@@ -10,9 +10,7 @@ interface ProductsServiceApiInterface
 
     public function insert(array $data= array());
 
-    public function update(array $data = array());
-
-    public function updateApi(array $data = array(), $id);
+    public function update(array $data = array(), $id);
 
     public function delete($data);
 }
