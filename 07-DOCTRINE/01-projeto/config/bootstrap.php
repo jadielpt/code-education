@@ -75,6 +75,7 @@ $em = EntityManager::create(
 // Silex
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Silex\Provider\FormServiceProvider;
 use Silex\Application;
 
 $app = new Application();
@@ -86,3 +87,5 @@ $app->register(new \Silex\Provider\TwigServiceProvider(), [
 ]);
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+$app->register(new FormServiceProvider());

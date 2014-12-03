@@ -74,8 +74,6 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
             $data['description'] = $request->get('description');
             $data['value'] = $request->get('value');
 
-
-
             if ($app['productsServiceApi']->update($data, $id)) {
                 return $app->json([
                     'SUCCESS' => 'Successful update data in database',

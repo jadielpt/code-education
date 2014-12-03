@@ -19,11 +19,7 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function fetchAll()
     {
-        $productsMapper = $this->productsMapper;
-        $result = $productsMapper->fetchAll();
-
-        return $result;
-
+        return $this->productsMapper->fetchAll();
     }
     
     public function findOneById($id)
