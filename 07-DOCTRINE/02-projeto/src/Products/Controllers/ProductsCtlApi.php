@@ -23,18 +23,17 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
 
         $productsControllerApi->get('/', function () use ($app) {
 
-            $result = $app['productsServiceApi']->fetchAll();
+            $data = $app['productsServiceApi']->fetchAll();
 
-            return $app->json($result);
+            return $app->json($data);
 
-        })->bind('api-produtos');
+        });
 
 
         $productsControllerApi->get('/{id}', function ($id) use ($app) {
 
-            $result = $app['productsServiceApi']->findOneById($id);
+            return  $app->json($app['productsServiceApi']->findOneById($id));
 
-            return $app->json($result);
 
         })->bind('api-produtos-id');
 

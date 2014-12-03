@@ -17,22 +17,22 @@ class ProductsApi implements ProductsApiInterface
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    private $id;
+    public  $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    public $name;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $description;
+    public $description;
 
     /**
      * @ORM\Column(type="string", length=10)
      */
-    private $value;
+    public $value;
     
     function getId() {
         return $this->id;

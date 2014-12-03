@@ -1,8 +1,23 @@
 {% extends "layout.twig" %}
-{% block title %}Lista de produtos{% endblock %}
+{% block title %}2º Projeto Doctrine & Silex - Code Education - Lista de produtos{% endblock %}
 {% block content %}
     <div class="jumbotron">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Busca de Produtos</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="search" name="search" placeholder="Buscar Produtos">
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-warning">Buscar</button>
+                </div>
+            </div>
+            <div class="form-group">
+
+            </div>
+        </form>
         <table class="table table-striped">
+
             <a href="{{ path('insert') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastar</button></a>
             <thead>
             <tr>

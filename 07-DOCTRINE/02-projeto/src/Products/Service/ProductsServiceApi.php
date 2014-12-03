@@ -23,7 +23,7 @@ class ProductsServiceApi implements ProductsServiceApiInterface
     
     public function findOneById($id)
     {
-        return $this->em->getRepository('Products\Entity\ProductsApi')->find($id);
+        return $this->em->find('Products\Entity\ProductsApi', $id);
     }
 
     public function insert(array $data= array())
@@ -46,21 +46,14 @@ class ProductsServiceApi implements ProductsServiceApiInterface
         $products
             ->setName($data['name'])
             ->setDescription($data['description'])
-            ->setValue($data['value']);
+            ->setValue($value);
 
-        $this->em->persist($products);
-        $this->em->flush();
-
-        return $products;
+        return $this->productsMapper->update($this->products, $id);
     }
 
-    public function delete($id)
+    public function delete($data)
     {
-        $products = $this->em->getReference('Products\Entity\ProductsApi', $id);
-
-        $this->em->remove($products);
-        $this->em->flush();
-
-        return $products;
+        $this->products->setId($data);
+        return $this->productsMapper->delete($this->products);
     }
 }

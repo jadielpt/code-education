@@ -27,7 +27,7 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
 
             return $app->json($result);
 
-        })->bind('api-produtos');
+        });
 
 
         $productsControllerApi->get('/{id}', function ($id) use ($app) {
@@ -36,7 +36,7 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
 
             return $app->json($result);
 
-        })->bind('api-produtos-id');
+        });
 
         $productsControllerApi->post('/', function (Request $request) use ($app) {
 
@@ -62,7 +62,7 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
                 ]);
             }
 
-        })->bind("api-produtos-inserir");
+        });
 
 
 
@@ -85,7 +85,7 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
                 ]);
             }
 
-        })->bind("api-produtos-put");
+        });
 
 
         
@@ -102,7 +102,7 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
                     'ERRO'  => 'Erro ao deletar Produto!'
                 ]);
             }
-        })->bind("api-produtos-delete");
+        });
         
         return $productsControllerApi;
 

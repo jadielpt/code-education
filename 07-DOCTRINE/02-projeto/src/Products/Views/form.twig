@@ -1,0 +1,13 @@
+{% extends "layout.twig" %}
+{% block title %}Cadastrar de produtos{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        Cadastrar Produto
+        <form action="#" method="post">
+            {{ form_widget(form) }}
+
+            <input type="submit" name="submit" />
+        </form>
+    </div><!-- /jumbotron -->
+{% endblock %}

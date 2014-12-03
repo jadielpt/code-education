@@ -59,7 +59,7 @@ Comandos GIT
 >git log --since=2.days
 
 **Criando um branch - uma ramificação**
->git ckeckout -b (nome do branch)
+>git checkout -b (nome do branch)
 
 **Verificando em que branch você está**
 >git branch
