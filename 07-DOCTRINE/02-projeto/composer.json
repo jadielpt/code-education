@@ -1,0 +1,25 @@
+{
+    "name" : "01 - Projeto | Módulo 07 - Doctrine e Silex | Estudos Potal Code Education",
+    "authors" : [
+        {
+            "name" : "Cândido Souza",
+            "email" : "candido_souza@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require" : {
+        "php" : ">=5.5",
+        "silex/silex": "1.2.*@dev",
+        "twig/twig": ">=1.16,<2.0-dev",
+        "symfony/twig-bridge": "2.6.*@dev",
+        "doctrine/orm": "~2.4"
+    },
+    "config":{
+        "bin-dir":"bin/"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Products\\" : "src/Products/"
+        }
+    }
+}
