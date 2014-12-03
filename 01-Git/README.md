@@ -65,7 +65,7 @@ Comandos GIT
 >git branch
 
 **Voltando para o branch master**
->git ckeckout master
+>git checkout master
 
 **Grudando o branch criado no branch master**
 
@@ -110,7 +110,7 @@ Comandos GIT
 >git clone (url do arqyuivo)
 
 **Fazendo um clone de outros branchs**
->git ckeckout -b (nome do branch) origin/ (nome do branch)
+>git checkout -b (nome do branch) origin/ (nome do branch)
 
 **Trazendo, puxando as alterações feitas por outros usuários**
 >git pull origin master
