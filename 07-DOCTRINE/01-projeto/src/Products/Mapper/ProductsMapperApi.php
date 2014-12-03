@@ -60,11 +60,11 @@ class ProductsMapperApi implements ProductsMapperApiInterface
 
     public function update(ProductsApiInterface $products, $id)
     {
-        $products =  $this->em->find('Products\Entity\ProductsApi', $id);
+        $products = $this->em->getReference('Products\Entity\ProductsApi', $id);
 
         try {
-        $this->em->persist($products);
-        $this->em->flush();
+            $this->em->persist($products);
+            $this->em->flush();
         } catch (PDOException $e) {
             echo "ERROR: Unable to list the data in the database!";
             die("Code: {$e->getCode()} <br> Message: {$e->getMessage()} <br>  File: {$e->getFile()} <br> Line: {$e->getLine()}");

@@ -2,58 +2,65 @@
 
 namespace Products\Service;
 
-use Products\Interfaces\ProductsServiceApiInterface;
 use Products\Entity\ProductsApi;
-use Products\Mapper\ProductsMapperApi;
+use Products\Interfaces\ProductsServiceApiInterface;
+use Doctrine\ORM\EntityManager;
+
 
 
 class ProductsServiceApi implements ProductsServiceApiInterface
 {
-    private $products;
-    private $productsMapper;
-    
-    function __construct(ProductsApi $products, ProductsMapperApi $productsMapper) {
-        $this->products = $products;
-        $this->productsMapper = $productsMapper;
+    private $em;
+
+    function __construct(EntityManager $em) {
+        $this->em = $em;
     }
 
     public function fetchAll()
     {
-        return $this->productsMapper->fetchAll();
+        return $this->em->getRepository('Products\Entity\ProductsApi')->findAll();
     }
-    
+
     public function findOneById($id)
     {
-        return $this->productsMapper->findOneById($id);
+        return $this->em->getRepository('Products\Entity\ProductsApi')->find($id);
     }
 
     public function insert(array $data= array())
-    {       
-        $this->products->setName($data['name'])
+    {
+        $productsEntity = new ProductsApi();
+        $productsEntity
+            ->setName($data['name'])
             ->setDescription($data['description'])
             ->setValue($data['value']);
 
-        return $this->productsMapper->insert($this->products);
+        $this->em->persist($productsEntity);
+        $this->em->flush();
+
+        return $productsEntity;
     }
 
     public function update(array $data = array(), $id)
     {
+        $products = $this->em->getReference('Products\Entity\ProductsApi', $id);
+        $products
+            ->setName($data['name'])
+            ->setDescription($data['description'])
+            ->setValue($data['value']);
 
-        $name = $data['name'];
-        $description = $data['description'];
-        $value = $data['value'];
+        $this->em->persist($products);
+        $this->em->flush();
 
-        $this->products->setId($id)
-            ->setName($name)
-            ->setDescription($description)
-            ->setValue($value);
-
-        return $this->productsMapper->update($this->products, $id);
+        return $products;
     }
 
-    public function delete($data)
+    public function delete($id)
     {
-        $this->products->setId($data);
-        return $this->productsMapper->delete($this->products);
+        $products = $this->em->getReference('Products\Entity\ProductsApi', $id);
+
+        $this->em->remove($products);
+        $this->em->flush();
+
+        return $products;
     }
 }

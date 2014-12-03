@@ -17,9 +17,8 @@ class ProductsController implements ProductsControllerApiInterface
         $productsController = $app['controllers_factory'];
 
         $app['productsService'] = function () use ($em) {
-            $products = new ProductsApi();
-            $productsMapper = new ProductsMapperApi($em);
-            $productsService = new ProductsServiceApi($products, $productsMapper);
+
+            $productsService = new ProductsServiceApi($em);
 
             return $productsService;
         };

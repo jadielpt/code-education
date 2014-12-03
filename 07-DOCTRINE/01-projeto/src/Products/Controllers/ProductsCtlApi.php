@@ -15,9 +15,8 @@ class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterf
         $productsControllerApi = $app['controllers_factory'];
 
         $app['productsServiceApi'] = function () use ($em) {
-            $products = new ProductsApi();
-            $productsMapper = new ProductsMapperApi($em);
-            $productsService = new ProductsServiceApi($products, $productsMapper);
+
+            $productsService = new ProductsServiceApi($em);
 
             return $productsService;
         };
