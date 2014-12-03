@@ -97,5 +97,4 @@ projetos
 **Estudos sobre Doctrine ORM e Micro-framework Silex**
 
 projetos
-
->1. *Persistência com Doctrine //Obs: Projeto em andamento.*
+>1. *Persistência com Doctrine.*
