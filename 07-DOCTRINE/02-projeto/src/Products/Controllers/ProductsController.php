@@ -124,9 +124,9 @@ class ProductsController implements ProductsControllerApiInterface
 
             $result = $app['productsService']->search($name);
 
-            var_dump($result[0]);
+            var_dump($result);
 
-            return $app['twig']->render('search.twig', ['products' => $result[0]]);
+            return $app['twig']->render('search.twig', ['products' => $result]);
 
         })->bind("search");
 
