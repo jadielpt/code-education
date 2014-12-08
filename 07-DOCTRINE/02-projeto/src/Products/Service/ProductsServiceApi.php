@@ -46,14 +46,41 @@ class ProductsServiceApi implements ProductsServiceApiInterface
         $products
             ->setName($data['name'])
             ->setDescription($data['description'])
-            ->setValue($value);
+            ->setValue($data['value']);
 
-        return $this->productsMapper->update($this->products, $id);
+        $this->em->persist($products);
+        $this->em->flush();
+
+        return $products;
     }
 
-    public function delete($data)
+    public function delete($id)
     {
-        $this->products->setId($data);
-        return $this->productsMapper->delete($this->products);
+        $products = $this->em->getReference('Products\Entity\ProductsApi', $id);
+
+        $this->em->remove($products);
+        $this->em->flush();
+
+        return $products;
     }
+
+    public function OrderByName()
+    {
+        return $this->em->getRepository('Products\Entity\ProductsApi')->findAllOrderByName();
+    }
+
+    public function OrderByValue()
+    {
+        return $this->em->getRepository('Products\Entity\ProductsApi')->findAllOrderByValue();
+    }
+
+    public function search($name)
+    {
+        $query = $this->em->createQuery("SELECT p FROM Products\Entity\ProductsApi p WHERE p.name LIKE :search");
+        $query->setParameter('search', "%{$name}%");
+        $result = $query->getResult();
+
+        return $result;
+    }
+
 }

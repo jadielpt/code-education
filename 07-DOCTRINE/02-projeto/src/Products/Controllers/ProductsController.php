@@ -5,7 +5,6 @@ namespace Products\Controllers;
 use Products\Interfaces\ProductsControllerApiInterface;
 use Products\Service\ProductsServiceApi;
 use Products\Entity\ProductsApi;
-use Products\Mapper\ProductsMapperApi;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
@@ -25,14 +24,24 @@ class ProductsController implements ProductsControllerApiInterface
 
         $productsController->get('/', function () use ($app) {
 
-            $data['name'] = null;
-            $data['description'] = null;
-            $data['value'] = null;
-
-            $result = $app['productsService']->fetchAll($data);
+            $result = $app['productsService']->fetchAll();
 
             return $app['twig']->render('content.twig', ['products' => $result]);
         })->bind('lista');
+
+        $productsController->get('/ordem-name', function () use ($app) {
+
+            $result = $app['productsService']->OrderByName();
+
+            return $app['twig']->render('content.twig', ['products' => $result]);
+        })->bind('order-name');
+
+        $productsController->get('/ordem-value', function () use ($app) {
+
+            $result = $app['productsService']->OrderByValue();
+
+            return $app['twig']->render('content.twig', ['products' => $result]);
+        })->bind('order-value');
 
         $productsController->get('/produto/{id}', function ($id) use ($app) {
             $products = new ProductsApi();
@@ -109,7 +118,21 @@ class ProductsController implements ProductsControllerApiInterface
                 $app->abort(500, "ERROR: Erro ao deletar o cadastro!");
             }
         })->bind("delete");
+
+
+        $productsController->post('/produto/busca/{name}', function ($name) use ($app) {
+
+            $result = $app['productsService']->search($name);
+
+            var_dump($result[0]);
+
+            return $app['twig']->render('search.twig', ['products' => $result[0]]);
+
+        })->bind("search");
+
+
         
         return $productsController;
     }
+
 }

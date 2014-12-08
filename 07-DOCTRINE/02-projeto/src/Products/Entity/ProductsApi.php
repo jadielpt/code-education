@@ -7,7 +7,7 @@ use Products\Interfaces\ProductsApiInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Products\Entity\ProductsRepository")
  * @ORM\Table(name="products")
  */
 class ProductsApi implements ProductsApiInterface
