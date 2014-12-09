@@ -123,10 +123,10 @@ class ProductsController implements ProductsControllerApiInterface
         $productsController->post('/produto/busca/{name}', function ($name) use ($app) {
 
             $result = $app['productsService']->search($name);
+            $data = (array) $result;
+            var_dump($data);
 
-            var_dump($result);
-
-            return $app['twig']->render('search.twig', ['products' => $result]);
+            return $app['twig']->render('search.twig', ['products' => $data]);
 
         })->bind("search");
 
