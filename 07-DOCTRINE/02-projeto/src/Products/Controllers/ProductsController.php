@@ -119,14 +119,17 @@ class ProductsController implements ProductsControllerApiInterface
             }
         })->bind("delete");
 
+        $productsController->post('/produto/busca', function (Request $request) use ($app) {
 
-        $productsController->post('/produto/busca/{name}', function ($name) use ($app) {
+            $data = $request->request->all();
+            $products = new ProductsApi();
+            $products->setName($data);
 
-            $result = $app['productsService']->search($name);
-            $data = (array) $result;
-            var_dump($data);
 
-            return $app['twig']->render('search.twig', ['products' => $data]);
+
+            $result = $app['productsService']->search($data['name']);
+
+            return $app['twig']->render('search.twig', ['products' => $result]);
 
         })->bind("search");
 

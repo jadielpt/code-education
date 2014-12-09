@@ -10,21 +10,20 @@
 
 
 
-            {% for product in products %}
-            {{ dump(product.name) }}
-            <form action="{{ path('search', { 'name':product.name}) }}" method="post">
-                {{ (product.name) }}
+            <form action="{{ path('search') }}" method="post">
 
-                {% endfor %}
+
+
+
 
             <div class="form-group">
 
                 <label class="col-sm-2 control-label">Busca de Produtos</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="name" name="name" value="name" placeholder="Buscar Produtos">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Buscar Produtos">
                 </div>
                 <div class="col-sm-3">
-                    <button class="btn btn-info " type="submit" id="enviar" name="enviar" >Buscar</button>
+                    <a href=""><button type="submit" class="btn btn-info" >Buscar</button></a>
                 </div>
             </div>
         </form>
@@ -55,7 +54,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th><a href="{{ path('insert') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastar</button></a></th>
+                <th><a href="{{ path('insert') }}"><button class="btn btn-success " name="voltar" >Cadastar</button></a></th>
                 <th><a href="{{ path('order-name') }}"><button class="btn btn-info " type="submit" name="voltar" >Ordenar por nome</button></a></th>
                 <th><a href="{{ path('order-value') }}"><button class="btn btn-info " type="submit" name="voltar" >Ordenar por valor</button></a></th>
                 <th><a href="{{ path('lista') }}"><button class="btn btn-info " type="submit" name="voltar" >Modo normal</button></a></th>
