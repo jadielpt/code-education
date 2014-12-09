@@ -84,4 +84,9 @@ class ProductsServiceApi implements ProductsServiceApiInterface
         return $result;
     }
 
+    function pagination()
+    {
+        return $this->em->getRepository('Products\Entity\ProductsApi')->pagination();
+    }
+
 }

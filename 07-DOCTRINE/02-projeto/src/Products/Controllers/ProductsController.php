@@ -26,7 +26,9 @@ class ProductsController implements ProductsControllerApiInterface
 
             $result = $app['productsService']->fetchAll();
 
-            return $app['twig']->render('content.twig', ['products' => $result]);
+            $data = $app['productsService']->pagination($result);
+
+            return $app['twig']->render('content.twig', ['products' => $data]);
         })->bind('lista');
 
         $productsController->get('/ordem-name', function () use ($app) {
