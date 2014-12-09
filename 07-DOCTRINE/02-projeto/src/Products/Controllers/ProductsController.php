@@ -126,10 +126,16 @@ class ProductsController implements ProductsControllerApiInterface
             $products->setName($data);
 
 
-
             $result = $app['productsService']->search($data['name']);
+;
 
+            if(empty($result)){
+                return $app['twig']->render('error.twig', [
+                    'mensagem' => 'Nenhum produto encontrado!',
+                ]);
+            }
             return $app['twig']->render('search.twig', ['products' => $result]);
+
 
         })->bind("search");
 

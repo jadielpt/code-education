@@ -5,7 +5,7 @@ namespace Products\Service;
 use Products\Entity\ProductsApi;
 use Products\Interfaces\ProductsServiceApiInterface;
 use Doctrine\ORM\EntityManager;
-
+use SebastianBergmann\Exporter\Exception;
 
 
 class ProductsServiceApi implements ProductsServiceApiInterface

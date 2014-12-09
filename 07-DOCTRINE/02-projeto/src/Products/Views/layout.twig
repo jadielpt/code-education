@@ -9,7 +9,21 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+
             <h1>Produtos</h1>
+
+            <form action="{{ path('search') }}" method="post">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Busca de Produtos</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Buscar Produtos" required="required" required>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href=""><button type="submit" class="btn btn-info" >Buscar</button></a>
+                    </div>
+                </div>
+            </form>
+
             {% block content %}
             {% endblock %}
             <footer>
