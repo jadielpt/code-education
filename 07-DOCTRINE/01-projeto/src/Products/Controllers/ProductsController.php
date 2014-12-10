@@ -91,7 +91,6 @@ class ProductsController implements ProductsControllerApiInterface
             $products->setValue($data['value']);
 
             if ($app['productsService']->update($data, $id)) {
-                //var_dump($app['productsService']->updateApi($data, $id)); die;
                 return $app->redirect($app['url_generator']->generate('lista'));
             } else {
                 $app->abort(500, "ERROR: Erro ao alterar o cadastro!");

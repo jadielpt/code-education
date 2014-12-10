@@ -22,52 +22,26 @@ class ProductsController implements ProductsControllerApiInterface
             return $productsService;
         };
 
-//        $productsController->get('/', function () use ($app) {
-//
-//            $result = $app['productsService']->fetchAll();
-//
-//            //$data = $app['productsService']->pagination(10, $page);
-//
-//
-//
-//            return $app['twig']->render('content.twig', ['products' => $result]);
-//        })->bind('lista');
 
 
 
-        $productsController->get('/{page}', function (Request $request, $page) use ($app) {
 
-            $data = $request->request->all();
+        $productsController->get('/{page}', function ($page) use ($app) {
 
-
-            $result = $app['productsService']->fetchAll();
-
-            $data = $app['productsService']->pagination(6,$page);
+            $data = $app['productsService']->pagination(5,$page);
 
 
 
-            return $app['twig']->render('content.twig', ['products' => $data]);
+
+            return $app['twig']->render('content.twig', ['products' => $data, 'data' => $data->count()]);
         })->bind('lista_page');
 
 
-//
-//
-//
-//
-//
-//        $productsController->get('/ordem-name', function () use ($app) {
-//
-//            $result = $app['productsService']->OrderByName();
-//
-//            return $app['twig']->render('content.twig', ['products' => $result]);
-//        })->bind('order-name');
-//
-//        $productsController->get('/ordem-value', function () use ($app) {
-//
-//            $result = $app['productsService']->OrderByValue();
-//
-//            return $app['twig']->render('content.twig', ['products' => $result]);
-//        })->bind('order-value');
+
+
+
+
+
 
         $productsController->get('/produto/{id}', function ($id) use ($app) {
             $products = new ProductsApi();
@@ -132,8 +106,6 @@ class ProductsController implements ProductsControllerApiInterface
                 $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
             }
 
-
-
         })->bind("update");
         
         $productsController->get('/delete/{id}', function ( $id) use ($app) {
@@ -162,11 +134,9 @@ class ProductsController implements ProductsControllerApiInterface
             }
             return $app['twig']->render('search.twig', ['products' => $result]);
 
-
         })->bind("search");
 
 
-        
         return $productsController;
     }
 
