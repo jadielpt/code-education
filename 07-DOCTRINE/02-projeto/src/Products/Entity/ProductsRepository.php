@@ -4,8 +4,9 @@ namespace Products\Entity;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use Products\Interfaces\ProductsRepositoryInterface;
 
-class ProductsRepository extends EntityRepository
+class ProductsRepository extends EntityRepository implements ProductsRepositoryInterface
 {
     // usando QueryBuilder
     public function findAllOrderByName()
@@ -23,6 +24,15 @@ class ProductsRepository extends EntityRepository
         $dql = "SELECT p FROM Products\Entity\ProductsApi p ORDER BY p.value ASC";
         return $this->getEntityManager()
             ->createQuery($dql)
+            ->getResult();
+    }
+
+    public function search($name)
+    {
+        $dql = "SELECT p FROM Products\Entity\ProductsApi p WHERE p.name LIKE :search";
+        return $this->getEntityManager()
+            ->createQuery($dql)
+            ->setParameter('search', "%{$name}%")
             ->getResult();
     }
 

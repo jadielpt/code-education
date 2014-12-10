@@ -76,12 +76,7 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function search($name)
     {
-        $query = $this->em->createQuery("SELECT p FROM Products\Entity\ProductsApi p WHERE p.name LIKE :search");
-        $query->setParameter('search', "%{$name}%");
-
-        $result = $query->getResult();
-
-        return $result;
+        return $this->em->getRepository('Products\Entity\ProductsApi')->search($name);
     }
 
     function pagination($pageSize, $currentPage)

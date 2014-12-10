@@ -13,4 +13,12 @@ interface ProductsServiceApiInterface
     public function update(array $data = array(), $id);
 
     public function delete($data);
+
+    public function OrderByName();
+
+    public function OrderByValue();
+
+    public function search($name);
+
+    function pagination($pageSize, $currentPage);
 }
