@@ -22,11 +22,13 @@ class ProductsController implements ProductsControllerApiInterface
             return $productsService;
         };
 
-        $productsController->get('/', function () use ($app) {
+        $productsController->get('/{nuber}', function () use ($app) {
 
             $result = $app['productsService']->fetchAll();
 
-            $data = $app['productsService']->pagination($result);
+            $data = $app['productsService']->pagination();
+
+
 
             return $app['twig']->render('content.twig', ['products' => $data]);
         })->bind('lista');

@@ -44,13 +44,36 @@ class ProductsRepository extends EntityRepository
 
     function pagination()
     {
-        $dql = "SELECT p, c FROM Products\Entity\ProductsApi p JOIN p.name c";
+//        $dql = "SELECT COUNT(p.id) FROM Products\Entity\ProductsApi p";
+//        $query = $this->getEntityManager()
+//            ->createQuery($dql)
+//            ->setFirstResult(3 * (1-1))
+//            ->setMaxResults(3);
+//
+//
+//
+//        $paginator = new Paginator($query, $fetchJoinCollection = true);
+//
+//        //var_dump($paginator);die;
+//
+//        $c = count($paginator);
+//        foreach ($paginator as $post) {
+//            echo $post->getHeadline() . "\n";
+//        }
+//
+//
+//        return $c;
+
+        $dql = "SELECT p FROM Products\Entity\ProductsApi p";
         $query = $this->getEntityManager()
             ->createQuery($dql)
             ->setFirstResult(3 * (1-1))
             ->setMaxResults(3);
+//            ->getResult();
 
-        $paginator = new Paginator($query);
+        $paginator = new Paginator($query, $fetchJoinCollection = true);
+        $paginator->count();
+
 
 
         return $paginator;
