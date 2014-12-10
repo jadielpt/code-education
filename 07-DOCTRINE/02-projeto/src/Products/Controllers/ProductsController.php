@@ -81,19 +81,11 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->bind("produto");
 
-        $productsController->get('/insert', function () use ($app) {
+        $productsController->get('/novo/produto', function () use ($app) {
             return $app['twig']->render('insert.twig', []);
         })->bind("insert");
 
-
-
-
-
-
-
-
-
-        $productsController->post('/inserir', function (Request $request) use ($app) {
+        $productsController->post('novo/produto', function (Request $request) use ($app) {
 
             $data = $request->request->all();
             $products = new ProductsApi();
@@ -109,23 +101,7 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->bind("inserir");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        $productsController->get('/sucesso', function () use ($app) {
+        $productsController->get('/novo/produto/sucesso', function () use ($app) {
             return $app['twig']->render('sucesso.twig', []);
         })->bind("sucesso");
 
