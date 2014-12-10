@@ -22,26 +22,20 @@ class ProductsController implements ProductsControllerApiInterface
             return $productsService;
         };
 
+        $productsController->get('/', function () use ($app) {
 
+            $result = $app['productsService'];
 
+            return $app['twig']->render('home.twig', []);
+        });
 
 
         $productsController->get('/{page}', function ($page) use ($app) {
 
             $data = $app['productsService']->pagination(5,$page);
 
-
-
-
             return $app['twig']->render('content.twig', ['products' => $data, 'data' => $data->count()]);
         })->bind('lista_page');
-
-
-
-
-
-
-
 
         $productsController->get('/produto/{id}', function ($id) use ($app) {
             $products = new ProductsApi();
