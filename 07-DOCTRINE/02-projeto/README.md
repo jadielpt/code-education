@@ -22,9 +22,9 @@ Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education
 
 > *Produtos: <span style="">http://127.0.0.1:8080/</span>*
 
-> *Opções de visualizar, inserir, alterar, deletar, buscars*
+> *Opções de visualizar, inserir, alterar, deletar, buscar, com Doctrine ORM *
 
-> *paginação de resultado com Doctrine ORM para estudo*
+> *Paginação de resultado com Doctrine ORM para estudo*
 
 **REST**
 > *return JSON*

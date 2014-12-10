@@ -24,9 +24,8 @@ class ProductsController implements ProductsControllerApiInterface
 
         $productsController->get('/', function () use ($app) {
 
-            $result = $app['productsService'];
-
             return $app['twig']->render('home.twig', []);
+
         });
 
 
@@ -94,7 +93,6 @@ class ProductsController implements ProductsControllerApiInterface
             $products->setValue($data['value']);
 
             if ($app['productsService']->update($data, $id)) {
-                //var_dump($app['productsService']->updateApi($data, $id)); die;
                 return $app->redirect($app['url_generator']->generate('lista_page',['page' => 1]));
             } else {
                 $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
