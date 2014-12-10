@@ -98,3 +98,5 @@ projetos
 
 projetos
 >1. *Persistência com Doctrine.*
+
+>2. *Buscando e listando com Doctrine.*
