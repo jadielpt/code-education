@@ -41,9 +41,6 @@ class ProductsRepository extends EntityRepository
 //            echo $post->getHeadline() . "\n";
 //        }
 //    }
-
-    function pagination()
-    {
 //        $dql = "SELECT COUNT(p.id) FROM Products\Entity\ProductsApi p";
 //        $query = $this->getEntityManager()
 //            ->createQuery($dql)
@@ -64,11 +61,15 @@ class ProductsRepository extends EntityRepository
 //
 //        return $c;
 
+    function pagination($pageSize, $currentPage)
+    {
+
+
         $dql = "SELECT p FROM Products\Entity\ProductsApi p";
         $query = $this->getEntityManager()
             ->createQuery($dql)
-            ->setFirstResult(3 * (1-1))
-            ->setMaxResults(3);
+            ->setFirstResult($pageSize * ($currentPage-1))
+            ->setMaxResults($pageSize);
 //            ->getResult();
 
         $paginator = new Paginator($query, $fetchJoinCollection = true);

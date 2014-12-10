@@ -7,6 +7,6 @@
 
         <a href="{{ path('insert') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastar Outro</button></a>
 
-        <a href="{{ path('lista') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista</button></a>
+        <a href="{{ path('lista_page', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista</button></a>
     </div><!-- /jumbotron -->
 {% endblock %}

@@ -22,30 +22,52 @@ class ProductsController implements ProductsControllerApiInterface
             return $productsService;
         };
 
-        $productsController->get('/{nuber}', function () use ($app) {
+//        $productsController->get('/', function () use ($app) {
+//
+//            $result = $app['productsService']->fetchAll();
+//
+//            //$data = $app['productsService']->pagination(10, $page);
+//
+//
+//
+//            return $app['twig']->render('content.twig', ['products' => $result]);
+//        })->bind('lista');
+
+
+
+        $productsController->get('/{page}', function (Request $request, $page) use ($app) {
+
+            $data = $request->request->all();
+
 
             $result = $app['productsService']->fetchAll();
 
-            $data = $app['productsService']->pagination();
+            $data = $app['productsService']->pagination(6,$page);
 
 
 
             return $app['twig']->render('content.twig', ['products' => $data]);
-        })->bind('lista');
+        })->bind('lista_page');
 
-        $productsController->get('/ordem-name', function () use ($app) {
 
-            $result = $app['productsService']->OrderByName();
-
-            return $app['twig']->render('content.twig', ['products' => $result]);
-        })->bind('order-name');
-
-        $productsController->get('/ordem-value', function () use ($app) {
-
-            $result = $app['productsService']->OrderByValue();
-
-            return $app['twig']->render('content.twig', ['products' => $result]);
-        })->bind('order-value');
+//
+//
+//
+//
+//
+//        $productsController->get('/ordem-name', function () use ($app) {
+//
+//            $result = $app['productsService']->OrderByName();
+//
+//            return $app['twig']->render('content.twig', ['products' => $result]);
+//        })->bind('order-name');
+//
+//        $productsController->get('/ordem-value', function () use ($app) {
+//
+//            $result = $app['productsService']->OrderByValue();
+//
+//            return $app['twig']->render('content.twig', ['products' => $result]);
+//        })->bind('order-value');
 
         $productsController->get('/produto/{id}', function ($id) use ($app) {
             $products = new ProductsApi();
@@ -63,6 +85,14 @@ class ProductsController implements ProductsControllerApiInterface
             return $app['twig']->render('insert.twig', []);
         })->bind("insert");
 
+
+
+
+
+
+
+
+
         $productsController->post('/inserir', function (Request $request) use ($app) {
 
             $data = $request->request->all();
@@ -78,6 +108,22 @@ class ProductsController implements ProductsControllerApiInterface
             }
 
         })->bind("inserir");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         $productsController->get('/sucesso', function () use ($app) {
             return $app['twig']->render('sucesso.twig', []);
@@ -105,7 +151,7 @@ class ProductsController implements ProductsControllerApiInterface
 
             if ($app['productsService']->update($data, $id)) {
                 //var_dump($app['productsService']->updateApi($data, $id)); die;
-                return $app->redirect($app['url_generator']->generate('lista'));
+                return $app->redirect($app['url_generator']->generate('lista_page',['page' => 1]));
             } else {
                 $app->abort(500, "ERROR: Erro ao alterar o cadastro!");
             }
@@ -117,7 +163,7 @@ class ProductsController implements ProductsControllerApiInterface
         $productsController->get('/delete/{id}', function ( $id) use ($app) {
 
             if ($app['productsService']->delete($id)) {
-                return $app->redirect($app['url_generator']->generate('lista'));
+                return $app->redirect($app['url_generator']->generate('lista_page',['page' => 1]));
             } else {
                 $app->abort(500, "ERROR: Erro ao deletar o cadastro!");
             }
