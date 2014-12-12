@@ -1,0 +1,15 @@
+{% macro form(id, action, method) %}
+    <form id="{{ id }}" action="{{ action }}" method="{{ method|default('post') }}" />
+{% endmacro %}
+
+{% macro input(type, id, name, class, placeholder) %}
+    <input type="{{ type|default('text') }}" id="{{ id }}" name="{{ name }}" class="{{ class }}" placeholder="{{ placeholder|e }}" />
+{% endmacro %}
+
+{% macro btn(type, id, name, class, value) %}
+    <input type="{{ type|default('submit') }}" id="{{ id }}" name="{{ name }}" class="{{ class }}" value="{{ value|e }}" />
+{% endmacro %}
+
+{% macro endform() %}
+    <form/>
+{% endmacro %}

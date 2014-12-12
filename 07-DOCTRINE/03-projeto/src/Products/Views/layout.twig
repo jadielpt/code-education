@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt">
+    <meta charset="UTF-8">
+    <title>{% block title %}2º Projeto Doctrine & Silex - Code Education{% endblock %}</title>
+    <link href="/libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <h1>Produtos</h1>
+
+
+            <form action="{{ path('search') }}" method="post">
+                <div class="form-group">
+                    <div class="col-sm-6 col-sm-offset-2">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Buscar Produtos" required="required" required>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href=""><button type="submit" class="btn btn-success" >Buscar</button></a>
+                    </div>
+                </div>
+            </form>
+
+            {% block content %}
+            {% endblock %}
+
+        </div><!-- /col-md-12 -->
+    </div><!-- /row -->
+</div><!-- /container-fluid -->
+</body>
+</html>
