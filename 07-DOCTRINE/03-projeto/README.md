@@ -1,7 +1,7 @@
-1º Projeto | Módulo 07 - Doctrine e Micro-framework Silex
+3º Projeto | Módulo 07 - Doctrine e Micro-framework Silex
 =====================================================
 
-Projeto - Persistência com doctrine.
+Projeto - Categorizando.
 ------------------------------------------------
 
 Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education! Módulo 06 - APIs e Micro-framework Silex.*

@@ -1,5 +1,5 @@
 {
-    "name" : "01 - Projeto | Módulo 07 - Doctrine e Silex | Estudos Potal Code Education",
+    "name" : "03 - Projeto | Módulo 07 - Doctrine e Silex | Estudos Potal Code Education",
     "authors" : [
         {
             "name" : "Cândido Souza",
@@ -12,6 +12,12 @@
         "silex/silex": "1.2.*@dev",
         "twig/twig": ">=1.16,<2.0-dev",
         "symfony/twig-bridge": "2.6.*@dev",
+        "symfony/form": "2.3.0",
+        "symfony/validator": "2.3.0",
+        "symfony/config": "2.3.0",
+        "symfony/translation": "2.3.0",
+        "symfony/locale": "2.3.0",
+        "symfony/security-csrf": "2.4.0",
         "doctrine/orm": "~2.4"
     },
     "config":{

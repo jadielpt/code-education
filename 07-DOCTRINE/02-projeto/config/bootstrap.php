@@ -1,8 +1,8 @@
 <?php
 /**
  * @author Candido Souza
- * Date: 18/11/14
- * 01 - Project | Module 07 - Doctrine and Silex | Portal Studies Education Code
+ * Date: 08/12/14
+ * 02 - Project | Module 07 - Doctrine and Silex | Portal Studies Education Code
  * Programming language: PHP OO
  * Framework: Micro-framework Sílex
  * Template Engine: Twig
