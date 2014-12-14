@@ -9,7 +9,6 @@ use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
 
-use Products\Products\Form\Controller\FormController;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -73,48 +72,56 @@ class ProductsController implements ProductsControllerApiInterface
              * @var $form \Symfony\Component\Form\FormFactory
              */
             $form = $app['form.factory']->createBuilder('form', $data)
-                ->add('name', 'text', array(
+                ->add('name', 'text', [
+                    'required' => true,
                     'label' => 'Nome',
-                    'attr' => array(
+                    'attr' => [
                         'placeholder' => 'Nome do produto',
                         'class'     => 'form-control'
-                    ),
-                    'constraints' => array(
+                    ],
+                    'constraints' => [
                         new Assert\NotBlank(),
-                        new Assert\Length(array(
+                        new Assert\Length([
                                 'min' => 5
-                            )
+                            ]
                         )
-                    )
-                ))
-                ->add('description', 'text', array(
+                    ]
+                ])
+                ->add('description', 'text', [
+                    'required' => true,
                     'label' => 'Descrição',
-                    'attr' => array(
+                    'attr' => [
                         'placeholder' => 'Descrição do produto',
                         'class'     => 'form-control'
-                    ),
-                    'constraints' => array(
+                    ],
+                    'constraints' => [
                         new Assert\NotBlank(),
-                        new Assert\Email()
-                    )
-                ))
-                ->add('value', 'text', array(
-                    'label' => 'Valor',
-                    'attr' => array(
+                        new Assert\Length([
+                                'min' => 5
+                            ]
+                        )
+                    ]
+                ])
+                ->add('value', 'text', [
+                    'required' => true,
+                    'label' => 'Valor - Formato (0.000,00)',
+                    'attr' => [
                         'placeholder' => 'Valor do produto',
                         'class'     => 'form-control'
-                    ),
-                    'constraints' => array(
+                    ],
+                    'constraints' => [
                         new Assert\NotBlank(),
-                        new Assert\Length(array(
+                        new Assert\Length([
                                 'min' => 5
-                            )
+                            ]
                         )
-                    )
-                ))
+                    ]
+                ])
                 ->getForm();
 
             $form->handleRequest($request);
+
+
 
             if ($form->isValid()) {
                 die('Form válido');
@@ -129,10 +136,14 @@ class ProductsController implements ProductsControllerApiInterface
         $productsController->post('novo/produto', function (Request $request) use ($app) {
 
             $data = $request->request->all();
+//            if(!is_numeric($data['form']['value'])) {
+//                print 'O valor deve ser numérico!';
+//            }
             $products = new ProductsApi();
             $products->setName($data['form']['name']);
             $products->setDescription($data['form']['description']);
             $products->setValue($data['form']['value']);
+
 
             if ($app['productsService']->insert($data)) {
                 return $app->redirect($app['url_generator']->generate('sucesso'));
