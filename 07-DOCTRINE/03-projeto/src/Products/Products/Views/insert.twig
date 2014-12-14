@@ -4,6 +4,25 @@
 {% block content %}
     <div class="jumbotron">
         Cadastrar Produto
+
+
+        <form action="#" method="post">
+            {% import "form.twig" as form %}
+            {{ form_widget(form) }}
+
+            {#<p>{{ form.input('text', 'name', 'name', 'form-control', 'Nome do Produto', 'required') }}</p>#}
+            {#<p>{{ form.input('text', 'descripton', 'descripton', 'form-control', 'Descrição do Produto', 'required') }}</p>#}
+            {#<p>{{ form.input('text', 'value', 'value', 'form-control', 'Valor do Produto', 'required') }}</p>#}
+            {#<p>{{ form.btn('submit', 'submit', 'submit', 'btn btn-success', 'Cadastrar', 'required', null) }}</p>#}
+
+        </form>
+
+
+
+
+
+
+
         <table class="table table-striped">
             <thead>
             <tr>

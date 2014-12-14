@@ -7,13 +7,11 @@
  * Framework: Micro-framework Sílex
  * Template Engine: Twig
  * Doctrine ORM
- * Testing: PHPUnit
- * Testing Graphics: phpunit-selenium
  */
 error_reporting(E_ALL);
-ini_set("display_errors", 0);
-ini_set("log_errors", 1);
-ini_set("error_log", "../errors.log");
+ini_set("display_errors", 1);
+//ini_set("log_errors", 1);
+//ini_set("error_log", "../errors.log");
 date_default_timezone_set('America/Sao_Paulo');
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -76,6 +74,7 @@ $em = EntityManager::create(
 // Silex
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Silex\Provider\FormServiceProvider;
 use Silex\Application;
 
 $app = new Application();
@@ -83,7 +82,9 @@ $app = new Application();
 $app['debug'] = true;
 
 $app->register(new \Silex\Provider\TwigServiceProvider(), [
-    'twig.path' => __DIR__ . '/../src/Products/Views'
+    'twig.path' => __DIR__ . '/../src/Products/Products/Views'
 ]);
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+$app->register(new FormServiceProvider());

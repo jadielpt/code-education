@@ -1,13 +1,15 @@
 <?php
 
-namespace Products\Controllers;
+namespace Products\Products\Controllers;
 
-use Products\Interfaces\ProductsControllerApiInterface;
-use Products\Service\ProductsServiceApi;
+use Products\Products\Interfaces\ProductsControllerApiInterface;
+use Products\Products\Service\ProductsServiceApi;
 use Products\Entity\ProductsApi;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ProductsController implements ProductsControllerApiInterface
 {
@@ -48,9 +50,82 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->bind("produto");
 
-        $productsController->get('/novo/produto', function () use ($app) {
-            return $app['twig']->render('insert.twig', []);
-        })->bind("insert");
+
+
+
+
+
+
+
+        $app->get('novo/produto/form', function (Request $request) use ($app) {
+
+
+            $data = array(
+                'name',
+                'email',
+            );
+
+            /**
+             * @var $form \Symfony\Component\Form\FormFactory
+             */
+            $form = $app['form.factory']->createBuilder('form', $data)
+                ->add('name', 'text', array(
+                    'label' => 'Nome',
+                    'attr' => array(
+                        'placeholder' => 'Seu Nome'
+                    ),
+                    'constraints' => array(
+                        new Assert\NotBlank(),
+                        new Assert\Length(array(
+                                'min' => 5
+                            )
+                        )
+                    )
+                ))
+                ->add('email', 'text', array(
+                    'label' => 'Email',
+                    'attr' => array(
+                        'placeholder' => 'Seu Email'
+                    ),
+                    'constraints' => array(
+                        new Assert\NotBlank(),
+                        new Assert\Email()
+                    )
+                ))
+                ->getForm();
+
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                die('Form válido');
+            }
+
+
+            return $app['twig']->render('insert.twig', array(
+                'form' => $form->createView()
+            ));
+
+        })->method('GET|POST')->bind('insert');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         $productsController->post('novo/produto', function (Request $request) use ($app) {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Products\Interfaces;
+namespace Products\Products\Interfaces;
 
 interface ProductsApiInterface
 {

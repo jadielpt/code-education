@@ -1,15 +1,14 @@
 <?php
 
-namespace Products\Controllers;
+namespace Products\Products\Controllers;
 
-Use Products\Entity\ProductsApi;
-use Products\Mapper\ProductsMapperApi;
-use Products\Service\ProductsServiceApi;
+Use Products\Products\Entity\ProductsApi;
+use Products\Products\Service\ProductsServiceApi;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
 
-class ProductsCtlApi implements \Products\Interfaces\ProductsControllerApiInterface
+class ProductsCtlApi implements \Products\Products\Interfaces\ProductsControllerApiInterface
 {
     public function connect(Application $app, EntityManager $em) {
         $productsControllerApi = $app['controllers_factory'];

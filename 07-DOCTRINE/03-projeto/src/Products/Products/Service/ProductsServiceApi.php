@@ -1,9 +1,9 @@
 <?php
 
-namespace Products\Service;
+namespace Products\Products\Service;
 
-use Products\Entity\ProductsApi;
-use Products\Interfaces\ProductsServiceApiInterface;
+use Products\Products\Entity\ProductsApi;
+use Products\Products\Interfaces\ProductsServiceApiInterface;
 use Doctrine\ORM\EntityManager;
 use SebastianBergmann\Exporter\Exception;
 
@@ -18,12 +18,12 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function fetchAll()
     {
-        return $this->em->getRepository('Products\Entity\ProductsApi')->findAll();
+        return $this->em->getRepository('Products\Products\Entity\ProductsApi')->findAll();
     }
     
     public function findOneById($id)
     {
-        return $this->em->find('Products\Entity\ProductsApi', $id);
+        return $this->em->find('Products\Products\Entity\ProductsApi', $id);
     }
 
     public function insert(array $data= array())
@@ -42,7 +42,7 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function update(array $data = array(), $id)
     {
-        $products = $this->em->getReference('Products\Entity\ProductsApi', $id);
+        $products = $this->em->getReference('Products\Products\Entity\ProductsApi', $id);
         $products
             ->setName($data['name'])
             ->setDescription($data['description'])
@@ -56,7 +56,7 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function delete($id)
     {
-        $products = $this->em->getReference('Products\Entity\ProductsApi', $id);
+        $products = $this->em->getReference('Products\Products\Entity\ProductsApi', $id);
 
         $this->em->remove($products);
         $this->em->flush();
@@ -66,7 +66,7 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function OrderByName()
     {
-        return $this->em->getRepository('Products\Entity\ProductsApi')->findAllOrderByName();
+        return $this->em->getRepository('Products\Products\Entity\ProductsApi')->findAllOrderByName();
     }
 
     public function OrderByValue()
@@ -76,12 +76,12 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function search($name)
     {
-        return $this->em->getRepository('Products\Entity\ProductsApi')->search($name);
+        return $this->em->getRepository('Products\Products\Entity\ProductsApi')->search($name);
     }
 
     function pagination($pageSize, $currentPage)
     {
-        return $this->em->getRepository('Products\Entity\ProductsApi')->pagination($pageSize, $currentPage);
+        return $this->em->getRepository('Products\Products\Entity\ProductsApi')->pagination($pageSize, $currentPage);
     }
 
 }

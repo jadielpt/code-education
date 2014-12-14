@@ -1,10 +1,10 @@
 <?php
 
-namespace Products\Entity;
+namespace Products\Products\Entity;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Tools\Pagination\Paginator;
-use Products\Interfaces\ProductsRepositoryInterface;
+use Products\Products\Interfaces\ProductsRepositoryInterface;
 
 class ProductsRepository extends EntityRepository implements ProductsRepositoryInterface
 {
@@ -21,7 +21,7 @@ class ProductsRepository extends EntityRepository implements ProductsRepositoryI
     // usando DQL
     public function findAllOrderByValue()
     {
-        $dql = "SELECT p FROM Products\Entity\ProductsApi p ORDER BY p.value ASC";
+        $dql = "SELECT p FROM Products\Products\Entity\ProductsApi p ORDER BY p.value ASC";
         return $this->getEntityManager()
             ->createQuery($dql)
             ->getResult();
@@ -29,7 +29,7 @@ class ProductsRepository extends EntityRepository implements ProductsRepositoryI
 
     public function search($name)
     {
-        $dql = "SELECT p FROM Products\Entity\ProductsApi p WHERE p.name LIKE :search";
+        $dql = "SELECT p FROM Products\Products\Entity\ProductsApi p WHERE p.name LIKE :search";
         return $this->getEntityManager()
             ->createQuery($dql)
             ->setParameter('search', "%{$name}%")
@@ -38,7 +38,7 @@ class ProductsRepository extends EntityRepository implements ProductsRepositoryI
 
     function pagination($pageSize, $currentPage)
     {
-        $dql = "SELECT p FROM Products\Entity\ProductsApi p";
+        $dql = "SELECT p FROM Products\Products\Entity\ProductsApi p";
         $query = $this->getEntityManager()
             ->createQuery($dql)
             ->setFirstResult($pageSize * ($currentPage-1))

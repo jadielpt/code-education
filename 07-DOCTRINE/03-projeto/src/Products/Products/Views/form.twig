@@ -2,8 +2,8 @@
     <form id="{{ id }}" action="{{ action }}" method="{{ method|default('post') }}" />
 {% endmacro %}
 
-{% macro input(type, id, name, class, placeholder) %}
-    <input type="{{ type|default('text') }}" id="{{ id }}" name="{{ name }}" class="{{ class }}" placeholder="{{ placeholder|e }}" />
+{% macro input(type, id, name, class, placeholder, required) %}
+    <input type="{{ type|default('text') }}" id="{{ id }}" name="{{ name }}" class="{{ class }}" placeholder="{{ placeholder|e }}" required="{{ required|default('required') }}"/>
 {% endmacro %}
 
 {% macro btn(type, id, name, class, value) %}

@@ -1,13 +1,13 @@
 <?php
 
-namespace Products\Entity;
+namespace Products\Products\Entity;
 
-use Products\Interfaces\ProductsApiInterface;
+use Products\Products\Interfaces\ProductsApiInterface;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Products\Entity\ProductsRepository")
+ * @ORM\Entity(repositoryClass="Products\Products\Entity\ProductsRepository")
  * @ORM\Table(name="products")
  */
 class ProductsApi implements ProductsApiInterface
