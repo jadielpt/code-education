@@ -28,11 +28,12 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function insert(array $data= array())
     {
+
         $productsEntity = new ProductsApi();
         $productsEntity
-            ->setName($data['name'])
-            ->setDescription($data['description'])
-            ->setValue($data['value']);
+            ->setName($data['form']['name'])
+            ->setDescription($data['form']['description'])
+            ->setValue($data['form']['value']);
 
         $this->em->persist($productsEntity);
         $this->em->flush();

@@ -4,11 +4,14 @@ namespace Products\Products\Controllers;
 
 use Products\Products\Interfaces\ProductsControllerApiInterface;
 use Products\Products\Service\ProductsServiceApi;
-use Products\Entity\ProductsApi;
+use Products\Products\Entity\ProductsApi;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
 
+use Products\Products\Form\Controller\FormController;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\TranslationServiceProvider;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ProductsController implements ProductsControllerApiInterface
@@ -62,7 +65,8 @@ class ProductsController implements ProductsControllerApiInterface
 
             $data = array(
                 'name',
-                'email',
+                'description',
+                'value'
             );
 
             /**
@@ -72,7 +76,8 @@ class ProductsController implements ProductsControllerApiInterface
                 ->add('name', 'text', array(
                     'label' => 'Nome',
                     'attr' => array(
-                        'placeholder' => 'Seu Nome'
+                        'placeholder' => 'Nome do produto',
+                        'class'     => 'form-control'
                     ),
                     'constraints' => array(
                         new Assert\NotBlank(),
@@ -82,14 +87,29 @@ class ProductsController implements ProductsControllerApiInterface
                         )
                     )
                 ))
-                ->add('email', 'text', array(
-                    'label' => 'Email',
+                ->add('description', 'text', array(
+                    'label' => 'Descrição',
                     'attr' => array(
-                        'placeholder' => 'Seu Email'
+                        'placeholder' => 'Descrição do produto',
+                        'class'     => 'form-control'
                     ),
                     'constraints' => array(
                         new Assert\NotBlank(),
                         new Assert\Email()
+                    )
+                ))
+                ->add('value', 'text', array(
+                    'label' => 'Valor',
+                    'attr' => array(
+                        'placeholder' => 'Valor do produto',
+                        'class'     => 'form-control'
+                    ),
+                    'constraints' => array(
+                        new Assert\NotBlank(),
+                        new Assert\Length(array(
+                                'min' => 5
+                            )
+                        )
                     )
                 ))
                 ->getForm();
@@ -100,40 +120,19 @@ class ProductsController implements ProductsControllerApiInterface
                 die('Form válido');
             }
 
-
             return $app['twig']->render('insert.twig', array(
                 'form' => $form->createView()
             ));
 
         })->method('GET|POST')->bind('insert');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         $productsController->post('novo/produto', function (Request $request) use ($app) {
 
             $data = $request->request->all();
             $products = new ProductsApi();
-            $products->setName($data['name']);
-            $products->setDescription($data['description']);
-            $products->setValue($data['value']);
+            $products->setName($data['form']['name']);
+            $products->setDescription($data['form']['description']);
+            $products->setValue($data['form']['value']);
 
             if ($app['productsService']->insert($data)) {
                 return $app->redirect($app['url_generator']->generate('sucesso'));

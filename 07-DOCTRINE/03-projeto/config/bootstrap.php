@@ -80,6 +80,7 @@ use Silex\Application;
 $app = new Application();
 
 $app['debug'] = true;
+$app['locale'] = 'pt_br';
 
 $app->register(new \Silex\Provider\TwigServiceProvider(), [
     'twig.path' => __DIR__ . '/../src/Products/Products/Views'
@@ -88,3 +89,7 @@ $app->register(new \Silex\Provider\TwigServiceProvider(), [
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 $app->register(new FormServiceProvider());
+$app->register(new Silex\Provider\ValidatorServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+    'translator.domains' => array(),
+));
