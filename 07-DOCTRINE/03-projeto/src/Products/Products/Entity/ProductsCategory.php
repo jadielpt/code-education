@@ -20,22 +20,22 @@ class ProductsCategory
     /**
      * @ORM\Column(type="string", length=100)
      */
-    public $CategoryNome;
+    public $category_name;
 
     /**
      * @return mixed
      */
-    public function getCategoryNome()
+    public function getCategoryName()
     {
-        return $this->CategoryNome;
+        return $this->category_name;
     }
 
     /**
-     * @param mixed $CategoryNome
+     * @param mixed $category_name
      */
-    public function setCategoryNome($CategoryNome)
+    public function setCategoryName($category_name)
     {
-        $this->CategoryNome = $CategoryNome;
+        $this->category_name = $category_name;
     }
 
     /**
@@ -53,4 +53,6 @@ class ProductsCategory
     {
         $this->id = $id;
     }
+
+
 } 
