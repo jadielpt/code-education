@@ -35,14 +35,14 @@ class ProductsServiceApi implements ProductsServiceApiInterface
             ->setDescription($data['form']['description'])
             ->setValue($data['form']['value']);
 
-//        if(isset($data['form']['category'])){
-//            $productsCategory = new ProductsCategory();
-//            $productsCategory->setCategoryNome($data['form']['category']);
-//
-//            $this->em->persist($productsCategory);
-//
-//            $productsEntity->setCategory($productsCategory);
-//        }
+        if(isset($data['form']['category'])){
+            $productsCategory = new ProductsCategory();
+            $productsCategory->setCategoryName($data['form']['category']);
+
+            $this->em->persist($productsCategory);
+
+            $productsEntity->setCategory($productsCategory);
+        }
 
         $this->em->persist($productsEntity);
         $this->em->flush();

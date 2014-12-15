@@ -64,7 +64,8 @@ class ProductsController implements ProductsControllerApiInterface
             $data = array(
                 'name',
                 'description',
-                'value'
+                'value',
+                'category'
             );
 
             /**
@@ -119,6 +120,24 @@ class ProductsController implements ProductsControllerApiInterface
                         )
                     ]
                 ])
+                ->add('category', 'text', [
+                    'required' => true,
+                    'label' => 'Categoria',
+                    'attr' => [
+                        'placeholder' => 'Categoria do produto',
+                        'class'     => 'form-control'
+                    ],
+                    'constraints' => [
+                        new Assert\Type('number'),
+                        new Assert\NotBlank(),
+                        new Assert\Length([
+                                'min' => 3,
+                                'max' => 10
+
+                            ]
+                        )
+                    ]
+                ])
                 ->getForm();
 
             $form->handleRequest($request);
@@ -134,12 +153,6 @@ class ProductsController implements ProductsControllerApiInterface
             ));
 
         })->method('GET|POST')->bind('insert');
-
-
-
-
-
-
 
         $productsController->post('novo/produto', function (Request $request) use ($app) {
 

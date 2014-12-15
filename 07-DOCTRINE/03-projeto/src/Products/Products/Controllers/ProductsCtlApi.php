@@ -54,7 +54,7 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
             $products->setValue($data['form']['value']);
 
             $productsCategory = new ProductsCategory();
-            $productsCategory->setCategoryNome($data['form']['category']);
+            $productsCategory->setCategoryName($data['form']['category']);
 
             $products->setCategory($productsCategory);
 
