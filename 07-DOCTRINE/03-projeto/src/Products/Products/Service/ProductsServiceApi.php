@@ -4,6 +4,7 @@ namespace Products\Products\Service;
 
 use Products\Products\Entity\ProductsApi;
 use Products\Products\Interfaces\ProductsServiceApiInterface;
+use Products\Products\Entity\ProductsCategory;
 use Doctrine\ORM\EntityManager;
 use SebastianBergmann\Exporter\Exception;
 
@@ -28,12 +29,20 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function insert(array $data= array())
     {
-
         $productsEntity = new ProductsApi();
         $productsEntity
             ->setName($data['form']['name'])
             ->setDescription($data['form']['description'])
             ->setValue($data['form']['value']);
+
+//        if(isset($data['form']['category'])){
+//            $productsCategory = new ProductsCategory();
+//            $productsCategory->setCategoryNome($data['form']['category']);
+//
+//            $this->em->persist($productsCategory);
+//
+//            $productsEntity->setCategory($productsCategory);
+//        }
 
         $this->em->persist($productsEntity);
         $this->em->flush();
@@ -72,7 +81,7 @@ class ProductsServiceApi implements ProductsServiceApiInterface
 
     public function OrderByValue()
     {
-        return $this->em->getRepository('Products\Entity\ProductsApi')->findAllOrderByValue();
+        return $this->em->getRepository('Products\Products\Entity\ProductsApi')->findAllOrderByValue();
     }
 
     public function search($name)
@@ -83,6 +92,11 @@ class ProductsServiceApi implements ProductsServiceApiInterface
     function pagination($pageSize, $currentPage)
     {
         return $this->em->getRepository('Products\Products\Entity\ProductsApi')->pagination($pageSize, $currentPage);
+    }
+
+    public function findAllCategory()
+    {
+        return $this->em->getRepository('Products\Products\Entity\ProductsCategory')->findAll();
     }
 
 }

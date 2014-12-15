@@ -33,6 +33,14 @@ class ProductsApi implements ProductsApiInterface
      * @ORM\Column(type="string", length=10)
      */
     public $value;
+
+    /**
+     *  @ORM\ManyToOne(targetEntity="Products\Products\Entity\ProductsCategory")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    public $category;
+
+
     
     function getId() {
         return $this->id;
@@ -68,5 +76,21 @@ class ProductsApi implements ProductsApiInterface
     function setValue($value) {
         $this->value = $value;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
     }
 }
