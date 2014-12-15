@@ -1,28 +1,25 @@
-{% extends "layout.twig" %}
+{% extends "layout_category.twig" %}
 {% block title %}Atualizar de produtos{% endblock %}
 
 {% block content %}
     <div class="jumbotron">
-        Alterar Produto
+        <h3>Alterar Categoria</h3>
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>COD..</th>
                 <th>NOME</th>
-                <th>DESCRIÇÃO</th>
-                <th>VALOR</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <form action="{{ path('update', {id:products.id}) }}" method="post">
-                <td>{{ products.id }}</td>
+                <form action="{{ path('update_category', {id:category.id}) }}" method="post">
+                <td>{{ category.id }}</td>
 
-                <td><input type="text" name="name" class="form-control" value="{{ products.name }}"></td>
-                <td><input type="text" name="description" class="form-control" value="{{ products.description }}"></td>
-                <td><input type="text" name="value" class="form-control" value="{{ products.value }}"></td>
+                <td><input type="text" name="name" class="form-control" value="{{ category.category_name }}" required="required" required></td>
+
                 <td>
-                    <input type="hidden" id="id" name="id" value="{{ products.id }}" />
+                    <input type="hidden" id="id" name="id" value="{{ category.id }}" />
                     <a href=""><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></a>
                 </td>
 
@@ -30,6 +27,6 @@
             </tr>
             </tbody>
         </table>
-        <a href="{{ path('lista_page', {page:1 }) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
+        <a href="{{ path('lista_category', {page:1 }) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
     </div><!-- /jumbotron -->
 {% endblock %}

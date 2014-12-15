@@ -32,7 +32,6 @@ class ProductsController implements ProductsControllerApiInterface
 
         });
 
-
         $productsController->get('/{page}', function ($page) use ($app) {
 
             $data = $app['productsService']->pagination(5,$page);
@@ -41,14 +40,23 @@ class ProductsController implements ProductsControllerApiInterface
         })->bind('lista_page');
 
         $productsController->get('/produto/{id}', function ($id) use ($app) {
-
+            $products = new ProductsApi();
+            $data['name'] = $products->getName();
+            $data['description'] = $products->getDescription();
+            $data['value'] = $products->getDescription();
 
             $result = $app['productsService']->findOneById($id);
-            //var_dump($result);die;
 
             return $app['twig']->render('products.twig', ['products' => $result]);
 
         })->bind("produto");
+
+
+
+
+
+
+
 
         $app->get('novo/produto/form', function (Request $request) use ($app) {
 
@@ -97,7 +105,7 @@ class ProductsController implements ProductsControllerApiInterface
                     'required' => true,
                     'label' => 'Valor',
                     'attr' => [
-                        'placeholder' => '( 00000.00 )',
+                        'placeholder' => '( 0.000,00 )',
                         'class'     => 'form-control'
                     ],
                     'constraints' => [
@@ -111,24 +119,15 @@ class ProductsController implements ProductsControllerApiInterface
                         )
                     ]
                 ])
-                ->add('category', 'text', [
-                    'required' => false,
-                    'label' => 'Categoria',
-                    'attr' => [
-                        'placeholder' => 'Categoria do produto',
-                        'class'     => 'form-control'
-                    ],
-                    'constraints' => [
-                        new Assert\NotBlank(),
-                        new Assert\Length([
-                                'min' => 5
-                            ]
-                        )
-                    ]
-                ])
                 ->getForm();
 
             $form->handleRequest($request);
+
+
+
+            if ($form->isValid()) {
+                die('Form válido');
+            }
 
             return $app['twig']->render('insert.twig', array(
                 'form' => $form->createView()
@@ -136,12 +135,18 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->method('GET|POST')->bind('insert');
 
+
+
+
+
+
+
         $productsController->post('novo/produto', function (Request $request) use ($app) {
 
             $data = $request->request->all();
 
             if(!is_numeric($data['form']['value'])){
-                $app->abort(500, "ERROR: O VALOR DEVE SER NUMÉRICO, OU ESTÁ EM UM FORMATO INCORRETO!");
+                $app->abort(500, "ERROR: O valor deve ser numérico!");
             }
 
             $products = new ProductsApi();

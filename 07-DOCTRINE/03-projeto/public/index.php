@@ -4,6 +4,9 @@ require_once __DIR__ . '/../config/bootstrap.php';
 $products = new \Products\Products\Controllers\ProductsController();
 $app->mount('/', $products->connect($app, $em));
 
+$category = new \Products\Products\Controllers\ProductsCategoryController();
+$app->mount('/categoria/', $category->connect($app, $em));
+
 $prod = new \Products\Products\Controllers\ProductsCtlApi();
 $app->mount('/api/produtos/', $prod->connect($app, $em));
 

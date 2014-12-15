@@ -4,6 +4,7 @@ namespace Products\Products\Service;
 
 use Products\Products\Entity\ProductsCategory;
 use Products\Products\Interfaces\ProductsCategoryServiceInterface;
+use Doctrine\ORM\EntityManager;
 
 class ProductsCategoryService implements ProductsCategoryServiceInterface
 {
@@ -11,6 +12,11 @@ class ProductsCategoryService implements ProductsCategoryServiceInterface
 
     function __construct(EntityManager $em) {
         $this->em = $em;
+    }
+
+    function pagination($pageSize, $currentPage)
+    {
+        return $this->em->getRepository('Products\Products\Entity\ProductsCategory')->pagination($pageSize, $currentPage);
     }
 
     public function fetchAll()
@@ -37,7 +43,7 @@ class ProductsCategoryService implements ProductsCategoryServiceInterface
     public function update(array $data = array(), $id)
     {
         $productsCategory = $this->em->getReference('Products\Products\Entity\ProductsCategory', $id);
-        $productsCategory->setCategoryName($data['form']['name']);
+        $productsCategory->setCategoryName($data['name']);
 
         $this->em->persist($productsCategory);
         $this->em->flush();

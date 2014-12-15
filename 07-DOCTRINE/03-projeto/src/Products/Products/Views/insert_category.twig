@@ -1,12 +1,12 @@
-{% extends "layout.twig" %}
+{% extends "layout_category.twig" %}
 {% block title %}Cadastrar de produtos{% endblock %}
 
 {% block content %}
     <div class="jumbotron">
-        <h3>Cadastrar Produto</h3>
+        <h3>Cadastrar Categoria</h3>
 
 
-        <form class="form-horizontal" role="form" action="{{ path('inserir') }}" method="post">
+        <form class="form-horizontal" role="form" action="{{ path('inserir_category') }}" method="post">
             <div class="form-group">
                 <div class="col-sm-7">
                     {{ form_widget(form) }}
@@ -20,6 +20,6 @@
         <br>
         <br>
         <br>
-        <a href="{{ path('lista_page', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para lista</button></a>
+        <a href="{{ path('lista_category', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para lista</button></a>
     </div><!-- /jumbotron -->
 {% endblock %}

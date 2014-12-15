@@ -1,4 +1,4 @@
-{% extends "layout.twig" %}
+{% extends "layout_category.twig" %}
 {% block title %}Lista de produtos{% endblock %}
 
 {% block content %}
@@ -12,10 +12,10 @@
             </thead>
             <tbody>
             <tr>
-                <td>{{ products.id }}</td>
-                <td>{{ products.name }}</td>
+                <td>{{ category.id }}</td>
+                <td>{{ category.category_name }}</td>
             </tbody>
         </table>
-        <a href="{{ path('lista_page', {page:1 }) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
+        <a href="{{ path('lista_category', {page:1 }) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
     </div><!-- /jumbotron -->
 {% endblock %}

@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManager;
 class ProductsCtlApi implements \Products\Products\Interfaces\ProductsControllerApiInterface
 {
     public function connect(Application $app, EntityManager $em) {
+
         $productsControllerApi = $app['controllers_factory'];
 
         /**

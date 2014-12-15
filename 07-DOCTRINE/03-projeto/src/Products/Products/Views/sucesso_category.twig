@@ -1,12 +1,12 @@
-{% extends "layout.twig" %}
+{% extends "layout_category.twig" %}
 {% block title %}Sucesso{% endblock %}
 
 {% block content %}
     <div class="jumbotron">
-        <h2>Produto Casdastrado com sucesso!!!</h2>
+        <h2>Categoria Casdastrada com sucesso!!!</h2>
 
-        <a href="{{ path('insert') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastar Outro</button></a>
+        <a href="{{ path('insert_categoria') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastar Outro</button></a>
 
-        <a href="{{ path('lista_page', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista</button></a>
+        <a href="{{ path('lista_category', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista</button></a>
     </div><!-- /jumbotron -->
 {% endblock %}
