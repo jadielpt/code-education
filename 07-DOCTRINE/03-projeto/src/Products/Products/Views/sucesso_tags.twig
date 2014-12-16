@@ -1,0 +1,12 @@
+{% extends "layout_Tags.twig" %}
+{% block title %}Sucesso{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h2>Tags Casdastrada com sucesso!!!</h2>
+
+        <a href="{{ path('insert_tags') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastar Outro</button></a>
+
+        <a href="{{ path('lista_tags', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}

@@ -4,6 +4,7 @@ namespace Products\Products\Controllers;
 
 Use Products\Products\Entity\ProductsApi;
 use Products\Products\Entity\ProductsCategory;
+use Products\Products\Entity\Tag;
 use Products\Products\Service\ProductsServiceApi;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,6 +48,7 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
             $data['form']['description'] = $request->get('description');
             $data['form']['value'] = $request->get('value');
             $data['form']['category'] = $request->get('category');
+            $data['form']['tags'] = $request->get('tags');
 
             $products = new ProductsApi();
             $products->setName($data['form']['name']);
@@ -56,7 +58,11 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
             $productsCategory = new ProductsCategory();
             $productsCategory->setCategoryName($data['form']['category']);
 
+            $tags = new Tag();
+            $tags->setName($data['form']['tags']);
+
             $products->setCategory($productsCategory);
+            $products->addTag($tags);
 
             if(!is_numeric($data['form']['value'])){
                 $app->abort(500, "ERROR: O VALOR DEVE SER NUMÉRICO, OU ESTÁ EM UM FORMATO INCORRETO!");
@@ -87,6 +93,8 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
             $data['name'] = $request->get('name');
             $data['description'] = $request->get('description');
             $data['value'] = $request->get('value');
+            $data['category'] = $request->get('category');
+            $data['tags'] = $request->get('tags');
 
             if ($app['productsServiceApi']->update($data, $id)) {
                 return $app->json([

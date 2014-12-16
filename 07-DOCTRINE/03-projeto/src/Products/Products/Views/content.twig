@@ -9,6 +9,7 @@
 
                 <th><a href="{{ url('insert') }}"><button class="btn btn-success " type="submit" name="cadastra" >Cadastar</button></a></th>
                 <th><a href="{{ path('lista_category', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="cadastra" >Lista de Categorias</button></a></th>
+                <th><a href="{{ path('lista_tags', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="cadastra" >Lista de Tags</button></a></th>
 
             </tr>
             </thead>
@@ -42,7 +43,9 @@
             <ul class="pagination">
 
                 {% for i in 1..((data/5)+0.8) %}
+
                     <li><a href="{{ path('lista_page', {page:i } ) }}">{{ i }}</a></li>
+
                 {% endfor %}
 
             </ul>

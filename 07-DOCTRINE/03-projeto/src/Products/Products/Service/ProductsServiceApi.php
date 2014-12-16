@@ -3,6 +3,7 @@
 namespace Products\Products\Service;
 
 use Products\Products\Entity\ProductsApi;
+use Products\Products\Entity\Tag;
 use Products\Products\Interfaces\ProductsServiceApiInterface;
 use Products\Products\Entity\ProductsCategory;
 use Doctrine\ORM\EntityManager;
@@ -44,6 +45,16 @@ class ProductsServiceApi implements ProductsServiceApiInterface
             $productsEntity->setCategory($productsCategory);
         }
 
+        if(count($data['form']['tags'])){
+            $tags = explode(",", $data['form']['tags']);
+
+            foreach($tags as $tag){
+                $tagEntity = $this->em->getReference('Products\Products\Entity\Tag', $tag);
+
+                $productsEntity->addTag($tagEntity);
+            }
+        }
+
         $this->em->persist($productsEntity);
         $this->em->flush();
 
@@ -57,6 +68,24 @@ class ProductsServiceApi implements ProductsServiceApiInterface
             ->setName($data['name'])
             ->setDescription($data['description'])
             ->setValue($data['value']);
+        if(isset($data['category'])){
+            $productsCategory = new ProductsCategory();
+            $productsCategory->setCategoryName($data['category']);
+
+            $this->em->persist($productsCategory);
+
+            $products->setCategory($productsCategory);
+        }
+
+        if(count($data['tags'])){
+            $tags = explode(",", $data['tags']);
+
+            foreach($tags as $tag){
+                $tagEntity = $this->em->getReference('Products\Products\Entity\Tag', $tag);
+
+                $products->addTag($tagEntity);
+            }
+        }
 
         $this->em->persist($products);
         $this->em->flush();

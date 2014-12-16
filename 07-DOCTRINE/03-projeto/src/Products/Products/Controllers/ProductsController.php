@@ -121,7 +121,7 @@ class ProductsController implements ProductsControllerApiInterface
                     ]
                 ])
                 ->add('category', 'text', [
-                    'required' => false,
+                    'required' => true,
                     'label' => 'Categoria',
                     'attr' => [
                         'placeholder' => 'Categoria do produto',
@@ -134,6 +134,21 @@ class ProductsController implements ProductsControllerApiInterface
                                 'min' => 3,
                                 'max' => 10
 
+                            ]
+                        )
+                    ]
+                ])
+                ->add('tags', 'number', [
+                    'required' => true,
+                    'label' => 'Tags',
+                    'attr' => [
+                        'placeholder' => 'Tags do produto Ex: (1) id Tag',
+                        'class'     => 'form-control'
+                    ],
+                    'constraints' => [
+                        new Assert\NotBlank(),
+                        new Assert\Length([
+                                'min' => 5
                             ]
                         )
                     ]

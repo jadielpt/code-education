@@ -2,6 +2,7 @@
 
 namespace Products\Products\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Products\Products\Interfaces\ProductsApiInterface;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -40,8 +41,21 @@ class ProductsApi implements ProductsApiInterface
      */
     public $category;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Products\Products\Entity\Tag")
+     * @ORM\JoinTable(name="products_tags",
+     *      joinColumns={@ORM\JoinColumn(name="products_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     *      )
+     */
+    public $tags;
 
-    
+    function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
+
+
     function getId() {
         return $this->id;
     }
@@ -93,4 +107,22 @@ class ProductsApi implements ProductsApiInterface
     {
         $this->category = $category;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param mixed $tags
+     */
+    public function addTag($tags)
+    {
+        $this->tags->add($tags);
+    }
+
+
 }
