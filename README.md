@@ -100,3 +100,5 @@ projetos
 >1. *Persistência com Doctrine.*
 
 >2. *Buscando e listando com Doctrine.*
+
+>3. *Categorizando com Doctrine.*

@@ -31,6 +31,10 @@ Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education
 
 >4. *Para ter acesso aos dados, digite a URL:*
 
+________________________________________________
+
+> Produtos
+
 > Obs: Exemplos
 
 > LISTAR: <span style="">http://127.0.0.1:8080/api/produtos/</span> requisição GET
@@ -43,8 +47,38 @@ Obs: *Os arquivos aqui adicionados fazem parte do curso do portal code-education
 
 > DELETAR: <span style="">http://127.0.0.1:8080/api/produtos/1</span> requisição DELETE
 
+________________________________________________
 
->O codigo de cada produto é <span style="">0, 1, 2, 3, 4, 5</span>
+> Categorias
+
+> Obs: Exemplos
+
+> LISTAR: <span style="">http://127.0.0.1:8080/api/categoria/</span> requisição GET
+
+> VISUALIZAR ID: <span style="">http://127.0.0.1:8080/api/categoria/1</span> requisição GET
+
+> INSERIR: <span style="">http://127.0.0.1:8080/api/categoria/</span> requisição POST
+
+> ALTERAR: <span style="">http://127.0.0.1:8080/api/categoria/1</span> requisição PUT
+
+> DELETAR: <span style="">http://127.0.0.1:8080/api/categoria/1</span> requisição DELETE
+
+________________________________________________
+
+> Tags
+
+> Obs: Exemplos
+
+> LISTAR: <span style="">http://127.0.0.1:8080/api/tags/</span> requisição GET
+
+> VISUALIZAR ID: <span style="">http://127.0.0.1:8080/api/tags/1</span> requisição GET
+
+> INSERIR: <span style="">http://127.0.0.1:8080/api/tags/</span> requisição POST
+
+> ALTERAR: <span style="">http://127.0.0.1:8080/api/tags/1</span> requisição PUT
+
+> DELETAR: <span style="">http://127.0.0.1:8080/api/tags/1</span> requisição DELETE
+
 
 **Sobre o projeto**
 
