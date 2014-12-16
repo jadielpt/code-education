@@ -40,6 +40,17 @@ class ProductsCategoryService implements ProductsCategoryServiceInterface
         return $productsCategory;
     }
 
+    public function insertApi(array $data= array())
+    {
+        $productsCategory = new ProductsCategory();
+        $productsCategory->setCategoryName($data['name']);
+
+        $this->em->persist($productsCategory);
+        $this->em->flush();
+
+        return $productsCategory;
+    }
+
     public function update(array $data = array(), $id)
     {
         $productsCategory = $this->em->getReference('Products\Products\Entity\ProductsCategory', $id);

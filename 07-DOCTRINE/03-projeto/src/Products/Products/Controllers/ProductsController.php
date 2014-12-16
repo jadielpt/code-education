@@ -121,7 +121,7 @@ class ProductsController implements ProductsControllerApiInterface
                     ]
                 ])
                 ->add('category', 'text', [
-                    'required' => true,
+                    'required' => false,
                     'label' => 'Categoria',
                     'attr' => [
                         'placeholder' => 'Categoria do produto',

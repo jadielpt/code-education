@@ -10,4 +10,7 @@ $app->mount('/categoria/', $category->connect($app, $em));
 $prod = new \Products\Products\Controllers\ProductsCtlApi();
 $app->mount('/api/produtos/', $prod->connect($app, $em));
 
+$cat = new \Products\Products\Controllers\ProductsCategoryCtlApi();
+$app->mount('/api/categoria/', $cat->connect($app, $em));
+
 $app->run();

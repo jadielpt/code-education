@@ -10,6 +10,7 @@
                 <th>NOME</th>
                 <th>DESCRIÇÃO</th>
                 <th>VALOR</th>
+                <th>CATEGORIA</th>
             </tr>
             </thead>
             <tbody>
@@ -17,7 +18,9 @@
                 <td>{{ products.id }}</td>
                 <td>{{ products.name }}</td>
                 <td>{{ products.description }}</td>
-                <td>{{ products.value }}</td></tr>
+                <td>{{ products.value }}</td>
+                <td>{{ products.category.id }}</td>
+            </tr>
             </tbody>
         </table>
         <a href="{{ path('lista_page', {page:1 }) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
