@@ -222,15 +222,28 @@ class ProductsController implements ProductsControllerApiInterface
             }
 
         })->bind("update");
+
+
+
+
+
         
         $productsController->get('/delete/{id}', function ( $id) use ($app) {
 
             if ($app['productsService']->delete($id)) {
+
                 return $app->redirect($app['url_generator']->generate('lista_page',['page' => 1]));
             } else {
                 $app->abort(500, "ERROR: Erro ao deletar o cadastro!");
             }
         })->bind("delete");
+
+
+
+
+
+
+
 
         $productsController->post('/produto/busca', function (Request $request) use ($app) {
 

@@ -14,7 +14,7 @@ class ProductsCategoryService implements ProductsCategoryServiceInterface
         $this->em = $em;
     }
 
-    function pagination($pageSize, $currentPage)
+    public function pagination($pageSize, $currentPage)
     {
         return $this->em->getRepository('Products\Products\Entity\ProductsCategory')->pagination($pageSize, $currentPage);
     }

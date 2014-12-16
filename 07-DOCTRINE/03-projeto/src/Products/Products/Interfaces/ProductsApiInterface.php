@@ -4,19 +4,27 @@ namespace Products\Products\Interfaces;
 
 interface ProductsApiInterface
 {
-    function getId();
+    public function getId();
 
-    function getName();
+    public function getName();
 
-    function getDescription();
+    public function getDescription();
 
-    function getValue();
+    public function getValue();
 
-    function setId($id);
+    public function getCategory();
 
-    function setName($name);
+    public function getTags();
 
-    function setDescription($description);
+    public function setId($id);
 
-    function setValue($value);
+    public function setName($name);
+
+    public function setDescription($description);
+
+    public function setValue($value);
+
+    public function setCategory($category);
+
+    public function addTag($tags);
 }

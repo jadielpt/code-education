@@ -96,6 +96,7 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
             $data['category'] = $request->get('category');
             $data['tags'] = $request->get('tags');
 
+
             if ($app['productsServiceApi']->update($data, $id)) {
                 return $app->json([
                     "SUCCESS" => true,
