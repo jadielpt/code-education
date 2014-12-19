@@ -1,8 +1,0 @@
-{% extends "layout.twig" %}
-{% block title %}Error!{% endblock %}
-{% block content %}
-    <div class="jumbotron">
-        <h2>{{ mensagem }}</h2>
-        <a href="{{ path('lista_page', {page:1 } ) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
-    </div><!-- /jumbotron -->
-{% endblock %}
