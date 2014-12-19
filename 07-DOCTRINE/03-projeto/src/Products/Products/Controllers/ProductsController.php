@@ -120,39 +120,6 @@ class ProductsController implements ProductsControllerApiInterface
                         )
                     ]
                 ])
-                ->add('category', 'text', [
-                    'required' => true,
-                    'label' => 'Categoria',
-                    'attr' => [
-                        'placeholder' => 'Categoria do produto',
-                        'class'     => 'form-control'
-                    ],
-                    'constraints' => [
-                        new Assert\Type('number'),
-                        new Assert\NotBlank(),
-                        new Assert\Length([
-                                'min' => 3,
-                                'max' => 10
-
-                            ]
-                        )
-                    ]
-                ])
-                ->add('tags', 'number', [
-                    'required' => true,
-                    'label' => 'Tags',
-                    'attr' => [
-                        'placeholder' => 'Tags do produto Ex: (1) id Tag',
-                        'class'     => 'form-control'
-                    ],
-                    'constraints' => [
-                        new Assert\NotBlank(),
-                        new Assert\Length([
-                                'min' => 5
-                            ]
-                        )
-                    ]
-                ])
                 ->getForm();
 
             $form->handleRequest($request);
@@ -222,11 +189,6 @@ class ProductsController implements ProductsControllerApiInterface
             }
 
         })->bind("update");
-
-
-
-
-
         
         $productsController->get('/delete/{id}', function ( $id) use ($app) {
 
@@ -237,13 +199,6 @@ class ProductsController implements ProductsControllerApiInterface
                 $app->abort(500, "ERROR: Erro ao deletar o cadastro!");
             }
         })->bind("delete");
-
-
-
-
-
-
-
 
         $productsController->post('/produto/busca', function (Request $request) use ($app) {
 
