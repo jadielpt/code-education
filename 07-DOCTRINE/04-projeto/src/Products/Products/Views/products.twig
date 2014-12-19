@@ -1,0 +1,26 @@
+{% extends "layout.twig" %}
+{% block title %}Lista de produtos{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>COD..</th>
+                <th>NOME</th>
+                <th>DESCRIÇÃO</th>
+                <th>VALOR</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ products.id }}</td>
+                <td>{{ products.name }}</td>
+                <td>{{ products.description }}</td>
+                <td>{{ products.value }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="{{ path('lista_page', {page:1 }) }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}
