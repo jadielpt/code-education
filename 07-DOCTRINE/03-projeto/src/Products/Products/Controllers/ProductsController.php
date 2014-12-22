@@ -26,12 +26,19 @@ class ProductsController implements ProductsControllerApiInterface
             return $productsService;
         };
 
+        //****************************************************//
+        //lista produtos
+        //****************************************************//
         $productsController->get('/', function () use ($app) {
 
             return $app['twig']->render('home.twig', []);
 
         });
 
+
+        //****************************************************//
+        //lista produtos paginator
+        //****************************************************//
         $productsController->get('/{page}', function ($page) use ($app) {
 
             $data = $app['productsService']->pagination(5,$page);
@@ -39,6 +46,9 @@ class ProductsController implements ProductsControllerApiInterface
             return $app['twig']->render('content.twig', ['products' => $data, 'data' => $data->count()]);
         })->bind('lista_page');
 
+        //****************************************************//
+        //lista produto por id
+        //****************************************************//
         $productsController->get('/produto/{id}', function ($id) use ($app) {
             $products = new ProductsApi();
             $data['name'] = $products->getName();
@@ -51,6 +61,9 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->bind("produto");
 
+        //****************************************************//
+        //insere produtos form
+        //****************************************************//
         $app->get('novo/produto/form', function (Request $request) use ($app) {
 
 
@@ -129,6 +142,9 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->method('GET|POST')->bind('insert');
 
+        //****************************************************//
+        //insere produtos
+        //****************************************************//
         $productsController->post('novo/produto', function (Request $request) use ($app) {
 
             $data = $request->request->all();
@@ -151,10 +167,16 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->bind("inserir");
 
+        //****************************************************//
+        //insere produtos sucesso
+        //****************************************************//
         $productsController->get('/novo/produto/sucesso', function () use ($app) {
             return $app['twig']->render('sucesso.twig', []);
         })->bind("sucesso");
 
+        //****************************************************//
+        //altera produto
+        //****************************************************//
         $productsController->get('/atualizar/{id}', function ($id) use ($app) {
             $products = new ProductsApi();
             $data['name'] = $products->getName();
@@ -167,6 +189,9 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->bind("atualizar");
 
+        //****************************************************//
+        //altera produto
+        //****************************************************//
         $productsController->post('/update/{id}', function (Request $request, $id) use ($app) {
 
             $data = $request->request->all();
@@ -182,7 +207,10 @@ class ProductsController implements ProductsControllerApiInterface
             }
 
         })->bind("update");
-        
+
+        //****************************************************//
+        //deleta produtos
+        //****************************************************//
         $productsController->get('/delete/{id}', function ( $id) use ($app) {
 
             if ($app['productsService']->delete($id)) {
@@ -193,6 +221,9 @@ class ProductsController implements ProductsControllerApiInterface
             }
         })->bind("delete");
 
+        //****************************************************//
+        //busca produtos
+        //****************************************************//
         $productsController->post('/produto/busca', function (Request $request) use ($app) {
 
             $data = $request->request->all();

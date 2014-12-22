@@ -75,6 +75,7 @@ $em = EntityManager::create(
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Provider\FormServiceProvider;
+use Silex\Provider\SerializerServiceProvider;
 use Silex\Application;
 
 $app = new Application();
@@ -93,3 +94,5 @@ $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'translator.domains' => array(),
 ));
+
+$app->register(new SerializerServiceProvider());

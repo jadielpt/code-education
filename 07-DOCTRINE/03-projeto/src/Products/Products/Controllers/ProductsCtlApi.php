@@ -32,12 +32,6 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
         //****************************************************//
         $productsControllerApi->get('/', function () use ($app) {
 
-//            var_dump();die;
-
-
-            /**
-             * @var $result \Products\Products\Service\ProductsServiceApi
-             */
             $result = $app['productsServiceApi']->fetchAll();
 
             $products = [];
@@ -54,20 +48,13 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
 
                 $tagsProducts = $key->getTags();
 
-                //return $app->json($key->getTags());
-
                 foreach($tagsProducts as $keyTags){
-                    $keyTags->getId()['id'] = $key->getId();
-                    $keyTags->getId()['name'] = $keyTags->getName();
+                    $tags[$keyTags->getId()]['id'] = $key->getId();
+                    $tags[$keyTags->getId()]['name'] = $keyTags->getName();
                 }
                 $products[$key->getId()]['tags'] = $keyTags;
 
-                //var_dump($key->getTags());die;
-
             };
-            //$key->getTags();
-
-
 
             return $app->json($products);
         });
