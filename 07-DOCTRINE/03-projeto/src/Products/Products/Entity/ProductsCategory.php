@@ -15,12 +15,12 @@ class ProductsCategory
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    public $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    public $category_name;
+    private $category_name;
 
     /**
      * @return mixed

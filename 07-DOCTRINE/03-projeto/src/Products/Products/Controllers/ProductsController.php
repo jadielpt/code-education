@@ -51,13 +51,6 @@ class ProductsController implements ProductsControllerApiInterface
 
         })->bind("produto");
 
-
-
-
-
-
-
-
         $app->get('novo/produto/form', function (Request $request) use ($app) {
 
 

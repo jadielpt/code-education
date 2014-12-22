@@ -18,28 +18,28 @@ class ProductsApi implements ProductsApiInterface
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    public  $id;
+    private  $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    public $name;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    public $description;
+    private $description;
 
     /**
      * @ORM\Column(type="string", length=10)
      */
-    public $value;
+    private $value;
 
     /**
      *  @ORM\ManyToOne(targetEntity="Products\Products\Entity\ProductsCategory")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    public $category;
+    private $category;
 
     /**
      * @ORM\ManyToMany(targetEntity="Products\Products\Entity\Tag")
@@ -48,7 +48,7 @@ class ProductsApi implements ProductsApiInterface
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
      *      )
      */
-    public $tags;
+    private $tags;
 
     function __construct()
     {

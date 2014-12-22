@@ -6,6 +6,7 @@ Use Products\Products\Entity\ProductsApi;
 use Products\Products\Entity\ProductsCategory;
 use Products\Products\Entity\Tag;
 use Products\Products\Service\ProductsServiceApi;
+use Products\Products\Service\Serialize;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
@@ -26,22 +27,76 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
             return $productsService;
         };
 
+        //****************************************************//
+        //lista produtos
+        //****************************************************//
         $productsControllerApi->get('/', function () use ($app) {
 
+//            var_dump();die;
+
+
+            /**
+             * @var $result \Products\Products\Service\ProductsServiceApi
+             */
             $result = $app['productsServiceApi']->fetchAll();
 
-            return $app->json($result);
+            $products = [];
+            $tags = [];
+            foreach($result as $key){
+                /**
+                 * @var $key \Products\Products\Entity\ProductsApi
+                 */
+                $products[$key->getId()]['id'] = $key->getId();
+                $products[$key->getId()]['name'] = $key->getName();
+                $products[$key->getId()]['description'] = $key->getDescription();
+                $products[$key->getId()]['value'] = $key->getValue();
+                $products[$key->getId()]['category'] = $key->getCategory()->getCategoryName();
 
+                $tagsProducts = $key->getTags();
+
+                //return $app->json($key->getTags());
+
+                foreach($tagsProducts as $keyTags){
+                    $keyTags->getId()['id'] = $key->getId();
+                    $keyTags->getId()['name'] = $keyTags->getName();
+                }
+                $products[$key->getId()]['tags'] = $keyTags;
+
+                //var_dump($key->getTags());die;
+
+            };
+            //$key->getTags();
+
+
+
+            return $app->json($products);
         });
 
-
+        //****************************************************//
+        //lista produto por id
+        //****************************************************//
         $productsControllerApi->get('/{id}', function ($id) use ($app) {
 
-            return  $app->json($app['productsServiceApi']->findOneById($id));
+            $result = $app['productsServiceApi']->findOneById($id);
 
+            $data['id'] = $result->getId();
+            $data['name'] = $result->getName();
+            $data['description'] = $result->getDescription();
+            $data['value'] = $result->getValue();
+            $data['category'] = $result->getCategory()->getCategoryName();
+
+            $tags = $result->getTags();
+            foreach ($tags as $key => $tag) {
+                $data['tags'] = $tag;
+            };
+
+            return $app->json($data);
 
         })->bind('api-produtos-id');
 
+        //****************************************************//
+        //insere produtos
+        //****************************************************//
         $productsControllerApi->post('/', function (Request $request) use ($app) {
 
             $data['form']['name'] = $request->get('name');
@@ -68,7 +123,6 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
                 $app->abort(500, "ERROR: O VALOR DEVE SER NUMÉRICO, OU ESTÁ EM UM FORMATO INCORRETO!");
             }
 
-
             if ( $app['productsServiceApi']->insert($data)) {
                 return $app->json([
                     'SUCCESS' => true,
@@ -87,6 +141,9 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
 
 
 
+        //****************************************************//
+        //altera produto
+        //****************************************************//
         $productsControllerApi->put('/{id}', function (Request $request, $id) use ($app) {
 
             $data['id'] =  $id;
@@ -114,7 +171,9 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
         })->bind("api-produtos-put");
 
 
-        
+        //****************************************************//
+        //deleta produtos
+        //****************************************************//
         $productsControllerApi->delete('/{id}', function ( $id) use ($app) {
 
             if ($app['productsServiceApi']->delete($id)) {
@@ -133,6 +192,5 @@ class ProductsCtlApi implements \Products\Products\Interfaces\ProductsController
         })->bind("api-produtos-delete");
         
         return $productsControllerApi;
-
     }
 }
